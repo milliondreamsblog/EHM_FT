@@ -1,15 +1,12 @@
-
-import './App.css'
+import React from 'react';
+import HeroSection from './Components/Herosection/HeroSection';
 
 function App() {
- 
-
   return (
-    <>
- <h1 className='text-red-500'>hey</h1>
-
-    </>
-  )
+    <div className="App">
+      <HeroSection />
+    </div>
+  );
 }
 
-export default App
+export default App;
