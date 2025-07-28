@@ -1,8 +1,8 @@
-import React from 'react'
+
 
 const footer = () => {
   return (
-    <div>hey </div>
+    <div>hello everyone</div>
   )
 }
 
