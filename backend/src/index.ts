@@ -1,12 +1,16 @@
 import express from "express";
 import mongoose from "mongoose";
 import { adminRouter } from "./admin";
+import { userRouter } from "./user";
 
 const app = express();
 app.use(express.json());
 
 //use the adminRouter
-app.use("/admin",adminRouter);
+app.use("/admin", adminRouter);
+
+//use the userRouter
+app.use("/", userRouter);
 
 //connecting to mongoDb
 async function connectDB() {
