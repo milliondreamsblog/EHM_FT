@@ -6,8 +6,16 @@ dotenv.config();
 
 const JWT_SECRET = process.env.JWT_SECRET!;
 
+interface CustomRequest extends Request {
+  adminId?: string;
+}
+
 //check is the admin signed in or not - with jwt.verify
-function AdminMiddleware(req: Request, res: Response, next: NextFunction) {
+function AdminMiddleware(
+  req: CustomRequest,
+  res: Response,
+  next: NextFunction
+) {
   const token = req.headers.authorization;
 
   if (!token) {
@@ -15,7 +23,8 @@ function AdminMiddleware(req: Request, res: Response, next: NextFunction) {
   }
 
   try {
-    const decode = jwt.verify(token, JWT_SECRET as string);
+    const decode = jwt.verify(token, JWT_SECRET as string) as { id: string };
+    req.adminId = decode.id;
 
     next();
   } catch (error: any) {
