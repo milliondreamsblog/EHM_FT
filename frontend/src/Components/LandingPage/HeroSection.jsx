@@ -1,34 +1,225 @@
-import React from 'react';
-import bgImage from "../../assets/eco-bg.jpg";
-
-import '../../index.css';
-
+import React, { useEffect, useState } from 'react';
+import "../../App.css";
 const HeroSection = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+  
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
+  useEffect(() => {
+   
+    const animateElements = () => {
+      const elements = [
+        { selector: '.home-data', delay: 0 },
+        { selector: '.hero-badge', delay: 200 },
+        { selector: '.home-data h1', delay: 400 },
+        { selector: '.hero-subtitle', delay: 600 },
+        { selector: '.hero-description', delay: 800 },
+        { selector: '.hero-stats', delay: 1000 },
+        { selector: '.button-group', delay: 1200 },
+        { selector: '.hero-tagline', delay: 1400 },
+        { selector: '.social-links', delay: 1600 },
+        { selector: '.home-image', delay: 500 },
+        { selector: '.floating-icon', delay: 1800 }
+      ];
+
+      elements.forEach(({ selector, delay }) => {
+        setTimeout(() => {
+          const element = document.querySelector(selector);
+          if (element) {
+            element.classList.add('reveal');
+            element.classList.add('animate-on-scroll');
+          }
+        }, delay);
+      });
+    };
+
+
+    if (isLoaded) {
+      setTimeout(animateElements, 200);
+    }
+
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.classList.contains('reveal')) {
+          entry.target.classList.add('reveal');
+          entry.target.classList.add('animate-on-scroll');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    });
+
+    const allElements = document.querySelectorAll('.home-data, .home-image, .hero-badge, .hero-subtitle, .hero-description, .hero-stats, .button-group, .hero-tagline, .social-links');
+    allElements.forEach(el => observer.observe(el));
+
+  
+    const fallbackTimer = setTimeout(() => {
+      const elements = document.querySelectorAll('.home-data, .home-image, .hero-badge, .hero-subtitle, .hero-description, .hero-stats, .button-group, .hero-tagline, .social-links');
+      elements.forEach(el => {
+        if (!el.classList.contains('reveal')) {
+          el.classList.add('reveal');
+          el.classList.add('animate-on-scroll');
+        }
+      });
+    }, 3000);
+
+    return () => {
+      observer.disconnect();
+      clearTimeout(fallbackTimer);
+    };
+  }, []);
+
   return (
-    <div
-      className="relative h-screen w-full bg-cover bg-center"
-      style={{
-        backgroundImage: `url(${bgImage})`,
-      }}
-    >
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-
-      {/* Content */}
-      <div className="relative z-10 flex flex-col justify-center items-center h-full text-white text-center px-4">
-        <h1 className="text-4xl md:text-6xl font-bold tracking-wide mb-6 animate-fade-in">
-          SUSTAINABILITY THROUGH ECO-CENTRIC APPROACH
-        </h1>
-
-        <p className="text-lg md:text-xl max-w-2xl mb-8 animate-fade-in delay-300">
-          Together we create a greener, more resilient future—powered by innovation and nature.
-        </p>
-
-        <button className="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition duration-300 animate-fade-in delay-500">
-          Know More
-        </button>
+    <section id="home" className={`hero-section ${isLoaded ? 'loaded' : ''}`}>
+      <div className="container">
+        <div className="blob blob-1"></div>
+        <div className="blob blob-2"></div>
+  
+        <div className="particles-container">
+          {[...Array(15)].map((_, i) => (
+            <div
+              key={i}
+              className="particle"
+              style={{
+                left: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 6}s`,
+                animationDuration: `${6 + Math.random() * 3}s`
+              }}
+            />
+          ))}
+        </div>
+       
+        <div className="decorative-circle circle-1"></div>
+        <div className="decorative-circle circle-2"></div>
+        <div className="decorative-circle circle-3"></div>
+        
+        <div className="hero-content">
+          <div className="home-data">
+            <div className="hero-badge">
+              <i className="ri-verified-badge-line"></i>
+              <span className="badge-text">Eco-Certified Solutions</span>
+            </div>
+            
+            <h1>
+              <span className="highlight typing-text">TRANSFORM </span> YOUR BUSINESS
+              <br />
+              WITH <span className="highlight typing-text">SUSTAINABLE </span> INNOVATION
+            </h1>
+            
+            <p className="hero-subtitle">
+              Leading the Green Revolution in Business Solutions
+            </p>
+            
+            <p className="hero-description">
+              We empower businesses to thrive while protecting our planet. 
+              From eco-friendly strategies to sustainable growth solutions — 
+              we're your partner in building a greener, more profitable future.
+            </p>
+            
+            
+            <div className="hero-stats">
+              <div className="stat-item">
+                <span className="stat-number">500+</span>
+                <span className="stat-label">Happy Clients</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-number">95%</span>
+                <span className="stat-label">Success Rate</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-number">10+</span>
+                <span className="stat-label">Years Experience</span>
+              </div>
+            </div>
+            
+            <div className="button-group">
+              <button className="btn btn-primary btn-animated">
+                <span>Start Your Journey</span>
+                <i className="ri-arrow-right-line btn-icon"></i>
+                <div className="btn-glow"></div>
+              </button>
+              <button className="btn btn-outline btn-animated">
+                <span>Watch</span>
+                <i className="ri-play-circle-line btn-icon"></i>
+                <div className="btn-glow"></div>
+              </button>
+            </div>
+            
+            <p className="hero-tagline">
+              <i className="ri-time-line"></i>
+              Join 1000+ businesses already going green with us!
+            </p>
+            
+            <div className="social-links">
+              <div className="social-icon-wrapper">
+                <i className="ri-facebook-fill social-icon"></i>
+                <div className="social-hover-effect"></div>
+              </div>
+              <div className="social-icon-wrapper">
+                <i className="ri-twitter-x-line social-icon"></i>
+                <div className="social-hover-effect"></div>
+              </div>
+              <div className="social-icon-wrapper">
+                <i className="ri-instagram-line social-icon"></i>
+                <div className="social-hover-effect"></div>
+              </div>
+              <div className="social-icon-wrapper">
+                <i className="ri-linkedin-fill social-icon"></i>
+                <div className="social-hover-effect"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="home-image-container">
+            <div className="image-wrapper">
+              <div className="image-glow"></div>
+              <img 
+                src="https://morneticherbal.in/images/313.png" 
+                alt="Sustainability" 
+                className="home-image"
+              />
+              </div>
+             
+            
+            <div className="floating-icon floating-leaf">
+              <i className="ri-leaf-line"></i>
+              <div className="floating-trail"></div>
+            </div>
+            
+            <div className="floating-icon floating-flower">
+              <i className="ri-flower-line"></i>
+              <div className="floating-trail"></div>
+            </div>
+            
+            <div className="floating-icon floating-plant">
+              <i className="ri-plant-line"></i>
+              <div className="floating-trail"></div>
+            </div>
+            
+            <div className="floating-icon floating-recycle">
+              <i className="ri-recycle-line"></i>
+              <div className="floating-trail"></div>
+            </div>
+          </div>
+        </div>
+        
+     
+        <div className="scroll-indicator" onClick={() => {
+          document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+        }}>
+          <div className="scroll-arrow"></div>
+          <span>Scroll Down</span>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

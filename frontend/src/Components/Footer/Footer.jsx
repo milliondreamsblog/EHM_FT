@@ -2,12 +2,12 @@ import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 const Footer = () => (
   <footer
-    className="w-full relative py-8  bg-white overflow-hidden text-blue-900"
+    className="w-full relative py-8 #4b7735 overflow-hidden text-blue-900"
   
   >
     <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row md:items-start md:justify-between gap-8">
       <div className="flex flex-col items-center md:items-start gap-3 md:w-1/3">
-        <img src="/public/EhmLogo.png" alt="EHM Logo" className="h-12 w-auto mb-2" />
+        <img src="https://startinup.up.gov.in/crm/assets/user/images/Documents/Startup/A_STARTUP_UP_UPLC_00004244/startup_logo/168067577328965.png" alt="EHM Logo" className="h-12 w-auto mb-2" />
         <div className="text-lg font-bold tracking-wide">EHM Footprint</div>
         <div className="text-sm text-blue-800 text-center md:text-left">
           123 Green Avenue<br />
