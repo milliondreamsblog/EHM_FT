@@ -1,62 +1,59 @@
 import React, { useState } from 'react';
-import { FaBars, FaTimes } from 'react-icons/fa';
 
-const NavBar = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
+const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const navLinks = [
-    { name: 'Home', href: '#' },
-    { name: 'About', href: '#' },
-    { name: 'Projects', href: '#' },
-    { name: 'Contact', href: '#' },
-  ];
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleNavClick = () => {
+    setIsMenuOpen(false);
+  };
 
   return (
-    <nav className="w-full bg-white shadow-md fixed top-0 left-0 z-50">
-      <div className="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
-        {/* Logo */}
-        <div className="flex items-center gap-2">
-          <img src="/public/EhmLogo.png" alt="Logo" className="h-10 w-auto" />
-          <span className="font-bold text-green-800 text-xl tracking-wide">EHM</span>
+    <header className="navbar">
+      <nav className="nav-container">
+        <img 
+          src="https://startinup.up.gov.in/crm/assets/user/images/Documents/Startup/A_STARTUP_UP_UPLC_00004244/startup_logo/168067577328965.png" 
+          alt="EHM Logo" 
+          className="logo"
+        />
+        
+        <div className={`nav-menu ${isMenuOpen ? 'nav-menu-open' : ''}`}>
+          <ul className="nav-list">
+            <li><a href="#home" className="nav-link" onClick={handleNavClick}>HOME</a></li>
+            <li><a href="#about" className="nav-link" onClick={handleNavClick}>ABOUT US</a></li>
+            <li><a href="#our-offerings" className="nav-link" onClick={handleNavClick}>OUR OFFERINGS</a></li>
+            <li><a href="#projects" className="nav-link" onClick={handleNavClick}>PROJECTS</a></li>
+            <li><a href="#resources" className="nav-link" onClick={handleNavClick}>RESOURCES</a></li>
+            <li><a href="#career" className="nav-link" onClick={handleNavClick}>CAREER</a></li>
+            <li><a href="#contact-us" className="nav-link" onClick={handleNavClick}>CONTACT US</a></li>
+          </ul>
+          
+          <div className="nav-decoration nav-decoration-1">
+            <img 
+              src="https://png.pngtree.com/png-vector/20240907/ourmid/pngtree-green-planet-earth-symbolizing-environmental-sustainability-png-image_13746543.png" 
+              alt="Sustainability" 
+              className="decoration-img"
+            />
+          </div>
+          
+          <div className="nav-decoration nav-decoration-2">
+            <img 
+              src="https://png.pngtree.com/png-vector/20231214/ourmid/pngtree-a-plant-above-the-planet-earth-white-background-png-image_11285406.png" 
+              alt="Earth Plant" 
+              className="decoration-img"
+            />
+          </div>
         </div>
-        {/* Desktop Nav */}
-        <div className="hidden md:flex gap-8">
-          {navLinks.map(link => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-green-900 font-medium hover:text-green-600 transition"
-            >
-              {link.name}
-            </a>
-          ))}
+        
+        <div className="hamburger" onClick={toggleMenu}>
+          <i className={`ri-menu-4-line ${isMenuOpen ? 'ri-close-large-line' : ''}`}></i>
         </div>
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-green-900 text-2xl focus:outline-none"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-        >
-          {menuOpen ? <FaTimes /> : <FaBars />}
-        </button>
-      </div>
-      {/* Mobile Nav */}
-      {menuOpen && (
-        <div className="md:hidden bg-white shadow-lg absolute top-16 left-0 w-full flex flex-col items-center gap-6 py-6 z-40 animate-fade-in">
-          {navLinks.map(link => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-green-900 font-semibold text-lg hover:text-green-600 transition"
-              onClick={() => setMenuOpen(false)}
-            >
-              {link.name}
-            </a>
-          ))}
-        </div>
-      )}
-    </nav>
+      </nav>
+    </header>
   );
 };
 
-export default NavBar;
+export default Navbar;

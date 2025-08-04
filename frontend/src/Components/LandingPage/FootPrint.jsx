@@ -6,26 +6,51 @@ import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper/modules";
 import { RxArrowRight, RxArrowLeft } from "react-icons/rx";
 import { imagesPartOne, imagesPartTwo } from "../../Data/Footprint";
-
+import KnowMoreButton from "./KnowMoreButton";
+import ProjectModal from "./ProjectModal";
+import "./FootPrint.css";
+import { Sparkles } from "lucide-react";
 
 const allImages = [...imagesPartOne, ...imagesPartTwo];
 
 const FootPrint = () => {
-
   const [modalImage, setModalImage] = useState(null);
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const swiperRef = useRef(null);
 
+  const handleKnowMoreClick = (image) => {
+    setSelectedProject({
+      src: image.src,
+      title: image.title || 'EHM Project',
+      description: image.description || 'An innovative EHM project showcasing sustainable development and environmental conservation.',
+      impact: image.impact || 'Significant positive impact on local environment and community development.',
+      technologies: image.technologies || 'Advanced sustainable technologies and eco-friendly materials.'
+    });
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedProject(null);
+  };
+
   return (
-    <div className="w-full flex flex-col items-center justify-center bg-white overflow-hidden py-8 md:py-16 px-2 sm:px-6">
+    <div className="w-full flex flex-col items-center justify-center bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 overflow-hidden py-8 md:py-16 px-2 sm:px-6">
       <div className="flex flex-col gap-3 mb-8 items-center">
-        <h1 className="text-green-900 text-3xl md:text-4xl font-semibold text-center">
-          EHM FootPrint<span className="text-red-500">.</span>
-        </h1>
+        <div className="flex items-center justify-center gap-3 mb-6">
+          <Sparkles className="text-emerald-500 animate-pulse" size={32} />
+          <h1 className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 bg-clip-text text-transparent">
+            EHM Footprint
+          </h1>
+          <Sparkles className="text-teal-500 animate-pulse" size={32} />
+        </div>
         <p className="text-base max-w-md text-blue-800 text-center">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
       </div>
-     {/* Slider */}
+      
+      {/* Slider */}
       <div className="w-full max-w-4xl px-4 relative group">
         <Swiper
           slidesPerView={1}
@@ -44,27 +69,51 @@ const FootPrint = () => {
           className="w-full"
           onSwiper={swiper => (swiperRef.current = swiper)}
         >
-          {allImages.map((image) => (
+          {allImages.map((image, index) => (
             <SwiperSlide key={image.src} className="flex items-center justify-center">
               <div
-                className="relative group w-full aspect-square max-w-xs mx-auto overflow-hidden rounded-lg shadow-lg bg-gray-100 cursor-pointer"
+                className="project-card relative w-full aspect-square max-w-xs mx-auto overflow-hidden rounded-lg shadow-lg bg-gray-100 cursor-pointer"
                 onClick={() => setModalImage(image.src)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    setModalImage(image.src);
+                  }
+                }}
+                tabIndex={0}
+                role="button"
+                aria-label={`View project image ${index + 1}`}
               >
-                <div className="absolute inset-0 z-10 bg-transparent group-hover:bg-green-600 group-hover:opacity-60 transition-all duration-300 pointer-events-none" />
+             
                 <img
                   src={image.src}
-                  alt="project"
-                  className="w-full h-full object-cover relative z-20 transition-transform duration-300 group-hover:scale-105 group-hover:-translate-y-2"
+                  alt={`EHM project ${index + 1}`}
+                  className="project-image w-full h-full object-cover transition-all duration-300"
                 />
-                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-300">
-                  <span className="opacity-0 group-hover:opacity-100 text-white text-lg font-medium flex items-center gap-2 transition-opacity duration-300">
-                    View Project <RxArrowRight className="w-6 h-6" />
-                  </span>
+                
+              
+                <div className="know-more-overlay absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 transition-all duration-300">
+                  <div className="know-more-button-container opacity-0 transform translate-y-4 transition-all duration-300">
+                    <KnowMoreButton
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleKnowMoreClick(image);
+                      }}
+                      className="bg-white text-green-600 hover:bg-green-50 border-2 border-white hover:border-green-200 shadow-xl know-more-button"
+                    >
+                      Know More
+                    </KnowMoreButton>
+                  </div>
                 </div>
+
+               
+                <div className="card-shadow absolute inset-0 rounded-lg shadow-lg transition-all duration-300" />
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
+        
+     
         <button
           className="custom-swiper-prev absolute top-1/2 left-2 -translate-y-1/2 z-30 opacity-0 group-hover:opacity-100 transition-opacity bg-green-600 hover:bg-green-700 text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg focus:outline-none focus:ring-2 focus:ring-green-400"
           onClick={() => swiperRef.current?.slidePrev()}
@@ -81,7 +130,7 @@ const FootPrint = () => {
         >
           <RxArrowRight className="w-6 h-6" />
         </button>
-        {/* Hide default Swiper arrows */}
+     
         <style>{`
           .swiper-button-next,
           .swiper-button-prev {
@@ -90,9 +139,10 @@ const FootPrint = () => {
         `}</style>
       </div>
      
+     
       {modalImage && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70 backdrop-blur-sm modal-backdrop"
           onClick={() => setModalImage(null)}
         >
           <div
@@ -114,6 +164,13 @@ const FootPrint = () => {
           </div>
         </div>
       )}
+
+     
+      <ProjectModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        project={selectedProject}
+      />
     </div>
   );
 };

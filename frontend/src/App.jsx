@@ -1,17 +1,10 @@
 
-
-
-
 import './App.css'
 
-import HomePage from './Pages/HomePage';
-
-
-
+import HomePage from './Pages/HomePage.jsx';
 
 function App() {
   return (
-
     <div className="App">
      <HomePage/>
      
