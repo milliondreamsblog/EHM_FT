@@ -1,3 +1,9 @@
 node_modules
 .env
 dist
+
+# Ignore all files inside uploads/
+uploads/*
+
+# But don't ignore the uploads folder itself
+!uploads/.gitkeep       
