@@ -1,16 +1,50 @@
 import express from "express";
+import cors from "cors";
 import mongoose from "mongoose";
-import { adminRouter } from "./admin";
-import { userRouter } from "./user";
+import path from "path";
+import { AuthAdminRouter } from "./routes/AuthAdmin";
+import { BlogUserRouter } from "./routes/BlogUser";
+import { BlogAdminRouter } from "./routes/BlogAdmin";
+import { NewsletterUserRouter } from "./routes/NewsLetterUser";
+import { NewsletterAdminRouter } from "./routes/NewsLetterAdmin";
+import { ArticleAdminRouter } from "./routes/ArticleAdmin";
+import { ArticleUserRouter } from "./routes/ArticleUser";
 
 const app = express();
+
+// CORS
+app.use(
+  cors({
+    origin: "http://localhost:5173", // replace with frontend URL
+  })
+);
+
 app.use(express.json());
 
-//use the adminRouter
-app.use("/admin", adminRouter);
+//Admin auth routes
+app.use("/admin", AuthAdminRouter);
 
-//use the userRouter
-app.use("/", userRouter);
+//Admin Blog routes
+app.use("/admin", BlogAdminRouter);
+
+//User Blog routes
+app.use("/", BlogUserRouter);
+
+//Admin Article routes
+app.use("/admin", ArticleAdminRouter);
+
+//User Aricle routes
+app.use("/", ArticleUserRouter);
+
+//This allows the frontend to load the image like:
+//http://localhost:PORT/uploads/imagename.jpg
+app.use("/uploads", express.static(path.resolve("uploads")));
+
+//user newsletter route
+app.use("/", NewsletterUserRouter);
+
+//admin newsletter route
+app.use("/admin", NewsletterAdminRouter);
 
 //connecting to mongoDb
 async function connectDB() {
