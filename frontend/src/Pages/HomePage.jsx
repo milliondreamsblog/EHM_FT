@@ -7,6 +7,8 @@ import { Service } from "../Components/LandingPage/Service";
 import Product from "../Components/LandingPage/Product";
 import Team from "../Components/LandingPage/Team";
 import Logo from "../Components/LandingPage/Logo";
+import ServiceSection from "../Components/LandingPage/ServiceSection";
+import ProductSection from "../Components/ProductSection/ProductSection";
 
 
 const HomePage = () => {
@@ -16,6 +18,8 @@ const HomePage = () => {
             <main>
                 <HeroSection />
                 <Service />
+                <ServiceSection />
+                <ProductSection />
                     <Product />
                     <Team/>
                 <Testimonials/>

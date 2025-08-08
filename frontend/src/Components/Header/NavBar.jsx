@@ -1,36 +1,73 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+    setIsDropdownOpen(false);
+  };
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen((prev) => !prev);
   };
 
   const handleNavClick = () => {
     setIsMenuOpen(false);
+    setIsDropdownOpen(false);
   };
+
+  // Close dropdown if clicked outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   return (
     <header className="navbar">
-      <nav className="nav-container">
-        <img 
-          src="https://startinup.up.gov.in/crm/assets/user/images/Documents/Startup/A_STARTUP_UP_UPLC_00004244/startup_logo/168067577328965.png" 
-          alt="EHM Logo" 
-          className="logo"
-        />
-        
+      <nav className=" nav-container ">
+        <Link to="/" onClick={handleNavClick}>
+          <img 
+            src="https://startinup.up.gov.in/crm/assets/user/images/Documents/Startup/A_STARTUP_UP_UPLC_00004244/startup_logo/168067577328965.png" 
+            alt="EHM Logo" 
+            className="logo"
+          />
+        </Link>
+
         <div className={`nav-menu ${isMenuOpen ? 'nav-menu-open' : ''}`}>
           <ul className="nav-list">
-            <li><a href="#home" className="nav-link" onClick={handleNavClick}>HOME</a></li>
-            <li><a href="#about" className="nav-link" onClick={handleNavClick}>ABOUT US</a></li>
-            <li><a href="#our-offerings" className="nav-link" onClick={handleNavClick}>OUR OFFERINGS</a></li>
-            <li><a href="#projects" className="nav-link" onClick={handleNavClick}>PROJECTS</a></li>
-            <li><a href="#resources" className="nav-link" onClick={handleNavClick}>RESOURCES</a></li>
-            <li><a href="#career" className="nav-link" onClick={handleNavClick}>CAREER</a></li>
-            <li><a href="#contact-us" className="nav-link" onClick={handleNavClick}>CONTACT US</a></li>
+            <li><Link to="/" className="nav-link" onClick={handleNavClick}>HOME</Link></li>
+            <li><Link to="/about" className="nav-link" onClick={handleNavClick}>ABOUT</Link></li>
+
+            {/* Dropdown */}
+            <li className="nav-link dropdown" >
+              <span onClick={toggleDropdown} className="cursor-pointer">
+                OFFERINGS ▾
+              </span>
+              {isDropdownOpen && (
+                <ul className="dropdown-menu dropdown-menu-active">
+                  <li><Link to="/offerings/services" onClick={handleNavClick}>Services</Link></li>
+                  <li><Link to="/offerings/products" onClick={handleNavClick}>Products</Link></li>
+                </ul>
+              )}
+
+            </li>
+
+            <li><Link to="/projects" className="nav-link" onClick={handleNavClick}>PROJECTS</Link></li>
+            <li><Link to="/resources" className="nav-link" onClick={handleNavClick}>RESOURCES</Link></li>
+            <li><Link to="/career" className="nav-link" onClick={handleNavClick}>CAREER</Link></li>
+            <li><Link to="/contact" className="nav-link" onClick={handleNavClick}>CONTACT</Link></li>
           </ul>
-          
+
+          {/* Decorative Images */}
           <div className="nav-decoration nav-decoration-1">
             <img 
               src="https://png.pngtree.com/png-vector/20240907/ourmid/pngtree-green-planet-earth-symbolizing-environmental-sustainability-png-image_13746543.png" 
@@ -38,7 +75,6 @@ const Navbar = () => {
               className="decoration-img"
             />
           </div>
-          
           <div className="nav-decoration nav-decoration-2">
             <img 
               src="https://png.pngtree.com/png-vector/20231214/ourmid/pngtree-a-plant-above-the-planet-earth-white-background-png-image_11285406.png" 
@@ -47,7 +83,7 @@ const Navbar = () => {
             />
           </div>
         </div>
-        
+
         <div className="hamburger" onClick={toggleMenu}>
           <i className={`ri-menu-4-line ${isMenuOpen ? 'ri-close-large-line' : ''}`}></i>
         </div>
