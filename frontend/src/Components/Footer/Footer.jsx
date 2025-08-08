@@ -2,7 +2,7 @@ import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 const Footer = () => (
   <footer
-    className="w-full relative py-8 #4b7735 overflow-hidden text-blue-900"
+    className="w-full relative py-8 #4b7735 overflow-hidden text-blue-900 bg-gradient-to-b from-[#e6ffe6] via-[#ccffcc] to-[#b3ffb3] "
   
   >
     <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row md:items-start md:justify-between gap-8">
@@ -39,7 +39,7 @@ const Footer = () => (
           <a href="#" aria-label="LinkedIn" className="hover:text-green-600 transition"><FaLinkedin /></a>
           <a href="#" aria-label="Twitter" className="hover:text-green-600 transition"><FaTwitter /></a>
         </div>
-        <div className="text-xs text-blue-700">&copy; {new Date().getFullYear()} EHM Footprint. All rights reserved.</div>
+        <div className="text-xs text-blue-700"> EHM Footprint. All rights reserved.</div>
       </div>
     </div>
   </footer>

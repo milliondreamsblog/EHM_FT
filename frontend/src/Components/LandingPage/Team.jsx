@@ -2,11 +2,10 @@ import React, { useEffect } from 'react';
 
 
 import bgShape from '/bg-shape.png';
-import members from '../../Data/Data';
 import { Sparkles } from 'lucide-react';
 
 
-const Team = () => {
+const Team = ({title , members}) => {
 
   useEffect(() => {
     const cards = document.querySelectorAll('.team-card');
@@ -16,15 +15,18 @@ const Team = () => {
   }, []);
 
   return (
-    <div className="min-h-screen py-12 bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 flex flex-col items-center justify-center font-sans">
+    <div className="relative min-h-screen py-12  flex flex-col items-center justify-center font-sans">
   
-    <div className="flex items-center justify-center gap-3 mb-6">
-          <Sparkles className="text-emerald-500 animate-pulse" size={32} />
-          <h1 className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 bg-clip-text text-transparent">
-            Our Team
-          </h1>
-          <Sparkles className="text-teal-500 animate-pulse" size={32} />
-        </div>
+     <div className="text-center mb-12 py-8">
+              <div className="flex items-center justify-center gap-4 mb-6">
+                <Sparkles className="text-teal-500 animate-pulse" size={40} />
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-teal-600 via-emerald-600 to-green-600 bg-clip-text text-transparent">
+                  {title}
+                </h1>
+                <Sparkles className="text-emerald-500 animate-pulse" size={40} />
+              </div>
+              <div className="w-32 h-1 bg-gradient-to-r from-teal-400 to-emerald-500 rounded-full mx-auto"></div>
+            </div>
 
     
       <div className="flex justify-center flex-wrap gap-10 w-full max-w-6xl px-5">
