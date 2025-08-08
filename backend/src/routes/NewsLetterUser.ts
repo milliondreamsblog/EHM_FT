@@ -23,6 +23,15 @@ NewsletterUserRouter.post("/subscribe", async (req: Request, res: Response) => {
   const { email } = parsed.data;
 
   try {
+    // Check if the email is already subscribed
+    const existingSubscriber = await NewsLetterModel.findOne({ email });
+
+    if (existingSubscriber) {
+      return res.status(409).json({
+        message: "Email is already subscribed",
+      });
+    }
+
     const subscriber = new NewsLetterModel({
       email,
     });
@@ -33,12 +42,6 @@ NewsletterUserRouter.post("/subscribe", async (req: Request, res: Response) => {
       message: "Successfully subscribed!",
     });
   } catch (err: any) {
-    if (err.code === 11000) {
-      return res.status(400).json({
-        message: "Already subscribed!",
-      });
-    }
-
     return res.status(500).json({
       message: "Something went wrong",
       err,

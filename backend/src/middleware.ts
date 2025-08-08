@@ -18,7 +18,15 @@ function AdminMiddleware(
   res: Response,
   next: NextFunction
 ) {
-  const token = req.headers.authorization;
+  const authHeader = req.headers.authorization;
+  if (!authHeader) {
+    return res.status(401).json({ message: "token missing" });
+  }
+
+  // Split "Bearer <token>"
+  const token = authHeader.startsWith("Bearer ")
+    ? authHeader.split(" ")[1]
+    : authHeader;
 
   if (!token) {
     return res.status(401).json({ message: "token missing" });
@@ -27,11 +35,10 @@ function AdminMiddleware(
   try {
     const decode = jwt.verify(token, JWT_SECRET as string) as { id: string };
     req.adminId = decode.id;
-
     next();
   } catch (error: any) {
     return res.status(403).json({
-      message: "You are not Signed in!",
+      message: "You are not loged in!",
       error: error,
     });
   }

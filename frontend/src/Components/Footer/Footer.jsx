@@ -14,11 +14,12 @@
     e.preventDefault();
 
     try {
-      await API.post("/subscribe", { email });
-      setEmail(""); 
+      const res=await API.post("/subscribe", { email });
+      setEmail("");
+      alert(res.data.message);
     } catch (err) {
       if (err.response?.data?.message) {
-        console.log(err.response.data.message);
+       alert(err.response.data.message);
       } else {
         console.log("Something went wrong");
       }

@@ -20,7 +20,7 @@ AuthAdminRouter.post("/login", async (req: CustomRequest, res: Response) => {
 
   const admin = await AdminModel.findOne({ email });
 
-  if (!admin) return res.status(401).json({ message: "Invalid credentials" });
+  if (!admin) return res.status(401).json({ message: "Admin does not exist" });
 
   const isValid = await bcrypt.compare(password, admin.password);
   if (!isValid) return res.status(401).json({ message: "Invalid credentials" });
@@ -28,6 +28,17 @@ AuthAdminRouter.post("/login", async (req: CustomRequest, res: Response) => {
   const token = jwt.sign({ id: admin._id }, JWT_SECRET);
 
   res.json({ message: "Login successful", token });
+});
+
+// Get current admin info
+AuthAdminRouter.get("/me", AdminMiddleware, async (req: any, res: Response) => {
+  try {
+    const admin = await AdminModel.findById(req.adminId);
+    if (!admin) return res.status(404).json({ message: "Admin not found" });
+    res.json({ AdminName: admin.AdminName, email: admin.email });
+  } catch (err) {
+    res.status(500).json({ message: "Server error" });
+  }
 });
 
 //route that protects & create new admin , only logged-in admin can create new admin (as using AdminMiddleaware)
