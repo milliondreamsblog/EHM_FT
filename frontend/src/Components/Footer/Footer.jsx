@@ -41,6 +41,7 @@
             Eco City, EC 12345<br />
             India
           </div>
+
         </div>
         <div className="flex flex-col items-center md:items-start gap-3 md:w-1/3">
           <div className="font-semibold text-base">Subscribe to our Newsletter</div>
@@ -71,6 +72,9 @@
           </div>
           <div className="text-xs text-blue-700">&copy; {new Date().getFullYear()} EHM Footprint. All rights reserved.</div>
         </div>
+        <div className="text-xs text-blue-700"> EHM Footprint. All rights reserved.</div>
+
+
       </div>
     </footer>
   );

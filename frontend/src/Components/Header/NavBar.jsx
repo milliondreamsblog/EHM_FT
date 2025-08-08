@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
 
-const Navbar = () => {
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -22,13 +23,13 @@ const Navbar = () => {
         
         <div className={`nav-menu ${isMenuOpen ? 'nav-menu-open' : ''}`}>
           <ul className="nav-list">
-            <li><a href="#home" className="nav-link" onClick={handleNavClick}>HOME</a></li>
-            <li><a href="#about" className="nav-link" onClick={handleNavClick}>ABOUT US</a></li>
-            <li><a href="#our-offerings" className="nav-link" onClick={handleNavClick}>OUR OFFERINGS</a></li>
-            <li><a href="#projects" className="nav-link" onClick={handleNavClick}>PROJECTS</a></li>
-            <li><a href="#resources" className="nav-link" onClick={handleNavClick}>RESOURCES</a></li>
-            <li><a href="#career" className="nav-link" onClick={handleNavClick}>CAREER</a></li>
-            <li><a href="#contact-us" className="nav-link" onClick={handleNavClick}>CONTACT US</a></li>
+            <li><Link to="/" className="nav-link" onClick={handleNavClick}>HOME</Link></li>
+            <li><Link to="/about" className="nav-link" onClick={handleNavClick}>ABOUT</Link></li>
+            <li><Link to="/offerings" className="nav-link" onClick={handleNavClick}>OFFERINGS</Link></li>
+            <li><Link to="/projects" className="nav-link" onClick={handleNavClick}>PROJECTS</Link></li>
+            <li><Link to="/Link" className="nav-link" onClick={handleNavClick}>RESOURCES</Link></li>
+            <li><Link to="/career" className="nav-link" onClick={handleNavClick}>CAREER</Link></li>
+            <li><Link to="contact" className="nav-link" onClick={handleNavClick}>CONTACT</Link></li>
           </ul>
           
           <div className="nav-decoration nav-decoration-1">
@@ -56,4 +57,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavBar;
