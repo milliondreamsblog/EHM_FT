@@ -127,52 +127,46 @@ const HeroSection = () => {
             
             <div className="hero-stats">
               <div className="stat-item">
-                <span className="stat-number">500+</span>
+                <span className="stat-number">15+</span>
                 <span className="stat-label">Happy Clients</span>
               </div>
               <div className="stat-item">
-                <span className="stat-number">95%</span>
+                <span className="stat-number">99%</span>
                 <span className="stat-label">Success Rate</span>
               </div>
               <div className="stat-item">
-                <span className="stat-number">10+</span>
+                <span className="stat-number">4+</span>
                 <span className="stat-label">Years Experience</span>
               </div>
             </div>
             
             <div className="button-group">
               <button className="btn btn-primary btn-animated">
-                <span>Start Your Journey</span>
+                <span>Book a Call</span>
                 <i className="ri-arrow-right-line btn-icon"></i>
                 <div className="btn-glow"></div>
               </button>
               <button className="btn btn-outline btn-animated">
-                <span>Watch</span>
-                <i className="ri-play-circle-line btn-icon"></i>
+                <span>Learn More</span>
                 <div className="btn-glow"></div>
               </button>
             </div>
             
-            <p className="hero-tagline">
-              <i className="ri-time-line"></i>
-              Join 1000+ businesses already going green with us!
-            </p>
-            
             <div className="social-links">
               <div className="social-icon-wrapper">
-                <i className="ri-facebook-fill social-icon"></i>
+               <a href="https://www.facebook.com/people/EHM-Consultancy-Pvt-Ltd/100063877967113/" alt=""> <i className="ri-facebook-fill social-icon"></i></a>
                 <div className="social-hover-effect"></div>
               </div>
               <div className="social-icon-wrapper">
-                <i className="ri-twitter-x-line social-icon"></i>
+               <a href="https://x.com/EhmConsultancy"> <i className="ri-twitter-x-line social-icon"></i></a>
                 <div className="social-hover-effect"></div>
               </div>
               <div className="social-icon-wrapper">
-                <i className="ri-instagram-line social-icon"></i>
+               <a href="https://www.instagram.com/ehmconsultancy/"> <i className="ri-instagram-line social-icon"></i></a>
                 <div className="social-hover-effect"></div>
               </div>
               <div className="social-icon-wrapper">
-                <i className="ri-linkedin-fill social-icon"></i>
+               <a href="https://www.linkedin.com/company/ehm-consultancy-pvt-ltd/"> <i className="ri-linkedin-fill social-icon"></i></a>
                 <div className="social-hover-effect"></div>
               </div>
             </div>

@@ -16,7 +16,7 @@ const app = express();
 // CORS
 app.use(
   cors({
-    origin: "http://localhost:5173", // replace with frontend URL
+    origin:[ "http://localhost:5173", "https://ehmconsultancy.co.in/"] // replace with frontend URL
   })
 );
 
@@ -63,6 +63,5 @@ async function connectDB() {
 
 connectDB();
 
-app.listen(3000, () => {
-  console.log("Server is running on port 3000");
-});
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

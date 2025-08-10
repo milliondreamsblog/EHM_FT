@@ -99,12 +99,47 @@ export default function Contact() {
                   <Mail className="w-5 h-5 text-white" />
                 </div>
                 <div>
+                  <p className="text-sm text-emerald-100">Address​</p>
+                  <p>
+                     CSJM Innovation Foundation Chhatrapati Shahu Ji 
+                     <br></br>
+                     Maharaj University, Kalyanpur, Kanpur - 208024
+                  </p> 
+                  
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-auto">
+              <div className="flex items-center space-x-4 mb-4">
+                <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                  <Mail className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <p className="text-sm text-emerald-100">Call Us</p>
+                  <a href="mailto:harshit@ehmconsultancy.co.in" className="text-white font-medium hover:underline">
+                     +91 9892396408
+                  </a>
+                  <br></br>
+                </div>
+              </div>
+            </div>
+            
+             <div className="mt-auto">
+              <div className="flex items-center space-x-4 mb-4">
+                <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                  <Mail className="w-5 h-5 text-white" />
+                </div>
+                <div>
                   <p className="text-sm text-emerald-100">Email us at</p>
-                  <a
-                    href="mailto:support@example.com"
-                    className="text-white font-medium hover:underline"
-                  >
-                    support@example.com
+
+                  <a href="mailto:support@example.com" className="text-white font-medium hover:underline">
+                    harshit@ehmconsultancy.co.in
+                  </a>
+                  <br></br>
+                  <a href="mailto:support@example.com" className="text-white font-medium hover:underline">
+                    info@ehmconsultancy.co.in
+
                   </a>
                 </div>
               </div>

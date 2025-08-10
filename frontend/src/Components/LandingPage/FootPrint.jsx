@@ -48,9 +48,6 @@ const FootPrint = () => {
                  </div>
                  <div className="w-32 h-1 bg-gradient-to-r from-teal-400 to-emerald-500 rounded-full mx-auto"></div>
                </div>
-        <p className="text-base max-w-md text-blue-800 text-center">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
       </div>
       
       {/* Slider */}
