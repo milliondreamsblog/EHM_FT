@@ -9,6 +9,7 @@ import { NewsletterUserRouter } from "./routes/NewsLetterUser";
 import { NewsletterAdminRouter } from "./routes/NewsLetterAdmin";
 import { ArticleAdminRouter } from "./routes/ArticleAdmin";
 import { ArticleUserRouter } from "./routes/ArticleUser";
+import { ContactUserRouter } from "./routes/ContactUser";
 
 const app = express();
 
@@ -45,6 +46,9 @@ app.use("/", NewsletterUserRouter);
 
 //admin newsletter route
 app.use("/admin", NewsletterAdminRouter);
+
+//user Contact route
+app.use("/", ContactUserRouter);
 
 //connecting to mongoDb
 async function connectDB() {
