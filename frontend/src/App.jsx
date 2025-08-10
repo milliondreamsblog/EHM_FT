@@ -1,24 +1,29 @@
-import './App.css';
-import HomePage from './Pages/HomePage.jsx';
 
-import { useEffect } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import './App.css'
+import Footer from './Components/Footer/Footer.jsx';
+
+import About from './Pages/About.jsx';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import HomePage from './Pages/HomePage.jsx';
+import NavBar from './Components/Header/NavBar.jsx';
+import ContactPage from './Pages/ContactPage.jsx';
+import AdminDashboard from "./Pages/AdminDashboard.jsx";
+import Layout from "./Layout.jsx";
 
 function App() {
-  useEffect(() => {
-    AOS.init({
-      duration: 800,
-      offset: 100,
-      once: true,
-    });
-  }, []);
-
   return (
-    <div className="App">
-      <HomePage />
-    </div>
+  <BrowserRouter>
+       <Layout>
+     <Routes>
+      <Route path='/about' element={<About/>}/>
+      <Route path='/contact' element={<ContactPage/>}/>
+        <Route path='*' element={<HomePage/>} /> 
+        <Route path="/admin/dashboard" element={<AdminDashboard />} />
+     </Routes>
+     </Layout>
+    </BrowserRouter>
   );
+
 }
 
 export default App;

@@ -32,7 +32,7 @@ interface BlogType {
 const BlogSchema = new Schema<BlogType>(
   {
     title: { type: String, required: true },
-    image: { type: String, required: true },
+    image: { type: String },
     author: { type: String, required: true },
     content: { type: String, required: true },
     creatorId: {
@@ -44,10 +44,70 @@ const BlogSchema = new Schema<BlogType>(
   { timestamps: true } //automatically creates two fields "createdAt" and "updatedAt" in mongoDb
 );
 
+//admin-NewsLetter type
+interface NewsLetterType {
+  email: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+//admin-NewsLetter schema
+const NewsLetterSchema = new Schema<NewsLetterType>(
+  {
+    email: { type: String },
+  },
+  {
+    timestamps: true,
+  }
+);
+
+//article-post
+interface ArticleType {
+  title: string; // title shown in card and full view
+  image: string; // Cover image shown in card and full view
+  author: string; //author-name in the card
+  content: string; //main content of the blog
+  creatorId: Types.ObjectId; // Admin's mongoDB _id who created the blog
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+//article post schema
+const ArticleSchema = new Schema<ArticleType>(
+  {
+    title: { type: String, required: true },
+    image: { type: String },
+    author: { type: String, required: true },
+    content: { type: String, required: true },
+    creatorId: {
+      type: Schema.Types.ObjectId,
+      ref: "admin_info",
+      required: true,
+    },
+  },
+  { timestamps: true } //automatically creates two fields "createdAt" and "updatedAt" in mongoDb
+);
+
+//admin-auth model
 export const AdminModel = model<AdminType>(
   "admin_info",
   AdminSchema,
   "admin_info"
 );
 
+//blog-post model
 export const BlogModel = model<BlogType>("blog_post", BlogSchema, "blog_post");
+
+//article-post model
+export const ArticleModel = model<BlogType>(
+  "article_post",
+  ArticleSchema,
+  "article_post"
+);
+
+//newsletter-subscriber model
+export const NewsLetterModel = model<NewsLetterType>(
+  "newsletter_info",
+  NewsLetterSchema,
+  "newsletter_info"
+);

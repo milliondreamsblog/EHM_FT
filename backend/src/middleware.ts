@@ -1,15 +1,13 @@
 import jwt from "jsonwebtoken";
 import { Request, Response, NextFunction } from "express";
 import dotenv from "dotenv";
+import multer from "multer";
+import path from "path";
 
 dotenv.config();
 
 const JWT_SECRET = process.env.JWT_SECRET!;
 
-<<<<<<< HEAD
-//check is the admin signed in or not - with jwt.verify
-function AdminMiddleware(req: Request, res: Response, next: NextFunction) {
-=======
 interface CustomRequest extends Request {
   adminId?: string;
 }
@@ -20,28 +18,44 @@ function AdminMiddleware(
   res: Response,
   next: NextFunction
 ) {
->>>>>>> main
-  const token = req.headers.authorization;
+  const authHeader = req.headers.authorization;
+  if (!authHeader) {
+    return res.status(401).json({ message: "token missing" });
+  }
+
+  // Split "Bearer <token>"
+  const token = authHeader.startsWith("Bearer ")
+    ? authHeader.split(" ")[1]
+    : authHeader;
 
   if (!token) {
     return res.status(401).json({ message: "token missing" });
   }
 
   try {
-<<<<<<< HEAD
-    const decode = jwt.verify(token, JWT_SECRET as string);
-=======
     const decode = jwt.verify(token, JWT_SECRET as string) as { id: string };
     req.adminId = decode.id;
->>>>>>> main
-
     next();
   } catch (error: any) {
     return res.status(403).json({
-      message: "You are not Signed in!",
+      message: "You are not loged in!",
       error: error,
     });
   }
 }
 
-export { AdminMiddleware };
+// Multer configuration middleware( for image upload )
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "uploads"); // Local uploads folder
+  },
+  filename: (req, file, cb) => {
+    const ext = path.extname(file.originalname);
+    const uniqueName = `${Date.now()}-${Math.round(Math.random() * 1e9)}${ext}`;
+    cb(null, uniqueName);
+  },
+});
+
+const upload = multer({ storage });
+
+export { AdminMiddleware, upload };
