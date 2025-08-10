@@ -1,5 +1,6 @@
 import mongoose, { model, Schema, Types } from "mongoose";
 import dotenv from "dotenv";
+import { email } from "zod";
 
 dotenv.config();
 
@@ -88,6 +89,25 @@ const ArticleSchema = new Schema<ArticleType>(
   { timestamps: true } //automatically creates two fields "createdAt" and "updatedAt" in mongoDb
 );
 
+//contact-data
+interface ContactType {
+  name: string;
+  email: string;
+  message: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+//contsct-data schema
+const ContactSchema = new Schema<ContactType>(
+  {
+    name: { type: String, required: true },
+    email: { type: String, required: true },
+    message: { type: String, required: true },
+  },
+  { timestamps: true }
+);
+
 //admin-auth model
 export const AdminModel = model<AdminType>(
   "admin_info",
@@ -110,4 +130,11 @@ export const NewsLetterModel = model<NewsLetterType>(
   "newsletter_info",
   NewsLetterSchema,
   "newsletter_info"
+);
+
+//contact-data
+export const ContactModel = model<ContactType>(
+  "contact_data",
+  ContactSchema,
+  "contact_data"
 );

@@ -1,4 +1,3 @@
-
 import HeroSection from "../Components/LandingPage/HeroSection";
 import FootPrint from "../Components/LandingPage/FootPrint";
 import Testimonials from "../Components/LandingPage/Testimonials";
@@ -10,7 +9,6 @@ import Logo from "../Components/LandingPage/Logo";
 import ServiceSection from "../Components/LandingPage/ServiceSection";
 import ProductSection from "../Components/ProductSection/ProductSection";
 import { members } from "../Data/Data";
-
 
 
 
@@ -31,5 +29,6 @@ const HomePage = () => {
         </div>
     )
 }
+
 
 export default HomePage;
