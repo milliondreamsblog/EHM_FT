@@ -1,21 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import AdminLoginModal from './AdminLoginModal';
+import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [showLogin, setShowLogin] = useState(false);
-  const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
-  const dropdownRef = useRef(null);
-  const navigate = useNavigate();
 
-  // Check for authorization token on mount
-  useEffect(() => {
-    if (localStorage.getItem('authorization')) {
-      setIsAdminLoggedIn(true);
-    }
-  }, []);
+  const dropdownRef = useRef(null);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -24,8 +14,8 @@ const NavBar = () => {
         setIsDropdownOpen(false);
       }
     };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   const toggleMenu = () => {
@@ -42,11 +32,6 @@ const NavBar = () => {
     setIsDropdownOpen(false);
   };
 
-  const handleLoginSuccess = () => {
-    setIsAdminLoggedIn(true);
-    setShowLogin(false);
-  };
-
   return (
     <>
       <header className="navbar">
@@ -59,7 +44,7 @@ const NavBar = () => {
             />
           </Link>
 
-          <div className={`nav-menu ${isMenuOpen ? 'nav-menu-open' : ''}`}>
+          <div className={`nav-menu ${isMenuOpen ? "nav-menu-open" : ""}`}>
             <ul className="nav-list">
               <li>
                 <Link to="/" className="nav-link" onClick={handleNavClick}>
@@ -97,44 +82,40 @@ const NavBar = () => {
                 )}
               </li>
               <li>
-                <Link to="/projects" className="nav-link" onClick={handleNavClick}>
+                <Link
+                  to="/projects"
+                  className="nav-link"
+                  onClick={handleNavClick}
+                >
                   PROJECTS
                 </Link>
               </li>
               <li>
-                <Link to="/resources" className="nav-link" onClick={handleNavClick}>
+                <Link
+                  to="/resources"
+                  className="nav-link"
+                  onClick={handleNavClick}
+                >
                   RESOURCES
                 </Link>
               </li>
               <li>
-                <Link to="/career" className="nav-link" onClick={handleNavClick}>
+                <Link
+                  to="/career"
+                  className="nav-link"
+                  onClick={handleNavClick}
+                >
                   CAREER
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="nav-link" onClick={handleNavClick}>
+                <Link
+                  to="/contact"
+                  className="nav-link"
+                  onClick={handleNavClick}
+                >
                   CONTACT
                 </Link>
-              </li>
-              <li>
-                {isAdminLoggedIn ? (
-                  <button
-                    onClick={() => {
-                      setShowLogin(false);
-                      navigate('/admin/dashboard');
-                    }}
-                    className="ml-4 px-4 py-1 rounded text-[#080B18] font-medium text-[0.9rem] border border-[#c8ff08] bg-[#c8ff08] no-underline transition-all duration-300 transform hover:scale-105 hover:text-slate-900"
-                  >
-                    Admin Dashboard
-                  </button>
-                ) : (
-                  <button
-                    onClick={() => setShowLogin(true)}
-                    className="ml-4 px-4 py-1 rounded text-[#080B18] font-medium text-[0.9rem] border border-[#c8ff08] bg-[#c8ff08] no-underline transition-all duration-300 transform hover:scale-105 hover:text-slate-900"
-                  >
-                    Admin Login
-                  </button>
-                )}
               </li>
             </ul>
 
@@ -155,14 +136,14 @@ const NavBar = () => {
           </div>
 
           <div className="hamburger" onClick={toggleMenu}>
-            <i className={`ri-menu-4-line ${isMenuOpen ? 'ri-close-large-line' : ''}`}></i>
+            <i
+              className={`ri-menu-4-line ${
+                isMenuOpen ? "ri-close-large-line" : ""
+              }`}
+            ></i>
           </div>
         </nav>
       </header>
-
-      {showLogin && (
-        <AdminLoginModal onClose={() => setShowLogin(false)} onLoginSuccess={handleLoginSuccess} />
-      )}
     </>
   );
 };
