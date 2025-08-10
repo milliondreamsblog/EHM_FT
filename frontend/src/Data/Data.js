@@ -11,18 +11,21 @@ import three from '/Team/three.png';
         title: "Founder & CEO",
         degree: "Ph.D., IIT Bombay",
         img: one,
+        social:"https://www.linkedin.com/in/harshitcese/",
       },
       {
         name: "Neha Shukla",
         title: "Director & COO",
         degree: "M.Sc., PGDCA",
         img: two,
+        social:"https://www.linkedin.com/in/neha-shukla-307b0b5b/",
       },
       {
         name: "Utsav Mishra",
         title: "Co-Founder & CTO",
         degree: "Ph.D., IIT Kanpur",
         img: three,
+        social:"https://www.linkedin.com/in/utsav-mishra-phd-08428469/"
       }
     ];
 

@@ -19,9 +19,9 @@ const HomePage = () => {
         <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50">
            
                 <HeroSection />
-                <Service />
+                {/* <Service /> */}
                 <ServiceSection />
-                <ProductSection />
+                {/* <ProductSection /> */}
                     <Product />
                     <Team title = "Our Team" members = {members}/>
                 <Testimonials/>

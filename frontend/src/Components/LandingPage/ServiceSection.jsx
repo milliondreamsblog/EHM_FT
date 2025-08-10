@@ -5,19 +5,22 @@ import islandImage from '../../assets/bioremediation-floating-island.jpeg';
 import services2 from '../../assets/services2.jpg';
 import services3 from '../../assets/services3.png';
 import services4 from '../../assets/services4.png';
+import { Sparkles } from 'lucide-react';
 
 const ServicesSection = () => {
   return (
     <section className="py-12 px-6 max-w-screen-xl mx-auto">
-      {/* Section Heading */}
-      {/* <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-black mb-4">Services</h1>
-        <p className="text-xl text-gray-600">
-          End-to-end project delivery with efficiency, impact, and ease.
-        </p>
-      </div> */}
-
-      {/* Cards */}
+      
+        <div className="text-center mb-12 py-8">
+                    <div className="flex items-center justify-center gap-4 mb-6">
+                      <Sparkles className="text-teal-500 animate-pulse" size={40} />
+                      <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-teal-600 via-emerald-600 to-green-600 bg-clip-text text-transparent">
+                        Services
+                      </h1>
+                      <Sparkles className="text-emerald-500 animate-pulse" size={40} />
+                    </div>
+                    <div className="w-32 h-1 bg-gradient-to-r from-teal-400 to-emerald-500 rounded-full mx-auto"></div>
+                  </div>
       
       <ServiceCard
         title="Bioremediation Floating Island"
