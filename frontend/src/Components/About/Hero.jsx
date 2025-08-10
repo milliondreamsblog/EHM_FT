@@ -27,15 +27,15 @@ export default function Hero() {
           </h1>
           
           <p className="text-xl md:text-2xl leading-relaxed mb-8">
-            We blend creativity with technology to craft extraordinary digital experiences.
-            Founded in 2015, our team of passionate creators works tirelessly to bring
-            innovative solutions to life.
+          Born from a vision to create impact,
+           we combine innovation and purpose to build solutions that inspire change and shape a sustainable future.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-3 bg-white text-black hover:bg-white/90 transition-colors rounded-lg font-medium">
-              Meet the Team
+             <button className="px-8 py-3 bg-white text-black hover:bg-white/90 transition-colors rounded-lg font-medium">
+             <a href="/about#team"> Meet the Team</a>
             </button>
+           
             <button className="px-8 py-3 border-2 border-white hover:bg-white/10 transition-colors rounded-lg font-medium">
               Our Process
             </button>
