@@ -13,7 +13,7 @@ const ServiceCard = ({ title, description, imageUrl, fileUrl, delay = 0 }) => {
     <>
       {/* Card */}
       <div
-        className="group relative flex flex-col lg:flex-row items-center gap-8 py-10 px-6 bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 border-l-4 border-lime-500"
+        className="group relative flex flex-col lg:flex-row items-center gap-8 py-10 px-6 m-8 bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 border-l-4 border-lime-500"
         data-aos="fade-up"
         data-aos-duration="1000"
         data-aos-delay={delay}
@@ -33,9 +33,9 @@ const ServiceCard = ({ title, description, imageUrl, fileUrl, delay = 0 }) => {
             <a
               href={fileUrl}
               download
-              className="inline-block bg-lime-500 hover:bg-lime-600 text-white font-semibold py-2 px-6 rounded-full shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg ring-2 ring-lime-300 hover:ring-lime-600 animate-pulse"
+              className="inline-block bg-lime-500 hover:bg-lime-600 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg ring-2 ring-lime-300 hover:ring-lime-600 animate-pulse"
             >
-              🎫 Learn More
+              Learn More
             </a>
           )}
         </div>
