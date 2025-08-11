@@ -115,13 +115,14 @@ const HeroSection = () => {
             </h1>
             
             <p className="hero-subtitle">
-              Leading the Green Revolution in Business Solutions
+              SUSTAINABILITY THROUGH ECO-CENTRIC APPROACH
             </p>
             
             <p className="hero-description">
-              We empower businesses to thrive while protecting our planet. 
-              From eco-friendly strategies to sustainable growth solutions — 
-              we're your partner in building a greener, more profitable future.
+            EHM offers sustainability-focused services and solutions aligned with the 
+            Sustainable Development Goals (SDGs). We assist industry and government organizations 
+            in strengthening ESG practices, meeting regulatory requirements, enhancing brand value,
+            developing sustainability strategies, and implementing sustainable solutions.
             </p>
             
             

@@ -8,22 +8,21 @@ dotenv.config();
 
 //creates manually initial admin in database
 async function createInitialAdmin() {
-  const uri = process.env.MONGO_URL!;
-  await mongoose.connect(uri);
+  connectDB();
 
   //email
-  const existing = await AdminModel.findOne({ email: "sitanshu@gmail.com" });
+  const existing = await AdminModel.findOne({ email: "akshatsan23@gmail.com" });
 
   if (existing) {
     console.log("Admin already exists");
     return;
   }
   //password
-  const hashedPassword = await bcrypt.hash("1234", 10);
+  const hashedPassword = await bcrypt.hash("EHM@123", 10);
 
   const admin = new AdminModel({
-    AdminName: "sitanshu", //admin name
-    email: "sitanshu@gmail.com", //password
+    AdminName: "Akshat", //admin name
+    email: "akshatsan23@gmail.com", //password
     password: hashedPassword, //hassed password
   });
 
@@ -31,5 +30,17 @@ async function createInitialAdmin() {
 
   mongoose.disconnect();
 }
+
+async function connectDB() {
+  try {
+    const uri = "mongodb+srv://admin:1234567890@cluster0.zfd80.mongodb.net/ehm";
+    await mongoose.connect(uri);
+  } catch (error: any) {
+    console.log(`error: ${error}`);
+    process.exit(1);
+  }
+}
+
+
 
 createInitialAdmin();
