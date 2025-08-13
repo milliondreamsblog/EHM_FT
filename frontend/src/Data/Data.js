@@ -36,6 +36,7 @@ import three from '/Team/three.png';
         title: "CEO, IFACET IIT Kanpur",
         degree: "MBA (Marketing and Systems), IIM Calcutta",
         img: "/Team/image-2.png",
+        social:"https://www.linkedin.com/in/arks-srinivas-akkapeddi-907b2b3/?originalSubdomain=in"
       },
       {
          name: "Mr. Vivek Mishra",
