@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://ehm-ft.onrender.com"// backend URL
+  baseURL: "http://localhost:5000", // backend URL
 });
 
 // Attach token(if availabe) from localStorage to every request
