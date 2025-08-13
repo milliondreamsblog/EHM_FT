@@ -11,14 +11,28 @@ import AdminLoginModal from "./Components/Admin/AdminLoginModal.jsx";
 import AdminRoute from "./Components/Admin/AdminRoute.jsx";
 import Layout from "./Layout.jsx";
 
+
+
+// Updated: Using ArticlesPage instead of ArticlePage
+import ArticlesPage from "./Pages/ArticlesPage.jsx";
+import ProductsPage from "./Pages/ProductsPage.jsx";
+
+
 function App() {
   return (
     <BrowserRouter>
       <Layout>
         <Routes>
+          {/* Public Pages */}
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<ContactPage />} />
-          <Route path="*" element={<HomePage />} />
+          <Route path="/articles" element={<ArticlesPage />} />
+
+            <Route path="/products" element={<ProductsPage />} />
+
+             <Route path="*" element={<HomePage />} />
+
+          {/* Admin Pages */}
           <Route path="/admin/login" element={<AdminLoginModal />} />
           <Route
             path="/admin/dashboard"
