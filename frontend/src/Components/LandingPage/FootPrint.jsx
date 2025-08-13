@@ -56,8 +56,8 @@ const FootPrint = () => {
           slidesPerView={1}
           spaceBetween={16}
           breakpoints={{
-            640: { slidesPerView: 2, spaceBetween: 20 }, // sm
-            1024: { slidesPerView: 3, spaceBetween: 24 }, // lg
+            640: { slidesPerView: 2, spaceBetween: 20 }, 
+            1024: { slidesPerView: 3, spaceBetween: 24 }, 
           }}
           pagination={{ clickable: true }}
           navigation={{
