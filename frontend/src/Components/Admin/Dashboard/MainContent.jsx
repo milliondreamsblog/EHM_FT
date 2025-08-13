@@ -2,10 +2,11 @@ import React from "react";
 import CreateAdmin from "../sidebarOptions/CreateAdmin";
 import Subscribers from "../sidebarOptions/Subscribers";
 import BlogsManage from "../sidebarOptions/blogsManage";
+import FootprintManage from "../sidebarOptions/footprintManage";
 
 export default function MainContent({ activeTab }) {
   return (
-    <main className="flex-1 p-8 bg-white">
+    <main className="flex-1 p-8 bg-[#eaefe3]">
       {!activeTab && (
         <div>
           <h2 className="text-2xl font-bold mb-2 text-[#35582a]">
@@ -18,6 +19,7 @@ export default function MainContent({ activeTab }) {
       {activeTab === "createAdmin" && <CreateAdmin />}
       {activeTab === "subscribers" && <Subscribers />}
       {activeTab === "blogManage" && <BlogsManage />}
+      {activeTab === "footprintManage" && <FootprintManage />}
     </main>
   );
 }

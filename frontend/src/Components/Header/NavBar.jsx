@@ -1,20 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import AdminLoginModal from "./AdminLoginModal";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [showLogin, setShowLogin] = useState(false);
-  const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
-  const dropdownRef = useRef(null);
-  const navigate = useNavigate();
 
-  useEffect(() => {
-    if (localStorage.getItem("authorization")) {
-      setIsAdminLoggedIn(true);
-    }
-  }, []);
+  const dropdownRef = useRef(null);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -40,14 +31,9 @@ const NavBar = () => {
     setIsDropdownOpen(false);
   };
 
-  const handleLoginSuccess = () => {
-    setIsAdminLoggedIn(true);
-    setShowLogin(false);
-  };
-
   return (
     <>
-        <header className="fixed top-0 left-0 w-full z-50 bg-white/15 backdrop-blur-md shadow-md">
+      <header className="fixed top-0 left-0 w-full z-50 bg-white/15 backdrop-blur-md shadow-md">
         <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
           {/* Logo */}
           <Link to="/" onClick={handleNavClick}>
@@ -61,12 +47,20 @@ const NavBar = () => {
           {/* Menu for large screens */}
           <ul className="hidden lg:flex items-center space-x-6 font-medium text-white">
             <li>
-              <Link to="/" className= " text-green-900  hover:text-yellow-400" onClick={handleNavClick}>
+              <Link
+                to="/"
+                className=" text-green-900  hover:text-yellow-400"
+                onClick={handleNavClick}
+              >
                 HOME
               </Link>
             </li>
             <li>
-              <Link to="/about" className="text-green-900  hover:text-yellow-400" onClick={handleNavClick}>
+              <Link
+                to="/about"
+                className="text-green-900  hover:text-yellow-400"
+                onClick={handleNavClick}
+              >
                 ABOUT
               </Link>
             </li>
@@ -104,60 +98,71 @@ const NavBar = () => {
             </li>
 
             <li>
-              <Link to="/projects" className="text-green-900  hover:text-yellow-400" onClick={handleNavClick}>
+              <Link
+                to="/projects"
+                className="text-green-900  hover:text-yellow-400"
+                onClick={handleNavClick}
+              >
                 PROJECTS
               </Link>
             </li>
             <li>
-              <Link to="/resources" className="text-green-900  hover:text-yellow-400" onClick={handleNavClick}>
+              <Link
+                to="/resources"
+                className="text-green-900  hover:text-yellow-400"
+                onClick={handleNavClick}
+              >
                 RESOURCES
               </Link>
             </li>
             <li>
-              <Link to="/career" className="text-green-900  hover:text-yellow-400" onClick={handleNavClick}>
+              <Link
+                to="/career"
+                className="text-green-900  hover:text-yellow-400"
+                onClick={handleNavClick}
+              >
                 CAREER
               </Link>
             </li>
             <li>
-              <Link to="/contact" className="text-green-900  hover:text-yellow-400" onClick={handleNavClick}>
+              <Link
+                to="/contact"
+                className="text-green-900  hover:text-yellow-400"
+                onClick={handleNavClick}
+              >
                 CONTACT
               </Link>
             </li>
-            {/* <li>
-              {isAdminLoggedIn ? (
-                <button
-                  onClick={() => {
-                    setShowLogin(false);
-                    navigate("/admin/dashboard");
-                  }}
-                  className="ml-4 px-4 py-1 rounded text-[#080B18] font-medium text-sm border border-[#c8ff08] bg-[#c8ff08] hover:scale-105 transition"
-                >
-                  Admin Dashboard
-                </button>
-              ) : (
-                <button
-                  onClick={() => setShowLogin(true)}
-                  className="ml-4 px-4 py-1 rounded text-[#080B18] font-medium text-sm border border-[#c8ff08] bg-[#c8ff08] hover:scale-105 transition"
-                >
-                  Admin Login
-                </button>
-              )}
-            </li> */}
           </ul>
 
           {/* Mobile menu button */}
-          <div className="lg:hidden text-white text-2xl cursor-pointer" onClick={toggleMenu}>
-            <i className={ri-menu-4-line ${isMenuOpen ? "ri-close-large-line" : ""}}></i>
+          <div
+            className="lg:hidden text-white text-2xl cursor-pointer"
+            onClick={toggleMenu}
+          >
+            <i
+              className={`ri-menu-4-line ${
+                isMenuOpen ? "ri-close-large-line" : ""
+              }`}
+            ></i>
           </div>
         </nav>
 
         {/* Mobile menu */}
         {isMenuOpen && (
           <div className="lg:hidden bg-black bg-opacity-90 text-white px-6 py-4 space-y-3">
-            <Link to="/" onClick={handleNavClick} className="block text-green-900  hover:text-yellow-400">
+            <Link
+              to="/"
+              onClick={handleNavClick}
+              className="block text-green-900  hover:text-yellow-400"
+            >
               HOME
             </Link>
-            <Link to="/about" onClick={handleNavClick} className="block text-green-900  hover:text-yellow-400">
+            <Link
+              to="/about"
+              onClick={handleNavClick}
+              className="block text-green-900  hover:text-yellow-400"
+            >
               ABOUT
             </Link>
             <div>
@@ -186,25 +191,37 @@ const NavBar = () => {
                 </div>
               )}
             </div>
-            <Link to="/projects" onClick={handleNavClick} className="block text-green-900  hover:text-yellow-400">
+            <Link
+              to="/projects"
+              onClick={handleNavClick}
+              className="block text-green-900  hover:text-yellow-400"
+            >
               PROJECTS
             </Link>
-            <Link to="/resources" onClick={handleNavClick} className="block text-green-900  hover:text-yellow-400">
+            <Link
+              to="/resources"
+              onClick={handleNavClick}
+              className="block text-green-900  hover:text-yellow-400"
+            >
               RESOURCES
             </Link>
-            <Link to="/career" onClick={handleNavClick} className="block text-green-900  hover:text-yellow-400">
+            <Link
+              to="/career"
+              onClick={handleNavClick}
+              className="block text-green-900  hover:text-yellow-400"
+            >
               CAREER
             </Link>
-            <Link to="/contact" onClick={handleNavClick} className="block text-green-900  hover:text-yellow-400">
+            <Link
+              to="/contact"
+              onClick={handleNavClick}
+              className="block text-green-900  hover:text-yellow-400"
+            >
               CONTACT
             </Link>
           </div>
         )}
       </header>
-
-      {/* {showLogin && (
-        <AdminLoginModal onClose={() => setShowLogin(false)} onLoginSuccess={handleLoginSuccess} />
-      )} */}
     </>
   );
 };

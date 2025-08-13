@@ -12,6 +12,8 @@ import { NewsletterAdminRouter } from "./routes/NewsLetterAdmin";
 import { ArticleAdminRouter } from "./routes/ArticleAdmin";
 import { ArticleUserRouter } from "./routes/ArticleUser";
 import { ContactUserRouter } from "./routes/ContactUser";
+import { FootprintAdminRouter } from "./routes/FootprintAdmin";
+import { FootprintUserRouter } from "./routes/FootprintUser";
 
 // Load .env file from backend root when running from dist
 dotenv.config({ path: "../.env" }); // Adjust path if .env is in backend root
@@ -83,6 +85,12 @@ app.use("/admin", NewsletterAdminRouter);
 
 // User Contact route
 app.use("/", ContactUserRouter);
+
+//admin footprint route
+app.use("/admin", FootprintAdminRouter);
+
+//user footprint rout
+app.use("/", FootprintUserRouter);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
