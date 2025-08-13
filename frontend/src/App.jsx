@@ -11,6 +11,7 @@ import AdminLoginModal from "./Components/Admin/AdminLoginModal.jsx";
 import AdminRoute from "./Components/Admin/AdminRoute.jsx";
 import Layout from "./Layout.jsx";
 import Projects from "./Pages/Projects.jsx";
+import AddPost from "./Components/Post/AddPost.jsx";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/projects" element={<Projects/>}/>
+          <Route path="/postAdmin" element={<AddPost/>}/>
           <Route path="*" element={<HomePage />} />
           <Route path="/admin/login" element={<AdminLoginModal />} />
           <Route
