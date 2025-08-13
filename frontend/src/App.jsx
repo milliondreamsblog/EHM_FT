@@ -1,19 +1,22 @@
-import "./App.css";
-import Footer from "./Components/Footer/Footer.jsx";
-
-import About from "./Pages/About.jsx";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import HomePage from "./Pages/HomePage.jsx";
-import NavBar from "./Components/Header/NavBar.jsx";
-import ContactPage from "./Pages/ContactPage.jsx";
+import { useEffect } from 'react';
+import './App.css'
+import Footer from './Components/Footer/Footer.jsx';
+import About from './Pages/About.jsx';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import HomePage from './Pages/HomePage.jsx';
+import NavBar from './Components/Header/NavBar.jsx';
+import ContactPage from './Pages/ContactPage.jsx';
 import AdminDashboard from "./Pages/AdminDashboard.jsx";
-import AdminLoginModal from "./Components/Admin/AdminLoginModal.jsx";
-import AdminRoute from "./Components/Admin/AdminRoute.jsx";
 import Layout from "./Layout.jsx";
 import Projects from "./Pages/Projects.jsx";
-import AddPost from "./Components/Post/AddPost.jsx";
 
 function App() {
+
+  useEffect(() => {
+    AOS.init({ duration: 800, once: true });
+  }, []);
+
+
   return (
     <BrowserRouter>
       <Layout>
@@ -21,7 +24,6 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/projects" element={<Projects/>}/>
-          <Route path="/postAdmin" element={<AddPost/>}/>
           <Route path="*" element={<HomePage />} />
           <Route path="/admin/login" element={<AdminLoginModal />} />
           <Route
@@ -36,6 +38,7 @@ function App() {
       </Layout>
     </BrowserRouter>
   );
+
 }
 
 export default App;
