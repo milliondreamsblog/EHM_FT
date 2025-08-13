@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import './App.css'
 import Footer from './Components/Footer/Footer.jsx';
-
 import About from './Pages/About.jsx';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HomePage from './Pages/HomePage.jsx';

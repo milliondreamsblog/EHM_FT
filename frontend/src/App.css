@@ -176,8 +176,6 @@ body {
   padding: 10px 0;
   min-width: 180px;
   z-index: 1050;
-
-  /* Animation defaults - hidden */
   opacity: 0;
   transform: translateY(10px);
   pointer-events: none;
@@ -205,7 +203,9 @@ body {
 .dropdown-menu li a:hover {
   background-color: #f0f0f0;
 }
-
+.nav-menu, .nav-list, .navbar {
+  overflow: visible !important;
+}
 
 
 .hero-section {

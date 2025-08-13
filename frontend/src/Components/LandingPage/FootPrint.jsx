@@ -48,9 +48,6 @@ const FootPrint = () => {
                  </div>
                  <div className="w-32 h-1 bg-gradient-to-r from-teal-400 to-emerald-500 rounded-full mx-auto"></div>
                </div>
-        <p className="text-base max-w-md text-blue-800 text-center">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
       </div>
       
       {/* Slider */}
@@ -59,8 +56,8 @@ const FootPrint = () => {
           slidesPerView={1}
           spaceBetween={16}
           breakpoints={{
-            640: { slidesPerView: 2, spaceBetween: 20 }, // sm
-            1024: { slidesPerView: 3, spaceBetween: 24 }, // lg
+            640: { slidesPerView: 2, spaceBetween: 20 }, 
+            1024: { slidesPerView: 3, spaceBetween: 24 }, 
           }}
           pagination={{ clickable: true }}
           navigation={{

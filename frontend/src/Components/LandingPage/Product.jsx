@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { ChevronLeft, ChevronRight, Play, Pause, Sparkles, ArrowRight, Users, Target, Award } from "lucide-react";
+import { ChevronLeft, ChevronRight, Play, Pause, Sparkles, ArrowRight, Users, Target, Award, Link } from "lucide-react";
 
 const products = [
   {
@@ -8,9 +8,9 @@ const products = [
     subtitle: "Nature-Based Purification",
     description: "Revolutionary water treatment using natural processes and advanced biotechnology for sustainable communities.",
     features: ["95% Efficiency", "Zero Chemicals", "Self-Sustaining", "Eco-Friendly"],
-    image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2560&q=80",
+    image: "/product/1-1.png",
     gradient: "from-emerald-400 via-teal-500 to-cyan-600",
-    stats: { clients: "500+", efficiency: "95%", impact: "Clean" },
+    stats: { efficiency: "95%", impact: "Clean" },
     color: "emerald"
   },
   {
@@ -19,9 +19,9 @@ const products = [
     subtitle: "Smart Water Management",
     description: "Intelligent campus-wide water systems that create more water than they consume through smart recycling.",
     features: ["AI Monitoring", "Rainwater Harvest", "Smart Recycling", "IoT Sensors"],
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2560&q=80",
+    image: "/product/image01.jpg",
     gradient: "from-blue-400 via-indigo-500 to-purple-600",
-    stats: { clients: "50+", efficiency: "80%", impact: "Positive" },
+    stats: { efficiency: "80%", impact: "Positive" },
     color: "blue"
   },
   {
@@ -30,9 +30,9 @@ const products = [
     subtitle: "Sustainability Analytics",
     description: "Advanced ESG reporting and analytics platform that transforms environmental data into actionable insights.",
     features: ["Real-time Data", "ESG Compliance", "Custom Reports", "AI Insights"],
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2560&q=80",
+    image: "/product/image02.jpg",
     gradient: "from-violet-400 via-purple-500 to-pink-600",
-    stats: { clients: "200+", efficiency: "100%", impact: "Smart" },
+    stats: { efficiency: "100%", impact: "Smart" },
     color: "violet"
   }
 ];
@@ -147,7 +147,7 @@ const FeatureTag = ({ feature, delay = 0 }) => (
   </div>
 );
 
-export default function DynamicProductShowcase() {
+export default function Product() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlay, setIsAutoPlay] = useState(true);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -243,9 +243,7 @@ export default function DynamicProductShowcase() {
           <Sparkles className="text-teal-500 animate-pulse" size={32} />
         </div>
         <div className="w-32 h-1 bg-gradient-to-r from-emerald-500 to-teal-500 mx-auto rounded-full mb-8"></div>
-        <p className="text-xl text-emerald-700/80 max-w-3xl mx-auto leading-relaxed px-4">
-          Innovative solutions that transform environmental challenges into sustainable opportunities
-        </p>
+       
       </div>
 
     
@@ -272,9 +270,12 @@ export default function DynamicProductShowcase() {
                 alt={product.title}
                 className="w-full h-full object-cover"
               />
-              <div className={`absolute inset-0 bg-gradient-to-r ${product.gradient} opacity-80`} />
+              {/* Removed the gradient overlay completely - images are now clearly visible */}
             </div>
           ))}
+
+          {/* Content overlay with dark background for better text readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent" />
 
      
           <div className="absolute inset-0 flex items-center justify-between p-8 md:p-16">
@@ -284,10 +285,10 @@ export default function DynamicProductShowcase() {
                 <div className="text-white/80 text-lg font-medium mb-2 tracking-wide">
                   {currentProduct.subtitle}
                 </div>
-                <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
                   {currentProduct.title}
                 </h2>
-                <p className="text-white/90 text-lg md:text-xl mb-8 leading-relaxed">
+                <p className="text-white/90 text-lg md:text-xl mb-8 leading-relaxed drop-shadow-md">
                   {currentProduct.description}
                 </p>
 
@@ -302,36 +303,14 @@ export default function DynamicProductShowcase() {
                       {feature}
                     </div>
                   ))}
-                </div>
-
-            
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <button className="group px-8 py-4 bg-white text-slate-900 rounded-2xl font-semibold hover:bg-white/90 transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex items-center gap-3">
-                    Explore Solution
-                    <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform duration-300" />
-                  </button>
-                  <button className="px-8 py-4 border-2 border-white text-white rounded-2xl font-semibold hover:bg-white hover:text-slate-900 transition-all duration-300 transform hover:scale-105">
-                    Get Quote
-                  </button>
-                </div>
-              </div>
+                </div>    
+          </div>
             </div>
 
          
             <div className="hidden lg:block">
               <div className="space-y-4">
-                <div className="group bg-white/20 backdrop-blur-md rounded-2xl p-6 border border-white/30 hover:border-white/50 transition-all duration-500 hover:scale-105">
-                  <div className="flex items-center gap-4">
-                    <div className="p-3 bg-white/20 rounded-xl group-hover:bg-white/30 transition-all duration-300">
-                      <Users size={24} className="text-white" />
-                    </div>
-                    <div>
-                      <div className="text-2xl font-bold text-white">{currentProduct.stats.clients}</div>
-                      <div className="text-white/80 text-sm">Clients</div>
-                    </div>
-                  </div>
-                </div>
-                <div className="group bg-white/20 backdrop-blur-md rounded-2xl p-6 border border-white/30 hover:border-white/50 transition-all duration-500 hover:scale-105">
+                <div className="group bg-black/30 backdrop-blur-md rounded-2xl p-6 border border-white/30 hover:border-white/50 transition-all duration-500 hover:scale-105">
                   <div className="flex items-center gap-4">
                     <div className="p-3 bg-white/20 rounded-xl group-hover:bg-white/30 transition-all duration-300">
                       <Target size={24} className="text-white" />
@@ -342,7 +321,7 @@ export default function DynamicProductShowcase() {
                     </div>
                   </div>
                 </div>
-                <div className="group bg-white/20 backdrop-blur-md rounded-2xl p-6 border border-white/30 hover:border-white/50 transition-all duration-500 hover:scale-105">
+                <div className="group bg-black/30 backdrop-blur-md rounded-2xl p-6 border border-white/30 hover:border-white/50 transition-all duration-500 hover:scale-105">
                   <div className="flex items-center gap-4">
                     <div className="p-3 bg-white/20 rounded-xl group-hover:bg-white/30 transition-all duration-300">
                       <Award size={24} className="text-white" />
@@ -377,7 +356,7 @@ export default function DynamicProductShowcase() {
          
             <button
               onClick={() => setIsAutoPlay(!isAutoPlay)}
-              className="p-3 bg-white/20 backdrop-blur-sm rounded-full border border-white/30 hover:bg-white/30 transition-all duration-300"
+              className="p-3 bg-black/30 backdrop-blur-sm rounded-full border border-white/30 hover:bg-black/50 transition-all duration-300"
             >
               {isAutoPlay ? <Pause size={20} className="text-white" /> : <Play size={20} className="text-white" />}
             </button>
@@ -386,13 +365,13 @@ export default function DynamicProductShowcase() {
        
           <button
             onClick={prevSlide}
-            className="absolute left-6 top-1/2 transform -translate-y-1/2 p-4 bg-white/20 backdrop-blur-sm rounded-full border border-white/30 hover:bg-white/30 transition-all duration-300 group"
+            className="absolute left-6 top-1/2 transform -translate-y-1/2 p-4 bg-black/30 backdrop-blur-sm rounded-full border border-white/30 hover:bg-black/50 transition-all duration-300 group"
           >
             <ChevronLeft size={24} className="text-white group-hover:scale-110 transition-transform duration-300" />
           </button>
           <button
             onClick={nextSlide}
-            className="absolute right-6 top-1/2 transform -translate-y-1/2 p-4 bg-white/20 backdrop-blur-sm rounded-full border border-white/30 hover:bg-white/30 transition-all duration-300 group"
+            className="absolute right-6 top-1/2 transform -translate-y-1/2 p-4 bg-black/30 backdrop-blur-sm rounded-full border border-white/30 hover:bg-black/50 transition-all duration-300 group"
           >
             <ChevronRight size={24} className="text-white group-hover:scale-110 transition-transform duration-300" />
           </button>
@@ -421,7 +400,7 @@ export default function DynamicProductShowcase() {
                 alt={product.title}
                 className="w-full h-full object-cover"
               />
-              <div className={`absolute inset-0 bg-gradient-to-t ${product.gradient} opacity-70`} />
+            
               <div className="absolute inset-0 p-6 flex flex-col justify-end">
                 <h3 className="text-white font-bold text-xl mb-2">{product.title}</h3>
                 <p className="text-white/80 text-sm">{product.subtitle}</p>

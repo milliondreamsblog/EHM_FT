@@ -147,7 +147,7 @@ const NavBar = () => {
 
           {/* Mobile menu button */}
           <div className="lg:hidden text-white text-2xl cursor-pointer" onClick={toggleMenu}>
-            <i className={`ri-menu-4-line ${isMenuOpen ? "ri-close-large-line" : ""}`}></i>
+            <i className={ri-menu-4-line ${isMenuOpen ? "ri-close-large-line" : ""}}></i>
           </div>
         </nav>
 
