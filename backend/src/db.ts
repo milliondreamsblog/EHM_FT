@@ -108,6 +108,27 @@ const ContactSchema = new Schema<ContactType>(
   { timestamps: true }
 );
 
+//Footprint type
+interface FootprintType {
+  image: string;
+  creatorId: Types.ObjectId;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+//Footprint schema
+const FootprintSchema = new Schema<FootprintType>(
+  {
+    image: { type: String },
+    creatorId: {
+      type: Schema.Types.ObjectId,
+      ref: "admin_info",
+      required: true,
+    },
+  },
+  { timestamps: true } //automatically creates two fields "createdAt" and "updatedAt" in mongoDb
+);
+
 //admin-auth model
 export const AdminModel = model<AdminType>(
   "admin_info",
@@ -137,4 +158,10 @@ export const ContactModel = model<ContactType>(
   "contact_data",
   ContactSchema,
   "contact_data"
+);
+
+export const FootprintModel = model<FootprintType>(
+  "footprint",
+  FootprintSchema,
+  "footprint"
 );

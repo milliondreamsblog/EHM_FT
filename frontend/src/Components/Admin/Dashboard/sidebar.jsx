@@ -19,6 +19,22 @@ export default function Sidebar({ activeTab, setActiveTab }) {
       >
         Subscribers
       </button>
+      <button
+        className={`px-6 py-3 text-left hover:bg-[#4b7735] rounded transition font-medium ${
+          activeTab === "blogManage" ? "bg-[#4b7735]" : ""
+        }`}
+        onClick={() => setActiveTab("blogManage")}
+      >
+        Manage Blogs
+      </button>
+      <button
+        className={`px-6 py-3 text-left hover:bg-[#4b7735] rounded transition font-medium ${
+          activeTab === "footprintManage" ? "bg-[#4b7735]" : ""
+        }`}
+        onClick={() => setActiveTab("footprintManage")}
+      >
+        Manage Footprints
+      </button>
     </aside>
   );
 }
