@@ -8,13 +8,7 @@ import NavBar from './Components/Header/NavBar.jsx';
 import ContactPage from './Pages/ContactPage.jsx';
 import AdminDashboard from "./Pages/AdminDashboard.jsx";
 import Layout from "./Layout.jsx";
-import ProductPage from './Pages/Products.jsx';
-import ServicePage from './Pages/Services.jsx';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-
-
-
+import Projects from "./Pages/Projects.jsx";
 
 function App() {
 
@@ -25,16 +19,23 @@ function App() {
 
   return (
     <BrowserRouter>
-       <Layout>
-     <Routes>
-      <Route path='/about' element={<About/>}/>
-      <Route path='/contact' element={<ContactPage/>}/>
-      <Route path='/offerings/products' element={<ProductPage/>}/>
-      <Route path='/offerings/services' element={<ServicePage/>}/>
-        <Route path='*' element={<HomePage/>} /> 
-        <Route path="/admin/dashboard" element={<AdminDashboard />} />
-     </Routes>
-     </Layout>
+      <Layout>
+        <Routes>
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/projects" element={<Projects/>}/>
+          <Route path="*" element={<HomePage />} />
+          <Route path="/admin/login" element={<AdminLoginModal />} />
+          <Route
+            path="/admin/dashboard"
+            element={
+              <AdminRoute>
+                <AdminDashboard />
+              </AdminRoute>
+            }
+          />
+        </Routes>
+      </Layout>
     </BrowserRouter>
   );
 
