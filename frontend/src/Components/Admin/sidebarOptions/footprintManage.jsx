@@ -12,7 +12,6 @@ export default function FootprintManage() {
   const [formData, setFormData] = useState({ image: null });
   const [selectedFootprint, setSelectedFootprint] = useState(null);
 
-  // Fetch all footprint images
   const fetchFootprints = async () => {
     try {
       setLoading(true);
@@ -29,7 +28,6 @@ export default function FootprintManage() {
     fetchFootprints();
   }, []);
 
-  // Handle changes in the file input
   const handleChange = (e) => {
     const { name, files } = e.target;
     if (name === "image") {
@@ -37,7 +35,6 @@ export default function FootprintManage() {
     }
   };
 
-  // Upload the selected footprint image
   const handleUpload = async () => {
     if (!formData.image) {
       alert("Please select an image to upload.");
@@ -56,7 +53,6 @@ export default function FootprintManage() {
     }
   };
 
-  // Delete a footprint image
   const handleDelete = async () => {
     if (!selectedFootprint) return;
     try {
@@ -84,7 +80,7 @@ export default function FootprintManage() {
       </div>
 
       {loading ? (
-        <p>Loading footprints...</p>
+        <p className="text-[#35582a]">Loading footprints...</p>
       ) : (
         <div
           className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 overflow-y-auto"

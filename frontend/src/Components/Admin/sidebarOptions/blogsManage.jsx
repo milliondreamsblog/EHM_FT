@@ -51,9 +51,11 @@ export default function BlogsManage() {
     }
     try {
       const data = new FormData();
+      const formattedContent = formatContentToHtml(formData.content); // Format content to HTML
+
       data.append("title", formData.title);
       data.append("author", formData.author);
-      data.append("content", formData.content);
+      data.append("content", formattedContent);
       if (formData.image) data.append("image", formData.image);
 
       await API.post("/admin/blogs", data);
@@ -72,9 +74,11 @@ export default function BlogsManage() {
     }
     try {
       const data = new FormData();
+      const formattedContent = formatContentToHtml(formData.content);
+
       data.append("title", formData.title);
       data.append("author", formData.author);
-      data.append("content", formData.content);
+      data.append("content", formattedContent);
       if (formData.image instanceof File) data.append("image", formData.image);
 
       await API.put(`/admin/blogs/${selectedBlog._id}`, data);
@@ -101,13 +105,35 @@ export default function BlogsManage() {
 
   const openEditModal = (blog) => {
     setSelectedBlog(blog);
+
+    const plainTextContent = blog.content
+      .replace(/<\/p>/g, "\n") // Replace closing <p> tag with a newline
+      .replace(/<[^>]*>/g, "") // Remove all other HTML tags
+      .trim();
+
     setFormData({
       title: blog.title,
       author: blog.author,
-      content: blog.content,
+      content: plainTextContent,
       image: blog.image,
     });
     setIsEditModalOpen(true);
+  };
+
+  const createSnippet = (htmlContent, length = 100) => {
+    if (!htmlContent) return "";
+    const text = htmlContent.replace(/<[^>]*>?/gm, " "); // Replace tags with a space
+    return text.slice(0, length).trim() + "...";
+  };
+
+  // Helper function to convert textarea text to HTML paragraphs
+  const formatContentToHtml = (text) => {
+    if (!text) return "";
+    return text
+      .split("\n")
+      .filter((p) => p.trim() !== "")
+      .map((p) => `<p>${p.trim()}</p>`)
+      .join("");
   };
 
   const formatDate = (dateStr) => {
@@ -167,12 +193,12 @@ export default function BlogsManage() {
                 >
                   {blog.title}
                 </h3>
-                {/* AUTHOR TAG STYLING RESTORED */}
+
                 <span className="inline-block bg-green-100 text-green-700 text-xs px-2 py-1 rounded mt-1 cursor-pointer">
                   {blog.author}
                 </span>
                 <p className="text-gray-700 mt-2">
-                  {blog.content.slice(0, 100)}...
+                  {createSnippet(blog.content)}
                 </p>
                 <button
                   onClick={() => {
