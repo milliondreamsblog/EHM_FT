@@ -2,6 +2,7 @@ import React from "react";
 import CreateAdmin from "../sidebarOptions/CreateAdmin";
 import Subscribers from "../sidebarOptions/Subscribers";
 import BlogsManage from "../sidebarOptions/blogsManage";
+import ArticleManage from "../sidebarOptions/ArticleManage";
 
 export default function MainContent({ activeTab }) {
   return (
@@ -18,6 +19,7 @@ export default function MainContent({ activeTab }) {
       {activeTab === "createAdmin" && <CreateAdmin />}
       {activeTab === "subscribers" && <Subscribers />}
       {activeTab === "blogManage" && <BlogsManage />}
+      {activeTab === "articles" && <ArticleManage />}
     </main>
   );
 }
