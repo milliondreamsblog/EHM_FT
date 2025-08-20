@@ -33,7 +33,7 @@ async function createInitialAdmin() {
 
 async function connectDB() {
   try {
-    const uri = "mongodb+srv://sanskarvns19:4710Qasukvx5SbCu@cluster0.yvxmi5e.mongodb.net/ehm1";
+    const uri = "mongodb+srv://sanskarvns19:4710Qasukvx5SbCu@cluster0.yvxmi5e.mongodb.net/ehm2";
     await mongoose.connect(uri);
   } catch (error: any) {
     console.log(`error: ${error}`);

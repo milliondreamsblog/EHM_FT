@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import AdminLoginModal from "./AdminLoginModal";
+
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -146,9 +146,9 @@ const NavBar = () => {
           </ul>
 
           {/* Mobile menu button */}
-          <div className="lg:hidden text-white text-2xl cursor-pointer" onClick={toggleMenu}>
+          {/* <div className="lg:hidden text-white text-2xl cursor-pointer" onClick={toggleMenu}>
             <i className={ri-menu-4-line ${isMenuOpen ? "ri-close-large-line" : ""}}></i>
-          </div>
+          </div> */}
         </nav>
 
         {/* Mobile menu */}
