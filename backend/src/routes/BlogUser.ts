@@ -15,19 +15,14 @@ BlogUserRouter.get("/blogs", async (req: CustomRequest, res: Response) => {
     res.json({
       success: true,
       count: blogs.length,
-      data: blogs.map((blog) => ({
-        _id: blog._id.toString(),
-        title: blog.title || "",
-        image: blog.image || "",
-        author: blog.author || "",
-        content: blog.content || "",
-        creatorId: blog.creatorId.toString(), // convert ObjectId to string
-        createdAt: blog.createdAt,
-        updatedAt: blog.updatedAt,
-      })),
+      data: blogs,
     });
   } catch (err: any) {
-    res.status(500).json({ message: "Error fetching blogs", error: err });
+    res.status(500).json({
+      success: false,
+      message: "Error fetching blogs",
+      error: err.message,
+    });
   }
 });
 
@@ -35,24 +30,55 @@ BlogUserRouter.get("/blogs", async (req: CustomRequest, res: Response) => {
 BlogUserRouter.get("/blogs/:id", async (req: CustomRequest, res: Response) => {
   try {
     const blog = await BlogModel.findById(req.params.id);
-    if (!blog) return res.status(404).json({ message: "Blog not found" });
+    if (!blog) {
+      return res
+        .status(404)
+        .json({ success: false, message: "Blog not found" });
+    }
 
     res.json({
       success: true,
-      data: {
-        _id: blog._id.toString(),
-        title: blog.title || "",
-        image: blog.image || "",
-        author: blog.author || "",
-        content: blog.content || "",
-        creatorId: blog.creatorId.toString(),
-        createdAt: blog.createdAt,
-        updatedAt: blog.updatedAt,
-      },
+      data: blog,
     });
-  } catch (err) {
-    res.status(500).json({ message: "Error fetching blogs", error: err });
+  } catch (err: any) {
+    res.status(500).json({
+      success: false,
+      message: "Error fetching blog",
+      error: err.message,
+    });
   }
 });
+
+// GET all blogs by a specific author
+BlogUserRouter.get(
+  "/blogs/author/:authorName",
+  async (req: Request, res: Response) => {
+    try {
+      const authorName = decodeURIComponent(req.params.authorName); // Decode author name from URL
+      const blogs = await BlogModel.find({ author: authorName }).sort({
+        createdAt: -1,
+      });
+
+      if (!blogs || blogs.length === 0) {
+        return res.status(404).json({
+          success: false,
+          message: `No blogs found for author: ${authorName}`,
+        });
+      }
+
+      res.json({
+        success: true,
+        count: blogs.length,
+        data: blogs,
+      });
+    } catch (err: any) {
+      res.status(500).json({
+        success: false,
+        message: "Error fetching author's blogs",
+        error: err.message,
+      });
+    }
+  }
+);
 
 export { BlogUserRouter };
