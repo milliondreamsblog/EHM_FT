@@ -19,8 +19,7 @@ import ArticlesPage from "./Pages/ArticlesPage.jsx";
 import ProductsPage from "./Pages/ProductsPage.jsx";
 import Projects from "./Pages/Projects.jsx";
 
-import ProductPage from "./Pages/Products.jsx";
-import ServicePage from "./Pages/Services.jsx";
+
 
 import "aos/dist/aos.css";
 import AdminLoginModal from "../src/Components/Admin/AdminLoginModal.jsx";
@@ -28,7 +27,7 @@ import AdminLoginModal from "../src/Components/Admin/AdminLoginModal.jsx";
 import BlogSection from "./Components/BlogsSection/BlogsSection.jsx";
 import SingleBlogPage from "./Components/BlogsSection/SingleBlogPage.jsx";
 import AuthorBlogsPage from "./Components/BlogsSection/AuthorBlogsPage.jsx";
-import AOS from "aos";
+
 
 
 function App() {
