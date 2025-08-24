@@ -1,7 +1,7 @@
 import HeroSection from "../Components/LandingPage/HeroSection";
 import FootPrint from "../Components/LandingPage/FootPrint";
 import Testimonials from "../Components/LandingPage/Testimonials";
-import Product from "../Components/LandingPage/Product";
+// import Product from "../Components/LandingPage/Product";
 import Team from "../Components/LandingPage/Team";
 import Logo from "../Components/LandingPage/Logo";
 
@@ -39,7 +39,7 @@ const HomePage = () => {
       {/* <Service /> */}
       {/* <ServiceSection /> */}
       {/* <ProductSection /> */}
-      <Product />
+      {/* <Product /> */}
       <Team title="Our Team" members={members} />
       <Testimonials />
       <FootPrint />
