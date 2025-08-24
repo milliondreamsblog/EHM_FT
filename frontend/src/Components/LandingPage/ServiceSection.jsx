@@ -40,7 +40,7 @@ const ServicesSection = () => {
 
       <ServiceCard
   title="Sustainable Environmental Management"
-  description="EHM provides sustainable environmental solutions to enhance resource efficiency, promote environmental stewardship and support sustainable practices across various sectors. Our approach integrates cutting-edge technologies and nature-based solutions (NBS) to ensure long-term environmental and economic benefits."
+  description="EHM provides sustainable environmental solutions to enhance resource efficiency, promote environmental stewardship & support sustainable practices across various sectors. Our approach integrates cutting-edge technologies and nature-based solutions (NBS) to ensure long-term environmental and economic benefits."
   imageUrl={services3}
   fileUrl="/docs/bioremediation-case-study.pdf"
   bullets={[
@@ -82,7 +82,7 @@ and well-planned urban spaces. With a data-driven,
 interdisciplinary approach. EHM helps cities, transition toward
 circular, resource-efficient and climate-resilient urban centers,
 aligning national urban development frameworks."
-  imageUrl={services3}
+  imageUrl={services4}
   fileUrl="/docs/bioremediation-case-study.pdf"
   bullets={[
     "Water-Positive & Net-Zero Plan",
