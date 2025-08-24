@@ -5,6 +5,9 @@ import islandImage from '../../assets/bioremediation-floating-island.jpeg';
 import services2 from '../../assets/services2.jpg';
 import services3 from '../../assets/services3.png';
 import services4 from '../../assets/services4.png';
+
+import servicesBg from '../../assets/services-bg.gif'; 
+import Logo from './Logo';
 import { Sparkles } from 'lucide-react';
 
 const ServicesSection = () => {
@@ -50,8 +53,6 @@ const ServicesSection = () => {
         imageUrl={services4}
         fileUrl="/docs/gujarat-case-study.pdf"
       />
-
-      
     </section>
   );
 };

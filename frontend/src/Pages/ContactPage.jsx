@@ -1,6 +1,7 @@
 import React from 'react'
 import Hero from '../Components/Contact/Hero'
 import Contact from '../Components/Contact/Contact'
+import Map from '../Components/Contact/Map'
 
 const ContactPage = () => {
   return (
