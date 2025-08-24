@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-const ServiceCard = ({ title, description, imageUrl, fileUrl, delay = 0 }) => {
+const ServiceCard = ({ title, description, bullets = [], imageUrl, fileUrl, delay = 0 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
@@ -14,7 +14,6 @@ const ServiceCard = ({ title, description, imageUrl, fileUrl, delay = 0 }) => {
       {/* Card */}
       <div
         className="group relative flex flex-col lg:flex-row items-center gap-8 py-10 px-6 m-8 bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 border-l-4 border-lime-500"
-
         data-aos="fade-up"
         data-aos-duration="1000"
         data-aos-delay={delay}
@@ -24,15 +23,28 @@ const ServiceCard = ({ title, description, imageUrl, fileUrl, delay = 0 }) => {
           <h2 className="text-3xl font-extrabold mb-4 text-black">
             {title}
           </h2>
+
+          {/* Normal description */}
           <p className="text-lg text-gray-800 mb-6 leading-relaxed">
             {description}
           </p>
+
+          {/* Bullet points */}
+          {bullets.length > 0 && (
+            <ul className="flex flex-wrap gap-x-8 gap-y-2 list-disc list-inside text-blue-700 font-medium mb-6">
+              {bullets.map((point, index) => (
+                <li key={index} className="min-w-[200px]">
+                  {point}
+                </li>
+              ))}
+            </ul>
+          )}
+
           {fileUrl && (
             <a
               href={fileUrl}
               download
               className="inline-block bg-lime-500 hover:bg-lime-600 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg ring-2 ring-lime-300 hover:ring-lime-600 animate-pulse"
-
             >
               Learn More
             </a>
