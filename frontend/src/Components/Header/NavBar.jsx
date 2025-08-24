@@ -3,20 +3,12 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isOfferingsOpen, setIsOfferingsOpen] = useState(false);
   const [isResourcesOpen, setIsResourcesOpen] = useState(false);
 
-  const offeringsRef = useRef(null);
   const resourcesRef = useRef(null);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (
-        offeringsRef.current &&
-        !offeringsRef.current.contains(event.target)
-      ) {
-        setIsOfferingsOpen(false);
-      }
       if (
         resourcesRef.current &&
         !resourcesRef.current.contains(event.target)
@@ -30,24 +22,15 @@ const NavBar = () => {
 
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
-
-    setIsOfferingsOpen(false);
-    setIsResourcesOpen(false);
-  };
-
-  const toggleOfferings = () => {
-    setIsOfferingsOpen((prev) => !prev);
     setIsResourcesOpen(false);
   };
 
   const toggleResources = () => {
     setIsResourcesOpen((prev) => !prev);
-    setIsOfferingsOpen(false);
   };
 
   const handleNavClick = () => {
     setIsMenuOpen(false);
-    setIsOfferingsOpen(false);
     setIsResourcesOpen(false);
   };
 
@@ -64,6 +47,7 @@ const NavBar = () => {
             />
           </Link>
 
+          {/* Desktop Menu */}
           <ul className="hidden lg:flex items-center space-x-6 font-medium">
             <li>
               <Link
@@ -83,38 +67,15 @@ const NavBar = () => {
                 ABOUT
               </Link>
             </li>
-
-            <li className="relative" ref={offeringsRef}>
-              <span
-                onClick={toggleOfferings}
-                className="cursor-pointer text-green-900 hover:text-yellow-400 flex items-center"
+            <li>
+              <Link
+                to="/offerings"
+                className="text-green-900 hover:text-yellow-400"
+                onClick={handleNavClick}
               >
-                OFFERINGS ▾
-              </span>
-              {isOfferingsOpen && (
-                <ul className="absolute top-full mt-2 w-40 bg-white text-black rounded shadow-lg z-50">
-                  <li>
-                    <Link
-                      to="/offerings/services"
-                      className="block px-4 py-2 hover:bg-gray-100"
-                      onClick={handleNavClick}
-                    >
-                      Services
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/offerings/products"
-                      className="block px-4 py-2 hover:bg-gray-100"
-                      onClick={handleNavClick}
-                    >
-                      Products
-                    </Link>
-                  </li>
-                </ul>
-              )}
+                OFFERINGS
+              </Link>
             </li>
-
             <li>
               <Link
                 to="/projects"
@@ -178,6 +139,7 @@ const NavBar = () => {
           </div>
         </nav>
 
+        {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="lg:hidden bg-white text-black px-6 py-4 space-y-3 absolute w-full shadow-lg">
             <Link
@@ -194,32 +156,13 @@ const NavBar = () => {
             >
               ABOUT
             </Link>
-            <div>
-              <span
-                onClick={toggleOfferings}
-                className="flex justify-between items-center cursor-pointer hover:text-yellow-400 py-2"
-              >
-                OFFERINGS <span>▾</span>
-              </span>
-              {isOfferingsOpen && (
-                <div className="ml-4 mt-1 space-y-1 pt-2 border-l-2 border-green-100">
-                  <Link
-                    to="/offerings/services"
-                    onClick={handleNavClick}
-                    className="block hover:text-yellow-400 pl-3 py-1"
-                  >
-                    Services
-                  </Link>
-                  <Link
-                    to="/offerings/products"
-                    onClick={handleNavClick}
-                    className="block hover:text-yellow-400 pl-3 py-1"
-                  >
-                    Products
-                  </Link>
-                </div>
-              )}
-            </div>
+            <Link
+              to="/offerings"
+              onClick={handleNavClick}
+              className="block hover:text-yellow-400 py-2"
+            >
+              OFFERINGS
+            </Link>
             <Link
               to="/projects"
               onClick={handleNavClick}
