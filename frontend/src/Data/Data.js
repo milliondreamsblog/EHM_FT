@@ -7,11 +7,74 @@ export const companies = [
   "img9",
   "img10",
 ];
+export const companies = [
+  "img1",
+  "img2",
+  "img3",
+  "img7",
+  "img8",
+  "img9",
+  "img10",
+];
 
 import one from "/Team/one.png";
 import two from "/Team/two.png";
 import three from "/Team/three.png";
+import one from "/Team/one.png";
+import two from "/Team/two.png";
+import three from "/Team/three.png";
 
+const members = [
+  {
+    name: "Harshit Mishra",
+    title: "Founder & CEO",
+    degree: "Ph.D., IIT Bombay",
+    img: one,
+    social: "https://www.linkedin.com/in/harshitcese/",
+  },
+  {
+    name: "Neha Shukla",
+    title: "Director & COO",
+    degree: "M.Sc., PGDCA",
+    img: two,
+    social: "https://www.linkedin.com/in/neha-shukla-307b0b5b/",
+  },
+  {
+    name: "Utsav Mishra",
+    title: "Co-Founder & CTO",
+    degree: "Ph.D., IIT Kanpur",
+    img: three,
+    social: "https://www.linkedin.com/in/utsav-mishra-phd-08428469/",
+  },
+  {
+    name: "Dr. Jitendre Singh",
+    title: "",
+    degree: "PhD IITB",
+    img: "/Team/Dr-Jitendre-Singh.jpg",
+    social: "https://www.linkedin.com/in/jitendra-singh-ba60325b/",
+  },
+  {
+    name: "Dr. Tarul Sharma",
+    title: "",
+    degree: "PhD IITB",
+    img: "/Team/Dr-Tarul-Sharma.png",
+    social: "https://www.linkedin.com/in/dr-tarul-sharma-36bb6953/",
+  },
+  {
+    name: "Dr. Ramswarup Bhaskar",
+    title: "",
+    degree: "PhD IITK",
+    img: "/Team/Dr-Ramswarup-Bhaskar.png",
+    social: "https://www.linkedin.com/in/rbhaskariitk/",
+  },
+  {
+    name: "Vikas Dohare",
+    title: "Lead Outreach",
+    degree: "M.Sc. IITB",
+    img: "/Team/Vikas-Dohare.png",
+    social: "https://www.linkedin.com/in/vikas-dohare-647301201/",
+  },
+];
 const members = [
   {
     name: "Harshit Mishra",
