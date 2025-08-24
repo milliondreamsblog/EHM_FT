@@ -5,8 +5,9 @@ import Footer from './Components/Footer/Footer.jsx';
 import About from './Pages/About.jsx';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HomePage from './Pages/HomePage.jsx';
-import AdminRoute from './Components/Admin/AdminRoute.jsx';
+import AdminRoute from "../src/Components/Admin/AdminRoute.jsx";
 import AOS from 'aos';
+import NavBar from "./Components/Header/NavBar.jsx";
 import ContactPage from './Pages/ContactPage.jsx';
 import AdminDashboard from "./Pages/AdminDashboard.jsx";
 import Layout from "./Layout.jsx";
@@ -17,9 +18,18 @@ import ServicePage from "./Pages/Services.jsx";
 import ArticlesPage from "./Pages/ArticlesPage.jsx";
 import ProductsPage from "./Pages/ProductsPage.jsx";
 import Projects from "./Pages/Projects.jsx";
-import AdminLoginModal from "./Components/Admin/AdminLoginModal.jsx";
-import AOS from "aos";
+
+import ProductPage from "./Pages/Products.jsx";
+import ServicePage from "./Pages/Services.jsx";
+
 import "aos/dist/aos.css";
+import AdminLoginModal from "../src/Components/Admin/AdminLoginModal.jsx";
+
+import BlogSection from "./Components/BlogsSection/BlogsSection.jsx";
+import SingleBlogPage from "./Components/BlogsSection/SingleBlogPage.jsx";
+import AuthorBlogsPage from "./Components/BlogsSection/AuthorBlogsPage.jsx";
+import AOS from "aos";
+
 
 function App() {
 
@@ -35,18 +45,21 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<ContactPage />} />
 
-          <Route path="/articles" element={<ArticlesPage />} />
+          <Route path="/projects" element={<Projects />} />
           <Route path="/offerings/products" element={<ProductPage />} />
           <Route path="/offerings/services" element={<ServicePage />} />
-          <Route path="/products" element={<ProductsPage />} />
-
-
-          <Route path="/projects" element={<Projects/>}/>
+          <Route path="/resources/blogs" element={<BlogSection />} />
+          <Route path="/blogs/:blogId" element={<SingleBlogPage />} />
+          <Route
+            path="/blogs/author/:authorName"
+            element={<AuthorBlogsPage />}
+          />
 
           <Route path="*" element={<HomePage />} />
 
           {/* Admin Pages */}
           <Route path="/admin/login" element={<AdminLoginModal />} />
+
           <Route
             path="/admin/dashboard"
             element={
