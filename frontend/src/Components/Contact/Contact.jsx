@@ -134,8 +134,9 @@ export default function Contact() {
                   <p className="text-sm text-emerald-100">Email us at</p>
 
                   
-                  <a href="mailto:support@example.com" className="text-white font-medium hover:underline">
-                    www.ehmconsultancy.co.in
+                  <a href="mailto:info@ehmconsultancy.co.in" className="text-white font-medium hover:underline">
+                    info@ehmconsultancy.co.in
+
 
                   </a>
                 </div>

@@ -4,6 +4,7 @@ import Testimonials from "../Components/LandingPage/Testimonials";
 // import Product from "../Components/LandingPage/Product";
 import Team from "../Components/LandingPage/Team";
 import Logo from "../Components/LandingPage/Logo";
+import Partners_logo from "../Components/LandingPage/Partners_logo";
 
 // import ServiceSection from "../Components/LandingPage/ServiceSection";
 // import ProductSection from "../Components/ProductSection/ProductSection";
@@ -14,6 +15,8 @@ const HomePage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50">
       <HeroSection />
+
+      <Partners_logo/>
 
       <ServicePage />
       {/* <ServiceSection />
