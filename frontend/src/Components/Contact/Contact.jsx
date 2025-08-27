@@ -101,9 +101,8 @@ export default function Contact() {
                 <div>
                   <p className="text-sm text-emerald-100">Address​</p>
                   <p>
-                     CSJM Innovation Foundation Chhatrapati Shahu Ji 
-                     <br></br>
-                     Maharaj University, Kalyanpur, Kanpur - 208024
+                     TECHNOPARK, IIT KANPUR
+        
                   </p> 
                   
                 </div>
@@ -119,6 +118,7 @@ export default function Contact() {
                   <p className="text-sm text-emerald-100">Call Us</p>
                   <a href="mailto:harshit@ehmconsultancy.co.in" className="text-white font-medium hover:underline">
                      +91 9892396408
+
                   </a>
                   <br></br>
                 </div>
@@ -133,12 +133,10 @@ export default function Contact() {
                 <div>
                   <p className="text-sm text-emerald-100">Email us at</p>
 
-                  <a href="mailto:support@example.com" className="text-white font-medium hover:underline">
-                    harshit@ehmconsultancy.co.in
-                  </a>
-                  <br></br>
-                  <a href="mailto:support@example.com" className="text-white font-medium hover:underline">
+                  
+                  <a href="mailto:info@ehmconsultancy.co.in" className="text-white font-medium hover:underline">
                     info@ehmconsultancy.co.in
+
 
                   </a>
                 </div>
