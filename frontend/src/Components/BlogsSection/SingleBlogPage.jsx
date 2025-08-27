@@ -1,7 +1,97 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import API from "../../api/axios";
 import { ArrowLeft, Image as ImageIcon } from "lucide-react";
+
+
+const ParticleBackground = () => {
+  const canvasRef = useRef(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    let animationFrameId;
+
+    const resizeCanvas = () => {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    };
+
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+
+    const particles = [];
+    const particleCount = 50;
+
+    const greenColors = [
+      "rgba(34, 197, 94, 0.6)",
+      "rgba(22, 163, 74, 0.5)",
+      "rgba(21, 128, 61, 0.4)",
+      "rgba(134, 239, 172, 0.7)",
+      "rgba(74, 222, 128, 0.6)",
+    ];
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 3 + 1;
+        this.speedX = (Math.random() - 0.5) * 0.5;
+        this.speedY = (Math.random() - 0.5) * 0.5;
+        this.color =
+          greenColors[Math.floor(Math.random() * greenColors.length)];
+        this.opacity = Math.random() * 0.5 + 0.2;
+      }
+
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if (this.x > canvas.width || this.x < 0) this.speedX *= -1;
+        if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
+      }
+
+      draw() {
+        ctx.save();
+        ctx.globalAlpha = this.opacity;
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new Particle());
+    }
+
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach((p) => {
+        p.update();
+        p.draw();
+      });
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    return () => {
+      window.removeEventListener("resize", resizeCanvas);
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, []);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 w-full h-full pointer-events-none"
+      style={{ zIndex: 1 }}
+    />
+  );
+};
 
 const SingleBlogPage = () => {
   const { blogId } = useParams();
@@ -45,12 +135,10 @@ const SingleBlogPage = () => {
     );
   if (!blog) return null;
 
-  const formattedDate = new Date(blog.createdAt).toLocaleString("en-US", {
+  const formattedDate = new Date(blog.createdAt).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
     day: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
   });
 
   const imageUrl = blog.image
@@ -58,8 +146,9 @@ const SingleBlogPage = () => {
     : null;
 
   return (
-    <div className="bg-gray-50 py-24 sm:py-32">
-      <div className="max-w-4xl mx-auto px-6 lg:px-8">
+    <section className="bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 pt-24 pb-20 relative overflow-hidden min-h-screen">
+      <ParticleBackground />
+      <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8">
         <article>
           <div className="text-center mb-8">
             <Link
@@ -93,7 +182,7 @@ const SingleBlogPage = () => {
           </div>
 
           <div
-            className="prose prose-lg lg:prose-xl max-w-none mx-auto mt-8 text-gray-700"
+            className="prose prose-lg lg:prose-xl max-w-none mx-auto mt-8 text-gray-700 blog-content-view"
             dangerouslySetInnerHTML={{ __html: blog.content }}
           />
 
@@ -108,7 +197,7 @@ const SingleBlogPage = () => {
           </div>
         </article>
       </div>
-    </div>
+    </section>
   );
 };
 

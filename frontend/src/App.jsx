@@ -1,13 +1,11 @@
 
 import { useEffect } from 'react';
 import './App.css'
-import Footer from './Components/Footer/Footer.jsx';
 import About from './Pages/About.jsx';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HomePage from './Pages/HomePage.jsx';
 import AdminRoute from "../src/Components/Admin/AdminRoute.jsx";
 import AOS from 'aos';
-import NavBar from "./Components/Header/NavBar.jsx";
 import ContactPage from './Pages/ContactPage.jsx';
 import AdminDashboard from "./Pages/AdminDashboard.jsx";
 import Layout from "./Layout.jsx";
@@ -15,8 +13,6 @@ import Layout from "./Layout.jsx";
 
 import ProductPage from "./Pages/Products.jsx";
 import ServicePage from "./Pages/Services.jsx";
-import ArticlesPage from "./Pages/ArticlesPage.jsx";
-import ProductsPage from "./Pages/ProductsPage.jsx";
 import Projects from "./Pages/Projects.jsx";
 
 

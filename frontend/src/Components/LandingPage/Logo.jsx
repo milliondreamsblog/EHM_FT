@@ -3,7 +3,7 @@ import { companies } from "../../Data/Data";
 
 const Logo = () => {
   return (
-    <div className=" pb-5 w-full bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50">
+    <div className=" pb-5 w-full ">
       <div className="text-center text-bright-sun-400 text-xl italic mb-10 text-green-800">
         Empowering Innovation Across Industries
       </div>
