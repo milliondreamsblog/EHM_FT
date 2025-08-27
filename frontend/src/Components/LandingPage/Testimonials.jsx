@@ -5,7 +5,7 @@ const Testimonials = () => {
 
   const getCardClasses = (span) => {
     const baseClasses = "rounded-2xl p-6 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 ease-in-out break-inside-avoid mb-4 border-2 border-green-200";
-    
+
     switch (span) {
       case 'col-span-2':
         return `${baseClasses} min-h-[300px] md:col-span-2`; // wide cards
@@ -16,20 +16,20 @@ const Testimonials = () => {
 
   return (
     <div className=" bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 p-4">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[69rem] mx-auto">
         {/* Title Section */}
         <div className="text-center mb-12 py-8">
           <div className="flex items-center justify-center gap-4 mb-6">
             <Sparkles className="text-teal-500 animate-pulse" size={40} />
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-teal-600 via-emerald-600 to-green-600 bg-clip-text text-transparent">
-             Completed Project
+              Completed Project
             </h1>
             <Sparkles className="text-emerald-500 animate-pulse" size={40} />
           </div>
           <div className="w-32 h-1 bg-gradient-to-r from-teal-400 to-emerald-500 rounded-full mx-auto"></div>
         </div>
-        
-      
+
+
         <div className="block md:hidden space-y-4">
           {testimonial.map((testimonial) => (
             <div
