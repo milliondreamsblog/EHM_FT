@@ -42,7 +42,6 @@ const FootPrint = () => {
 
   const handleKnowMoreClick = (image) => {
     setSelectedProject({
-      // Use the full image URL from the backend
       src: API.defaults.baseURL + image.image,
       title: image.title || "EHM Project",
       description:
@@ -64,7 +63,7 @@ const FootPrint = () => {
   };
 
   return (
-    <div className="w-full flex flex-col items-center justify-center bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 overflow-hidden py-8 md:py-16 px-2 sm:px-6">
+    <div className="w-full flex flex-col items-center justify-center overflow-hidden py-8 md:py-16 px-2 sm:px-6">
       <div className="flex flex-col gap-3 mb-8 items-center">
         <div className="text-center mb-12 py-8">
           <div className="flex items-center justify-center gap-4 mb-6">

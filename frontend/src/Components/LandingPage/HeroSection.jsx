@@ -11,7 +11,7 @@ const HeroSection = () => {
     <section id="home" className="bg-gradient-to-br from-green-50 to-teal-50 min-h-screen flex items-center relative overflow-hidden pt-16">
      
       <div className="absolute top-20 left-10 w-32 h-32 bg-green-200 rounded-full opacity-20 animate-float"></div>
-      <div className="absolute bottom-20 right-10 w-40 h-40 bg-teal-200 rounded-full opacity-20 animate-float" style={{animationDelay: '2s'}}></div>
+      <div className="absolute bottom-20 right-10 w-40 h-40 bg-teal-200 rounded-full opacity-20 animate-float" style={{animationDelay: '1s'}}></div>
       
       <div className="container mx-auto px-4 py-16 relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">

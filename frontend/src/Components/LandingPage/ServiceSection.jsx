@@ -1,143 +1,164 @@
-import React from 'react';
-import ServiceCard from './ServiceCard';
+import React, { useState, useEffect } from 'react';
+import { ArrowRight, Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-import islandImage from '../../assets/bioremediation-floating-island.jpeg';
-import services2 from '../../assets/services2.jpg';
-import services3 from '../../assets/services3.png';
-import services4 from '../../assets/services4.png';
+const ServiceSection = () => {
+  const [activeScreen, setActiveScreen] = useState(null);
+  const [currentDataIndex, setCurrentDataIndex] = useState(0);
 
-import servicesBg from '../../assets/services-bg.gif'; 
-import Logo from './Logo';
-import { Sparkles } from 'lucide-react';
+  
+  const platformsConfig = [
+    {
+      brandName: "ehmconsultancy",
+      brandColor: "teal",
+      title: " Sustainability Assessment & Reporting",
+      displayMode: "imageOnly",
+      mainVisual: {
+        src: "/offering/8.png",
+        alt: "Agricultural Risk Intelligence Platform"
+      },
+      description: " EHM provides comprehensive sustainability assessments to evaluate an organization’s environmental, social and governance (ESG) performance. Our reporting solutions, customised Sustainability Dashboard help businesses ensure regulatory compliance, enhance transparency and align with global sustainability standards.",
+     
+    },
+    {
+      brandName: "ehmconsultancy",
+      brandColor: "blue",
+      title: " Sustainable Environmental Management",
+      displayMode: "imageOnly",
+      mainVisual: {
+        src: "/offering/4.png",
+        alt: "Urban Climate Resilience Platform"
+      },
+      description: "EHM provides sustainable environmental solutions to enhanceresource efficiency, promote environmental stewardship and support sustainable practices across various sectors. Our approach integrates cutting-edge technologies and nature-based solutions (NBS) to ensure long-term environmental and economic benefits.",
+      
+    },
+    {
+      brandName: "ehmconsultancy",
+      brandColor: "orange",
+      title: " Geophysical Investigation",
+      displayMode: "imageOnly",
+      mainVisual: {
+        src: "/offering/5.jpg",
+        alt: "Energy Management Platform"
+      },
+      description: " EHM specialises in geophysical investigations for subsurface exploration, leveraging well established geophysical methods and state of the art instrumentation. Depending upon the specific requirement of projects and site conditions, we integrate various methods and industry standard tools to deliver accurate and data-driven insights.",
 
-const ServicesSection = () => {
+    },
+    {
+      brandName: "ehmconsultancy",
+      brandColor: "cyan",
+      title: "Urban Planning & Management",
+      displayMode: "imageOnly",
+      mainVisual: {
+        src: "/offering/6.png",
+        alt: "Water Management Platform"
+      },
+      description: " EHM provides strategic solutions to develop sustainable, resilient and well-planned urban spaces. With a data-driven, interdisciplinary approach. EHM helps cities, transition toward circular, resource-efficient and climate-resilient urban centers, aligning national urban development frameworks.",
+      
+    }
+  ];
+
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+     
+      setCurrentDataIndex(prev => (prev + 1) % platformsConfig.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [platformsConfig.length]);
+
+  const getColorClasses = (color) => ({
+    primary: `bg-${color}-600`,
+    primaryHover: `hover:bg-${color}-700`,
+    text: `text-${color}-600`,
+    textLight: `text-${color}-100`,
+    border: `border-${color}-600`,
+    borderHover: `hover:border-${color}-700`
+  });
+
+  const renderPlatformCard = (config, index) => {
+    const colors = getColorClasses(config.brandColor);
+
+    return (
+      <div
+        key={index}
+       >
+        <div className="bg-gray-100 rounded-2xl shadow-2xl overflow-hidden">
+          <div className="bg-gray-200 px-4 py-3 flex items-center space-x-3">
+            <div className="flex space-x-2">
+              <div className="w-3 h-3 bg-red-400 rounded-full"></div>
+              <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
+              <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+            </div>
+            <div className="flex-1 bg-white rounded px-3 py-1 mx-4">
+              <span className="text-xs text-gray-500">https://</span>
+              <span className="text-xs text-gray-700">{config.brandName.toLowerCase()}.com</span>
+            </div>
+            <div className="w-4 h-4 bg-gray-400 rounded"></div>
+          </div>
+
+          <div className="relative bg-black min-h-[400px] flex items-center justify-center overflow-hidden">
+            <img
+              src={config.mainVisual.src}
+              alt={config.mainVisual.alt}
+              className="w-full h-full object-cover "
+              onError={(e) => {
+                e.target.src =
+                  'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400"><rect width="800" height="400" fill="%23000000"/><text x="400" y="200" text-anchor="middle" dy="0.3em" font-family="Arial, sans-serif" font-size="24" fill="%23ffffff">PUT YOUR IMAGE HERE</text></svg>';
+              }}
+            />
+
+           
+          </div>
+        </div>
+
+        <div className="mt-8">
+          <h2 className="text-3xl font-bold text-green-900 mb-4">
+            {config.title}
+          </h2>
+          <p className="text-gray-600 mb-6 font-sans leading-relaxed">
+            {config.description}
+          </p>
+          <div className="flex space-x-4">
+            <button className="border border-gray-300 hover:border-gray-400 text-gray-700 px-6 py-3 rounded-lg flex items-center space-x-2 transition-colors">
+              <Link to="/offerings">Learn more</Link>
+              <ArrowRight size={16} />
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  // Fixed 2 cards per row layout
+  const getGridClasses = () => {
+    return "grid-cols-1 lg:grid-cols-2";
+  };
+
   return (
-    <section className="py-12 px-6 max-w-screen-xl mx-auto">
-      
-        <div className="text-center mb-12 py-8">
-                    <div className="flex items-center justify-center gap-4 mb-6">
-                      <Sparkles className="text-teal-500 animate-pulse" size={40} />
-                      <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-teal-600 via-emerald-600 to-green-600 bg-clip-text text-transparent">
-                        OFFERINGS 
-                      </h1>
-                      <Sparkles className="text-emerald-500 animate-pulse" size={40} />
-                    </div>
-                    <div className="w-32 h-1 bg-gradient-to-r from-teal-400 to-emerald-500 rounded-full mx-auto"></div>
-                  </div>
-      
-      <ServiceCard
-  title="Sustainability Assessment & Reporting"
-  description="EHM provides comprehensive sustainability assessments to evaluate an organization’s environmental, social and governance (ESG) performance. Our reporting solutions, customised Sustainability Dashboard help businesses ensure regulatory compliance, enhance transparency and align with global sustainability standards."
-  imageUrl={islandImage}
-  fileUrl="/docs/bioremediation-case-study.pdf"
-  bullets={[
-    "ESG Performance Evaluation",
-    "Sustainability & Impact Reporting (BRSR, Integrated Reporting, GRI, SASB, CDP)",
-    "GHG Accounting & Climate Risk Assessment Dashboard",
-    "Compliance Audits & ISO Certifications",
-  ]}
-/>
+    <div className=" min-h-screen py-12 px-4">
+      <div className="max-w-7xl mx-auto">
 
-      <ServiceCard
-  title="Sustainable Environmental Management"
-  description="EHM provides sustainable environmental solutions to enhance resource efficiency, promote environmental stewardship & support sustainable practices across various sectors. Our approach integrates cutting-edge technologies and nature-based solutions (NBS) to ensure long-term environmental and economic benefits."
-  imageUrl={services3}
-  fileUrl="/docs/bioremediation-case-study.pdf"
-  bullets={[
-    "Project Planning & Monitoring",
-    "Restoration of Waterbodies",
-    "Quality Control, Assessment & Audits",
-    "Sewage & Greywater Management",
-    "Decentralized Natural Treatment Systems (DNTS)",
-    "Treated Water Reuse & Management",
-  ]}
-/>
+       <div className="text-center mb-12 py-8">
+        <div className="flex items-center justify-center gap-4 mb-6">
+          <Sparkles className="text-teal-500 animate-pulse" size={40} />
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-teal-600 via-emerald-600 to-green-600 bg-clip-text text-transparent">
+           Offerings
+          </h1>
+          <Sparkles className="text-emerald-500 animate-pulse" size={40} />
+        </div>
+        <div className="w-32 h-1 bg-gradient-to-r from-teal-400 to-emerald-500 rounded-full mx-auto"></div>
+      </div>
 
+        <div className={`grid ${getGridClasses()} gap-12`}>
+          {platformsConfig.map((config, index) => renderPlatformCard(config, index))}
+        </div>
 
-      <ServiceCard
-  title="Geophysical Investigation"
-  description="EHM specialises in geophysical investigations for subsurface
-exploration, leveraging well established geophysical methods and
-state of the art instrumentation. Depending upon the specific
-requirement of projects and site conditions, we integrate various
-methods and industry standard tools to deliver accurate and
-data-driven insights."
-  imageUrl={services2}
-  fileUrl="/docs/bioremediation-case-study.pdf"
-  bullets={[
-    "Mineral Exploration",
-    "Engineering & Geotechnical Investigation",
-    "Mining Exploration",
-    "Environmental Investigation",
-    "Hydrological Investigation",
-    "Archaeological Investigation",
-  ]}
-/>
-
-
-      <ServiceCard
-  title="Urban Planning & Management"
-  description="EHM provides strategic solutions to develop sustainable, resilient
-and well-planned urban spaces. With a data-driven,
-interdisciplinary approach. EHM helps cities, transition toward
-circular, resource-efficient and climate-resilient urban centers,
-aligning national urban development frameworks."
-  imageUrl={services4}
-  fileUrl="/docs/bioremediation-case-study.pdf"
-  bullets={[
-    "Water-Positive & Net-Zero Plan",
-    "Climate-Resilient Action Plan",
-    "Master Drainage Plan",
-    "Circular Green Campus Development",
-    "City Sewerage Plan",
-    "Resource Efficiency Action Plan",
-    "Lake Front Development",
-    "GHG Accounting",
-  ]}
-/>
-
-
-      <ServiceCard
-  title="Climate Risk Intelligence"
-  description="We offers advanced, research-driven AI solutions in climate risk
-intelligence, delivering high-resolution risk assessments and cropspecific yield projections across historical, current, and future
-timelines. Leveraging vast datasets on climate, agriculture, and
-socio-demographics, we empower businesses and policymakers
-to anticipate and mitigate climate risks with precision."
-  imageUrl={services3}
-  fileUrl="/docs/bioremediation-case-study.pdf"
-  bullets={[
-    "Agriculture Risk Intelligence (AgRI.ai)",
-    "Climate Data Portal",
-    "Urban Climate Risk Intelligence (CityAdapt.ai)",
-    "Climate Consulting Servicest",
-  ]}
-/>
-
-
-      <ServiceCard
-  title="Training & Capacity Building"
-  description="EHM provides comprehensive training programs, workshops,
-hands-on sessions and webinars designed to enhance the skills
-and knowledge of industry professionals, government officials and
-municipal engineers. Our goal is to build capacity, increase
-awareness and integrate sustainability into operations through
-practical learning and innovative tools."
-  imageUrl={services4}
-  fileUrl="/docs/bioremediation-case-study.pdf"
-  bullets={[
-    "Environmental, Social, and Governance (ESG)",
-    "Industry 4.0, IoT & Automation",
-    "Environmental & Water Management",
-    "AI & Machine Learning",
-    "Regulatory Compliance Training",
-    "Geophysical Data Acquisition & Processing",
-  ]}
-/>
-
-
-    </section>
+        
+      </div>
+    </div>
   );
 };
 
-export default ServicesSection;
+export default ServiceSection;

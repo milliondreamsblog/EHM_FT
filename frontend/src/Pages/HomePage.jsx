@@ -9,13 +9,14 @@ import Logo from "../Components/LandingPage/Logo";
 // import ProductSection from "../Components/ProductSection/ProductSection";
 import { members } from "../Data/Data";
 import ServicePage from "./Services";
+import ServiceSection from "../Components/LandingPage/ServiceSection";
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50">
+    <div className="min-h-screen bg-gradient-to-br from-green-50 to-teal-50">
       <HeroSection />
-
-      <ServicePage />
+<ServiceSection/>
+      {/* <ServicePage /> */}
       {/* <ServiceSection />
 
 import ServiceSection from "../Components/LandingPage/ServiceSection";
