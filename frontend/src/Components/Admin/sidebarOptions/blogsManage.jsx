@@ -47,6 +47,29 @@ export default function BlogsManage() {
     }
   };
 
+  //function to convert content text to HTML, including image links
+  const processBlogContent = (text) => {
+    if (!text) return "";
+    // Regular expression to find image URLs
+    const imageUrlRegex = /(https?:\/\/[^\s]+?\.(?:jpg|jpeg|png|gif|svg|webp))/gi;
+
+    return text
+      .split('\n')
+      .map(line => {
+        // Check if the line is just an image URL
+        if (line.trim().match(imageUrlRegex) && line.trim().match(imageUrlRegex)[0] === line.trim()) {
+          // If it is, return an <img> tag
+          return `<img src="${line.trim()}" alt="Blog content image" style="max-width: 100%; height: auto; border-radius: 8px; margin: 1em 0;" />`;
+        }
+        // Otherwise, if the line is not empty, wrap it in a <p> tag
+        else if (line.trim() !== "") {
+          return `<p>${line.trim()}</p>`;
+        }
+        return ''; // Return an empty string for empty lines to avoid empty <p> tags
+      })
+      .join('');
+  };
+
   // Upload blog
   const handleUpload = async () => {
     if (!formData.title || !formData.author || !formData.content) {
@@ -55,7 +78,8 @@ export default function BlogsManage() {
     }
     try {
       const data = new FormData();
-      const formattedContent = formatContentToHtml(formData.content); // Format content to HTML
+
+      const formattedContent = processBlogContent(formData.content);
 
       data.append("title", formData.title);
       data.append("author", formData.author);
@@ -71,6 +95,7 @@ export default function BlogsManage() {
     }
   };
 
+  // Edit blog
   const handleEdit = async () => {
     if (!formData.title || !formData.author || !formData.content) {
       alert("Please fill all required fields.");
@@ -78,7 +103,8 @@ export default function BlogsManage() {
     }
     try {
       const data = new FormData();
-      const formattedContent = formatContentToHtml(formData.content);
+
+      const formattedContent = processBlogContent(formData.content);
 
       data.append("title", formData.title);
       data.append("author", formData.author);
@@ -111,8 +137,12 @@ export default function BlogsManage() {
     setSelectedBlog(blog);
 
     const plainTextContent = blog.content
-      .replace(/<\/p>/g, "\n") // Replace closing <p> tag with a newline
-      .replace(/<[^>]*>/g, "") // Remove all other HTML tags
+      .replace(/<img[^>]*>/g, (match) => {
+        const srcMatch = match.match(/src="([^"]*)"/);
+        return srcMatch ? `\n${srcMatch[1]}\n` : '';
+      })
+      .replace(/<\/p>/g, "\n")
+      .replace(/<[^>]*>/g, "")
       .trim();
 
     setFormData({
@@ -126,18 +156,8 @@ export default function BlogsManage() {
 
   const createSnippet = (htmlContent, length = 100) => {
     if (!htmlContent) return "";
-    const text = htmlContent.replace(/<[^>]*>?/gm, " "); // Replace tags with a space
+    const text = htmlContent.replace(/<[^>]*>?/gm, " ");
     return text.slice(0, length).trim() + "...";
-  };
-
-  // Helper function to convert textarea text to HTML paragraphs
-  const formatContentToHtml = (text) => {
-    if (!text) return "";
-    return text
-      .split("\n")
-      .filter((p) => p.trim() !== "")
-      .map((p) => `<p>${p.trim()}</p>`)
-      .join("");
   };
 
   const formatDate = (dateStr) => {
@@ -160,7 +180,6 @@ export default function BlogsManage() {
         </button>
       </div>
       {/* Blog Cards */}
-
       {loading ? (
         <p>Loading blogs...</p>
       ) : (
@@ -197,7 +216,6 @@ export default function BlogsManage() {
                 >
                   {blog.title}
                 </h3>
-
                 <span className="inline-block bg-green-100 text-green-700 text-xs px-2 py-1 rounded mt-1 cursor-pointer">
                   {blog.author}
                 </span>
@@ -286,9 +304,11 @@ export default function BlogsManage() {
                 <span className="text-gray-400 text-lg">No Image</span>
               </div>
             )}
-            <p className="whitespace-pre-line text-gray-700 leading-relaxed">
-              {selectedBlog.content}
-            </p>
+
+            <div
+              className="prose lg:prose-xl max-w-none blog-content-view"
+              dangerouslySetInnerHTML={{ __html: selectedBlog.content }}
+            />
           </div>
         </Modal>
       )}
@@ -306,6 +326,7 @@ export default function BlogsManage() {
     </div>
   );
 }
+
 
 // Reusable Modal Component
 function Modal({ title, children, onClose, onSubmit, hideSubmit }) {

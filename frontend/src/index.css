@@ -16,3 +16,16 @@
     }
   }
 }
+
+.blog-content-view p {
+  text-align: justify;
+}
+
+.blog-content-view img {
+  width: 100%;
+  max-width: 100% !important;
+  height: auto;
+  border-radius: 0.75rem; 
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
