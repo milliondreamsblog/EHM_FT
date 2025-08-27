@@ -404,7 +404,7 @@ const ProjectShow = () => {
   ];
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-teal-50/30">
+    <div className="min-h-screen relative overflow-hidden ">
       {/* Enhanced Background */}
       <div className="absolute inset-0 z-0">
         <div
