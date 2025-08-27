@@ -3,22 +3,18 @@ import { MapPin, Building, Calendar, ChevronDown, ChevronUp, ExternalLink, Share
 
 // Mock images for demonstration. In a real app, you'd import these.
 // Replaced local paths with web-accessible placeholders.
-const pic1 = "../src/assets/Projects/Green Crematorium.png";
-const pic2 = "../src/assets/Projects/Modular Sewage Treatment Plant.png";
-const pic3 = "../src/assets/Projects/energy hub.jpg";
+const pic1 = "../src/assets/Projects/Electrical Resistivity Tomography.jpeg";
+const pic2 = "../src/assets/Projects/ESG Course Modules & TOT for MSME.jpg";
+const pic3 = "../src/assets/Projects/CSJMU Sustainability Report.jpeg";
 const pic4 = "../src/assets/Projects/Sustainable Management Plan, Antia Taal.jpg";
-const pic5 = "../src/assets/Projects/Electrical Resistivity Tomography.jpeg";
-const pic6 = "../src/assets/Projects/ESG Course Modules & TOT for MSME.jpg";
-const pic7 = "../src/assets/Projects/CSJMU Sustainability Report.jpeg";
-const pic8 = "../src/assets/Projects/Sustainable Management Plan, Antia Taal.jpg";
-const pic9 = "../src/assets/Projects/Kanpur Smart City Audit.png";
-const pic10 = "../src/assets/Projects/Restoration of Waterbody.jpg";
-const pic11 = "../src/assets/Projects/social Impact.jpg";
-const pic12 = "../src/assets/Projects/Jhansi Smart City Audit.png"; // New placeholder for Jhansi Audit
-const pic13 = "../src/assets/Projects/Designing Constructed Wetland .jpg";
-const pic14 = "../src/assets/Projects/Restoration of Adiyur lake, Tirupathur.jpeg";
-const pic15 = "../src/assets/Projects/Grey Water Management.jpeg";
-const pic16 = "../src/assets/Projects/Environmental Audit.jpg";
+const pic5 = "../src/assets/Projects/Kanpur Smart City Audit.png";
+const pic6 = "../src/assets/Projects/Restoration of Waterbody.jpg";
+const pic7 = "../src/assets/Projects/social Impact.jpg";
+const pic8 = "../src/assets/Projects/Designing Constructed Wetland .jpg";
+const pic9 = "../src/assets/Projects/Designing Constructed Wetland .jpg";
+const pic10 = "../src/assets/Projects/Restoration of Adiyur lake, Tirupathur.jpeg";
+const pic11 = "../src/assets/Projects/Grey Water Management.jpeg";
+const pic12 = "../src/assets/Projects/Environmental Audit.jpg";
 
 
 const ProjectCard = ({
@@ -68,7 +64,7 @@ const ProjectCard = ({
 
   return (
     <div
-      className={`group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-700 ease-out hover:-translate-y-2 hover:scale-[1.02] cursor-pointer border border-gray-100 mb-6 break-inside-avoid ${className}`}
+      className={`group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-700 ease-out hover:-translate-y-2 hover:scale-[1.02] cursor-pointer border border-gray-100 mb-6 ${className}`}
       style={style}
       onClick={onClick}
     >
@@ -175,7 +171,7 @@ const ProjectCard = ({
         )}
 
         {/* Collapsible Section for Additional Details */}
-        {(technologies?.length > 0 || outcomes?.length > 0 || agency || duration) && (
+        {(technologies?.length > 0 || outcomes?.length > 0) && (
           <div className="border-t border-gray-100 pt-3">
             <button
               onClick={toggleExpanded}
@@ -194,31 +190,6 @@ const ProjectCard = ({
             
             {isExpanded && (
               <div className="mt-3 space-y-4 animate-fadeIn">
-                {/* Quick Info Grid */}
-                {(agency || duration) && (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                        {agency && (
-                        <div className="flex items-center gap-2 p-2 bg-gray-100 rounded-lg">
-                            <Building className="w-4 h-4 text-teal-600 flex-shrink-0" />
-                            <div className="min-w-0">
-                            <p className="text-xs font-medium text-gray-500 uppercase tracking-wide">Agency</p>
-                            <p className="text-xs font-semibold text-gray-800 truncate">{agency}</p>
-                            </div>
-                        </div>
-                        )}
-                        
-                        {duration && (
-                        <div className="flex items-center gap-2 p-2 bg-gray-100 rounded-lg">
-                            <Calendar className="w-4 h-4 text-teal-600 flex-shrink-0" />
-                            <div className="min-w-0">
-                            <p className="text-xs font-medium text-gray-500 uppercase tracking-wide">Duration</p>
-                            <p className="text-xs font-semibold text-gray-800 truncate">{duration}</p>
-                            </div>
-                        </div>
-                        )}
-                    </div>
-                )}
-                
                 {/* Technologies Used Section */}
                 {technologies && technologies.length > 0 && (
                   <div className="space-y-2">
@@ -290,21 +261,18 @@ const ProjectCard = ({
 // Main App Component
 const App = () => {
   const sampleProjects = [
-    { image: pic1, title: "Green Crematorium Innovation", agency: "Jhansi Nagar Nigam", location: "Jhansi, Uttar Pradesh", duration: "8 months", status: "Completed", projectType: "Environmental", technologies: ["Air Filtration", "IoT Monitoring", "Sustainable Architecture"], description: "A project focused on vetting and implementing advanced filtration systems to improve air quality around crematorium facilities.", outcomes: ["Achieved 60% reduction in air pollution", "Implemented real-time environmental monitoring", "Enhanced community acceptance and satisfaction"] },
-    { image: pic2, title: "Smart Water Management System", agency: "Lucknow Municipal Corporation", location: "Lucknow, Uttar Pradesh", duration: "12 months", status: "Ongoing", projectType: "Smart City", technologies: ["IoT Sensors", "Big Data", "Mobile Apps", "ML"], description: "A city-wide, IoT-enabled system for smart water distribution and quality monitoring, using predictive analytics to reduce wastage.", outcomes: ["40% reduction in water wastage", "Real-time water quality tracking", "Automated leak detection system"] },
-    { image: pic3, title: "Renewable Energy Hub", agency: "UP State Energy Board", location: "Kanpur, Uttar Pradesh", duration: "18 months", status: "Upcoming", projectType: "Energy", technologies: ["Solar Panels", "Wind Turbines", "Smart Grid", "Battery Storage"], description: "An integrated renewable energy hub combining solar and wind power with smart grid connectivity and advanced battery storage.", outcomes: ["Target: 50 MW clean energy generation", "Enhanced grid stability and reliability", "Significant carbon footprint reduction"] },
-    { image: pic5, title: "Electrical Resistivity Tomography (ERT) Survey", agency: "Thriveni Sainik Mining Private Limited", location: "Unknown", duration: "Ongoing", status: "Ongoing", projectType: "Survey", technologies: ["ERT", "Geophysical Surveying"], description: "Estimation of coal reserves, identification of galleries, coal seam voids, and water-filled zones in an abandoned coal mine.", outcomes: ["Detailed subsurface mapping", "Resource estimation"] },
-    { image: pic6, title: "ESG Course Modules & TOT for MSME", agency: "UPSIC, Kanpur", location: "Kanpur, Uttar Pradesh", duration: "Completed", status: "Completed", projectType: "Training", technologies: ["ESG Frameworks", "Curriculum Design"], description: "Develop course curriculum and organize Train the Trainer programs for RAMP Programme, a World Bank assisted project.", outcomes: ["Trained trainers", "Developed ESG curriculum"] },
-    { image: pic7, title: "Sustainability Report", agency: "CSJM University, Kanpur", location: "Kanpur, Uttar Pradesh", duration: "Completed", status: "Completed", projectType: "Environmental", technologies: ["UNSDG Framework", "GHG Accounting"], description: "Sustainability reporting using UNSDG framework, GHG emission accounting, and identifying interventions as per ESG framework to achieve Net-zero goals.", outcomes: ["Published sustainability report", "Net-zero roadmap"] },
-    { image: pic8, title: "Sustainable Management Plan, Antia Taal", agency: "Jhansi Nagar Nigam, Jhansi", location: "Jhansi, Uttar Pradesh", duration: "Ongoing", status: "Ongoing", projectType: "Environmental", technologies: ["Water Management", "Financial Analysis"], description: "Assessing the technical feasibility of treated water and financial sustainability of the project.", outcomes: ["Feasibility report", "Sustainability plan"] },
-    { image: pic9, title: "Audit of Smart City Projects", agency: "Agra and Kanpur Smart City Limited", location: "Agra & Kanpur", duration: "Completed", status: "Completed", projectType: "Audit", technologies: ["Project Auditing", "Quality Assurance"], description: "Audit and quality check of various projects executed under smart city mission starting from the DPR phase till the completion of the project.", outcomes: ["Comprehensive audit report", "Quality assessment"] },
-    { image: pic10, title: "Restoration of Waterbody", agency: "CSJM University, Kanpur", location: "Kanpur, Uttar Pradesh", duration: "Ongoing", status: "Ongoing", projectType: "Environmental", technologies: ["Bioremediation", "Floating Wetlands"], description: "Design and commissioning of bioremediation floating wetland.", outcomes: ["Improved water quality", "Restored ecosystem"] },
-    { image: pic11, title: "Social Impact Assessment", agency: "Jhansi Smart City Limited", location: "Jhansi, Uttar Pradesh", duration: "Completed", status: "Completed", projectType: "Audit", technologies: ["Social Impact Analysis"], description: "Social impact assessment of various projects of tourism, water, health, sports, park category executed under smart city mission.", outcomes: ["SIA report", "Community feedback analysis"] },
-    { image: pic12, title: "Jhansi Smart City Audit", agency: "Jhansi Smart City Limited", location: "Jhansi, Uttar Pradesh", duration: "6 months", status: "Completed", projectType: "Audit", technologies: ["Data Analytics", "Compliance Checking", "Performance Metrics"], description: "A comprehensive audit of infrastructure and technology projects implemented under the Jhansi Smart City mission to ensure quality and impact.", outcomes: ["Identified key areas for optimization", "Ensured compliance with government standards", "Provided actionable recommendations for future phases"] },
-    { image: pic13, title: "Designing Constructed Wetland", agency: "Neev Enviro Consultants", location: "Rajouri, J&K", duration: "Completed", status: "Completed", projectType: "Infrastructure", technologies: ["Constructed Wetlands", "Nature Based Treatment"], description: "Design of a 0.5 MLD STP based on decentralized nature based treatment technique.", outcomes: ["Designed STP plan"] },
-    { image: pic14, title: "Restoration of Adiyur lake, Tirupathur", agency: "Tirupathur Municipal Corporation, Tamilnadu", location: "Tirupathur, Tamilnadu", duration: "Ongoing", status: "Ongoing", projectType: "Environmental", technologies: ["Lake Restoration", "Wastewater Treatment"], description: "Restoration of lake by treating and reuse the adjacent drain carrying the graywater.", outcomes: ["Restored lake ecosystem"] },
-    { image: pic15, title: "Grey Water Management", agency: "Private Industry", location: "Leather Park, Kanpur", duration: "Completed", status: "Completed", projectType: "Infrastructure", technologies: ["Grey Water Treatment"], description: "Treatment of grey water generated inside the premises of the leather industry.", outcomes: ["Water recycling system"] },
-    { image: pic16, title: "Environmental Audit", agency: "Kolkata Zonal Lab, CSIR-NEERI, Kolkata", location: "Kolkata, West Bengal", duration: "Completed", status: "Completed", projectType: "Audit", technologies: ["Environmental Auditing", "SDG Analysis"], description: "Analyzing the Energy/water usage and waste generation of the building to optimize/reduce the operations as per the SDGs guidelines.", outcomes: ["Audit report with recommendations"] }
+    { image: pic1, title: "Electrical Resistivity Tomography (ERT) Survey", agency: "Thriveni Sainik Mining Private Limited", location: "Jharkhand", duration: "Ongoing", status: "Ongoing", projectType: "Survey", technologies: ["ERT", "Geophysical Surveying"], description: "Estimation of coal reserves, identification of galleries, coal seam voids, and water-filled zones in an abandoned coal mine.", outcomes: ["Detailed subsurface mapping", "Resource estimation"] },
+    { image: pic2, title: "ESG Course Modules & TOT for MSME", agency: "UPSIC, Kanpur", location: "Kanpur, Uttar Pradesh", duration: "Completed", status: "Completed", projectType: "Training", technologies: ["ESG Frameworks", "Curriculum Design"], description: "Develop course curriculum and organize Train the Trainer programs for RAMP Programme, a World Bank assisted project.", outcomes: ["Trained trainers", "Developed ESG curriculum"] },
+    { image: pic3, title: "Sustainability Report", agency: "CSJM University, Kanpur", location: "Kanpur, Uttar Pradesh", duration: "Completed", status: "Completed", projectType: "Environmental", technologies: ["UNSDG Framework", "GHG Accounting"], description: "Sustainability reporting using UNSDG framework, GHG emission accounting, and identifying interventions as per ESG framework to achieve Net-zero goals.", outcomes: ["Published sustainability report", "Net-zero roadmap"] },
+    { image: pic4, title: "Sustainable Management Plan, Antia Taal", agency: "Jhansi Nagar Nigam, Jhansi", location: "Jhansi, Uttar Pradesh", duration: "Ongoing", status: "Ongoing", projectType: "Environmental", technologies: ["Water Management", "Financial Analysis"], description: "Assessing the technical feasibility of treated water and financial sustainability of the project.", outcomes: ["Feasibility report", "Sustainability plan"] },
+    { image: pic5, title: "Audit of Smart City Projects", agency: "Jhansi and Kanpur Smart City Limited", location: "Jhansi & Kanpur", duration: "Completed", status: "Completed", projectType: "Audit", technologies: ["Project Auditing", "Quality Assurance"], description: "Audit and quality check of various projects executed under smart city mission starting from the DPR phase till the completion of the project.", outcomes: ["Comprehensive audit report", "Quality assessment"] },
+    { image: pic6, title: "Restoration of Waterbody", agency: "CSJM University, Kanpur", location: "Kanpur, Uttar Pradesh", duration: "Ongoing", status: "Ongoing", projectType: "Environmental", technologies: ["Bioremediation", "Floating Wetlands"], description: "Design and commissioning of bioremediation floating wetland.", outcomes: ["Improved water quality", "Restored ecosystem"] },
+    { image: pic7, title: "Social Impact Assessment", agency: "Jhansi Smart City Limited", location: "Jhansi, Uttar Pradesh", duration: "Completed", status: "Completed", projectType: "Audit", technologies: ["Social Impact Analysis"], description: "Social impact assessment of various projects of tourism, water, health, sports, park category executed under smart city mission.", outcomes: ["SIA report", "Community feedback analysis"] },
+    { image: pic8, title: "Agra Project", agency: "CENGG Engineers & Ongoing Consultants (P) Ltd", location: "Industrial Area Foundry Nagar, Agra", duration: "Ongoing", status: "Ongoing", projectType: "Infrastructure", technologies: ["Effluent Treatment", "Project Management"], description: "Designing and Project Management of 80 KLD Decentralized Effluent Treatment Plant.", outcomes: ["Plant Design Completed", "Project Management Plan in Place"] },
+    { image: pic9, title: "Designing Constructed Wetland", agency: "Neev Enviro Consultants", location: "Rajouri, J&K", duration: "Completed", status: "Completed", projectType: "Infrastructure", technologies: ["Constructed Wetlands", "Nature Based Treatment"], description: "Design of a 0.5 MLD STP based on decentralized nature based treatment technique.", outcomes: ["Designed STP plan"] },
+    { image: pic10, title: "Restoration of Adiyur lake, Tirupathur", agency: "Tirupathur Municipal Corporation, Tamilnadu", location: "Tirupathur, Tamilnadu", duration: "Ongoing", status: "Ongoing", projectType: "Environmental", technologies: ["Lake Restoration", "Wastewater Treatment"], description: "Restoration of lake by treating and reuse the adjacent drain carrying the graywater.", outcomes: ["Restored lake ecosystem"] },
+    { image: pic11, title: "Grey Water Management", agency: "Prachi Leather, Kanpur", location: "Leather Park, Kanpur", duration: "Completed", status: "Completed", projectType: "Infrastructure", technologies: ["Grey Water Treatment"], description: "Treatment of grey water generated inside the premises of the leather industry.", outcomes: ["Water recycling system"] },
+    { image: pic12, title: "Environmental Audit", agency: "Kolkata Zonal Lab, CSIR-NEERI, Kolkata", location: "Kolkata, West Bengal", duration: "Completed", status: "Completed", projectType: "Audit", technologies: ["Environmental Auditing", "SDG Analysis"], description: "Analyzing the Energy/water usage and waste generation of the building to optimize/reduce the operations as per the SDGs guidelines.", outcomes: ["Audit report with recommendations"] }
   ];
 
   const [message, setMessage] = useState(null);
@@ -327,7 +295,7 @@ const App = () => {
 
   return (
     <div className="min-h-screen font-sans relative overflow-x-hidden bg-gradient-to-br from-gray-50 via-white to-teal-50/30">
-        {/* Custom CSS for animations and masonry layout */}
+        {/* Custom CSS for animations and grid layout */}
         <style>{`
           @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(60px); }
@@ -365,21 +333,21 @@ const App = () => {
             from { opacity: 0; transform: translateY(-10px); }
             to { opacity: 1; transform: translateY(0); }
           }
-          .masonry-grid {
-              column-gap: 1.5rem; /* Reduced gap between columns */
+          /* New Grid Layout */
+          .projects-grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(1, minmax(0, 1fr));
           }
           @media (min-width: 768px) {
-              .masonry-grid {
-                  column-count: 2;
-              }
+            .projects-grid {
+              grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
           }
           @media (min-width: 1280px) {
-              .masonry-grid {
-                  column-count: 3;
-              }
-          }
-          .break-inside-avoid {
-              break-inside: avoid;
+            .projects-grid {
+              grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
           }
         `}</style>
       
@@ -387,7 +355,7 @@ const App = () => {
       <div className="absolute inset-0 z-0">
         <div
           className="absolute inset-0 bg-cover bg-center bg-fixed opacity-5"
-          style={{ backgroundImage: `url(${pic4})` }}
+          style={{ backgroundImage: `url(https://placehold.co/1920x1080/F0F9FF/334155?text=Background)` }}
         ></div>
         <div className="absolute inset-0 bg-gradient-to-br from-white/90 via-teal-50/80 to-blue-50/70"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-white/60 via-transparent to-green-100/20"></div>
@@ -436,7 +404,7 @@ const App = () => {
 
         {/* Projects Grid */}
         <div className="max-w-7xl mx-auto px-4 mb-20">
-          <div className="masonry-grid">
+          <div className="projects-grid">
             {filteredProjects.map((project, index) => (
               <ProjectCard
                 key={`${activeFilter}-${index}`} // Use a key that changes with the filter to re-trigger animations
