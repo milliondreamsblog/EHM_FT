@@ -194,7 +194,7 @@ export default function BlogsManage() {
             >
               {blog.image ? (
                 <img
-                  src={API.defaults.baseURL + blog.image}
+                  src={blog.image}
                   alt={blog.title}
                   className="w-full h-40 object-cover transition-transform duration-300 group-hover:scale-105"
                 />
@@ -295,7 +295,7 @@ export default function BlogsManage() {
             </span>
             {selectedBlog.image ? (
               <img
-                src={API.defaults.baseURL + selectedBlog.image}
+                src={selectedBlog.image}
                 alt={selectedBlog.title}
                 className="w-full h-60 object-cover mb-4 rounded-lg shadow-md"
               />

@@ -6,7 +6,7 @@ const ServiceSection = () => {
   const [activeScreen, setActiveScreen] = useState(null);
   const [currentDataIndex, setCurrentDataIndex] = useState(0);
 
-  
+
   const platformsConfig = [
     {
       brandName: "ehmconsultancy",
@@ -18,7 +18,7 @@ const ServiceSection = () => {
         alt: "Agricultural Risk Intelligence Platform"
       },
       description: " EHM provides comprehensive sustainability assessments to evaluate an organization’s environmental, social and governance (ESG) performance. Our reporting solutions, customised Sustainability Dashboard help businesses ensure regulatory compliance, enhance transparency and align with global sustainability standards.",
-     
+
     },
     {
       brandName: "ehmconsultancy",
@@ -30,7 +30,7 @@ const ServiceSection = () => {
         alt: "Urban Climate Resilience Platform"
       },
       description: "EHM provides sustainable environmental solutions to enhanceresource efficiency, promote environmental stewardship and support sustainable practices across various sectors. Our approach integrates cutting-edge technologies and nature-based solutions (NBS) to ensure long-term environmental and economic benefits.",
-      
+
     },
     {
       brandName: "ehmconsultancy",
@@ -54,14 +54,14 @@ const ServiceSection = () => {
         alt: "Water Management Platform"
       },
       description: " EHM provides strategic solutions to develop sustainable, resilient and well-planned urban spaces. With a data-driven, interdisciplinary approach. EHM helps cities, transition toward circular, resource-efficient and climate-resilient urban centers, aligning national urban development frameworks.",
-      
+
     }
   ];
 
 
   useEffect(() => {
     const interval = setInterval(() => {
-     
+
       setCurrentDataIndex(prev => (prev + 1) % platformsConfig.length);
     }, 3000);
 
@@ -83,7 +83,7 @@ const ServiceSection = () => {
     return (
       <div
         key={index}
-       >
+      >
         <div className="bg-gray-100 rounded-2xl shadow-2xl overflow-hidden">
           <div className="bg-gray-200 px-4 py-3 flex items-center space-x-3">
             <div className="flex space-x-2">
@@ -109,7 +109,7 @@ const ServiceSection = () => {
               }}
             />
 
-           
+
           </div>
         </div>
 
@@ -138,24 +138,24 @@ const ServiceSection = () => {
 
   return (
     <div className=" min-h-screen py-12 px-4">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[69rem] mx-auto">
 
-       <div className="text-center mb-12 py-8">
-        <div className="flex items-center justify-center gap-4 mb-6">
-          <Sparkles className="text-teal-500 animate-pulse" size={40} />
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-teal-600 via-emerald-600 to-green-600 bg-clip-text text-transparent">
-           Offerings
-          </h1>
-          <Sparkles className="text-emerald-500 animate-pulse" size={40} />
+        <div className="text-center mb-12 py-8">
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <Sparkles className="text-teal-500 animate-pulse" size={40} />
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-teal-600 via-emerald-600 to-green-600 bg-clip-text text-transparent">
+              Offerings
+            </h1>
+            <Sparkles className="text-emerald-500 animate-pulse" size={40} />
+          </div>
+          <div className="w-32 h-1 bg-gradient-to-r from-teal-400 to-emerald-500 rounded-full mx-auto"></div>
         </div>
-        <div className="w-32 h-1 bg-gradient-to-r from-teal-400 to-emerald-500 rounded-full mx-auto"></div>
-      </div>
 
         <div className={`grid ${getGridClasses()} gap-12`}>
           {platformsConfig.map((config, index) => renderPlatformCard(config, index))}
         </div>
 
-        
+
       </div>
     </div>
   );

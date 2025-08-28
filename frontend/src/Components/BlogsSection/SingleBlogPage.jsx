@@ -141,9 +141,7 @@ const SingleBlogPage = () => {
     day: "numeric",
   });
 
-  const imageUrl = blog.image
-    ? `${API.defaults.baseURL}${blog.image.replace(/\\/g, "/")}`
-    : null;
+  const imageUrl = blog.image ? blog.image : null;
 
   return (
     <section className="bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 pt-24 pb-20 relative overflow-hidden min-h-screen">

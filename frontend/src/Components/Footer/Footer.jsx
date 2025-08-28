@@ -27,20 +27,20 @@ const Footer = () => {
 
   return (
     <footer className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
-    
+
       <div className="absolute inset-0 bg-gradient-to-r from-green-500/10 to-emerald-500/10"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(34,197,94,0.1),transparent_50%)]"></div>
-      
-      <div className="relative max-w-7xl mx-auto px-6 py-12">
+
+      <div className="relative max-w-6xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-          
-         
+
+
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center space-x-3">
-              <img 
-                src="https://startinup.up.gov.in/crm/assets/user/images/Documents/Startup/A_STARTUP_UP_UPLC_00004244/startup_logo/168067577328965.png" 
-                alt="EHM Logo" 
-                className="h-12 w-12 rounded-lg shadow-lg bg-white p-1 w-24" 
+              <img
+                src="https://startinup.up.gov.in/crm/assets/user/images/Documents/Startup/A_STARTUP_UP_UPLC_00004244/startup_logo/168067577328965.png"
+                alt="EHM Logo"
+                className="h-12 w-12 rounded-lg shadow-lg bg-white p-1 w-24"
               />
               <div>
                 <h3 className="text-2xl font-bold bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
@@ -49,9 +49,9 @@ const Footer = () => {
                 <p className="text-slate-400 text-sm">Sustainable Solutions for Tomorrow</p>
               </div>
             </div>
-            
+
             <p className="text-slate-300 text-sm leading-relaxed max-w-md">
-              Leading the way in environmental sustainability and carbon footprint reduction. 
+              Leading the way in environmental sustainability and carbon footprint reduction.
               Join us in creating a greener future for generations to come.
             </p>
 
@@ -65,7 +65,7 @@ const Footer = () => {
             </div>
           </div>
 
-        
+
           <div className="space-y-4">
             <div>
               <h4 className="text-lg font-semibold mb-2 flex items-center space-x-2">
@@ -102,27 +102,27 @@ const Footer = () => {
                 {isSubmitting ? 'Subscribing...' : 'Subscribe Now'}
               </button>
             </form>
-            
+
             <p className="text-xs text-slate-500">
-               We respect your privacy. Unsubscribe anytime.
+              We respect your privacy. Unsubscribe anytime.
             </p>
           </div>
 
           {/* Social Links */}
           <div className="space-y-4">
             <h4 className="text-lg font-semibold">Connect With Us</h4>
-            
+
             <div className="flex space-x-4">
-              <a 
-                href="https://www.linkedin.com/company/ehm-consultancy-pvt-ltd/" 
+              <a
+                href="https://www.linkedin.com/company/ehm-consultancy-pvt-ltd/"
                 aria-label="LinkedIn"
                 className="group p-3 bg-slate-800/50 rounded-lg hover:bg-blue-600 
                          transition-all duration-300 transform hover:scale-110"
               >
                 <FaLinkedin className="text-xl text-slate-300 group-hover:text-white transition-colors" />
               </a>
-              <a 
-                href="https://x.com/EhmConsultancy" 
+              <a
+                href="https://x.com/EhmConsultancy"
                 aria-label="Twitter"
                 className="group p-3 bg-slate-800/50 rounded-lg hover:bg-sky-500 
                          transition-all duration-300 transform hover:scale-110"
@@ -142,11 +142,11 @@ const Footer = () => {
           </div>
         </div>
 
-       
+
         <div className="border-t border-slate-700 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-           
-            
+
+
             <div className="flex flex-wrap justify-center md:justify-end space-x-6 text-sm">
               <a href="#" className="text-slate-400 hover:text-green-400 transition-colors">
                 Privacy Policy
