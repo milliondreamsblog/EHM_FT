@@ -294,7 +294,6 @@ const App = () => {
   const filterOptions = ['All Projects', 'Environmental', 'Smart City', 'Energy', 'Infrastructure', 'Audit', 'Survey', 'Training'];
 
   return (
-
     <div className="min-h-screen font-sans relative overflow-x-hidden bg-gradient-to-br from-gray-50 via-white to-teal-50/30">
         {/* Custom CSS for animations and grid layout */}
         <style>{`
@@ -353,10 +352,6 @@ const App = () => {
         `}</style>
       
       {/* Decorative Background Elements */}
-
-    <div className="min-h-screen relative overflow-hidden ">
-      {/* Enhanced Background */}
-
       <div className="absolute inset-0 z-0">
         <div
           className="absolute inset-0 bg-cover bg-center bg-fixed opacity-5"
