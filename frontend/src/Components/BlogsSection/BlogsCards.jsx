@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Tilt from "react-parallax-tilt";
-import { Image as ImageIcon } from "lucide-react";
+import { Image as ImageIcon, ArrowRight, User } from "lucide-react";
 import API from "../../api/axios";
 
 const BlogCard = ({ blog, delay }) => {
@@ -24,68 +23,63 @@ const BlogCard = ({ blog, delay }) => {
     : null;
 
   return (
-    <Tilt
-      glareEnable={true}
-      glareMaxOpacity={0.2}
-      scale={1.05}
-      transitionSpeed={1500}
-      tiltMaxAngleX={10}
-      tiltMaxAngleY={10}
+    <div
+      className="bg-white rounded-2xl shadow-lg overflow-hidden h-full flex flex-col group transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2"
+      data-aos="fade-up"
+      data-aos-delay={delay}
     >
-      <div
-        className="bg-white rounded-2xl shadow-xl overflow-hidden h-full flex flex-col group transform transition-all duration-500 hover:scale-105 hover:shadow-2xl"
-        data-aos="fade-up"
-        data-aos-delay={delay}
-      >
-        <div className="relative h-56 overflow-hidden bg-gray-100">
-          <Link to={`/blogs/${blog._id}`} className="w-full h-full">
-            {imageUrl && !imageError ? (
-              <img
-                src={imageUrl}
-                alt={blog.title}
-                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-                onError={() => setImageError(true)}
-              />
-            ) : (
-              <div className="w-full h-full flex flex-col items-center justify-center text-gray-300">
-                <ImageIcon size={48} />
-                <p className="mt-2 text-xs font-semibold text-gray-400">
-                  Image Not Available
-                </p>
-              </div>
-            )}
+      {/* Reduced image height from h-56 to h-48 */}
+      <div className="relative h-48 overflow-hidden">
+        <Link to={`/blogs/${blog._id}`} className="block w-full h-full">
+          {imageUrl && !imageError ? (
+            <img
+              src={imageUrl}
+              alt={blog.title}
+              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              onError={() => setImageError(true)}
+            />
+          ) : (
+            <div className="w-full h-full bg-gray-100 flex items-center justify-center">
+              <ImageIcon className="w-12 h-12 text-gray-300" />
+            </div>
+          )}
+        </Link>
+        <Link
+          to={`/blogs/author/${encodeURIComponent(blog.author)}`}
+          className="absolute top-4 right-4 z-10 bg-gradient-to-r from-gray-50 to-gray-200 text-gray-800 font-semibold px-3 py-1.5 rounded-full text-xs transition-all duration-300 ease-in-out flex items-center gap-1.5 shadow-sm hover:shadow-lg hover:from-emerald-400 hover:to-green-500 hover:text-white hover:scale-105"
+        >
+          <User className="w-3.5 h-3.5" />
+          <span>{blog.author}</span>
+        </Link>
+      </div>
+
+      {/* Reduced padding from p-6 to p-5 */}
+      <div className="p-5 flex flex-col flex-grow">
+        <span className="text-sm text-gray-500 mb-2">{formattedDate}</span>
+        {/* Reduced margin-bottom from mb-3 to mb-2 */}
+        <h3 className="text-xl font-bold text-gray-800 mb-2 flex-grow">
+          <Link
+            to={`/blogs/${blog._id}`}
+            className="hover:text-green-600 transition-colors duration-300"
+          >
+            {blog.title}
+          </Link>
+        </h3>
+        {/* Reduced snippet word count from 20 to 15 */}
+        <p className="text-gray-600 text-sm mb-4">
+          {createSnippet(blog.content, 15)}
+        </p>
+        <div className="mt-auto">
+          <Link
+            to={`/blogs/${blog._id}`}
+            className="font-semibold text-green-600 inline-flex items-center gap-2 group-hover:text-green-800 transition-colors duration-300"
+          >
+            Read More
+            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
         </div>
-        <div className="p-6 flex flex-col flex-grow">
-          <div className="flex justify-between items-center mb-3 text-sm text-gray-500">
-            <span>{formattedDate}</span>
-            <Link
-              to={`/blogs/author/${encodeURIComponent(blog.author)}`}
-              className="bg-green-100 text-green-800 font-semibold px-3 py-1 rounded-full text-xs hover:bg-green-200 transition-colors"
-            >
-              {blog.author}
-            </Link>
-          </div>
-          <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-green-600 transition-colors">
-            <Link to={`/blogs/${blog._id}`}>{blog.title}</Link>
-          </h3>
-          <p className="text-gray-600 text-sm flex-grow">
-            {createSnippet(blog.content, 20)}
-          </p>
-          <div className="mt-4">
-            <Link
-              to={`/blogs/${blog._id}`}
-              className="font-semibold text-green-600 hover:text-green-800 transition-colors flex items-center"
-            >
-              Read More{" "}
-              <span className="ml-1 transform group-hover:translate-x-1 transition-transform">
-                →
-              </span>
-            </Link>
-          </div>
-        </div>
       </div>
-    </Tilt>
+    </div>
   );
 };
 

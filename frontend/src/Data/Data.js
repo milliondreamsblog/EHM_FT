@@ -8,6 +8,13 @@ export const companies = [
   "img10",
 ];
 
+export const partners = [
+  "IFACET_IIT_KANPUR",
+  "CSJMU",
+  "CSJMIF",
+  "IITR",
+]
+
 import one from "/Team/one.png";
 import two from "/Team/two.png";
 import three from "/Team/three.png";
@@ -36,21 +43,21 @@ const members = [
   },
   {
     name: "Dr. Jitendre Singh",
-    title: "",
+    title: "Climate Extreme & Agriculture Risk",
     degree: "PhD IITB",
     img: "/Team/Dr-Jitendre-Singh.jpg",
     social: "https://www.linkedin.com/in/jitendra-singh-ba60325b/",
   },
   {
     name: "Dr. Tarul Sharma",
-    title: "",
+    title: "Lead Climate Data Modeling & Vulnerability",
     degree: "PhD IITB",
     img: "/Team/Dr-Tarul-Sharma.png",
     social: "https://www.linkedin.com/in/dr-tarul-sharma-36bb6953/",
   },
   {
     name: "Dr. Ramswarup Bhaskar",
-    title: "",
+    title: "Strategy & Planning",
     degree: "PhD IITK",
     img: "/Team/Dr-Ramswarup-Bhaskar.png",
     social: "https://www.linkedin.com/in/rbhaskariitk/",

@@ -33,7 +33,7 @@ FootprintUserRouter.get(
   }
 );
 
-//get single blog
+//get single footprint
 FootprintUserRouter.get(
   "/footprints/:id",
   async (req: CustomRequest, res: Response) => {
