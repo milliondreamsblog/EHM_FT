@@ -1,11 +1,11 @@
-import  { useState } from 'react';
+import { useState } from 'react';
 import { MapPin, Building, Users, Calendar, ChevronDown, ChevronUp, ExternalLink, Share2, Bookmark, Eye, Award, Target, Zap, Sparkles } from 'lucide-react';
 
 // Mock images for demonstration
-import pic1 from '../../assets/pic1.jpg'
-import pic2 from '../../assets/pic1.jpg'
-import pic3 from '../../assets/pic1.jpg'
-import pic4 from '../../assets/pic1.jpg'
+import pic1 from '../../assets/pic1.jpg';
+import pic2 from '../../assets/pic2.jpg';
+import pic3 from '../../assets/pic3.jpg';
+import pic4 from '../../assets/pic4.jpg';
 
 const ProjectCard = ({
   image,
@@ -342,35 +342,33 @@ const ProjectShow = () => {
   const sampleProjects = [
     {
       image: pic1,
-      title: "Green Crematorium Innovation",
-      nature: "Technical vetting of advanced filtration systems designed to improve air quality around crematorium facilities",
-      agency: "Jhansi Nagar Nigam",
-      location: "Jhansi, Uttar Pradesh",
-      size: "2 Acre Campus",
-      duration: "8 months",
-      budget: "₹25 Lakhs",
+      title: "Electrical Resistivity Tomography (ERT) Survey",
+      nature: "Estimation of coal reserves, identification of galeries, coal seam, voids, water filed zones in an abandoned coal mine in Jharkhand",
+      agency: "",
+      location: "Jharkhand, India",
+      budget: "",
       status: "Completed",
       projectType: "Environmental",
-      technologies: ["Advanced Air Filtration", "IoT Environmental Monitoring", "Sustainable Architecture", "Smart Controls"],
-      description: "Comprehensive environmental impact assessment and sustainable design implementation for improved air quality management around crematorium facilities. This innovative project involved detailed technical evaluation of existing crematorium systems, implementation of cutting-edge eco-friendly technologies, and development of sustainable operational protocols to minimize environmental impact while respecting cultural and religious practices.",
+      technologies: [],
+      description: "This project involved conducting an Electrical Resistivity Tomography (ERT) survey to estimate coal reserves and identify geological features such as galleries, coal seams, voids, and water-filled zones in an abandoned coal mine in Jharkhand. The survey provided valuable insights for potential rehabilitation and safety assessments.",
       outcomes: [
-        "Achieved 60% reduction in air pollution levels",
-        "Implemented real-time environmental monitoring system",
-        "Enhanced community acceptance and satisfaction",
-        "Established benchmark standards for future similar projects",
-        "Created sustainable operational framework"
+        "Accurate estimation of remaining coal reserves",
+        "Detailed mapping of underground structures and hazards",
+        "Identification of water accumulation zones",
+        "Recommendations for safe mine rehabilitation",
+        "Comprehensive report for stakeholders"
       ]
     },
     {
       image: pic2,
       title: "Smart Water Management System",
       nature: "IoT-enabled water distribution and quality monitoring system with predictive analytics",
-      agency: "Lucknow Municipal Corporation",
+      agency: "",
       location: "Lucknow, Uttar Pradesh",
-      size: "City-wide Implementation",
-      duration: "12 months",
-      budget: "₹1.2 Crores",
-      status: "Ongoing",
+      size: "",
+      duration: "",
+      budget: "",
+      status: "Completed",
       projectType: "Smart City",
       technologies: ["IoT Sensors Network", "Big Data Analytics", "Mobile Applications", "Cloud Computing", "Machine Learning"],
       description: "Implementation of comprehensive smart water management system featuring real-time monitoring, automated distribution control, predictive maintenance, and quality assessment capabilities across the entire city infrastructure.",
@@ -385,12 +383,12 @@ const ProjectShow = () => {
       image: pic3,
       title: "Renewable Energy Hub",
       nature: "Integrated solar and wind energy installation with smart grid connectivity and storage solutions",
-      agency: "Uttar Pradesh State Energy Board",
+      agency: "",
       location: "Kanpur, Uttar Pradesh",
-      size: "50 Acres Facility",
-      duration: "18 months",
-      budget: "₹5 Crores",
-      status: "Upcoming",
+      size: "",
+      duration: "",
+      budget: "",
+      status: "Completed",
       projectType: "Renewable Energy",
       technologies: ["High-Efficiency Solar Panels", "Wind Turbine Systems", "Smart Grid Integration", "Battery Storage Solutions", "Energy Management Software"],
       description: "Development of state-of-the-art integrated renewable energy facility combining solar photovoltaic and wind power generation with smart grid connectivity, advanced energy storage solutions, and intelligent distribution management systems.",
