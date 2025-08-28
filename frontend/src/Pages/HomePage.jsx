@@ -20,7 +20,7 @@ const HomePage = () => {
 
       <Partners_logo/>
 
-      <ServicePage />
+      {/* <ServicePage /> */}
 
       <ServiceSection/>
       {/* <ServicePage /> */}

@@ -14,7 +14,9 @@ import "./FootPrint.css";
 
 const FootPrint = () => {
   const [footprints, setFootprints] = useState([]);
+
   const [loading, setLoading] = useState(true);
+
   const [modalImage, setModalImage] = useState(null);
   const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -24,7 +26,9 @@ const FootPrint = () => {
     const fetchFootprints = async () => {
       try {
         setLoading(true);
+
         const res = await API.get("/footprints");
+
         setFootprints(res.data.data || []);
       } catch (err) {
         console.error("Error fetching footprints:", err);
@@ -32,6 +36,7 @@ const FootPrint = () => {
         setLoading(false);
       }
     };
+
     fetchFootprints();
   }, []);
 
@@ -58,7 +63,7 @@ const FootPrint = () => {
   };
 
   return (
-    <div className="w-full flex flex-col items-center justify-center overflow-hidden py-8 md:py-16">
+    <div className="w-full flex flex-col items-center justify-center overflow-hidden py-8 md:py-16 px-2 sm:px-6">
       <div className="flex flex-col gap-3 mb-8 items-center">
         <div className="text-center mb-12 py-8">
           <div className="flex items-center justify-center gap-4 mb-6">
@@ -72,14 +77,13 @@ const FootPrint = () => {
         </div>
       </div>
 
-      <div className="w-full max-w-[69rem] mx-auto relative group">
+      <div className="w-full max-w-4xl px-4 relative group">
         <Swiper
           slidesPerView={1}
-          spaceBetween={24}
+          spaceBetween={16}
           breakpoints={{
-            640: { slidesPerView: 2, spaceBetween: 24 },
-            1024: { slidesPerView: 3, spaceBetween: 32 },
-            1280: { slidesPerView: 4, spaceBetween: 32 },
+            640: { slidesPerView: 2, spaceBetween: 20 },
+            1024: { slidesPerView: 3, spaceBetween: 24 },
           }}
           pagination={{ clickable: true }}
           navigation={{
@@ -101,9 +105,8 @@ const FootPrint = () => {
                 key={footprint._id}
                 className="flex items-center justify-center"
               >
-
                 <div
-                  className="project-card relative w-full aspect-square mx-auto overflow-hidden rounded-lg shadow-lg bg-gray-100 cursor-pointer"
+                  className="project-card relative w-full aspect-square max-w-xs mx-auto overflow-hidden rounded-lg shadow-lg bg-gray-100 cursor-pointer"
                   onClick={() =>
                     setModalImage(API.defaults.baseURL + footprint.image)
                   }
@@ -118,6 +121,7 @@ const FootPrint = () => {
                   aria-label={`View project image ${index + 1}`}
                 >
                   <img
+                    // Construct the full image URL
                     src={API.defaults.baseURL + footprint.image}
                     alt={`EHM project ${index + 1}`}
                     className="project-image w-full h-full object-cover transition-all duration-300"
@@ -127,6 +131,7 @@ const FootPrint = () => {
                       <KnowMoreButton
                         onClick={(e) => {
                           e.stopPropagation();
+
                           handleKnowMoreClick(footprint);
                         }}
                         className="bg-white text-green-600 hover:bg-green-50 border-2 border-white hover:border-green-200 shadow-xl know-more-button"
