@@ -23,6 +23,7 @@ import AdminLoginModal from "../src/Components/Admin/AdminLoginModal.jsx";
 import BlogSection from "./Components/BlogsSection/BlogsSection.jsx";
 import SingleBlogPage from "./Components/BlogsSection/SingleBlogPage.jsx";
 import AuthorBlogsPage from "./Components/BlogsSection/AuthorBlogsPage.jsx";
+import ScrollToTop from './Components/LandingPage/ScrollToTop.jsx';
 
 
 
@@ -35,6 +36,7 @@ function App() {
   return (
     <BrowserRouter>
       <Layout>
+        <ScrollToTop />
         <Routes>
           {/* Public Pages */}
           <Route path="/about" element={<About />} />
