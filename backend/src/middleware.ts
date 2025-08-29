@@ -3,6 +3,8 @@ import { Request, Response, NextFunction } from "express";
 import dotenv from "dotenv";
 import multer from "multer";
 import path from "path";
+import { v2 as cloudinary } from "cloudinary";
+import { CloudinaryStorage } from "multer-storage-cloudinary";
 
 dotenv.config();
 
@@ -44,18 +46,22 @@ function AdminMiddleware(
   }
 }
 
-// Multer configuration middleware( for image upload )
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "uploads"); // Local uploads folder
-  },
-  filename: (req, file, cb) => {
-    const ext = path.extname(file.originalname);
-    const uniqueName = `${Date.now()}-${Math.round(Math.random() * 1e9)}${ext}`;
-    cb(null, uniqueName);
-  },
+// Cloudinary Configuration
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-const upload = multer({ storage });
+// Multer to use Cloudinary Storage
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: "EHM-APP",
+    allowed_formats: ["jpg", "png", "jpeg", "gif"],
+  } as { folder: string; allowed_formats: string[] },
+});
+
+const upload = multer({ storage: storage });
 
 export { AdminMiddleware, upload };

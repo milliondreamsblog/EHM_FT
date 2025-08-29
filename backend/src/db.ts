@@ -21,7 +21,8 @@ const AdminSchema = new Schema<AdminType>({
 //admin-blog post
 interface BlogType {
   title: string; // title shown in card and full view
-  image: string; // Cover image shown in card and full view
+  image: string; // Cloudinary URL of image
+  imagePublicId: string; // Cloudinary Public ID
   author: string; //author-name in the card
   content: string; //main content of the blog
   creatorId: Types.ObjectId; // Admin's mongoDB _id who created the blog
@@ -34,6 +35,7 @@ const BlogSchema = new Schema<BlogType>(
   {
     title: { type: String, required: true },
     image: { type: String },
+    imagePublicId: { type: String },
     author: { type: String, required: true },
     content: { type: String, required: true },
     creatorId: {
@@ -66,6 +68,7 @@ const NewsLetterSchema = new Schema<NewsLetterType>(
 interface ArticleType {
   title: string; // title shown in card and full view
   image: string; // Cover image shown in card and full view
+  imagePublicId: string; // Cloudinary Public ID
   author: string; //author-name in the card
   content: string; //main content of the blog
   creatorId: Types.ObjectId; // Admin's mongoDB _id who created the blog
@@ -78,6 +81,7 @@ const ArticleSchema = new Schema<ArticleType>(
   {
     title: { type: String, required: true },
     image: { type: String },
+    imagePublicId: { type: String },
     author: { type: String, required: true },
     content: { type: String, required: true },
     creatorId: {
@@ -111,6 +115,7 @@ const ContactSchema = new Schema<ContactType>(
 //Footprint type
 interface FootprintType {
   image: string;
+  imagePublicId: string;
   creatorId: Types.ObjectId;
   createdAt: Date;
   updatedAt: Date;
@@ -120,6 +125,7 @@ interface FootprintType {
 const FootprintSchema = new Schema<FootprintType>(
   {
     image: { type: String },
+    imagePublicId: { type: String },
     creatorId: {
       type: Schema.Types.ObjectId,
       ref: "admin_info",
