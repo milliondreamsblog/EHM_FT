@@ -4,7 +4,7 @@ import { Sparkles } from 'lucide-react';
 
 const Team = ({ title, members, limit }) => {
   useEffect(() => {
-    // Staggered animation for cards appearing
+
     const cards = document.querySelectorAll('.team-card');
     cards.forEach((card, index) => {
       card.style.animationDelay = `${index * 0.2}s`;
@@ -15,7 +15,7 @@ const Team = ({ title, members, limit }) => {
 
   return (
     <div id="team" className="relative py-12 flex flex-col items-center justify-center font-sans">
-      {/* Title Section -- COLOR RESTORED */}
+      {/* Title Section  */}
       <div className="text-center mb-12 py-8">
         <div className="flex items-center justify-center gap-4 mb-6">
           <Sparkles className="text-teal-500 animate-pulse" size={40} />
@@ -111,7 +111,7 @@ const Team = ({ title, members, limit }) => {
         )}
       </div>
 
-      {/* Animations */}
+
       <style jsx>{`
         @keyframes fadeInUp {
           from { opacity: 0; transform: translateY(40px); }
