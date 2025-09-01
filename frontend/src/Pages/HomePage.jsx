@@ -18,11 +18,11 @@ const HomePage = () => {
       <HeroSection />
 
 
-      <Partners_logo/>
+      <Partners_logo />
 
       {/* <ServicePage /> */}
 
-      <ServiceSection/>
+      <ServiceSection />
       {/* <ServicePage /> */}
 
       {/* <ServiceSection />
@@ -40,8 +40,8 @@ const HomePage = () => {
                 <HeroSection />
              
                   {/* <Hero/> */}
-                {/* <Service /> */}
-                {/* <ServiceSection />
+      {/* <Service /> */}
+      {/* <ServiceSection />
 
                 <ProductSection /> */}
 
@@ -49,7 +49,7 @@ const HomePage = () => {
       {/* <ServiceSection /> */}
       {/* <ProductSection /> */}
       {/* <Product /> */}
-      <Team title="Our Team" members={members} />
+      <Team title="Our Team" members={members} limit={3} />
       <Testimonials />
       <FootPrint />
       <Logo />
