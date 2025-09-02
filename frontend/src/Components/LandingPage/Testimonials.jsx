@@ -6,7 +6,7 @@ import testimonial from '../../Data/Testimonial.js';
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(1);
   const intervalRef = useRef(null);
-  const autoScrollInterval = 4000;
+  const autoScrollInterval = 3300;
 
   const showNextCard = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonial.length);
