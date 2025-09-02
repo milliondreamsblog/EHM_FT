@@ -98,7 +98,7 @@ const Team = ({ title, members, limit }) => {
             to="/about"
             className="group inline-flex items-center justify-center gap-3 rounded-full bg-gradient-to-r from-teal-500 to-emerald-600 px-8 py-4 font-bold text-white shadow-lg transition-all duration-300 ease-out hover:from-teal-600 hover:to-emerald-700 hover:shadow-2xl hover:shadow-emerald-500/20"
           >
-            <span>Meet The Entire Team</span>
+            <span>LEARN MORE</span>
             <svg
               className="h-6 w-6 transition-transform duration-300 group-hover:translate-x-1"
               fill="none"
