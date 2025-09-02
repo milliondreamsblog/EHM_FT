@@ -6,7 +6,7 @@ import testimonial from '../../Data/Testimonial.js';
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(1);
   const intervalRef = useRef(null);
-  const autoScrollInterval = 3300;
+  const autoScrollInterval = 4000;
 
   const showNextCard = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonial.length);
@@ -59,11 +59,15 @@ const Testimonials = () => {
 
         {/* ALL PROJECTS */}
         <div className="relative" onMouseEnter={stopAutoScroll} onMouseLeave={startAutoScroll}>
-          <div id="card-container" className="flex items-center justify-center w-full h-64 md:h-72 rounded-2xl overflow-hidden space-x-2">
+          <div id="card-container" className="flex items-center justify-center w-full h-64 md:h-72 rounded-2xl overflow-hidden md:space-x-2">
             {visibleProjects.map((project, index) => {
               const isCenterCard = index === 1;
               return (
-                <div key={project.id} className={`card h-full cursor-pointer shadow-lg ${isCenterCard ? 'active' : ''}`}>
+                <div
+                  key={project.id}
+
+                  className={`card h-full cursor-pointer shadow-lg ${isCenterCard ? 'active' : ''} ${index !== 1 ? 'hidden md:flex' : 'flex'}`}
+                >
                   <img src={project.image} alt={project.name} className="w-full h-full object-cover" />
                   <div className="card-overlay absolute inset-0"></div>
                   <div className="card-title absolute bottom-0 left-0 right-0 p-5">
@@ -77,7 +81,8 @@ const Testimonials = () => {
 
           <button
             onClick={showPrevCard}
-            className="absolute top-1/2 -translate-y-1/2 -left-6 w-12 h-12 rounded-full flex items-center justify-center z-20
+
+            className="absolute top-1/2 -translate-y-1/2 left-4 md:-left-6 w-12 h-12 rounded-full flex items-center justify-center z-20
                        bg-teal-900/30 text-white backdrop-blur-sm border border-white/20
                        hover:bg-teal-900/60 transition-colors duration-300 shadow-lg"
           >
@@ -86,7 +91,8 @@ const Testimonials = () => {
 
           <button
             onClick={showNextCard}
-            className="absolute top-1/2 -translate-y-1/2 -right-6 w-12 h-12 rounded-full flex items-center justify-center z-20
+
+            className="absolute top-1/2 -translate-y-1/2 right-4 md:-right-6 w-12 h-12 rounded-full flex items-center justify-center z-20
                        bg-teal-900/30 text-white backdrop-blur-sm border border-white/20
                        hover:bg-teal-900/60 transition-colors duration-300 shadow-lg"
           >
@@ -100,7 +106,7 @@ const Testimonials = () => {
             to="/projects"
             className="group inline-flex items-center justify-center gap-3 rounded-full bg-gradient-to-r from-teal-500 to-emerald-600 px-8 py-4 font-bold text-white shadow-lg transition-all duration-300 ease-out hover:from-teal-600 hover:to-emerald-700 hover:shadow-2xl hover:shadow-emerald-500/20"
           >
-            <span>LEARN MORE</span>
+            <span>View All Projects</span>
             <svg
               className="h-6 w-6 transition-transform duration-300 group-hover:translate-x-1"
               fill="none"
@@ -125,8 +131,16 @@ const Testimonials = () => {
             border-radius: 1rem;
             min-width: 0;
             transition: all 0.7s cubic-bezier(0.25, 0.8, 0.25, 1), filter 0.5s ease-out;
+           
             filter: grayscale(60%) brightness(0.7);
         }
+        
+        @media (max-width: 767px) {
+            .card {
+                filter: grayscale(0%) brightness(1);
+            }
+        }
+
         .card.active,
         #card-container:hover .card:hover {
             flex: 1.8;
@@ -173,12 +187,12 @@ const Testimonials = () => {
         .card:hover img {
             transform: scale(1.05);
         }
-        @media (max-width: 768px) {
+        @media (max-width: 767px) {
             #card-container {
                 height: 200px;
             }
             .card.active, #card-container:hover .card:hover {
-                flex: 1.5;
+                flex: 1; 
             }
             .card-title h3 {
                 font-size: 1rem;
