@@ -11,6 +11,8 @@ import Partners_logo from "../Components/LandingPage/Partners_logo";
 import { members } from "../Data/Data";
 import ServicePage from "./Services";
 import ServiceSection from "../Components/LandingPage/ServiceSection";
+import { TestimonialsSection } from "../Components/LandingPage/testimonials1";
+import EhmBrief from "../Components/LandingPage/EhmBrief";
 
 const HomePage = () => {
   return (
@@ -18,10 +20,11 @@ const HomePage = () => {
       <HeroSection />
 
 
-      <Partners_logo />
+      <Logo />
 
       {/* <ServicePage /> */}
 
+      <EhmBrief/>
       <ServiceSection />
       {/* <ServicePage /> */}
 
@@ -50,9 +53,10 @@ const HomePage = () => {
       {/* <ProductSection /> */}
       {/* <Product /> */}
       <Team title="Our Team" members={members} limit={3} />
+      <TestimonialsSection />
       <Testimonials />
       <FootPrint />
-      <Logo />
+      <Partners_logo />
     </div>
   );
 };

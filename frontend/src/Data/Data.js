@@ -13,6 +13,7 @@ export const partners = [
   "CSJMU",
   "CSJMIF",
   "IITR",
+  "hbtubg11",
 ]
 
 import one from "/Team/one.png";
