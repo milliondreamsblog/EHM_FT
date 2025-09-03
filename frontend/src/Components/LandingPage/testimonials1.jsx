@@ -73,24 +73,27 @@ const firstColumn = testimonials.slice(0, 3);
 const secondColumn = testimonials.slice(3, 6);
 const thirdColumn = testimonials.slice(6, 9);
 
-const TestimonialsColumn = ({ className = "", testimonials, duration }) => (
+const TestimonialsColumn = ({ className = "", testimonials, duration, direction = "up" }) => (
   <div className={className}>
     <motion.div
-      animate={{ translateY: "-50%" }}
+      animate={{ translateY: direction === "up" ? "-50%" : "0%" }}
       transition={{
-        duration: duration || 10,
+        duration: duration || 15,
         repeat: Infinity,
         ease: "linear",
         repeatType: "loop",
       }}
+      whileHover={{ animationPlayState: "paused" }}
       className="flex flex-col mt-10 gap-6"
     >
       {[...new Array(2)].map((_, index) => (
         <React.Fragment key={index}>
           {testimonials.map((testimonial) => (
-            <div
+            <motion.div
               key={testimonial.username}
-              className="card p-5 border rounded-xl shadow-sm bg-white"
+              whileHover={{ scale: 1.05, y: -4, boxShadow: "0 8px 24px rgba(0,0,0,0.15)" }}
+              transition={{ type: "spring", stiffness: 200, damping: 12 }}
+              className="p-5 border rounded-xl shadow-md bg-white"
             >
               <p className="text-gray-700">{testimonial.text}</p>
               <div className="flex items-center gap-2 mt-5">
@@ -110,7 +113,7 @@ const TestimonialsColumn = ({ className = "", testimonials, duration }) => (
                   </span>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </React.Fragment>
       ))}
@@ -123,7 +126,6 @@ export const TestimonialsSection = () => {
     <section className="bg-green-50 py-30">
       <div className="container mx-auto px-4">
         <div className="section-heading text-center">
-
           <div className="flex items-center justify-center gap-4 mb-6">
             <Sparkles className="text-teal-500 animate-pulse" size={40} />
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-teal-600 via-emerald-600 to-green-600 bg-clip-text text-transparent">
@@ -131,7 +133,6 @@ export const TestimonialsSection = () => {
             </h1>
             <Sparkles className="text-emerald-500 animate-pulse" size={40} />
           </div>
-
 
           <h2 className="section-title mt-5 text-3xl font-bold text-gray-800">
             What our users say
@@ -141,18 +142,12 @@ export const TestimonialsSection = () => {
             essential tool for users around the world.
           </p>
         </div>
-        <div className="flex justify-center gap-6 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[738px] overflow-hidden">
-          <TestimonialsColumn testimonials={firstColumn} duration={15} />
-          <TestimonialsColumn
-            testimonials={secondColumn}
-            className="hidden md:block"
-            duration={10}
-          />
-          <TestimonialsColumn
-            testimonials={thirdColumn}
-            className="hidden lg:block"
-            duration={17}
-          />
+
+        {/* Dynamic Testimonials */}
+        <div className="flex justify-center gap-6 [mask-image:linear-gradient(to_bottom,transparent,white_20%,white_80%,transparent)] max-h-[738px] overflow-hidden">
+          <TestimonialsColumn testimonials={firstColumn} duration={18} direction="up" />
+          <TestimonialsColumn testimonials={secondColumn} className="hidden md:block" duration={14} direction="down" />
+          <TestimonialsColumn testimonials={thirdColumn} className="hidden lg:block" duration={20} direction="up" />
         </div>
       </div>
     </section>
