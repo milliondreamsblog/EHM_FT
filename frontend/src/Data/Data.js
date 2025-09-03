@@ -8,7 +8,15 @@ export const companies = [
   "img10",
 ];
 
-export const partners = ["IFACET_IIT_KANPUR", "CSJMU", "CSJMIF", "IITR"];
+
+export const partners = [
+  "IFACET_IIT_KANPUR",
+  "CSJMU",
+  "CSJMIF",
+  "IITR",
+  "hbtubg11",
+]
+
 
 import one from "/Team/one.png";
 import two from "/Team/two.png";

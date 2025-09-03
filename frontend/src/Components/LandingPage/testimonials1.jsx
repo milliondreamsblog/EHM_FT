@@ -1,0 +1,160 @@
+import React from "react";
+import { motion } from "framer-motion";
+import { Sparkles } from "lucide-react";
+
+import avatar1 from "../../assets/testimgs/S1.avif";
+import avatar2 from "../../assets/testimgs/S2.webp";
+import avatar3 from "../../assets/testimgs/S3.webp";
+import avatar4 from "../../assets/testimgs/S4.avif";
+import avatar5 from "../../assets/testimgs/S5.jpg";
+import avatar6 from "../../assets/testimgs/S6.jpg";
+import avatar7 from "../../assets/testimgs/S7.webp";
+import avatar8 from "../../assets/testimgs/S8.webp";
+import avatar9 from "../../assets/testimgs/S9.webp";
+
+const testimonials = [
+  {
+    text: "As a seasoned designer always on the lookout for innovative tools, Framer.com instantly grabbed my attention.",
+    imageSrc: avatar1,
+    name: "Jamie Rivera",
+    username: "@jamietechguru00",
+  },
+  {
+    text: "Our team's productivity has skyrocketed since we started using this tool.",
+    imageSrc: avatar2,
+    name: "Josh Smith",
+    username: "@jjsmith",
+  },
+  {
+    text: "This app has completely transformed how I manage my projects and deadlines.",
+    imageSrc: avatar3,
+    name: "Morgan Lee",
+    username: "@morganleewhiz",
+  },
+  {
+    text: "I was amazed at how quickly we were able to integrate this app into our workflow.",
+    imageSrc: avatar4,
+    name: "Casey Jordan",
+    username: "@caseyj",
+  },
+  {
+    text: "Planning and executing events has never been easier. This app helps me keep track of all the moving parts, ensuring nothing slips through the cracks.",
+    imageSrc: avatar5,
+    name: "Taylor Kim",
+    username: "@taylorkimm",
+  },
+  {
+    text: "The customizability and integration capabilities of this app are top-notch.",
+    imageSrc: avatar6,
+    name: "Riley Smith",
+    username: "@rileysmith1",
+  },
+  {
+    text: "Adopting this app for our team has streamlined our project management and improved communication across the board.",
+    imageSrc: avatar7,
+    name: "Jordan Patels",
+    username: "@jpatelsdesign",
+  },
+  {
+    text: "With this app, we can easily assign tasks, track progress, and manage documents all in one place.",
+    imageSrc: avatar8,
+    name: "Sam Dawson",
+    username: "@dawsontechtips",
+  },
+  {
+    text: "Its user-friendly interface and robust features support our diverse needs.",
+    imageSrc: avatar9,
+    name: "Casey Harper",
+    username: "@casey09",
+  },
+];
+
+const firstColumn = testimonials.slice(0, 3);
+const secondColumn = testimonials.slice(3, 6);
+const thirdColumn = testimonials.slice(6, 9);
+
+const TestimonialsColumn = ({ className = "", testimonials, duration }) => (
+  <div className={className}>
+    <motion.div
+      animate={{ translateY: "-50%" }}
+      transition={{
+        duration: duration || 10,
+        repeat: Infinity,
+        ease: "linear",
+        repeatType: "loop",
+      }}
+      className="flex flex-col mt-10 gap-6"
+    >
+      {[...new Array(2)].map((_, index) => (
+        <React.Fragment key={index}>
+          {testimonials.map((testimonial) => (
+            <div
+              key={testimonial.username}
+              className="card p-5 border rounded-xl shadow-sm bg-white"
+            >
+              <p className="text-gray-700">{testimonial.text}</p>
+              <div className="flex items-center gap-2 mt-5">
+                <img
+                  src={testimonial.imageSrc}
+                  width={40}
+                  height={40}
+                  alt={`Avatar of ${testimonial.name}`}
+                  className="h-10 w-10 rounded-full object-cover"
+                />
+                <div className="flex flex-col">
+                  <span className="font-medium tracking-tight leading-5">
+                    {testimonial.name}
+                  </span>
+                  <span className="text-gray-500 text-sm leading-5">
+                    {testimonial.username}
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </React.Fragment>
+      ))}
+    </motion.div>
+  </div>
+);
+
+export const TestimonialsSection = () => {
+  return (
+    <section className="bg-green-50 py-30">
+      <div className="container mx-auto px-4">
+        <div className="section-heading text-center">
+
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <Sparkles className="text-teal-500 animate-pulse" size={40} />
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-teal-600 via-emerald-600 to-green-600 bg-clip-text text-transparent">
+              Testimonials
+            </h1>
+            <Sparkles className="text-emerald-500 animate-pulse" size={40} />
+          </div>
+
+
+          <h2 className="section-title mt-5 text-3xl font-bold text-gray-800">
+            What our users say
+          </h2>
+          <p className="section-body mt-5 text-gray-600 max-w-2xl mx-auto">
+            From intuitive design to powerful features, our app has become an
+            essential tool for users around the world.
+          </p>
+        </div>
+        <div className="flex justify-center gap-6 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[738px] overflow-hidden">
+          <TestimonialsColumn testimonials={firstColumn} duration={15} />
+          <TestimonialsColumn
+            testimonials={secondColumn}
+            className="hidden md:block"
+            duration={10}
+          />
+          <TestimonialsColumn
+            testimonials={thirdColumn}
+            className="hidden lg:block"
+            duration={17}
+          />
+        </div>
+      </div>
+    </section>
+  );
+};
