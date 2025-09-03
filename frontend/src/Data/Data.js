@@ -8,12 +8,7 @@ export const companies = [
   "img10",
 ];
 
-export const partners = [
-  "IFACET_IIT_KANPUR",
-  "CSJMU",
-  "CSJMIF",
-  "IITR",
-]
+export const partners = ["IFACET_IIT_KANPUR", "CSJMU", "CSJMIF", "IITR"];
 
 import one from "/Team/one.png";
 import two from "/Team/two.png";
@@ -21,23 +16,23 @@ import three from "/Team/three.png";
 
 const members = [
   {
-    name: "Harshit Mishra",
+    name: "Dr. Harshit Mishra",
     title: "Founder & CEO",
-    degree: "Ph.D., IIT Bombay",
+    degree: "Ph.D., IIT Bombay, Risk Assessment & Sustainability",
     img: one,
     social: "https://www.linkedin.com/in/harshitcese/",
   },
   {
-    name: "Neha Shukla",
+    name: "Ms. Neha Shukla",
     title: "Director & COO",
-    degree: "M.Sc., PGDCA",
+    degree: "M.Sc., PGDCA, Operations, Social Media & Data",
     img: two,
     social: "https://www.linkedin.com/in/neha-shukla-307b0b5b/",
   },
   {
-    name: "Utsav Mishra",
+    name: "Dr. Utsav Mishra",
     title: "Co-Founder & CTO",
-    degree: "Ph.D., IIT Kanpur",
+    degree: "Ph.D., IIT Kanpur, Environmental Geophysics",
     img: three,
     social: "https://www.linkedin.com/in/utsav-mishra-phd-08428469/",
   },
