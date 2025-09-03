@@ -2,7 +2,7 @@ import React from "react";
 
 const EhmBrief = () => {
   return (
-    <section className="bg-green-50 py-20">
+    <section className=" py-20">
       <div className="container mx-auto px-6 lg:px-16 grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
         
         {/* Video Section */}

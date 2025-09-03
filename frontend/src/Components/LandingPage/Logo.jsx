@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const Logo = () => {
   return (
-    <section className="relative py-16 bg-gradient-to-r from-green-10 via-emerald-50 to-green-10 overflow-hidden">
+    <section className="relative py-16  overflow-hidden">
       {/* Decorative background blur */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-20 left-10 w-72 h-72 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
