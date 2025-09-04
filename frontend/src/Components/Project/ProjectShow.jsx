@@ -3,18 +3,18 @@ import { MapPin, Building, Calendar, ChevronDown, ChevronUp, ExternalLink, Share
 
 // Mock images for demonstration. In a real app, you'd import these.
 // Replaced local paths with web-accessible placeholders.
-const pic1 = "../src/assets/Projects/Electrical Resistivity Tomography.jpeg";
-const pic2 = "../src/assets/Projects/ESG Course Modules & TOT for MSME.jpg";
-const pic3 = "../src/assets/Projects/CSJMU Sustainability Report.jpeg";
-const pic4 = "../src/assets/Projects/Sustainable Management Plan, Antia Taal.jpg";
-const pic5 = "../src/assets/Projects/Kanpur Smart City Audit.png";
-const pic6 = "../src/assets/Projects/Restoration of Waterbody.jpg";
-const pic7 = "../src/assets/Projects/social Impact.jpg";
-const pic8 = "../src/assets/Projects/Designing Constructed Wetland .jpg";
-const pic9 = "../src/assets/Projects/Designing Constructed Wetland .jpg";
-const pic10 = "../src/assets/Projects/Restoration of Adiyur lake, Tirupathur.jpeg";
-const pic11 = "../src/assets/Projects/Grey Water Management.jpeg";
-const pic12 = "../src/assets/Projects/Environmental Audit.jpg";
+const pic1 = "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901212/Electrical_Resistivity_Tomography_te2a4b.jpg";
+const pic2 = "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901263/ESG_Course_Modules_TOT_for_MSME_fcduho.jpg";
+const pic3 = "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901213/CSJMU_Sustainability_Report_be0pv3.jpg";
+const pic4 = "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901266/Sustainable_Management_Plan_Antia_Taal_zctqbx.jpg";
+const pic5 = "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901226/Kanpur_Smart_City_Audit_r4memd.png";
+const pic6 = "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901253/Restoration_of_Waterbody_hrs3eq.jpg";
+const pic7 = "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901244/social_Impact_tybcom.jpg";
+const pic8 = "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901211/Designing_Constructed_Wetland_ggm9s5.jpg";
+const pic9 = "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901211/Designing_Constructed_Wetland_ggm9s5.jpg";
+const pic10 = "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901237/Restoration_of_Adiyur_lake_Tirupathur_mepq3b.jpg";
+const pic11 = "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901213/Grey_Water_Management_orkst3.jpg";
+const pic12 = "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901211/Environmental_Audit_oeafkp.jpg";
 
 
 const ProjectCard = ({
@@ -77,23 +77,22 @@ const ProjectCard = ({
           loading="lazy"
           onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/600x400/cccccc/ffffff?text=Image+Error'; }}
         />
-        
+
         {/* Gradient Overlays for better text visibility and style */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
         <div className="absolute inset-0 bg-gradient-to-br from-teal-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-        
+
         {/* Status Badge */}
         <div className="absolute top-3 right-3">
-          <span className={`px-3 py-1.5 rounded-full text-xs font-bold backdrop-blur-md border shadow-lg transition-all duration-300 group-hover:scale-110 ${
-            status === 'Completed' ? 'bg-green-100/90 text-green-800 border-green-200' :
+          <span className={`px-3 py-1.5 rounded-full text-xs font-bold backdrop-blur-md border shadow-lg transition-all duration-300 group-hover:scale-110 ${status === 'Completed' ? 'bg-green-100/90 text-green-800 border-green-200' :
             status === 'Ongoing' ? 'bg-blue-100/90 text-blue-800 border-blue-200' :
-            status === 'Upcoming' ? 'bg-yellow-100/90 text-yellow-800 border-yellow-200' :
-            'bg-gray-100/90 text-gray-800 border-gray-200'
-          }`}>
+              status === 'Upcoming' ? 'bg-yellow-100/90 text-yellow-800 border-yellow-200' :
+                'bg-gray-100/90 text-gray-800 border-gray-200'
+            }`}>
             {status}
           </span>
         </div>
-        
+
         {/* Project Type Badge */}
         {projectType && (
           <div className="absolute top-3 left-3">
@@ -108,11 +107,10 @@ const ProjectCard = ({
           <button
             onClick={handleBookmark}
             aria-label="Bookmark project"
-            className={`p-2 rounded-full backdrop-blur-md transition-all duration-300 hover:scale-110 ${
-              isBookmarked 
-                ? 'bg-yellow-100/90 text-yellow-600 border border-yellow-200' 
-                : 'bg-white/90 text-gray-600 border border-gray-200 hover:bg-yellow-100/90 hover:text-yellow-600'
-            }`}
+            className={`p-2 rounded-full backdrop-blur-md transition-all duration-300 hover:scale-110 ${isBookmarked
+              ? 'bg-yellow-100/90 text-yellow-600 border border-yellow-200'
+              : 'bg-white/90 text-gray-600 border border-gray-200 hover:bg-yellow-100/90 hover:text-yellow-600'
+              }`}
           >
             <Bookmark className="w-4 h-4" fill={isBookmarked ? "currentColor" : "none"} />
           </button>
@@ -141,7 +139,7 @@ const ProjectCard = ({
 
       {/* Main Card Content Area */}
       <div className="p-4 md:p-5 space-y-4">
-        
+
         {/* Project Overview/Description */}
         {description && (
           <div className="space-y-2">
@@ -149,9 +147,8 @@ const ProjectCard = ({
               <Eye className="w-4 h-4 text-teal-600" />
               <h4 className="text-base font-bold text-gray-800">Overview</h4>
             </div>
-            <p className={`text-sm text-gray-600 leading-relaxed transition-all duration-300 ${
-              isExpanded ? '' : 'line-clamp-3'
-            }`}>
+            <p className={`text-sm text-gray-600 leading-relaxed transition-all duration-300 ${isExpanded ? '' : 'line-clamp-3'
+              }`}>
               {description}
             </p>
             {/* Show "Read More" button only if description is long enough to be clamped */}
@@ -187,7 +184,7 @@ const ProjectCard = ({
                 <ChevronDown className="w-5 h-5 text-gray-500 group-hover/btn:text-teal-600 transition-colors" />
               )}
             </button>
-            
+
             {isExpanded && (
               <div className="mt-3 space-y-4 animate-fadeIn">
                 {/* Technologies Used Section */}
@@ -199,8 +196,8 @@ const ProjectCard = ({
                     </h5>
                     <div className="flex flex-wrap gap-2">
                       {technologies.map((tech, index) => (
-                        <span 
-                          key={index} 
+                        <span
+                          key={index}
                           className="px-2.5 py-1.5 bg-gradient-to-r from-teal-50 to-blue-50 text-teal-800 text-xs rounded-md font-medium border border-teal-100 hover:border-teal-300 transition-all duration-300 hover:scale-105"
                         >
                           {tech}
@@ -209,7 +206,7 @@ const ProjectCard = ({
                     </div>
                   </div>
                 )}
-                
+
                 {/* Key Outcomes Section */}
                 {outcomes && outcomes.length > 0 && (
                   <div className="space-y-2">
@@ -240,8 +237,8 @@ const ProjectCard = ({
               View Details
             </span>
           </div>
-          
-          <button 
+
+          <button
             onClick={(e) => { e.stopPropagation(); onClick(); }}
             className="opacity-0 group-hover:opacity-100 px-3 py-2 bg-teal-600 text-white rounded-md hover:bg-teal-700 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0 flex items-center gap-1.5 font-medium text-sm"
           >
@@ -295,8 +292,8 @@ const App = () => {
 
   return (
     <div className="min-h-screen font-sans relative overflow-x-hidden bg-gradient-to-br from-gray-50 via-white to-teal-50/30">
-        {/* Custom CSS for animations and grid layout */}
-        <style>{`
+      {/* Custom CSS for animations and grid layout */}
+      <style>{`
           @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(60px); }
             to { opacity: 1; transform: translateY(0); }
@@ -350,7 +347,7 @@ const App = () => {
             }
           }
         `}</style>
-      
+
       {/* Decorative Background Elements */}
       <div className="absolute inset-0 z-0">
         <div
@@ -372,16 +369,16 @@ const App = () => {
       {/* Main Content */}
       <div className="relative z-10 py-16">
         {/* Page Header */}
-       <div className="text-center mb-4 py-12">
-            <div className="flex items-center justify-center gap-4 mb-6">
-              <Sparkles className="text-teal-500 animate-pulse" size={40} />
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-teal-600 via-emerald-600 to-green-600 bg-clip-text text-transparent">
-                Projects
-              </h1>
-              <Sparkles className="text-emerald-500 animate-pulse" size={40} />
-            </div>
-            <div className="w-32 h-1 bg-gradient-to-r from-teal-400 to-emerald-500 rounded-full mx-auto"></div>
+        <div className="text-center mb-4 py-12">
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <Sparkles className="text-teal-500 animate-pulse" size={40} />
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-teal-600 via-emerald-600 to-green-600 bg-clip-text text-transparent">
+              Projects
+            </h1>
+            <Sparkles className="text-emerald-500 animate-pulse" size={40} />
           </div>
+          <div className="w-32 h-1 bg-gradient-to-r from-teal-400 to-emerald-500 rounded-full mx-auto"></div>
+        </div>
 
         {/* Filter Buttons Section */}
         <div className="max-w-7xl mx-auto px-4 mb-12">
@@ -390,11 +387,10 @@ const App = () => {
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
-                className={`px-5 py-2.5 rounded-full font-semibold transition-all duration-300 hover:scale-105 shadow-lg backdrop-blur-sm text-sm ${
-                  activeFilter === filter 
-                    ? 'bg-teal-600 text-white hover:bg-teal-700' 
-                    : 'bg-white/90 text-gray-700 hover:bg-teal-50 hover:text-teal-700 border border-gray-200'
-                }`}
+                className={`px-5 py-2.5 rounded-full font-semibold transition-all duration-300 hover:scale-105 shadow-lg backdrop-blur-sm text-sm ${activeFilter === filter
+                  ? 'bg-teal-600 text-white hover:bg-teal-700'
+                  : 'bg-white/90 text-gray-700 hover:bg-teal-50 hover:text-teal-700 border border-gray-200'
+                  }`}
               >
                 {filter}
               </button>
@@ -438,12 +434,12 @@ const App = () => {
           </div>
         </div>
       </div>
-       {/* Floating Message Box for notifications */}
-       {message && (
-         <div className="fixed bottom-5 left-1/2 -translate-x-1/2 bg-gray-800 text-white px-6 py-3 rounded-lg shadow-lg z-50 animate-fadeIn">
-           {message}
-         </div>
-       )}
+      {/* Floating Message Box for notifications */}
+      {message && (
+        <div className="fixed bottom-5 left-1/2 -translate-x-1/2 bg-gray-800 text-white px-6 py-3 rounded-lg shadow-lg z-50 animate-fadeIn">
+          {message}
+        </div>
+      )}
     </div>
   );
 };
