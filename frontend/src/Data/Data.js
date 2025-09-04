@@ -1,11 +1,11 @@
 export const companies = [
-  "img1",
+  "CSIR-NEERI",
   "img2",
-  "img3",
+  "CSJMU",
   "img7",
   "img8",
   "img9",
-  "img10",
+  "Government-of-Telangana",
 ];
 
 
@@ -14,7 +14,7 @@ export const partners = [
   "CSJMU",
   "CSJMIF",
   "IITR",
-  "hbtubg11",
+  "HBTU",
 ]
 
 
