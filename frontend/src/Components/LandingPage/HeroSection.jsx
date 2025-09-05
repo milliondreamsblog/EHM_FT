@@ -21,7 +21,7 @@ const HeroSection = () => {
 
             </div>
 
-            <p className="text-4xl md:text-4xl lg:text-6xl text-green-700 font-bold mb-4 uppercase tracking-wide leading-tight">
+            <p className="text-4xl md:text-4xl lg:text-6xl text-green-700 font-bold mb-4 uppercase tracking-wide leading-tight py-1">
               <span>
                 SUSTAINABILITY
               </span>
@@ -35,7 +35,7 @@ const HeroSection = () => {
               </span>
             </p>
 
-            <h1 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 mb-6">
+            <h1 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-800 mb-6 py-1">
               <span className="text-green-600">TRANSFORM</span> YOUR BUSINESS
               <br />
               WITH <span className="text-green-600">SUSTAINABLE</span> INNOVATION
@@ -43,23 +43,8 @@ const HeroSection = () => {
 
 
 
-            <div className="flex justify-center lg:justify-start gap-8 mb-8">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-green-700">15+</div>
-                <div className="text-sm text-gray-600">Happy Clients</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-green-700">99%</div>
-                <div className="text-sm text-gray-600">Success Rate</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-green-700">4+</div>
-                <div className="text-sm text-gray-600">Years Experience</div>
-              </div>
-            </div>
 
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8 py-1">
               <button className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-medium transition-colors duration-300 flex items-center justify-center">
                 Book a Call
                 <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
