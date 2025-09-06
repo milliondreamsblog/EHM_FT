@@ -6,6 +6,7 @@ import Hero from '../Components/About/Hero'
 import ChooseUs from '../Components/About/ChooseUS'
 import { WhyChooseSection } from '../Components/WhyChooseUs/WhyChooseSection'
 import { Title } from '../Components/Title'
+import WhyChooseUs from '../Components/About/WhyChooseUs'
 
 const About = () => {
   return (
@@ -13,7 +14,9 @@ const About = () => {
       <Hero />
 
       <WhyChooseSection title='Why Choose us' />
-      
+
+
+      <WhyChooseUs />
 
 
       <Team title="Our Team" members={members} />
