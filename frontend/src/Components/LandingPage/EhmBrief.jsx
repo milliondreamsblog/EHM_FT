@@ -9,14 +9,15 @@ const EhmBrief = () => {
 
         {/* Video Section */}
         <div className="w-full aspect-video rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-300">
-          <video
+          {/* <video
             src="/assets/ehmbrief.mp4" // <-- replace with your video path
             controls
             autoPlay
             loop
             muted
             className="w-full h-full object-cover"
-          />
+          /> */}
+          <img className="w-full h-full object-cover" src="https://res.cloudinary.com/dlpluej6w/image/upload/v1756388167/Screenshot_1st_u2ghdl.png" alt="" />
         </div>
 
         {/* Text Section */}

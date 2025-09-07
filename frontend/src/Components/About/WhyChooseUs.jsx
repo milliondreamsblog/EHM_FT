@@ -1,6 +1,3 @@
-
-
-
 import React, { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
@@ -44,14 +41,12 @@ const WhyChooseUsSection = () => {
                 pin: true,
                 scrub: 1,
                 start: "top top",
-                end: "+=2000",
+                end: "+=1200",
             }
         });
 
-
         gsap.set(titleBlock, { xPercent: -50, yPercent: -50, top: "50%", left: "50%" });
         gsap.set(cards, { position: 'absolute', top: 0, opacity: 0, y: 50, scale: 0.9 });
-
 
         timeline
             .fromTo(titleBlock,
@@ -63,13 +58,12 @@ const WhyChooseUsSection = () => {
                 duration: 0.5,
                 ease: "power2.inOut"
             }, "+=0.25")
-            // Card 1 Appears
             .to(cards[0], { opacity: 1, y: 0, scale: 1, duration: 0.5 }, "-=0.5")
-            .to({}, { duration: 0.5 }) // Hold
+            .to({}, { duration: 0.5 })
 
             .to(cards[0], { opacity: 0, y: -50, scale: 0.9, duration: 0.5 }, "swap2")
             .to(cards[1], { opacity: 1, y: 0, scale: 1, duration: 0.5 }, "swap2")
-            .to({}, { duration: 0.5 }) // Hold
+            .to({}, { duration: 0.5 })
 
             .to(cards[1], { opacity: 0, y: -50, scale: 0.9, duration: 0.5 }, "swap3")
             .to(cards[2], { opacity: 1, y: 0, scale: 1, duration: 0.5 }, "swap3")
