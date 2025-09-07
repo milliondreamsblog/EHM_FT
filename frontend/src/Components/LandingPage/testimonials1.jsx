@@ -83,7 +83,6 @@ const TestimonialsColumn = ({ className = "", testimonials, duration, direction 
         ease: "linear",
         repeatType: "loop",
       }}
-      whileHover={{ animationPlayState: "paused" }}
       className="flex flex-col mt-10 gap-6"
     >
       {[...new Array(2)].map((_, index) => (
@@ -91,9 +90,11 @@ const TestimonialsColumn = ({ className = "", testimonials, duration, direction 
           {testimonials.map((testimonial) => (
             <motion.div
               key={testimonial.username}
-              whileHover={{ scale: 1.05, y: -4, boxShadow: "0 8px 24px rgba(0,0,0,0.15)" }}
-              transition={{ type: "spring", stiffness: 200, damping: 12 }}
               className="p-5 border rounded-xl shadow-md bg-white"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
             >
               <p className="text-gray-700">{testimonial.text}</p>
               <div className="flex items-center gap-2 mt-5">
@@ -134,13 +135,13 @@ export const TestimonialsSection = () => {
             <Sparkles className="text-emerald-500 animate-pulse" size={40} />
           </div>
 
-          <h2 className="section-title mt-5 text-3xl font-bold text-gray-800">
+          {/* <h2 className="section-title mt-5 text-3xl font-bold text-gray-800">
             What our users say
           </h2>
           <p className="section-body mt-5 text-gray-600 max-w-2xl mx-auto">
             From intuitive design to powerful features, our app has become an
             essential tool for users around the world.
-          </p>
+          </p> */}
         </div>
 
         {/* Dynamic Testimonials */}
