@@ -1,6 +1,7 @@
 import { Router, Request, Response } from "express";
 import { AdminMiddleware, upload } from "../middleware";
 import { FootprintModel } from "../db";
+import { v2 as cloudinary } from "cloudinary";
 import fs from "fs";
 import path from "path";
 import dotenv from "dotenv";
@@ -20,11 +21,10 @@ FootprintAdminRouter.post(
   upload.single("image"), // handle file
   async (req: CustomRequest, res: Response) => {
     try {
-      const imagePath = req.file ? `/uploads/${req.file.filename}` : "";
-
       const footprint = new FootprintModel({
-        image: imagePath,
-        creatorId: req.adminId, //from middleware from token
+        image: req.file ? req.file.path : "",
+        imagePublicId: req.file ? req.file.filename : "",
+        creatorId: req.adminId,
       });
 
       await footprint.save();
@@ -32,13 +32,7 @@ FootprintAdminRouter.post(
       res.status(201).json({
         success: true,
         message: "Footprint created successfully",
-        data: {
-          _id: footprint._id.toString(),
-          image: footprint.image,
-          creatorId: footprint.creatorId.toString(),
-          createdAt: footprint.createdAt,
-          updatedAt: footprint.updatedAt,
-        },
+        data: footprint,
       });
     } catch (err: any) {
       res.status(500).json({
@@ -55,27 +49,20 @@ FootprintAdminRouter.delete(
   AdminMiddleware,
   async (req: CustomRequest, res: Response) => {
     try {
-      const footprint = await FootprintModel.findByIdAndDelete(req.params.id);
+      const footprint = await FootprintModel.findById(req.params.id);
 
       if (!footprint)
         return res.status(404).json({ message: "footprint not found" });
 
-      // Delete the actual image file(of this post) from "uplode/" folder
-      if (footprint.image) {
-        const imagePath = path.resolve("." + footprint.image); // e.g., /uploads/filename.jpg
-        fs.unlink(imagePath, (err: any) => {
-          if (err) {
-            console.error("Error deleting footprint:", err);
-          } else {
-            console.log("Deleted footprint:", imagePath);
-          }
-        });
+      // If there's an image, delete it from Cloudinary first
+      if (footprint.imagePublicId) {
+        await cloudinary.uploader.destroy(footprint.imagePublicId);
       }
 
-      res.json({
-        success: true,
-        message: "footprint deleted successfully",
-      });
+      // Then delete from the database
+      await FootprintModel.findByIdAndDelete(req.params.id);
+
+      res.json({ success: true, message: "Footprint deleted successfully" });
     } catch (err) {
       res.status(500).json({ message: "Error deleting footprint", error: err });
     }

@@ -4,6 +4,7 @@ import { BlogModel } from "../db";
 import fs from "fs";
 import path from "path";
 import dotenv from "dotenv";
+import { v2 as cloudinary } from "cloudinary";
 
 const BlogAdminRouter = Router();
 
@@ -22,14 +23,15 @@ BlogAdminRouter.post(
     try {
       const { title, author, content } = req.body;
 
-      const imagePath = req.file ? `/uploads/${req.file.filename}` : "";
-
       const blog = new BlogModel({
         title,
-        image: imagePath,
+        // req.file.path is the URL from Cloudinary
+        // req.file.filename is the public_id from Cloudinary
+        image: req.file ? req.file.path : "",
+        imagePublicId: req.file ? req.file.filename : "",
         author,
         content,
-        creatorId: req.adminId, //from middleware from token
+        creatorId: req.adminId,
       });
 
       await blog.save();
@@ -37,16 +39,7 @@ BlogAdminRouter.post(
       res.status(201).json({
         success: true,
         message: "Blog created successfully",
-        data: {
-          _id: blog._id.toString(),
-          title,
-          image: blog.image,
-          author,
-          content,
-          creatorId: blog.creatorId.toString(),
-          createdAt: blog.createdAt,
-          updatedAt: blog.updatedAt,
-        },
+        data: blog,
       });
     } catch (err: any) {
       res.status(500).json({
@@ -61,41 +54,59 @@ BlogAdminRouter.post(
 BlogAdminRouter.put(
   "/blogs/:id",
   AdminMiddleware,
-  upload.single("image"), // handle file
+  upload.single("image"),
   async (req: CustomRequest, res: Response) => {
     try {
       const { title, author, content } = req.body;
+      const blogId = req.params.id;
 
-      let updateData: any = { title, author, content };
-
-      if (req.file) {
-        updateData.image = `/uploads/${req.file.filename}`;
+      const existingBlog = await BlogModel.findById(blogId);
+      if (!existingBlog) {
+        return res.status(404).json({ message: "Blog not found" });
       }
 
-      const blog = await BlogModel.findByIdAndUpdate(
-        req.params.id,
-        updateData,
-        { new: true }
-      );
+      const updateData: {
+        title: string;
+        author: string;
+        content: string;
+        image?: string;
+        imagePublicId?: string;
+      } = {
+        title,
+        author,
+        content,
+      };
 
-      if (!blog) return res.status(404).json({ message: "Blog not found" });
+      // Check if a new file is being uploaded
+      if (req.file) {
+        // If an old image exists, delete it from Cloudinary
+        if (existingBlog.imagePublicId) {
+          await cloudinary.uploader.destroy(existingBlog.imagePublicId);
+        }
+
+        // Add new image details to the update data
+        updateData.image = req.file.path; // New Cloudinary URL
+        updateData.imagePublicId = req.file.filename; // New public_id
+      }
+
+      // Find the blog by ID and update it with the new data
+      const updatedBlog = await BlogModel.findByIdAndUpdate(
+        blogId,
+        updateData,
+        {
+          new: true,
+        }
+      );
 
       res.json({
         success: true,
         message: "Blog updated successfully",
-        data: {
-          _id: blog._id.toString(),
-          title: blog.title || "",
-          image: blog.image || "",
-          author: blog.author || "",
-          content: blog.content || "",
-          creatorId: blog.creatorId.toString(),
-          createdAt: blog.createdAt,
-          updatedAt: blog.updatedAt,
-        },
+        data: updatedBlog,
       });
-    } catch (err) {
-      res.status(500).json({ message: "Error updating blog", error: err });
+    } catch (err: any) {
+      res
+        .status(500)
+        .json({ message: "Error updating blog", error: err.message });
     }
   }
 );
@@ -106,26 +117,19 @@ BlogAdminRouter.delete(
   AdminMiddleware,
   async (req: CustomRequest, res: Response) => {
     try {
-      const blog = await BlogModel.findByIdAndDelete(req.params.id);
+      const blog = await BlogModel.findById(req.params.id);
 
       if (!blog) return res.status(404).json({ message: "Blog not found" });
 
-      // Delete the actual image file(of this post) from "uplode/" folder
-      if (blog.image) {
-        const imagePath = path.resolve("." + blog.image); // e.g., /uploads/filename.jpg
-        fs.unlink(imagePath, (err: any) => {
-          if (err) {
-            console.error("Error deleting image:", err);
-          } else {
-            console.log("Deleted image:", imagePath);
-          }
-        });
+      // If there's an image, delete it from Cloudinary first
+      if (blog.imagePublicId) {
+        await cloudinary.uploader.destroy(blog.imagePublicId);
       }
 
-      res.json({
-        success: true,
-        message: "Blog deleted successfully",
-      });
+      // Then delete the blog from the database
+      await BlogModel.findByIdAndDelete(req.params.id);
+
+      res.json({ success: true, message: "Blog deleted successfully" });
     } catch (err) {
       res.status(500).json({ message: "Error deleting blog", error: err });
     }

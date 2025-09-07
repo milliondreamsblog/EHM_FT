@@ -67,17 +67,11 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 p-4 flex items-center justify-center">
-      <div className="w-full max-w-6xl mx-auto">
+      <div className="w-full max-w-[69rem] mx-auto">
         <div className="flex flex-col lg:flex-row bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl overflow-hidden border border-white/20">
           <div className="lg:w-2/5 bg-gradient-to-br from-emerald-500 to-teal-600 p-8 flex flex-col justify-between relative">
             <div className="absolute top-6 right-6">
-              <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg border-2 border-white">
-                <img
-                  src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1180&q=80"
-                  alt="Support agent"
-                  className="w-full h-full rounded-full object-cover"
-                />
-              </div>
+             
             </div>
 
             <div>
@@ -101,10 +95,10 @@ export default function Contact() {
                 <div>
                   <p className="text-sm text-emerald-100">Address​</p>
                   <p>
-                     TECHNOPARK, IIT KANPUR
-        
-                  </p> 
-                  
+                    TECHNOPARK, IIT KANPUR
+
+                  </p>
+
                 </div>
               </div>
             </div>
@@ -117,15 +111,15 @@ export default function Contact() {
                 <div>
                   <p className="text-sm text-emerald-100">Call Us</p>
                   <a href="mailto:harshit@ehmconsultancy.co.in" className="text-white font-medium hover:underline">
-                     +91 9892396408
+                    +91 9892396408
 
                   </a>
                   <br></br>
                 </div>
               </div>
             </div>
-            
-             <div className="mt-auto">
+
+            <div className="mt-auto">
               <div className="flex items-center space-x-4 mb-4">
                 <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
                   <Mail className="w-5 h-5 text-white" />
@@ -133,7 +127,7 @@ export default function Contact() {
                 <div>
                   <p className="text-sm text-emerald-100">Email us at</p>
 
-                  
+
                   <a href="mailto:info@ehmconsultancy.co.in" className="text-white font-medium hover:underline">
                     info@ehmconsultancy.co.in
 
@@ -230,11 +224,10 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className={`w-full bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold py-3 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center space-x-2 ${
-                  isLoading
-                    ? "opacity-70 cursor-not-allowed"
-                    : "hover:-translate-y-0.5"
-                }`}
+                className={`w-full bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold py-3 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center space-x-2 ${isLoading
+                  ? "opacity-70 cursor-not-allowed"
+                  : "hover:-translate-y-0.5"
+                  }`}
               >
                 {isLoading ? (
                   <>

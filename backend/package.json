@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-
-"scripts": {
+  "scripts": {
     "build": "tsc -b",
     "start": "node dist/index.js",
     "dev": "npm run build && npm run start"
@@ -20,12 +19,14 @@
     "@types/jsonwebtoken": "^9.0.10",
     "@types/multer": "^2.0.0",
     "bcrypt": "^6.0.0",
+    "cloudinary": "^1.41.3",
     "cors": "^2.8.5",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.16.5",
     "multer": "^2.0.2",
+    "multer-storage-cloudinary": "^4.0.0",
     "typescript": "^5.8.3",
     "zod": "^4.0.14"
   }
