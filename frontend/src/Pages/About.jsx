@@ -9,6 +9,7 @@ import Description from '../Components/About/Description'
 
 import { WhyChooseSection } from '../Components/WhyChooseUs/WhyChooseSection'
 import { Title } from '../Components/Title'
+import WhyChooseUs from '../Components/About/WhyChooseUs'
 
 
 const About = () => {
@@ -21,7 +22,9 @@ const About = () => {
 
 
       <WhyChooseSection title='Why Choose us' />
-      
+
+
+      <WhyChooseUs />
 
 
       <Team title="Our Team" members={members} />
