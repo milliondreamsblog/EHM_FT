@@ -1,17 +1,23 @@
 export const companies = [
-  "CSIR-NEERI",
-  "img2",
+  "CSIR- NEERI",
+  "csir_logo1",
   "CSJMU",
-  "img7",
-  "img8",
-  "img9",
-  "Government-of-Telangana",
+  "government-of-telangana",
+  "Jhansi Nagar Nigam",
+  "Jhansi smart city",
+  "Kanpur smart city",
+  "Parivartan logo",
+  "Picture3",
+  "Prachi leathers",
+  "Tamil Nadu",
+  "Thriveni sainik logo",
+  "UPSIC Logo",
 ];
 
 
 export const partners = [
-  "IFACET_IIT_KANPUR",
-  "CSJMU",
+  "Technopark logo",
+  "E&ICT logo",
   "CSJMIF",
   "IITR",
   "HBTU",

@@ -1,8 +1,7 @@
-import Marquee from "react-fast-marquee";
 import { partners } from "../../Data/Data";
 import { motion } from "framer-motion";
 
-const Partners_logo = () => {
+const PartnersLogo = () => {
   return (
     <section className="relative py-16 bg-gradient-to-r from-green-10 via-emerald-50 to-green-10 overflow-hidden">
       {/* Decorative background blur */}
@@ -12,51 +11,29 @@ const Partners_logo = () => {
       </div>
 
       <div className="container mx-auto px-6">
-        {/* Logo Marquee */}
-        <Marquee pauseOnHover={true} speed={40} gradient={false}>
+        {/* Partners Logo Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 border border-gray-200 divide-x divide-y divide-dotted divide-gray-300 bg-gray-50">
           {partners.map((partner, index) => (
             <motion.div
               key={index}
-              className="group relative mx-8 flex items-center justify-center"
-              whileHover={{ scale: 1.12, rotate: 1 }}
-              transition={{ type: "spring", stiffness: 220, damping: 15 }}
+              className="flex items-center justify-center p-6 rounded-lg cursor-pointer" // reduced padding from p-10 → p-6
+              whileHover={{ scale: 1.12, rotate: [0, 2, -2, 0], boxShadow: "0 10px 20px rgba(34,197,94,0.3)" }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ type: "spring", stiffness: 220, damping: 20, delay: index * 0.05 }}
             >
-              {/* Partner Card */}
-              <div className="relative p-6 rounded-2xl shadow-lg bg-white/70 backdrop-blur-md border border-emerald-100 transition duration-500 overflow-hidden group-hover:shadow-emerald-400/50 group-hover:shadow-xl">
-                <img
-                  src={`/Partners/${partner}.png`}
-                  alt={partner}
-                  className="h-20 w-auto object-contain relative z-10 transition-transform duration-500 group-hover:scale-110"
-                />
-
-                {/* Hover Overlay */}
-                <div className="circular-overlay absolute inset-0 z-20 flex items-center justify-center 
-                                bg-gradient-to-br from-emerald-700/80 via-green-700/70 to-black/70 
-                                backdrop-blur-lg">
-                  <span className="text-white text-lg font-semibold opacity-0 translate-y-3 
-                                   transition-all duration-500 ease-out 
-                                   group-hover:opacity-100 group-hover:translate-y-0 group-hover:delay-200">
-                    {partner}
-                  </span>
-                </div>
-              </div>
+              <img
+                src={`/Partners/${partner}.png`}
+                alt={partner}
+                className="h-20 md:h-20 w-auto object-contain"
+              />
             </motion.div>
           ))}
-        </Marquee>
+        </div>
       </div>
-
-      {/* Overlay Animation Styles */}
-      <style jsx>{`
-        .circular-overlay {
-          clip-path: circle(0% at 50% 100%);
-          transition: clip-path 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-        .group:hover .circular-overlay {
-          clip-path: circle(150% at 50% 100%);
-        }
-      `}</style>
     </section>
   );
 };
 
-export default Partners_logo;
+export default PartnersLogo;
