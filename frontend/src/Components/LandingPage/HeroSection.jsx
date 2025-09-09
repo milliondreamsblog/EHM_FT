@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import gsap from 'gsap'; // 1. Import GSAP
+import gsap from 'gsap';
 
 const IMAGE_ASSETS = {
   hill1: '/ParallexHeroImages/hill1.png',
@@ -133,11 +133,11 @@ const HeroSection = () => {
         className="relative z-20 flex h-full flex-col items-center justify-center text-center -translate-y-28 md:-translate-y-40"
       >
         <div className='flex flex-col items-center -translate-y-19'>
-          {/* 3. Modify the h1 structure for custom underlines */}
+
           <h1
-            ref={h1Ref} // Attach the ref here
+            ref={h1Ref}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold uppercase leading-tight tracking-wider text-white"
-          // Removed the "underline" class
+
           >
             <span className="relative inline-block pb-2">
               Sustainability
