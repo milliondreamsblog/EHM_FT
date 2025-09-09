@@ -117,7 +117,7 @@ const experts = [
   {
     name: "Dr. Roshan Singh",
     title:
-      "Asst. Professor, Dept of Petroleum Engineering and Earth Sciences ,IIPE Visakhapatnam",
+      "Asst Professor, Dept of Petroleum Engineering and Earth Sciences ,IIPE Visakhapatnam",
     degree: "",
     img: "/Team/roshan.png",
     social: "",
