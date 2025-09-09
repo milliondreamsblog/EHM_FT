@@ -22,6 +22,13 @@ export const partners = [
   "HBTU",
 ];
 
+export const certified = [
+  "ISO",
+  "StartupUP",
+  "msme-logo",
+  "StartupIndia",
+];
+
 import one from "/Team/one.png";
 import two from "/Team/two.png";
 import three from "/Team/three.png";
