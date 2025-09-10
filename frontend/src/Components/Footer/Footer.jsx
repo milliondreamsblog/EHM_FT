@@ -59,8 +59,10 @@ const Footer = () => {
             <div className="flex items-start space-x-3 text-slate-300">
               <FaMapMarkerAlt className="text-green-400 mt-1 flex-shrink-0" />
               <div className="text-sm">
-                <div>CSJM Innovation Foundation Chhatrapati Shahu Ji Maharaj University</div>
-                <div>Kalyanpur, Kanpur - 208024</div>
+
+                <div>TECHNOPARK, IIT KANPUR</div>
+                <div> Kalyanpur, Kanpur - 208016</div>
+
                 <div>India</div>
               </div>
             </div>
