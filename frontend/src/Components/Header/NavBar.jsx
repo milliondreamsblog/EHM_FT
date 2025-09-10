@@ -1,18 +1,30 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+// The error "useContext(...) is null" is often caused by using <Link> outside of a <BrowserRouter>.
+// Since we cannot wrap this component with a Router here, we are replacing <Link> with <a> tags to fix the error.
+// This will make the links cause a full page refresh instead of a client-side navigation.
+// import { Link } from "react-router-dom";
+
+/*
+  To use a font like 'Poppins', first add it to your project.
+  For example, in your main `index.html` file, you can add this line in the <head> section:
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+  Then, set it as your base font in your `tailwind.config.js` file.
+*/
+
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isResourcesOpen, setIsResourcesOpen] = useState(false);
-
   const resourcesRef = useRef(null);
+  const leaveTimer = useRef(null); // Ref to hold the timeout for the dropdown
 
+  // Effect to close the dropdown when clicking outside of it
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (
-        resourcesRef.current &&
-        !resourcesRef.current.contains(event.target)
-      ) {
+      if (resourcesRef.current && !resourcesRef.current.contains(event.target)) {
         setIsResourcesOpen(false);
       }
     };
@@ -22,187 +34,129 @@ const NavBar = () => {
 
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
-    setIsResourcesOpen(false);
+    setIsResourcesOpen(false); // Close dropdown when opening/closing main menu
   };
 
   const toggleResources = () => {
     setIsResourcesOpen((prev) => !prev);
   };
 
+  // Close all menus when a navigation link is clicked
   const handleNavClick = () => {
     setIsMenuOpen(false);
     setIsResourcesOpen(false);
   };
+  
+  // Handlers for the hover effect with a delay
+  const handleResourcesMouseEnter = () => {
+    clearTimeout(leaveTimer.current); // Clear any pending timer to close the dropdown
+    setIsResourcesOpen(true);
+  };
+
+  const handleResourcesMouseLeave = () => {
+    // Set a timer to close the dropdown after a short delay
+    leaveTimer.current = setTimeout(() => {
+      setIsResourcesOpen(false);
+    }, 200); // 200ms delay
+  };
+
+  // A common style for all navigation links. On hover, the background becomes a light gray and the text turns a vibrant green.
+  const navLinkStyle = "px-4 py-2 rounded-lg text-green-900 font-semibold hover:bg-gray-500/10 hover:text-green-600 transition-colors duration-300";
+  const mobileNavLinkStyle = "block " + navLinkStyle;
+
 
   return (
     <>
-      <header className="fixed top-0 left-0 w-full z-50 bg-white/15 backdrop-blur-md shadow-md">
+      <header className="fixed top-0 left-0 w-full z-50 bg-white/30 backdrop-blur-lg shadow-md font-sans">
         <nav className="max-w-6xl mx-auto flex items-center justify-between px-6 py-3">
           {/* Logo */}
-          <Link to="/" onClick={handleNavClick}>
+          <a href="/" onClick={handleNavClick}>
             <img
               src="https://startinup.up.gov.in/crm/assets/user/images/Documents/Startup/A_STARTUP_UP_UPLC_00004244/startup_logo/168067577328965.png"
               alt="EHM Logo"
-              className="h-12"
+              className="h-12 w-auto" // Added w-auto for aspect ratio
             />
-          </Link>
+          </a>
 
           {/* Desktop Menu */}
-          <ul className="hidden lg:flex items-center space-x-6 font-medium">
-            <li>
-              <Link
-                to="/"
-                className="text-green-900 hover:text-yellow-400"
-                onClick={handleNavClick}
-              >
-                HOME
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/about"
-                className="text-green-900 hover:text-yellow-400"
-                onClick={handleNavClick}
-              >
-                ABOUT
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/offerings"
-                className="text-green-900 hover:text-yellow-400"
-                onClick={handleNavClick}
-              >
-                OFFERINGS
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/projects"
-                className="text-green-900 hover:text-yellow-400"
-                onClick={handleNavClick}
-              >
-                PROJECTS
-              </Link>
-            </li>
+          <ul className="hidden lg:flex items-center space-x-2">
+            <li><a href="/" className={navLinkStyle} onClick={handleNavClick}>HOME</a></li>
+            <li><a href="/about" className={navLinkStyle} onClick={handleNavClick}>ABOUT</a></li>
+            <li><a href="/offerings" className={navLinkStyle} onClick={handleNavClick}>OFFERINGS</a></li>
+            <li><a href="/projects" className={navLinkStyle} onClick={handleNavClick}>PROJECTS</a></li>
 
-            <li className="relative" ref={resourcesRef}>
-              <span
-                onClick={toggleResources}
-                className="cursor-pointer text-green-900 hover:text-yellow-400 flex items-center"
+            <li 
+              className="relative" 
+              ref={resourcesRef}
+              onMouseEnter={handleResourcesMouseEnter}
+              onMouseLeave={handleResourcesMouseLeave}
+            >
+              <button
+                className={`${navLinkStyle} flex items-center gap-2`}
               >
-                RESOURCES ▾
-              </span>
+                RESOURCES
+                <svg className={`w-4 h-4 transition-transform duration-300 ${isResourcesOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+              </button>
               {isResourcesOpen && (
-                <ul className="absolute top-full mt-2 w-40 bg-white text-black rounded shadow-lg z-50">
+                <ul className="absolute top-full mt-2 w-48 bg-white text-black rounded-lg shadow-xl z-50 overflow-hidden">
                   <li>
-                    <Link
-                      to="/resources/blogs"
-                      className="block px-4 py-2 hover:bg-gray-100"
+                    <a
+                      href="/resources/blogs"
+                      className="block px-4 py-3 hover:bg-gray-100 transition-colors duration-200"
                       onClick={handleNavClick}
                     >
                       Blogs
-                    </Link>
+                    </a>
                   </li>
+                   {/* Add other resource links here */}
                 </ul>
               )}
             </li>
 
-            <li>
-              <Link
-                to="/career"
-                className="text-green-900 hover:text-yellow-400"
-                onClick={handleNavClick}
-              >
-                CAREER
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/contact"
-                className="text-green-900 hover:text-yellow-400"
-                onClick={handleNavClick}
-              >
-                CONTACT
-              </Link>
-            </li>
+            <li><a href="/career" className={navLinkStyle} onClick={handleNavClick}>CAREER</a></li>
+            <li><a href="/contact" className={navLinkStyle} onClick={handleNavClick}>CONTACT</a></li>
           </ul>
 
           {/* Mobile menu button */}
-          <div
-            className="lg:hidden text-green-900 text-3xl cursor-pointer"
-            onClick={toggleMenu}
-          >
-            <i
-              className={isMenuOpen ? "ri-close-large-line" : "ri-menu-4-line"}
-            ></i>
+          <div className="lg:hidden text-green-900 text-3xl cursor-pointer" onClick={toggleMenu}>
+            {/* Using SVG for icons for better consistency */}
+            {isMenuOpen ? (
+                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+            ) : (
+                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /></svg>
+            )}
           </div>
         </nav>
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden bg-white text-black px-6 py-4 space-y-3 absolute w-full shadow-lg">
-            <Link
-              to="/"
-              onClick={handleNavClick}
-              className="block hover:text-yellow-400 py-2"
-            >
-              HOME
-            </Link>
-            <Link
-              to="/about"
-              onClick={handleNavClick}
-              className="block hover:text-yellow-400 py-2"
-            >
-              ABOUT
-            </Link>
-            <Link
-              to="/offerings"
-              onClick={handleNavClick}
-              className="block hover:text-yellow-400 py-2"
-            >
-              OFFERINGS
-            </Link>
-            <Link
-              to="/projects"
-              onClick={handleNavClick}
-              className="block hover:text-yellow-400 py-2"
-            >
-              PROJECTS
-            </Link>
+          <div className="lg:hidden bg-white text-black px-6 pb-4 pt-2 space-y-2 absolute w-full shadow-lg">
+            <a href="/" onClick={handleNavClick} className={mobileNavLinkStyle}>HOME</a>
+            <a href="/about" onClick={handleNavClick} className={mobileNavLinkStyle}>ABOUT</a>
+            <a href="/offerings" onClick={handleNavClick} className={mobileNavLinkStyle}>OFFERINGS</a>
+            <a href="/projects" onClick={handleNavClick} className={mobileNavLinkStyle}>PROJECTS</a>
             <div>
-              <span
+              <button
                 onClick={toggleResources}
-                className="flex justify-between items-center cursor-pointer hover:text-yellow-400 py-2"
+                className={`${mobileNavLinkStyle} w-full flex justify-between items-center`}
               >
-                RESOURCES <span>▾</span>
-              </span>
+                RESOURCES
+                <svg className={`w-4 h-4 transition-transform duration-300 ${isResourcesOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+              </button>
               {isResourcesOpen && (
-                <div className="ml-4 mt-1 space-y-1 pt-2 border-l-2 border-green-100">
-                  <Link
-                    to="/resources/blogs"
+                <div className="ml-4 mt-2 space-y-2 pt-2 border-l-2 border-gray-200">
+                  <a
+                    href="/resources/blogs"
                     onClick={handleNavClick}
-                    className="block hover:text-yellow-400 pl-3 py-1"
+                    className="block hover:bg-gray-100 rounded-lg pl-3 py-2"
                   >
                     Blogs
-                  </Link>
+                  </a>
                 </div>
               )}
             </div>
-            <Link
-              to="/career"
-              onClick={handleNavClick}
-              className="block hover:text-yellow-400 py-2"
-            >
-              CAREER
-            </Link>
-            <Link
-              to="/contact"
-              onClick={handleNavClick}
-              className="block hover:text-yellow-400 py-2"
-            >
-              CONTACT
-            </Link>
+            <a href="/career" onClick={handleNavClick} className={mobileNavLinkStyle}>CAREER</a>
+            <a href="/contact" onClick={handleNavClick} className={mobileNavLinkStyle}>CONTACT</a>
           </div>
         )}
       </header>
@@ -211,3 +165,4 @@ const NavBar = () => {
 };
 
 export default NavBar;
+

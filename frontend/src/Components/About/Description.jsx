@@ -22,15 +22,15 @@ const MissionIcon = () => (
 );
 
 // New Sparkle Icon to match your "Our Team" heading style
-const SparkleIcon = () => (
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-teal-500">
-        <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M5 5L7 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M17 17L19 19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M17 7L19 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M5 19L7 17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
-);
+// const SparkleIcon = () => (
+//     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-teal-500">
+//         <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+//         <path d="M5 5L7 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+//         <path d="M17 17L19 19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+//         <path d="M17 7L19 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+//         <path d="M5 19L7 17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+//     </svg>
+// );
 
 
 export default function Description() {
@@ -41,11 +41,11 @@ export default function Description() {
         {/* === UPDATED: "WHO WE ARE" HEADING WITH ICONS === */}
         <div className="text-center mb-16">
             <div className="flex justify-center items-center gap-4">
-                <SparkleIcon />
+                {/* <SparkleIcon /> */}
                 <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-teal-700 to-green-600 text-transparent bg-clip-text">
                     WHO WE ARE
                 </h2>
-                <SparkleIcon />
+                {/* <SparkleIcon /> */}
             </div>
         </div>
         
