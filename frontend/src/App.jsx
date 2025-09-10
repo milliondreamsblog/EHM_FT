@@ -24,6 +24,7 @@ import BlogSection from "./Components/BlogsSection/BlogsSection.jsx";
 import SingleBlogPage from "./Components/BlogsSection/SingleBlogPage.jsx";
 import AuthorBlogsPage from "./Components/BlogsSection/AuthorBlogsPage.jsx";
 import ScrollToTop from './Components/LandingPage/ScrollToTop.jsx';
+import GalleryPage from './Pages/GalleryPage.jsx';
 
 
 
@@ -45,7 +46,7 @@ function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/offerings/products" element={<ProductPage />} />
           <Route path="/offerings" element={<ServicePage  />}  />
-          
+           <Route path="resources/gallery" element={<GalleryPage  />}  />
           <Route path="/resources/blogs" element={<BlogSection />} />
           <Route path="/blogs/:blogId" element={<SingleBlogPage />} />
           <Route
