@@ -53,8 +53,9 @@ const HomePage = () => {
       {/* <ProductSection /> */}
       {/* <Product /> */}
       <Team title="Our Team" members={members} limit={3} />
-      <TestimonialsSection />
+      
       <Testimonials />
+      <TestimonialsSection />
       <FootPrint />
       <Partners_logo />
     </div>

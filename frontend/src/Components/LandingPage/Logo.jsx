@@ -3,8 +3,8 @@ import { companies } from "../../Data/Data";
 import { motion } from "framer-motion";
 
 const Logo = () => {
-  const totalVisible = 8; // 2 rows x 4 columns
-  const rotateCount = 2; // logos to rotate at once
+  const totalVisible = 16; // 2 rows x 4 columns
+  const rotateCount = 1; // logos to rotate at once
   const [visibleLogos, setVisibleLogos] = useState(
     companies.slice(0, totalVisible)
   );
@@ -37,7 +37,7 @@ const Logo = () => {
 
       <div className="container mx-auto px-6">
         {/* Clean rectangular grid with dotted dividers */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 border border-gray-200 divide-x divide-y divide-dotted divide-gray-300 bg-gray-50">
+        <div className="grid grid-cols-2 sm:grid-cols-4 border border-dashed rounded-lg border-gray-200 divide-x divide-y divide-dashed divide-gray-300 bg-gray-50">
           {visibleLogos.map((company, idx) => (
             <motion.div
               key={idx}

@@ -21,7 +21,7 @@ const About = () => {
       <WhoWeAre />
 
 
-      <WhyChooseSection title='Why Choose us' />
+      <WhyChooseSection title='Focus Area' />
 
 
       <WhyChooseUs />
