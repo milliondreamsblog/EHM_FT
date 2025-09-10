@@ -18,40 +18,9 @@ const HomePage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-teal-50">
       <HeroSection />
-
-
-      <Logo />
-
-      {/* <ServicePage /> */}
-
-      <EhmBrief/>
+     <Logo />
+     <EhmBrief/>
       <ServiceSection />
-      {/* <ServicePage /> */}
-
-      {/* <ServiceSection />
-
-import ServiceSection from "../Components/LandingPage/ServiceSection";
-import { members } from "../Data/Data";
-
-
-
-
-const HomePage = () => {
-    return (
-        <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50">
-           
-                <HeroSection />
-             
-                  {/* <Hero/> */}
-      {/* <Service /> */}
-      {/* <ServiceSection />
-
-                <ProductSection /> */}
-
-      {/* <Service /> */}
-      {/* <ServiceSection /> */}
-      {/* <ProductSection /> */}
-      {/* <Product /> */}
       <Team title="Our Team" members={members} limit={3} />
       <TestimonialsSection />
       <Testimonials />
