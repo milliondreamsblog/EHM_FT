@@ -23,7 +23,7 @@ const testimonial = [
   },
   {
     id: 3,
-    name: " Sustainable Management Plan, Antia Taal",
+    name: "Sustainable Management Plans, Antia Taal",
     message:
       " Nature: Detailed planning to ensure the availability of treated water & financial sustainability of the project Size: ~ 9 Acre",
     Agency: "Jhansi Nagar Nigam, Jhansi",
