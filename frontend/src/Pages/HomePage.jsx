@@ -14,18 +14,74 @@ import ServiceSection from "../Components/LandingPage/ServiceSection";
 import { TestimonialsSection } from "../Components/LandingPage/testimonials1";
 import EhmBrief from "../Components/LandingPage/EhmBrief";
 
+// Scroll animation wrapper
+import ScrollReveal from "../Components/Animations/ScrollReveal";
+
 const HomePage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-teal-50">
       <HeroSection />
-     <Logo />
-     <EhmBrief/>
-      <ServiceSection />
-      <Team title="Our Team" members={members} limit={3} />
-      <TestimonialsSection />
-      <Testimonials />
-      <FootPrint />
-      <Partners_logo />
+
+
+      <ScrollReveal>
+        <Logo />
+      </ScrollReveal>
+
+      {/* <ServicePage /> */}
+
+      <ScrollReveal>
+        <EhmBrief />
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <ServiceSection />
+      </ScrollReveal>
+      {/* <ServicePage /> */}
+
+      {/* <ServiceSection />
+
+import ServiceSection from "../Components/LandingPage/ServiceSection";
+import { members } from "../Data/Data";
+
+
+
+
+const HomePage = () => {
+    return (
+        <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50">
+           
+                <HeroSection />
+             
+                  {/* <Hero/> */}
+      {/* <Service /> */}
+      {/* <ServiceSection />
+
+                <ProductSection /> */}
+
+      {/* <Service /> */}
+      {/* <ServiceSection /> */}
+      {/* <ProductSection /> */}
+      {/* <Product /> */}
+      <ScrollReveal>
+        <Team title="Our Team" members={members} limit={3} />
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <TestimonialsSection />
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <Testimonials />
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <FootPrint />
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <Partners_logo />
+      </ScrollReveal>
+
     </div>
   );
 };

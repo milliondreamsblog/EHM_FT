@@ -29,6 +29,7 @@ const data = [
     paragraph: "EHM provides strategic solutions to develop sustainable, resilient and well-planned urban spaces. With a data-driven, interdisciplinary approach. EHM helps cities, transition toward circular, resource-efficient and climate-resilient urban centers, aligning national urban development frameworks.",
     image: "/offering/img3.png"
   }
+  
 ];
 
 
