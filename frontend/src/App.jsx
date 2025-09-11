@@ -20,11 +20,13 @@ import Projects from "./Pages/Projects.jsx";
 import "aos/dist/aos.css";
 import AdminLoginModal from "../src/Components/Admin/AdminLoginModal.jsx";
 
-import BlogSection from "./Components/BlogsSection/BlogsSection.jsx";
-import SingleBlogPage from "./Components/BlogsSection/SingleBlogPage.jsx";
-import AuthorBlogsPage from "./Components/BlogsSection/AuthorBlogsPage.jsx";
+
 import ScrollToTop from './Components/LandingPage/ScrollToTop.jsx';
 import GalleryPage from './Pages/GalleryPage.jsx';
+import AuthorContentPage from './Common/Content/AuthorContentPage.jsx';
+import SingleContentPage from './Common/Content/SingleContentPage.jsx';
+import BlogsPage from './Pages/BlogsPage.jsx';
+import CaseStudyPage from './Pages/CaseStudyPage.jsx';
 
 
 
@@ -45,13 +47,30 @@ function App() {
 
           <Route path="/projects" element={<Projects />} />
           <Route path="/offerings/products" element={<ProductPage />} />
-          <Route path="/offerings" element={<ServicePage  />}  />
-           <Route path="resources/gallery" element={<GalleryPage  />}  />
-          <Route path="/resources/blogs" element={<BlogSection />} />
-          <Route path="/blogs/:blogId" element={<SingleBlogPage />} />
+          <Route path="/offerings" element={<ServicePage />} />
+          <Route path="resources/gallery" element={<GalleryPage />} />
+
+          <Route path="/resources/blogs" element={<BlogsPage />} />
+          <Route path="/resources/casestudies" element={<CaseStudyPage />} />
+
+          <Route
+            path="/blogs/:id"
+            element={<SingleContentPage basePath="blogs" contentName="Blog" />}
+          />
+
+          <Route
+            path="/casestudies/:id"
+            element={<SingleContentPage basePath="casestudies" contentName="Case Study" />}
+          />
+
           <Route
             path="/blogs/author/:authorName"
-            element={<AuthorBlogsPage />}
+            element={<AuthorContentPage basePath="blogs" contentNamePlural="Blogs" />}
+          />
+
+          <Route
+            path="/casestudies/author/:authorName"
+            element={<AuthorContentPage basePath="casestudies" contentNamePlural="Case Studies" />}
           />
 
           <Route path="*" element={<HomePage />} />

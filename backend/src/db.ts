@@ -47,6 +47,35 @@ const BlogSchema = new Schema<BlogType>(
   { timestamps: true } //automatically creates two fields "createdAt" and "updatedAt" in mongoDb
 );
 
+//admin-Case study post
+interface CaseStudyType {
+  title: string; // title shown in card and full view
+  image: string; // Cloudinary URL of image
+  imagePublicId: string; // Cloudinary Public ID
+  author: string; //author-name in the card
+  content: string; //main content of the blog
+  creatorId: Types.ObjectId; // Admin's mongoDB _id who created the blog
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+//admin-Case study postschema
+const CaseStudySchema = new Schema<CaseStudyType>(
+  {
+    title: { type: String, required: true },
+    image: { type: String },
+    imagePublicId: { type: String },
+    author: { type: String, required: true },
+    content: { type: String, required: true },
+    creatorId: {
+      type: Schema.Types.ObjectId,
+      ref: "admin_info",
+      required: true,
+    },
+  },
+  { timestamps: true } //automatically creates two fields "createdAt" and "updatedAt" in mongoDb
+);
+
 //admin-NewsLetter type
 interface NewsLetterType {
   email: string;
@@ -144,6 +173,11 @@ export const AdminModel = model<AdminType>(
 
 //blog-post model
 export const BlogModel = model<BlogType>("blog_post", BlogSchema, "blog_post");
+export const CaseStudyModel = model<CaseStudyType>(
+  "caseStudy_post",
+  CaseStudySchema,
+  "caseStudy_post"
+);
 
 //article-post model
 export const ArticleModel = model<BlogType>(
