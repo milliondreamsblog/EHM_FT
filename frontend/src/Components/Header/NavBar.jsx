@@ -120,6 +120,16 @@ const NavBar = () => {
                   Gallery
                 </Link>
               </li>
+                
+                <li>
+                <Link
+                  to="/resources/webinar"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                  onClick={handleNavClick}
+                >
+                  Webinar
+                </Link>
+              </li>
             </ul>
           )}
             </li>
