@@ -11,10 +11,7 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
-
-
     "@lottiefiles/react-lottie-player": "^3.6.0",
-
     "aos": "^2.3.4",
     "axios": "^1.11.0",
     "clsx": "^2.1.1",
@@ -31,11 +28,8 @@
     "react-player": "^3.3.1",
     "react-quill": "^2.0.0",
     "react-router-dom": "^7.7.1",
-
     "react-scroll-parallax": "^3.4.5",
-
     "react-simple-typewriter": "^5.0.1",
-
     "swiper": "^11.2.10",
     "tailwind-merge": "^3.3.1"
   },
