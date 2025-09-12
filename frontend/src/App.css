@@ -1075,3 +1075,8 @@ html {
   scroll-behavior: smooth;
 }
 
+.more-spaced-dotted {
+  border-style: solid;
+  border-width: 4px;
+  border-image: repeating-radial-gradient(circle, black 0, black 2px, transparent 2px, transparent 6px) 1;
+}

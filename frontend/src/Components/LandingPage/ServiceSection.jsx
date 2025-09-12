@@ -25,9 +25,9 @@ const data = [
     image: "/offering/img3.png"
   },
    {
-    title: "Urban Planning & Management",
-    paragraph: "EHM provides strategic solutions to develop sustainable, resilient and well-planned urban spaces. With a data-driven, interdisciplinary approach. EHM helps cities, transition toward circular, resource-efficient and climate-resilient urban centers, aligning national urban development frameworks.",
-    image: "/offering/img3.png"
+    title: "Training & Capacity Building",
+    paragraph: "EHM provides comprehensive training programs, workshops, hands-on sessions and webinars designed to enhance the skills and knowledge of industry professionals, government officials and municipal engineers. Our goal is to build capacity, increase awareness and integrate sustainability into operations through practical learning and innovative tools.",
+    image: "/offering/product5.png"
   }
   
 ];

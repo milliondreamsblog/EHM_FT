@@ -1,5 +1,4 @@
-import React, { useRef } from 'react';
-import { useGSAP } from '@gsap/react';
+import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -29,7 +28,7 @@ const ApproachIcon = () => (
 const WhyChooseUsSection = () => {
     const container = useRef(null);
 
-    useGSAP(() => {
+    useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
 
         const titleBlock = ".title-block";

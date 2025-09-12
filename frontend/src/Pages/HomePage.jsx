@@ -67,8 +67,15 @@ const HomePage = () => {
       </ScrollReveal>
 
       <ScrollReveal>
+        <Partners_logo />
+      </ScrollReveal>
+
+      <ScrollReveal>
         <TestimonialsSection />
       </ScrollReveal>
+
+      
+
 
       <ScrollReveal>
         <Testimonials />
@@ -78,9 +85,7 @@ const HomePage = () => {
         <FootPrint />
       </ScrollReveal>
 
-      <ScrollReveal>
-        <Partners_logo />
-      </ScrollReveal>
+      
 
     </div>
   );

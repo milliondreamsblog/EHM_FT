@@ -129,6 +129,40 @@ const NavBar = () => {
                   </li>
                 </ul>
               )}
+
+//             {isResourcesOpen && (
+//               <ul className="absolute top-full mt-2 w-40 bg-white text-black rounded shadow-lg z-50">
+//                <li>
+//                 <Link
+//                   to="/resources/blogs"
+//                   className="block px-4 py-2 hover:bg-gray-100"
+//                   onClick={handleNavClick}
+//                 >
+//                 Blogs
+//               </Link>
+//             </li>
+//         <li>
+//                 <Link
+//                   to="/resources/gallery"
+//                   className="block px-4 py-2 hover:bg-gray-100"
+//                   onClick={handleNavClick}
+//                 >
+//                   Gallery
+//                 </Link>
+//               </li>
+                
+                <li>
+                <Link
+                  to="/resources/webinar"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                  onClick={handleNavClick}
+                >
+                  Webinar
+                </Link>
+              </li>
+            </ul>
+          )}
+
             </li>
 
             <li>

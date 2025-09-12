@@ -1,17 +1,17 @@
 export const companies = [
-  "CSIR- NEERI",
-  "csir_logo1",
+  "CSIRNEERI",
+  "csir",
   "CSJMU",
-  "government-of-telangana",
-  "Jhansi Nagar Nigam",
-  "Jhansi smart city",
-  "Kanpur smart city",
-  "Parivartan logo",
+  "GovernmentofTelangana",
+  "JhansiNagarNigam",
+  "Jhansismartcity",
+  "Kanpursmartcity",
+  "Parivartan",
   "Picture3",
-  "Prachi leathers",
-  "Tamil Nadu",
-  "Thriveni sainik logo",
-  "UPSIC Logo",
+  "Prachileathers",
+  "TamilNadu",
+  "Thrivenisainiklogo",
+  "UPSICLogo",
 ];
 
 export const partners = [

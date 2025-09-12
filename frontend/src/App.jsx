@@ -23,10 +23,14 @@ import AdminLoginModal from "../src/Components/Admin/AdminLoginModal.jsx";
 
 import ScrollToTop from './Components/LandingPage/ScrollToTop.jsx';
 import GalleryPage from './Pages/GalleryPage.jsx';
+
 import AuthorContentPage from './Common/Content/AuthorContentPage.jsx';
 import SingleContentPage from './Common/Content/SingleContentPage.jsx';
 import BlogsPage from './Pages/BlogsPage.jsx';
 import CaseStudyPage from './Pages/CaseStudyPage.jsx';
+
+import WebinarPage from './Pages/WebinarPage.jsx';
+
 
 
 
@@ -47,8 +51,10 @@ function App() {
 
           <Route path="/projects" element={<Projects />} />
           <Route path="/offerings/products" element={<ProductPage />} />
+
           <Route path="/offerings" element={<ServicePage />} />
           <Route path="resources/gallery" element={<GalleryPage />} />
+           <Route path="resources/webinar" element={<WebinarPage/>}  />
 
           <Route path="/resources/blogs" element={<BlogsPage />} />
           <Route path="/resources/casestudies" element={<CaseStudyPage />} />
@@ -62,7 +68,6 @@ function App() {
             path="/casestudies/:id"
             element={<SingleContentPage basePath="casestudies" contentName="Case Study" />}
           />
-
           <Route
             path="/blogs/author/:authorName"
             element={<AuthorContentPage basePath="blogs" contentNamePlural="Blogs" />}
