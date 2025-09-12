@@ -31,7 +31,7 @@ const NavBar = () => {
     setIsResourcesOpen((prev) => !prev);
   };
 
-   const toggleGallery = () => {
+  const toggleGallery = () => {
     setIsGalleryOpen((prev) => !prev);
   };
 
@@ -100,26 +100,56 @@ const NavBar = () => {
               >
                 RESOURCES ▾
               </span>
-            {isResourcesOpen && (
-              <ul className="absolute top-full mt-2 w-40 bg-white text-black rounded shadow-lg z-50">
-               <li>
-                <Link
-                  to="/resources/blogs"
-                  className="block px-4 py-2 hover:bg-gray-100"
-                  onClick={handleNavClick}
-                >
-                Blogs
-              </Link>
-            </li>
-        <li>
-                <Link
-                  to="/resources/gallery"
-                  className="block px-4 py-2 hover:bg-gray-100"
-                  onClick={handleNavClick}
-                >
-                  Gallery
-                </Link>
-              </li>
+              {isResourcesOpen && (
+                <ul className="absolute top-full mt-2 w-40 bg-white text-black rounded shadow-lg z-50">
+                  <li>
+                    <Link
+                      to="/resources/blogs"
+                      className="block px-4 py-2 hover:bg-gray-100"
+                      onClick={handleNavClick}
+                    >
+                      Blogs
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/resources/casestudies" onClick={handleNavClick} className="block hover:text-yellow-400 pl-3 py-1">Case Studies</Link>
+                  </li>
+
+
+
+
+                  <li>
+                    <Link
+                      to="/resources/gallery"
+                      className="block px-4 py-2 hover:bg-gray-100"
+                      onClick={handleNavClick}
+                    >
+                      Gallery
+                    </Link>
+                  </li>
+                </ul>
+              )}
+
+//             {isResourcesOpen && (
+//               <ul className="absolute top-full mt-2 w-40 bg-white text-black rounded shadow-lg z-50">
+//                <li>
+//                 <Link
+//                   to="/resources/blogs"
+//                   className="block px-4 py-2 hover:bg-gray-100"
+//                   onClick={handleNavClick}
+//                 >
+//                 Blogs
+//               </Link>
+//             </li>
+//         <li>
+//                 <Link
+//                   to="/resources/gallery"
+//                   className="block px-4 py-2 hover:bg-gray-100"
+//                   onClick={handleNavClick}
+//                 >
+//                   Gallery
+//                 </Link>
+//               </li>
                 
                 <li>
                 <Link
@@ -132,6 +162,7 @@ const NavBar = () => {
               </li>
             </ul>
           )}
+
             </li>
 
             <li>

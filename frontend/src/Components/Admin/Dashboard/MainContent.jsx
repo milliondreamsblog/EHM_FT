@@ -4,6 +4,7 @@ import Subscribers from "../sidebarOptions/Subscribers";
 import BlogsManage from "../sidebarOptions/blogsManage";
 import ArticleManage from "../sidebarOptions/ArticleManage";
 import FootprintManage from "../sidebarOptions/footprintManage";
+import CaseStudiesManage from "../sidebarOptions/CaseStudiesManage";
 
 export default function MainContent({ activeTab }) {
   return (
@@ -20,6 +21,7 @@ export default function MainContent({ activeTab }) {
       {activeTab === "createAdmin" && <CreateAdmin />}
       {activeTab === "subscribers" && <Subscribers />}
       {activeTab === "blogManage" && <BlogsManage />}
+      {activeTab === "caseStudiesManage" && <CaseStudiesManage />}
       {activeTab === "articles" && <ArticleManage />}
       {activeTab === "footprintManage" && <FootprintManage />}
     </main>

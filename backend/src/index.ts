@@ -14,6 +14,8 @@ import { ArticleUserRouter } from "./routes/ArticleUser";
 import { ContactUserRouter } from "./routes/ContactUser";
 import { FootprintAdminRouter } from "./routes/FootprintAdmin";
 import { FootprintUserRouter } from "./routes/FootprintUser";
+import { CaseStudyAdminRouter } from "./routes/CaseStudyAdmin";
+import { CaseStudyUserRouter } from "./routes/CaseStudyUser";
 
 // Load .env file from backend root when running from dist
 dotenv.config({ path: "../.env" }); // Adjust path if .env is in backend root
@@ -67,6 +69,12 @@ app.use("/admin", BlogAdminRouter);
 
 // User Blog routes
 app.use("/", BlogUserRouter);
+
+// Admin case study routes
+app.use("/admin", CaseStudyAdminRouter);
+
+// User case study routes
+app.use("/", CaseStudyUserRouter);
 
 // Admin Article routes
 app.use("/admin", ArticleAdminRouter);
