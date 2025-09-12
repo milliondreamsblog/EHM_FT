@@ -9,12 +9,13 @@
 
 body {
   font-family: 'Jost', sans-serif;
-  background-color: #ced0cf;
+  background-color: white;
   color: white;
-  letter-spacing: 0.05em;
   line-height: 1.6;
-  overflow-x: hidden;
+  overflow-x: hidden;   
+  overflow-y: hidden;     
 }
+
 
 .container {
   max-width: 1200px;

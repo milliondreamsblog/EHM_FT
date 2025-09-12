@@ -26,15 +26,16 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
+    <div className="bg-gradient-to-br from-green-50 to-teal-50 py-16 px-4">
+      <footer className="relative max-w-6xl mx-auto px-6 py-12 
+          bg-gradient-to-br from-green-600 via-emerald-700 to-blue-900
+                  
+       text-white rounded-2xl shadow-2xl border border-slate-700/50">
 
-      <div className="absolute inset-0 bg-gradient-to-r from-green-500/10 to-emerald-500/10"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(34,197,94,0.1),transparent_50%)]"></div>
+        <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-green-500/10 to-emerald-500/10 pointer-events-none"></div>
+        <div className="absolute inset-0 rounded-2xl bg-[radial-gradient(circle_at_50%_50%,rgba(34,197,94,0.08),transparent_50%)] pointer-events-none"></div>
 
-      <div className="relative max-w-6xl mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-
-
+        <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center space-x-3">
               <img
@@ -58,14 +59,14 @@ const Footer = () => {
             <div className="flex items-start space-x-3 text-slate-300">
               <FaMapMarkerAlt className="text-green-400 mt-1 flex-shrink-0" />
               <div className="text-sm">
-                <div>CSJM Innovation Foundation Chhatrapati Shahu Ji Maharaj University</div>
-                <div> Kalyanpur, Kanpur - 208024</div>
+
+                <div>TECHNOPARK, IIT KANPUR</div>
+                <div> Kalyanpur, Kanpur - 208016</div>
+
                 <div>India</div>
               </div>
             </div>
           </div>
-
-
           <div className="space-y-4">
             <div>
               <h4 className="text-lg font-semibold mb-2 flex items-center space-x-2">
@@ -108,7 +109,6 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Social Links */}
           <div className="space-y-4">
             <h4 className="text-lg font-semibold">Connect With Us</h4>
 
@@ -141,12 +141,11 @@ const Footer = () => {
             </div>
           </div>
         </div>
-
-
-        <div className="border-t border-slate-700 pt-8">
+           <div className="relative border-t border-slate-700 pt-6 mt-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-
-
+            <p className="text-xs text-slate-500">
+              © {new Date().getFullYear()} EHM Consultancy. All rights reserved.
+            </p>
             <div className="flex flex-wrap justify-center md:justify-end space-x-6 text-sm">
               <a href="#" className="text-slate-400 hover:text-green-400 transition-colors">
                 Privacy Policy
@@ -160,8 +159,8 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </div>
   );
 };
 

@@ -22,6 +22,13 @@ export const partners = [
   "HBTU",
 ];
 
+export const certified = [
+  "ISO",
+  "StartupUP",
+  "msme-logo",
+  "StartupIndia",
+];
+
 import one from "/Team/one.png";
 import two from "/Team/two.png";
 import three from "/Team/three.png";
@@ -123,7 +130,7 @@ const experts = [
   {
     name: "Dr. Roshan Singh",
     title:
-      "Asst. Professor, Dept of Petroleum Engineering and Earth Sciences ,IIPE Visakhapatnam",
+      "Asst Professor, Dept of Petroleum Engineering and Earth Sciences ,IIPE Visakhapatnam",
     degree: "",
     img: "/Team/roshan.png",
     social: "",

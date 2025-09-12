@@ -10,6 +10,7 @@ import WhoWeAre from '../Components/About/WhoWeAre'
 import { WhyChooseSection } from '../Components/WhyChooseUs/WhyChooseSection'
 import { Title } from '../Components/Title'
 import WhyChooseUs from '../Components/About/WhyChooseUs'
+import CertifiedLogo from '../Components/LandingPage/certified_logo'
 
 
 const About = () => {
@@ -25,6 +26,9 @@ const About = () => {
 
 
       <WhyChooseUs />
+
+
+      <CertifiedLogo/>
 
 
       <Team title="Our Team" members={members} />

@@ -23,7 +23,13 @@ const data = [
     title: "Urban Planning & Management",
     paragraph: "EHM provides strategic solutions to develop sustainable, resilient and well-planned urban spaces. With a data-driven, interdisciplinary approach. EHM helps cities, transition toward circular, resource-efficient and climate-resilient urban centers, aligning national urban development frameworks.",
     image: "/offering/img3.png"
+  },
+   {
+    title: "Training & Capacity Building",
+    paragraph: "EHM provides comprehensive training programs, workshops, hands-on sessions and webinars designed to enhance the skills and knowledge of industry professionals, government officials and municipal engineers. Our goal is to build capacity, increase awareness and integrate sustainability into operations through practical learning and innovative tools.",
+    image: "/offering/product5.png"
   }
+  
 ];
 
 
@@ -36,7 +42,7 @@ const ServiceSection = () => {
 
 
   return (
-    <div className="min-h-screen w-full flex flex-col items-center justify-center p-8">
+    <div className="min-h-screen w-full flex flex-col items-center justify-center  p-8">
    
       <div className="text-center mb-12 py-8">
         <div className="flex items-center justify-center gap-4 mb-6">
@@ -49,7 +55,7 @@ const ServiceSection = () => {
         <div className="w-32 h-1 bg-gradient-to-r from-teal-400 to-emerald-500 rounded-full mx-auto"></div>
       </div>
    
-      <div className="flex gap-4 max-w-7xl">
+      <div className="flex gap-4 max-w-7xl mr-16 ">
         {data.map((item, index) => {
           const isHovered = hoveredIndex === index;
           const isOtherHovered = hoveredIndex !== null && hoveredIndex !== index;
@@ -57,8 +63,8 @@ const ServiceSection = () => {
           return (
             <div
               key={index}
-              className={`relative bg-cover bg-center rounded-2xl shadow-2xl overflow-hidden cursor-pointer transition-all duration-500 ease-in-out h-96 flex-shrink-0
-                ${isHovered ? "w-96" : isOtherHovered ? "w-60" : "w-72"}
+              className={`relative bg-cover bg-center rounded-2xl shadow-2xl overflow-hidden cursor-pointer transition-all duration-500 ease-in-out h-80 flex-shrink-0
+                ${isHovered ? "w-80" : isOtherHovered ? "w-52" : "w-64"}
                 hover:shadow-3xl`}
               style={{ backgroundImage: `url(${item.image})` }}
               onMouseEnter={() => setHoveredIndex(index)}

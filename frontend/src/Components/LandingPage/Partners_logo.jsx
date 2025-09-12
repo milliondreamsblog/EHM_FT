@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const PartnersLogo = () => {
   return (
-    <section className="relative py-16 bg-gradient-to-r from-green-10 via-emerald-50 to-green-10 overflow-hidden">
+    <section className="relative py-16 bg-gradient-to-r from-green-10 via-[#55907D] to-[#26453B] overflow-hidden">
       {/* Decorative background blur */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-20 left-10 w-72 h-72 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
@@ -12,7 +12,7 @@ const PartnersLogo = () => {
 
       <div className="container mx-auto px-6">
         {/* Partners Logo Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 border border-gray-200 divide-x divide-y divide-dotted divide-gray-300 bg-gray-50">
+        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 border border-gray-800 divide-x divide-y divide-dotted divide-black bg-[#F0FDF8]">
           {partners.map((partner, index) => (
             <motion.div
               key={index}

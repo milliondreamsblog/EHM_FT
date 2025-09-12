@@ -59,7 +59,7 @@ const EhmBrief = () => {
           </div>
 
           {/* sucess rate */}
-          <div className="mt-6">
+          {/* <div className="mt-6">
             <div className="flex justify-center lg:justify-start gap-8 mb-8">
               <div className="text-center">
                 <div className="text-2xl font-bold text-green-700">15+</div>
@@ -70,12 +70,12 @@ const EhmBrief = () => {
                 <div className="text-sm text-gray-600">Success Rate</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-green-700">4+</div>
+                <div className="text-2xl font-bold text-green-700">5+</div>
                 <div className="text-sm text-gray-600">Years Experience</div>
               </div>
             </div>
 
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
