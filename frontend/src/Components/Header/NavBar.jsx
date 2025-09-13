@@ -112,12 +112,14 @@ const NavBar = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link to="/resources/casestudies" onClick={handleNavClick} className="block hover:text-yellow-400 pl-3 py-1">Case Studies</Link>
+                    <Link
+                      to="/resources/casestudies"
+                      onClick={handleNavClick}
+                      className="block hover:text-yellow-400 pl-3 py-1"
+                    >
+                      Case Studies
+                    </Link>
                   </li>
-
-
-
-
                   <li>
                     <Link
                       to="/resources/gallery"
@@ -127,42 +129,17 @@ const NavBar = () => {
                       Gallery
                     </Link>
                   </li>
+                  <li>
+                    <Link
+                      to="/resources/webinar"
+                      className="block px-4 py-2 hover:bg-gray-100"
+                      onClick={handleNavClick}
+                    >
+                      Webinar
+                    </Link>
+                  </li>
                 </ul>
               )}
-
-//             {isResourcesOpen && (
-//               <ul className="absolute top-full mt-2 w-40 bg-white text-black rounded shadow-lg z-50">
-//                <li>
-//                 <Link
-//                   to="/resources/blogs"
-//                   className="block px-4 py-2 hover:bg-gray-100"
-//                   onClick={handleNavClick}
-//                 >
-//                 Blogs
-//               </Link>
-//             </li>
-//         <li>
-//                 <Link
-//                   to="/resources/gallery"
-//                   className="block px-4 py-2 hover:bg-gray-100"
-//                   onClick={handleNavClick}
-//                 >
-//                   Gallery
-//                 </Link>
-//               </li>
-                
-                <li>
-                <Link
-                  to="/resources/webinar"
-                  className="block px-4 py-2 hover:bg-gray-100"
-                  onClick={handleNavClick}
-                >
-                  Webinar
-                </Link>
-              </li>
-            </ul>
-          )}
-
             </li>
 
             <li>
@@ -242,6 +219,27 @@ const NavBar = () => {
                     className="block hover:text-yellow-400 pl-3 py-1"
                   >
                     Blogs
+                  </Link>
+                  <Link
+                    to="/resources/casestudies"
+                    onClick={handleNavClick}
+                    className="block hover:text-yellow-400 pl-3 py-1"
+                  >
+                    Case Studies
+                  </Link>
+                  <Link
+                    to="/resources/gallery"
+                    onClick={handleNavClick}
+                    className="block hover:text-yellow-400 pl-3 py-1"
+                  >
+                    Gallery
+                  </Link>
+                  <Link
+                    to="/resources/webinar"
+                    onClick={handleNavClick}
+                    className="block hover:text-yellow-400 pl-3 py-1"
+                  >
+                    Webinar
                   </Link>
                 </div>
               )}
