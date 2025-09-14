@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import path from "path";
+import cloudinary from "cloudinary";
 
 import dotenv from "dotenv"; // Add dotenv import
 import { AuthAdminRouter } from "./routes/AuthAdmin";
@@ -91,6 +92,30 @@ app.use("/admin", FootprintAdminRouter);
 
 //user footprint rout
 app.use("/", FootprintUserRouter);
+
+
+cloudinary.v2.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
+app.get("/videos", async (req, res) => {
+  try {
+    const result = await cloudinary.v2.api.resources({
+      type: "upload",
+      resource_type: "video",
+      prefix: "videos_folder/",
+      max_results: 50,
+    });
+        
+    const videoUrls = result.resources.map((video:any) => video.secure_url);
+    res.json(videoUrls);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Failed to fetch videos from Cloudinary" });
+  }
+});
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
