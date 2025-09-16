@@ -1,98 +1,77 @@
-import { Typewriter } from 'react-simple-typewriter';
-
-
+import { useState } from "react";
+import VideoG from "./VideoG";
 
 const GalleryHero = () => {
- 
-  
-   const data = [
-    {
-      title: 'Mountain View',
-      value: 'Nature',
-      image: '/Demo/pic4.jpeg'
-    },
-    {
-      title: 'Beach',
-      value: 'Ocean',
-      image: '/Demo/pic5.jpeg'
-    },
-    {
-      title: 'Forest',
-      value: 'Wilderness',
-      image: '/Demo/pic11.jpg'
-    },
-    {
-      title: 'Desert',
-      value: 'Sand',
-      image: '/Demo/pic3.jpeg'
-    },
-    {
-      title: 'Cityscape',
-      value: 'Urban',
-      image: '/Demo/pic7.jpg'
-    },
-    {
-      title: 'Northern Lights',
-      value: 'Aurora',
-      image: '/Demo/pic21.jpeg'
-    },
-    {
-      title: 'Waterfall',
-      value: 'Nature',
-      image: '/Demo/pic12.jpg'
-    }
+  const [showAll, setShowAll] = useState(false);
+
+  const data = [
+    { image: "/Demo/pic4.jpeg" },
+    { image: "/Demo/pic23.jpeg" },
+    { image: "/Demo/pic2.jpeg" },
+    { image: "/Demo/pic5.jpeg" },
+    { image: "/Demo/pic11.jpg" },
+    { image: "/Demo/pic3.jpeg" },
+    { image: "/Demo/pic7.jpg" },
+    { image: "/Demo/pic21.jpeg" },
+    { image: "/Demo/pic12.jpg" },
+    { image: "/Demo/pic14.jpeg" },
+    { image: "/Demo/pic15.jpeg" },
+    { image: "/Demo/pic16.jpeg" },
+    { image: "/Demo/pic17.jpeg" },
+    { image: "/Demo/pic18.jpeg" },
+    { image: "/Demo/pic19.jpeg" },
+    { image: "/Demo/pic20.jpeg" },
+    { image: "/Demo/pic25.jpeg" },
+    { image: "/Demo/pic6.jpg" },
+    { image: "/Demo/pic8.png" },
+    { image: "/Demo/pic9.JPG" },
+    { image: "/Demo/pic10.JPG" },
+    { image: "/Demo/pic13.jpg" },
+    { image: "/Demo/pic22.jpeg" },
+    { image: "/Demo/pic1.jpeg" },
+   
   ];
 
-
-
-
-  const boxStyle = 'bg-white border border-gray-200 rounded-xl overflow-hidden flex flex-col ';
+  const visibleData = showAll ? data : data.slice(0, 8);
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-b from-blue-50 to-indigo-100 py-32 md:py-36 lg:py-36 px-4 md:px-8 lg:px-20">
-   
-   <div className="relative rounded-xl overflow-hidden mb-10 w-90 h-[90vh] flex items-center justify-center">
-      <img
-        src="/Demo/su.jpg"
-        alt="Mountain landscape"
-        className="w-full h-full object-cover"
-      />
-      <div className="absolute inset-0 z-20 flex  flex-col items-center justify-center text-center ">
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-green-600 to-indigo-700 bg-clip-text text-transparent drop-shadow-lg">
-          <Typewriter
-            words={["The Future is Ecosystem-Centric"]}
-            loop={true}
-            cursor={true}
-            typeSpeed={120}
-            deleteSpeed={100}
-            delaySpeed={5000}
-          />
-        </h1>
-      </div>
-    </div>
-      <div className="max-w-9xl mx-auto">
-          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 auto-rows-[250px]'>
-        {data.map((item, i) => (
-          <div
-            key={i}
-            className={`${boxStyle} ${
-              i === 1 || i === 4 || i === 5 || i === 6 ? 'md:col-span-2' : ''
-            } ${i === 2 ? 'md:row-span-2' : ''} group relative`}
-          >
-          
-            <div className="flex-1 overflow-hidden">
-              <img 
-                src={item.image} 
-                alt={item.title}
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-            </div>
-             </div>
+    <section className="min-h-screen w-full py-20 md:py-28 px-6 md:px-12 lg:px-20 bg-gradient-to-b from-green-50 to-green-100">
+      <h1 className="mt-6 mb-12 text-center text-7xl md:text-8xl font-extrabold tracking-tight text-green-100 max-w-4xl mx-auto leading-tight">
+        <span className="block mb-4 text-5xl font-light text-blue-400">
+          Real People, Real Moments
+        </span>
+        <span className="block text-orange-300 font-semibold mt-2 px-4">
+          Capturing the Heartbeat of Everyday Lives
+        </span>
+      </h1>
+
+  
+      <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+        {visibleData.map((item, i) => (
+          <div key={i} className="rounded-xl overflow-hidden aspect-square">
+            <img
+              src={item.image}
+              alt={`Gallery ${i}`}
+              className="w-full h-full object-cover"
+            />
+          </div>
         ))}
       </div>
-      </div>
 
-    </div>
+   
+      {!showAll && (
+        <div className="text-center mt-10">
+          <button
+            onClick={() => setShowAll(true)}
+            className="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
+          >
+            View More
+          </button>
+        </div>
+      )}
+
+      <VideoG/>
+    </section>
   );
 };
 
