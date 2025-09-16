@@ -19,7 +19,7 @@ export const webinars = [
   },
   {
     id: 3,
-    title: "Future of AI in India",
+    title: "Future of AI in India With Sustainable development ...",
     thumbnail: "https://img.youtube.com/vi/VIDEO_ID_3/maxresdefault.jpg",
     host: "Tech Talks",
     date: "Sept 5, 2025",
