@@ -8,6 +8,8 @@ ContactUserRouter.post("/contact", async (req: Request, res: Response) => {
   const requireBody = z.object({
     name: z.string().min(1, "Name is required"),
     email: z.string().email("Invalid email format"),
+     mobile: z.string().optional(),
+      interestedIn: z.string().min(1, "Please select an option"),
     message: z.string().min(1, "Message is required"),
   });
 
@@ -20,12 +22,14 @@ ContactUserRouter.post("/contact", async (req: Request, res: Response) => {
     });
   }
 
-  const { name, email, message } = parsed.data;
+  const { name, email, mobile, interestedIn, message } = parsed.data;
 
   try {
     const contactData = new ContactModel({
-      name,
+         name,
       email,
+      mobile,
+      interestedIn,
       message,
     });
 
