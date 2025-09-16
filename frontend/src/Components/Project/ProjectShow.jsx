@@ -387,11 +387,11 @@ const App = () => {
         {/* Page Header */}
         <div className="text-center mb-4 py-12">
           <div className="flex items-center justify-center gap-4 mb-6">
-            <Sparkles className="text-teal-500 animate-pulse" size={40} />
+            {/* <Sparkles className="text-teal-500 animate-pulse" size={40} /> */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-teal-600 via-emerald-600 to-green-600 bg-clip-text text-transparent">
               Projects
             </h1>
-            <Sparkles className="text-emerald-500 animate-pulse" size={40} />
+            {/* <Sparkles className="text-emerald-500 animate-pulse" size={40} /> */}
           </div>
           <div className="w-32 h-1 bg-gradient-to-r from-teal-400 to-emerald-500 rounded-full mx-auto"></div>
         </div>

@@ -128,11 +128,11 @@ export const TestimonialsSection = () => {
       <div className="container mx-auto px-4">
         <div className="section-heading text-center">
           <div className="flex items-center justify-center gap-4 mb-6">
-            <Sparkles className="text-teal-500 animate-pulse" size={40} />
+            {/* <Sparkles className="text-teal-500 animate-pulse" size={40} /> */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-teal-600 via-emerald-600 to-green-600 bg-clip-text text-transparent">
               Testimonials
             </h1>
-            <Sparkles className="text-emerald-500 animate-pulse" size={40} />
+            {/* <Sparkles className="text-emerald-500 animate-pulse" size={40} /> */}
           </div>
 
           {/* <h2 className="section-title mt-5 text-3xl font-bold text-gray-800">
