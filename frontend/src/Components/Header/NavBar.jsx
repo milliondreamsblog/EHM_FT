@@ -160,7 +160,7 @@ const NavBar = () => {
                   Webinar
                 </Link>
               </li>
-            </ul>
+            
           )}
 
             </li>
