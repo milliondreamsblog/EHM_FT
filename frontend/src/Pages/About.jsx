@@ -28,7 +28,7 @@ const About = () => {
       <WhyChooseUs />
 
 
-      <CertifiedLogo/>
+      <CertifiedLogo />
 
 
       <Team title="Our Team" members={members} />
