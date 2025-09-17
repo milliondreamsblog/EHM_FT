@@ -38,7 +38,7 @@ export default function FullscreenGallery() {
 
   return (
     <section
-      className="relative  w-full min-h-screen flex flex-col bg-gradient-to-b from-blue-50 to-indigo-100"
+      className="relative  w-full min-h-screen flex flex-col "
       aria-label="Fullscreen image gallery"
     >
       

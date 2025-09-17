@@ -17,6 +17,7 @@ import { FootprintAdminRouter } from "./routes/FootprintAdmin";
 import { FootprintUserRouter } from "./routes/FootprintUser";
 import { CaseStudyAdminRouter } from "./routes/CaseStudyAdmin";
 import { CaseStudyUserRouter } from "./routes/CaseStudyUser";
+import VidUser from "./routes/VidUser";
 
 // Load .env file from backend root when running from dist
 dotenv.config({ path: "../.env" }); // Adjust path if .env is in backend root
@@ -101,29 +102,8 @@ app.use("/admin", FootprintAdminRouter);
 //user footprint rout
 app.use("/", FootprintUserRouter);
 
-
-cloudinary.v2.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
-});
-
-app.get("/videos", async (req, res) => {
-  try {
-    const result = await cloudinary.v2.api.resources({
-      type: "upload",
-      resource_type: "video",
-      prefix: "videos_folder/",
-      max_results: 50,
-    });
-        
-    const videoUrls = result.resources.map((video:any) => video.secure_url);
-    res.json(videoUrls);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: "Failed to fetch videos from Cloudinary" });
-  }
-});
+app.use("/videos", VidUser);
+// Cloudinary configuration
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

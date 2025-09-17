@@ -26,16 +26,9 @@ const Footer = () => {
   };
 
   return (
-    <div className="bg-gradient-to-br from-green-50 to-teal-50 py-16 px-4">
-      <footer className="relative max-w-6xl mx-auto px-6 py-12 
-          bg-gradient-to-br from-green-600 via-emerald-700 to-blue-900
-                  
-       text-white rounded-2xl shadow-2xl border border-slate-700/50">
-
-        <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-green-500/10 to-emerald-500/10 pointer-events-none"></div>
-        <div className="absolute inset-0 rounded-2xl bg-[radial-gradient(circle_at_50%_50%,rgba(34,197,94,0.08),transparent_50%)] pointer-events-none"></div>
-
-        <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+    <div className="w-full bg-[#95c6a4] py-16 px-4">
+      <footer className=" mx-auto px-6 py-12 text-white rounded-2xl shadow-lg">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center space-x-3">
               <img
@@ -44,119 +37,89 @@ const Footer = () => {
                 className="h-12 w-12 rounded-lg shadow-lg bg-white p-1 w-24"
               />
               <div>
-                <h3 className="text-2xl font-bold bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
+                <h3 className="text-2xl font-bold text-green-900">
                   EHM CONSULTANCY
                 </h3>
-                <p className="text-slate-400 text-sm">Sustainable Solutions for Tomorrow</p>
+                <p className="text-green-950 text-sm opacity-80">Sustainable Solutions for Tomorrow</p>
               </div>
             </div>
 
-            <p className="text-slate-300 text-sm leading-relaxed max-w-md">
+            <p className="text-green-950 text-sm leading-relaxed max-w-md opacity-90">
               Leading the way in environmental sustainability and carbon footprint reduction.
               Join us in creating a greener future for generations to come.
             </p>
 
-            <div className="flex items-start space-x-3 text-slate-300">
-              <FaMapMarkerAlt className="text-green-400 mt-1 flex-shrink-0" />
+            <div className="flex items-start space-x-3 text-green-950 opacity-90">
+              <FaMapMarkerAlt className="text-green-700 mt-1 flex-shrink-0" />
               <div className="text-sm">
-
                 <div>TECHNOPARK, IIT KANPUR</div>
-                <div> Kalyanpur, Kanpur - 208016</div>
-
+                <div>Kalyanpur, Kanpur - 208016</div>
                 <div>India</div>
               </div>
             </div>
           </div>
+
           <div className="space-y-4">
-            <div>
-              <h4 className="text-lg font-semibold mb-2 flex items-center space-x-2">
-                <FaEnvelope className="text-green-400" />
-                <span>Stay Updated</span>
-              </h4>
-              <p className="text-slate-400 text-sm">
-                Get the latest news and updates on sustainability initiatives.
-              </p>
-            </div>
+            <h4 className="text-lg font-semibold flex items-center space-x-2">
+              <FaEnvelope className="text-green-700" />
+              <span>Stay Updated</span>
+            </h4>
+            <p className="text-green-950 text-sm opacity-90">
+              Get the latest news and updates on sustainability initiatives.
+            </p>
 
             <form onSubmit={handleSubscribe} className="space-y-3">
-              <div className="relative">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg 
-                           focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-transparent
-                           placeholder-slate-500 transition-all duration-200"
-                />
-              </div>
+              <input
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                className="w-full px-4 py-3 bg-white border border-green-300 rounded-lg 
+                           focus:outline-none 
+                          transition-all duration-200"
+              />
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full px-4 py-3 bg-gradient-to-r from-green-600 to-emerald-600 
-                         text-white font-semibold rounded-lg hover:from-green-700 hover:to-emerald-700 
-                         focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2 
-                         focus:ring-offset-slate-900 transition-all duration-200 transform hover:scale-[1.02]
-                         disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                className="w-full px-4 py-3 bg-green-600 text-white font-semibold rounded-lg 
+                           hover:bg-green-700 focus:outline-none focus:ring-2 
+                           focus:ring-green-800 transition-all duration-200"
               >
                 {isSubmitting ? 'Subscribing...' : 'Subscribe Now'}
               </button>
             </form>
 
-            <p className="text-xs text-slate-500">
+            <p className="text-xs text-green-950 opacity-80">
               We respect your privacy. Unsubscribe anytime.
             </p>
           </div>
 
           <div className="space-y-4">
             <h4 className="text-lg font-semibold">Connect With Us</h4>
-
             <div className="flex space-x-4">
-              <a
-                href="https://www.linkedin.com/company/ehm-consultancy-pvt-ltd/"
-                aria-label="LinkedIn"
-                className="group p-3 bg-slate-800/50 rounded-lg hover:bg-blue-600 
-                         transition-all duration-300 transform hover:scale-110"
-              >
-                <FaLinkedin className="text-xl text-slate-300 group-hover:text-white transition-colors" />
+              <a href="https://www.linkedin.com/company/ehm-consultancy-pvt-ltd/"
+                 className="p-3 bg-green-700 rounded-lg hover:bg-green-800 transition-all">
+                <FaLinkedin className="text-xl text-white" />
               </a>
-              <a
-                href="https://x.com/EhmConsultancy"
-                aria-label="Twitter"
-                className="group p-3 bg-slate-800/50 rounded-lg hover:bg-sky-500 
-                         transition-all duration-300 transform hover:scale-110"
-              >
-                <FaTwitter className="text-xl text-slate-300 group-hover:text-white transition-colors" />
+              <a href="https://x.com/EhmConsultancy"
+                 className="p-3 bg-green-700 rounded-lg hover:bg-green-800 transition-all">
+                <FaTwitter className="text-xl text-white" />
               </a>
             </div>
-
-            <div className="pt-4 space-y-2">
-              <div className="text-sm text-slate-400">
-                <strong className="text-green-400">Email:</strong> info@ehmconsultancy.co.in
-              </div>
-              <div className="text-sm text-slate-400">
-                <strong className="text-green-400">Phone:</strong> +91 9892396408
-              </div>
+            <div className="pt-4 space-y-2 text-green-950 opacity-90">
+              <div className="text-sm"><strong>Email:</strong> info@ehmconsultancy.co.in</div>
+              <div className="text-sm"><strong>Phone:</strong> +91 9892396408</div>
             </div>
           </div>
         </div>
-           <div className="relative border-t border-slate-700 pt-6 mt-6">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-xs text-slate-500">
-              © {new Date().getFullYear()} EHM Consultancy. All rights reserved.
-            </p>
-            <div className="flex flex-wrap justify-center md:justify-end space-x-6 text-sm">
-              <a href="#" className="text-slate-400 hover:text-green-400 transition-colors">
-                Privacy Policy
-              </a>
-              <a href="#" className="text-slate-400 hover:text-green-400 transition-colors">
-                Terms of Service
-              </a>
-              <a href="/contact" className="text-slate-400 hover:text-green-400 transition-colors">
-                Contact Us
-              </a>
-            </div>
+
+        <div className="border-t border-green-300 pt-6 mt-6 flex flex-col md:flex-row justify-between items-center text-green-950 opacity-90 text-xs">
+          <p>© {new Date().getFullYear()} EHM Consultancy. All rights reserved.</p>
+          <div className="flex space-x-6">
+            <a href="#" className="hover:text-green-700">Privacy Policy</a>
+            <a href="#" className="hover:text-green-700">Terms of Service</a>
+            <a href="/contact" className="hover:text-green-700">Contact Us</a>
           </div>
         </div>
       </footer>

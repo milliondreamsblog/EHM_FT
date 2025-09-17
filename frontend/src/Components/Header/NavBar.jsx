@@ -85,6 +85,7 @@ const NavBar = () => {
               </Link>
             </li>
 
+            {/* Resources Dropdown */}
             <li className="relative" ref={resourcesRef}>
               <span
                 onClick={toggleResources}
@@ -105,9 +106,8 @@ const NavBar = () => {
                   </li>
                   <li>
                     <Link
-                      to="/resources/casestudies"
-
-                      className="block px-4 py-2 hover:bg-gray-100"
+                      to="/resources/casestudies"\
+                      className="block hover:text-yellow-400 pl-3 py-1"
                       onClick={handleNavClick}
 
                     >
@@ -260,3 +260,5 @@ const NavBar = () => {
 };
 
 export default NavBar;
+ 
+
