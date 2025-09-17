@@ -1,13 +1,19 @@
 import React, { useState, useMemo } from 'react';
 import { MapPin, Building, Calendar, ChevronDown, ChevronUp, ExternalLink, Share2, Bookmark, Eye, Award, Target, Zap, Sparkles, Users } from 'lucide-react';
 
-// Mock images for demonstration. In a real app, you'd import these.
-// Replaced local paths with web-accessible placeholders.
 const pic1 = "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901212/Electrical_Resistivity_Tomography_te2a4b.jpg";
 const pic2 = "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901263/ESG_Course_Modules_TOT_for_MSME_fcduho.jpg";
 const pic3 = "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901213/CSJMU_Sustainability_Report_be0pv3.jpg";
 const pic4 = "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901266/Sustainable_Management_Plan_Antia_Taal_zctqbx.jpg";
+
+//add the image url here
+const pic_laxmi_taal = "https://placehold.co/600x400/4682B4/FFFFFF?text=Laxmi+Taal";
+
 const pic5 = "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901226/Kanpur_Smart_City_Audit_r4memd.png";
+
+//add the image url here
+const pic5_jhansi = "https://placehold.co/600x400/FF6347/FFFFFF?text=Invalid+Image+URL";
+
 const pic6 = "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901253/Restoration_of_Waterbody_hrs3eq.jpg";
 const pic7 = "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901244/social_Impact_tybcom.jpg";
 const pic8 = "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901211/Designing_Constructed_Wetland_ggm9s5.jpg";
@@ -47,19 +53,19 @@ const ProjectCard = ({
     setIsBookmarked(!isBookmarked);
   };
 
-  // Handles sharing the project link
+
   const handleShare = (e) => {
     e.stopPropagation();
-    // Using document.execCommand for compatibility within iFrames
+
     const dummyInput = document.createElement('input');
     document.body.appendChild(dummyInput);
-    dummyInput.value = window.location.href; // In a real app, this would be the project-specific URL
+    dummyInput.value = window.location.href;
     dummyInput.select();
     document.execCommand('copy');
     document.body.removeChild(dummyInput);
-    // A visual confirmation would be better in a real app, but this works for now.
+
     console.log('Link copied to clipboard!');
-    // You could also trigger the parent's showMessage function here if passed as a prop.
+
   };
 
   return (
@@ -258,18 +264,28 @@ const ProjectCard = ({
 // Main App Component
 const App = () => {
   const sampleProjects = [
-    { image: pic1, title: "Electrical Resistivity Tomography (ERT) Survey", agency: "Thriveni Sainik Mining Private Limited", location: "Jharkhand", duration: "Ongoing", status: "Ongoing", projectType: "Survey", technologies: ["ERT", "Geophysical Surveying"], description: "Estimation of coal reserves, identification of galleries, coal seam voids, and water-filled zones in an abandoned coal mine.", outcomes: ["Detailed subsurface mapping", "Resource estimation"] },
-    { image: pic2, title: "ESG Course Modules & TOT for MSME", agency: "UPSIC, Kanpur", location: "Kanpur, Uttar Pradesh", duration: "Completed", status: "Completed", projectType: "Training", technologies: ["ESG Frameworks", "Curriculum Design"], description: "Develop course curriculum and organize Train the Trainer programs for RAMP Programme, a World Bank assisted project.", outcomes: ["Trained trainers", "Developed ESG curriculum"] },
-    { image: pic3, title: "Sustainability Report", agency: "CSJM University, Kanpur", location: "Kanpur, Uttar Pradesh", duration: "Completed", status: "Completed", projectType: "Environmental", technologies: ["UNSDG Framework", "GHG Accounting"], description: "Sustainability reporting using UNSDG framework, GHG emission accounting, and identifying interventions as per ESG framework to achieve Net-zero goals.", outcomes: ["Published sustainability report", "Net-zero roadmap"] },
-    { image: pic4, title: "Sustainable Management Plan, Antia Taal", agency: "Jhansi Nagar Nigam, Jhansi", location: "Jhansi, Uttar Pradesh", duration: "Ongoing", status: "Ongoing", projectType: "Environmental", technologies: ["Water Management", "Financial Analysis"], description: "Assessing the technical feasibility of treated water and financial sustainability of the project.", outcomes: ["Feasibility report", "Sustainability plan"] },
-    { image: pic5, title: "Audit of Smart City Projects", agency: "Jhansi and Kanpur Smart City Limited", location: "Jhansi & Kanpur", duration: "Completed", status: "Completed", projectType: "Audit", technologies: ["Project Auditing", "Quality Assurance"], description: "Audit and quality check of various projects executed under smart city mission starting from the DPR phase till the completion of the project.", outcomes: ["Comprehensive audit report", "Quality assessment"] },
-    { image: pic6, title: "Restoration of Waterbody", agency: "CSJM University, Kanpur", location: "Kanpur, Uttar Pradesh", duration: "Ongoing", status: "Ongoing", projectType: "Environmental", technologies: ["Bioremediation", "Floating Wetlands"], description: "Design and commissioning of bioremediation floating wetland.", outcomes: ["Improved water quality", "Restored ecosystem"] },
-    { image: pic7, title: "Social Impact Assessment", agency: "Jhansi Smart City Limited", location: "Jhansi, Uttar Pradesh", duration: "Completed", status: "Completed", projectType: "Audit", technologies: ["Social Impact Analysis"], description: "Social impact assessment of various projects of tourism, water, health, sports, park category executed under smart city mission.", outcomes: ["SIA report", "Community feedback analysis"] },
-    { image: pic8, title: "Agra Project", agency: "CENGG Engineers & Ongoing Consultants (P) Ltd", location: "Industrial Area Foundry Nagar, Agra", duration: "Ongoing", status: "Ongoing", projectType: "Infrastructure", technologies: ["Effluent Treatment", "Project Management"], description: "Designing and Project Management of 80 KLD Decentralized Effluent Treatment Plant.", outcomes: ["Plant Design Completed", "Project Management Plan in Place"] },
-    { image: pic9, title: "Designing Constructed Wetland", agency: "Neev Enviro Consultants", location: "Rajouri, J&K", duration: "Completed", status: "Completed", projectType: "Infrastructure", technologies: ["Constructed Wetlands", "Nature Based Treatment"], description: "Design of a 0.5 MLD STP based on decentralized nature based treatment technique.", outcomes: ["Designed STP plan"] },
-    { image: pic10, title: "Restoration of Adiyur lake, Tirupathur", agency: "Tirupathur Municipal Corporation, Tamilnadu", location: "Tirupathur, Tamilnadu", duration: "Ongoing", status: "Ongoing", projectType: "Environmental", technologies: ["Lake Restoration", "Wastewater Treatment"], description: "Restoration of lake by treating and reuse the adjacent drain carrying the graywater.", outcomes: ["Restored lake ecosystem"] },
-    { image: pic11, title: "Grey Water Management", agency: "Prachi Leather, Kanpur", location: "Leather Park, Kanpur", duration: "Completed", status: "Completed", projectType: "Infrastructure", technologies: ["Grey Water Treatment"], description: "Treatment of grey water generated inside the premises of the leather industry.", outcomes: ["Water recycling system"] },
-    { image: pic12, title: "Environmental Audit", agency: "Kolkata Zonal Lab, CSIR-NEERI, Kolkata", location: "Kolkata, West Bengal", duration: "Completed", status: "Completed", projectType: "Audit", technologies: ["Environmental Auditing", "SDG Analysis"], description: "Analyzing the Energy/water usage and waste generation of the building to optimize/reduce the operations as per the SDGs guidelines.", outcomes: ["Audit report with recommendations"] }
+    { image: pic1, title: "Electrical Resistivity Tomography (ERT) Survey", agency: "Thriveni Sainik Mining Private Limited", location: "Jharkhand", duration: "Ongoing", status: "Ongoing", projectType: "Geophysical Investigation", technologies: ["ERT", "Geophysical Surveying"], description: "Estimation of coal reserves, identification of galleries, coal seam voids, and water-filled zones in an abandoned coal mine.", outcomes: ["Detailed subsurface mapping", "Resource estimation"] },
+    { image: pic2, title: "ESG Course Modules & TOT for MSME", agency: "UPSIC, Kanpur", location: "Kanpur, Uttar Pradesh", duration: "Completed", status: "Completed", projectType: "Training & Capacity Building", technologies: ["ESG Frameworks", "Curriculum Design"], description: "Develop course curriculum and organize Train the Trainer programs for RAMP Programme, a World Bank assisted project.", outcomes: ["Trained trainers", "Developed ESG curriculum"] },
+
+    // add the image url here
+
+
+    { image: "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901263/ESG_Course_Modules_TOT_for_MSME_fcduho.jpg", title: "Artificial Intelligence - Entrepreneurship Development", agency: "Ministry of MSME, GoI", location: "IIT Kanpur", duration: "Completed", status: "Completed", projectType: "Training & Capacity Building", technologies: ["AI", "Entrepreneurship", "Skill Development"], description: "Delivered sessions under the flagship training programme i.e. Advanced Entrepreneurship and Skill Development Programme (ESDP) and Management Development Programmes (MDP) supported by the Ministry of MSME, GoI. Expert: Dr. Utsav Mishra.", outcomes: ["Trained participants in Advanced ESDP & MDP."] },
+    { image: "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901263/ESG_Course_Modules_TOT_for_MSME_fcduho.jpg", title: "Artificial Intelligence - Entrepreneurship Development", agency: "Ministry of MSME, GoI", location: "IIT Kanpur", duration: "Completed", status: "Completed", projectType: "Training & Capacity Building", technologies: ["AI", "Entrepreneurship", "Skill Development"], description: "Delivered sessions under the flagship training programme i.e. Advanced ESDP and MDP supported by the Ministry of MSME, GoI. Expert: Dr. Harshit Mishra.", outcomes: ["Trained participants in Advanced ESDP & MDP."] },
+    { image: "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901263/ESG_Course_Modules_TOT_for_MSME_fcduho.jpg", title: "Artificial Intelligence - Entrepreneurship Development", agency: "Ministry of MSME, GoI", location: "IIT Kanpur", duration: "Completed", status: "Completed", projectType: "Training & Capacity Building", technologies: ["AI", "Entrepreneurship", "Skill Development"], description: "Delivered sessions under the flagship training programme i.e. Advanced ESDP and MDP supported by the Ministry of MSME, GoI. Expert: Dr. Harshit Mishra.", outcomes: ["Trained participants in Advanced ESDP & MDP."] },
+    { image: "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901263/ESG_Course_Modules_TOT_for_MSME_fcduho.jpg", title: "Artificial Intelligence - Entrepreneurship Development", agency: "Ministry of MSME, GoI", location: "IIT Kanpur", duration: "Completed", status: "Completed", projectType: "Training & Capacity Building", technologies: ["AI", "Entrepreneurship", "Skill Development"], description: "Delivered sessions under the flagship training programme i.e. Advanced ESDP and MDP supported by the Ministry of MSME, GoI. Expert: Dr. Harshit Mishra.", outcomes: ["Trained participants in Advanced ESDP & MDP."] },
+    { image: pic3, title: "Sustainability Report", agency: "CSJM University, Kanpur", location: "Kanpur, Uttar Pradesh", duration: "Completed", status: "Completed", projectType: "Sustainability Assessment & Reporting", technologies: ["UNSDG Framework", "GHG Accounting"], description: "Sustainability reporting using UNSDG framework, GHG emission accounting, and identifying interventions as per ESG framework to achieve Net-zero goals.", outcomes: ["Published sustainability report", "Net-zero roadmap"] },
+    { image: pic4, title: "Sustainable Management Plan, Antia Taal", agency: "Jhansi Nagar Nigam, Jhansi", location: "Jhansi, Uttar Pradesh", duration: "Ongoing", status: "Ongoing", projectType: "Urban Planning & Management", technologies: ["Water Management", "Financial Analysis"], description: "Assessing the technical feasibility of treated water and financial sustainability of the project.", outcomes: ["Feasibility report", "Sustainability plan"] },
+    { image: pic_laxmi_taal, title: "Sustainable Management Plan, Laxmi Taal", agency: "JSCL, Jhansi", location: "Jhansi, Uttar Pradesh", duration: "Ongoing", status: "Ongoing", projectType: "Urban Planning & Management", technologies: ["DPR Preparation", "Water Body Management", "Sustainability Strategy"], description: "Preparation of a Detailed project report to ensure the sustainable management of Laxmi Taal waterbody spread over a 80-85 acres by building a comprehensive strategy for implementing ex-situ and in-situ interventions, maintaining water levels, and safeguarding the overall health and sustainability of the lake.", outcomes: ["Detailed Project Report", "Lake Health Safeguards"] },
+    { image: pic5, title: "Audit of Kanpur Smart City Projects", agency: "Kanpur Smart City Limited", location: "Kanpur", duration: "Completed", status: "Completed", projectType: "Urban Planning & Management", technologies: ["Project Auditing", "Quality Assurance"], description: "Audit and quality check of various projects executed under smart city mission in Kanpur, starting from the DPR phase till the completion of the project.", outcomes: ["Comprehensive audit report", "Quality assessment"] },
+    { image: pic5_jhansi, title: "Audit of Jhansi Smart City Projects", agency: "Jhansi Smart City Limited", location: "Jhansi", duration: "Completed", status: "Completed", projectType: "Urban Planning & Management", technologies: ["Project Auditing", "Quality Assurance"], description: "Audit and quality check of various projects executed under smart city mission in Jhansi, starting from the DPR phase till the completion of the project.", outcomes: ["Comprehensive audit report", "Quality assessment"] },
+    { image: pic6, title: "Restoration of Waterbody", agency: "CSJM University, Kanpur", location: "Kanpur, Uttar Pradesh", duration: "Ongoing", status: "Ongoing", projectType: "Sustainable Environmental Management", technologies: ["Bioremediation", "Floating Wetlands"], description: "Design and commissioning of bioremediation floating wetland.", outcomes: ["Improved water quality", "Restored ecosystem"] },
+    { image: pic7, title: "Social Impact Assessment", agency: "Jhansi Smart City Limited", location: "Jhansi, Uttar Pradesh", duration: "Completed", status: "Completed", projectType: "Sustainability Assessment & Reporting", technologies: ["Social Impact Analysis"], description: "Social impact assessment of various projects of tourism, water, health, sports, park category executed under smart city mission.", outcomes: ["SIA report", "Community feedback analysis"] },
+    { image: pic8, title: "Agra Project", agency: "CENGG Engineers & Ongoing Consultants (P) Ltd", location: "Industrial Area Foundry Nagar, Agra", duration: "Ongoing", status: "Ongoing", projectType: "Sustainable Environmental Management", technologies: ["Effluent Treatment", "Project Management"], description: "Designing and Project Management of 80 KLD Decentralized Effluent Treatment Plant.", outcomes: ["Plant Design Completed", "Project Management Plan in Place"] },
+    { image: pic9, title: "Designing Constructed Wetland", agency: "Neev Enviro Consultants", location: "Rajouri, J&K", duration: "Completed", status: "Completed", projectType: "Sustainable Environmental Management", technologies: ["Constructed Wetlands", "Nature Based Treatment"], description: "Design of a 0.5 MLD STP based on decentralized nature based treatment technique.", outcomes: ["Designed STP plan"] },
+    { image: pic10, title: "Restoration of Adiyur lake, Tirupathur", agency: "Tirupathur Municipal Corporation, Tamilnadu", location: "Tirupathur, Tamilnadu", duration: "Ongoing", status: "Ongoing", projectType: "Sustainable Environmental Management", technologies: ["Lake Restoration", "Wastewater Treatment"], description: "Restoration of lake by treating and reuse the adjacent drain carrying the graywater.", outcomes: ["Restored lake ecosystem"] },
+    { image: pic11, title: "Grey Water Management", agency: "Prachi Leather, Kanpur", location: "Leather Park, Kanpur", duration: "Completed", status: "Completed", projectType: "Sustainable Environmental Management", technologies: ["Grey Water Treatment"], description: "Treatment of grey water generated inside the premises of the leather industry.", outcomes: ["Water recycling system"] },
+    { image: pic12, title: "Environmental Audit", agency: "Kolkata Zonal Lab, CSIR-NEERI, Kolkata", location: "Kolkata, West Bengal", duration: "Completed", status: "Completed", projectType: "Sustainability Assessment & Reporting", technologies: ["Environmental Auditing", "SDG Analysis"], description: "Analyzing the Energy/water usage and waste generation of the building to optimize/reduce the operations as per the SDGs guidelines.", outcomes: ["Audit report with recommendations"] }
   ];
 
   const [message, setMessage] = useState(null);
@@ -288,7 +304,7 @@ const App = () => {
     setTimeout(() => setMessage(null), 3000); // Hide after 3 seconds
   };
 
-  const filterOptions = ['All Projects', 'Environmental', 'Smart City', 'Energy', 'Infrastructure', 'Audit', 'Survey', 'Training'];
+  const filterOptions = ['All Projects', 'Sustainability Assessment & Reporting', 'Sustainable Environmental Management', 'Geophysical Investigation', 'Urban Planning & Management', 'Training & Capacity Building'];
 
   return (
     <div className="min-h-screen font-sans relative overflow-x-hidden bg-gradient-to-br from-gray-50 via-white to-teal-50/30">
@@ -371,11 +387,11 @@ const App = () => {
         {/* Page Header */}
         <div className="text-center mb-4 py-12">
           <div className="flex items-center justify-center gap-4 mb-6">
-            <Sparkles className="text-teal-500 animate-pulse" size={40} />
+            {/* <Sparkles className="text-teal-500 animate-pulse" size={40} /> */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-teal-600 via-emerald-600 to-green-600 bg-clip-text text-transparent">
               Projects
             </h1>
-            <Sparkles className="text-emerald-500 animate-pulse" size={40} />
+            {/* <Sparkles className="text-emerald-500 animate-pulse" size={40} /> */}
           </div>
           <div className="w-32 h-1 bg-gradient-to-r from-teal-400 to-emerald-500 rounded-full mx-auto"></div>
         </div>
@@ -445,3 +461,5 @@ const App = () => {
 };
 
 export default App;
+
+

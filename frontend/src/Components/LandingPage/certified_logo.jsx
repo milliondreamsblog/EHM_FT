@@ -12,11 +12,11 @@ const CertifiedLogo = () => {
 
       <div className="container mx-auto px-6">
         {/* Certified Logo Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 border border-gray-200 divide-x divide-y divide-dotted divide-gray-300 bg-gray-50">
+        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 border border-gray-400 divide-x divide-y divide-dotted divide-gray-400 ">
           {certified.map((cert, index) => (
             <motion.div
               key={index}
-              className="flex items-center justify-center p-6 rounded-lg cursor-pointer"
+              className="flex items-center justify-center p-6 rounded-sm cursor-pointer"
               whileHover={{ 
                 scale: 1.12, 
                 rotate: [0, 2, -2, 0], 
