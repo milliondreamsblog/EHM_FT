@@ -20,7 +20,7 @@ export const choiceOptionsData = [
   },
   {
     id: 'personalized',
-    title: 'Urban Planning & Management.',
+    title: 'Urban Planning & Management',
     description: '',
     icon: 'User',
     image: Urban

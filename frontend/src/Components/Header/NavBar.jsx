@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isResourcesOpen, setIsResourcesOpen] = useState(false);
-  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const resourcesRef = useRef(null);
 
   useEffect(() => {
@@ -14,7 +13,6 @@ const NavBar = () => {
         !resourcesRef.current.contains(event.target)
       ) {
         setIsResourcesOpen(false);
-        setIsGalleryOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -24,21 +22,15 @@ const NavBar = () => {
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
     setIsResourcesOpen(false);
-    setIsGalleryOpen(false);
   };
 
   const toggleResources = () => {
     setIsResourcesOpen((prev) => !prev);
   };
 
-  const toggleGallery = () => {
-    setIsGalleryOpen((prev) => !prev);
-  };
-
   const handleNavClick = () => {
     setIsMenuOpen(false);
     setIsResourcesOpen(false);
-    setIsGalleryOpen(false);
   };
 
   return (
@@ -114,8 +106,10 @@ const NavBar = () => {
                   <li>
                     <Link
                       to="/resources/casestudies"
+
+                      className="block px-4 py-2 hover:bg-gray-100"
                       onClick={handleNavClick}
-                      className="block hover:text-yellow-400 pl-3 py-1"
+
                     >
                       Case Studies
                     </Link>
@@ -142,7 +136,7 @@ const NavBar = () => {
               )}
             </li>
 
-            <li>
+            {/* <li>
               <Link
                 to="/career"
                 className="text-green-900 hover:text-yellow-400"
@@ -150,7 +144,7 @@ const NavBar = () => {
               >
                 CAREER
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link
                 to="/contact"
@@ -244,13 +238,13 @@ const NavBar = () => {
                 </div>
               )}
             </div>
-            <Link
+            {/* <Link
               to="/career"
               onClick={handleNavClick}
               className="block hover:text-yellow-400 py-2"
             >
               CAREER
-            </Link>
+            </Link> */}
             <Link
               to="/contact"
               onClick={handleNavClick}
