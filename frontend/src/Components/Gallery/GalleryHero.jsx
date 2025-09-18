@@ -37,10 +37,10 @@ const GalleryHero = () => {
   return (
     <section className="min-h-screen w-full py-20 md:py-28 px-6 md:px-12 lg:px-20 bg-gradient-to-b from-green-50 to-green-100">
       <h1 className="mt-6 mb-12 text-center text-7xl md:text-8xl font-extrabold tracking-tight text-green-100 max-w-4xl mx-auto leading-tight">
-        <span className="block mb-4 text-5xl font-light text-blue-400">
+        <span className="block mb-4 text-5xl font-light text-teal-500">
           Real People, Real Moments
         </span>
-        <span className="block text-orange-300 font-semibold mt-2 px-4">
+        <span className="block text-teal-500 font-semibold mt-2 px-4">
           Capturing the Heartbeat of Everyday Lives
         </span>
       </h1>

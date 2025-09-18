@@ -126,8 +126,7 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Interested In */}
-         {/* Interested In */}
+         
 <div>
   <label className="block text-sm font-medium mb-1 text-green-800">Interested In</label>
   <select
@@ -147,26 +146,28 @@ export default function Contact() {
 </div>
 
 
-          {/* Message */}
-          <div className="relative">
-            <label className="block text-sm font-medium mb-1 text-green-800">Your Message</label>
-            <div className="relative">
-              <div className="absolute top-3 left-3">
-                <MessageSquare className="w-5 h-5 text-green-400" />
-              </div>
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                rows="5"
-                className="w-full pl-10 pr-4 py-3 border border-green-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 transition-all duration-200 resize-none"
-                placeholder="How can we help you?"
-              ></textarea>
-            </div>
-          </div>
+          
+ <div className="relative">
+  <label className="block text-sm font-medium mb-1 text-green-800">Your Message</label>
+  <div className="relative">
+    <div className="absolute top-3 left-3">
+      <MessageSquare className="w-5 h-5 text-green-400" />
+    </div>
+    <textarea
+      name="message"
+      value={formData.message}
+      onChange={handleChange}
+      required
+      rows="5"
+      className="w-full pl-10 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 transition-all duration-200 resize-none 
+                 bg-white text-gray-900 placeholder-gray-400"
+      placeholder="How can we help you?"
+    ></textarea>
+  </div>
+</div>
 
-          {/* Submit Button */}
+
+      
           <button
             type="submit"
             disabled={isLoading}
