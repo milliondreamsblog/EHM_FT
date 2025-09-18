@@ -12,7 +12,7 @@ const CertifiedLogo = () => {
 
       <div className="container mx-auto px-6">
         {/* Certified Logo Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 border border-gray-400 divide-x divide-y divide-dotted divide-gray-400 ">
+        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 border border-gray-400 divide-x divide-y divide-dotted divide-gray-400 bg-gray-50">
           {certified.map((cert, index) => (
             <motion.div
               key={index}

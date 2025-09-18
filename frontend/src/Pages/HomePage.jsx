@@ -71,15 +71,17 @@ const HomePage = () => {
       </ScrollReveal>
 
       <ScrollReveal>
+        <Testimonials />
+      </ScrollReveal>
+
+      <ScrollReveal>
         <TestimonialsSection />
       </ScrollReveal>
 
       
 
 
-      <ScrollReveal>
-        <Testimonials />
-      </ScrollReveal>
+      
 
       <ScrollReveal>
         <FootPrint />

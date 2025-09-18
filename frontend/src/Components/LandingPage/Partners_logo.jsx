@@ -1,9 +1,31 @@
+import { Sparkles } from "lucide-react";
 import { partners } from "../../Data/Data";
 import { motion } from "framer-motion";
 
+import img  from '../../assets/bg/logobg8.jpg'
+
 const PartnersLogo = () => {
   return (
-    <section className="relative py-16 bg-gradient-to-r from-green-10 via-[#55907D] to-[#26453B] overflow-hidden">
+    <div>
+      <div className="text-center mb-12">
+        <div className="flex items-center justify-center gap-4 mb-6">
+          <Sparkles className="text-teal-500 animate-pulse" size={40} />
+          <h1 className="text-5xl md:text-6xl lg:text-6xl font-bold bg-gradient-to-r from-teal-600 via-emerald-600 to-green-600 bg-clip-text text-transparent">
+            Partners
+          </h1>
+          <Sparkles className="text-emerald-500 animate-pulse" size={40} />
+        </div>
+        <div className="w-32 h-1 bg-gradient-to-r from-teal-400 to-emerald-500 rounded-full mx-auto"></div>
+      </div>
+    <section className="relative py-16 overflow-hidden"  
+      style={{
+          backgroundImage: `url(${img})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+      }}
+    
+    >
+       
       {/* Decorative background blur */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-20 left-10 w-72 h-72 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
@@ -12,7 +34,7 @@ const PartnersLogo = () => {
 
       <div className="container mx-auto px-6">
         {/* Partners Logo Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 border border-gray-800 divide-x divide-y divide-dotted divide-black bg-[#F0FDF8]">
+        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 border border-gray-400 divide-x divide-y divide-dotted divide-gray-400  bg-current bg-clip-padding bg-opacity-50">
           {partners.map((partner, index) => (
             <motion.div
               key={index}
@@ -33,6 +55,7 @@ const PartnersLogo = () => {
         </div>
       </div>
     </section>
+    </div>
   );
 };
 
