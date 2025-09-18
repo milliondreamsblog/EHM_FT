@@ -79,7 +79,7 @@ const HeroSection = () => {
     enabled: !isMobile,
   });
 
-  // Animation Mapping
+ 
   const textYTarget = useTransform(scrollYProgress, [0, 0.2, 0.7], ['0%', '50%', '500%']);
   const textOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
   const hill1YTarget = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
@@ -93,7 +93,7 @@ const HeroSection = () => {
   const leafYTarget = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
   const leafXTarget = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
-  // Spring Smoothing
+ 
   const springConfig = { damping: 50, stiffness: 400 };
   const textY = useSpring(isMobile ? '0%' : textYTarget, springConfig);
   const hill1Y = useSpring(isMobile ? '0%' : hill1YTarget, springConfig);

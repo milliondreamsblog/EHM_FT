@@ -73,6 +73,7 @@ const VideoG = () => {
           />
         ))}
       </div>
+      
     </div>
   );
 };

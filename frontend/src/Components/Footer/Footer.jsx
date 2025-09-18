@@ -25,13 +25,12 @@ const Footer = () => {
   };
 
   return (
-    <div className="w-full bg-[#95c6a4] py-12 px-4 sm:px-8 lg:px-16">
-      <footer className="mx-auto text-white rounded-2xl shadow-lg px-4 sm:px-6 py-8 sm:py-12 max-w-[1400px]">
+    <div className="w-full bg-[#055d1f] py-12 px-4 sm:px-8 lg:px-16">
+      <footer>
 
-        {/* Grid Layout */}
+        {/* GRID CONTENT */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-
-          {/* Logo & About */}
+          {/* Logo + Info */}
           <div className="lg:col-span-2 space-y-6">
             <div className="flex items-center space-x-3">
               <img
@@ -40,22 +39,22 @@ const Footer = () => {
                 className="h-10 w-12 sm:h-12 sm:w-16 rounded-lg shadow-lg bg-white p-1"
               />
               <div>
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-green-900">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-green-350">
                   EHM CONSULTANCY
                 </h3>
-                <p className="text-green-950 text-xs sm:text-sm opacity-80">
+                <p className="text-green-450 text-xs sm:text-sm opacity-80">
                   Sustainable Solutions for Tomorrow
                 </p>
               </div>
             </div>
 
-            <p className="text-green-950 text-sm sm:text-base leading-relaxed opacity-90 max-w-md">
+            <p className="text-green-450 text-sm sm:text-base leading-relaxed opacity-90 max-w-md">
               Leading the way in environmental sustainability and carbon footprint reduction.
               Join us in creating a greener future for generations to come.
             </p>
 
-            <div className="flex items-start space-x-3 text-green-950 opacity-90">
-              <FaMapMarkerAlt className="text-green-700 mt-1 flex-shrink-0" />
+            <div className="flex items-start space-x-3 text-green-450 opacity-90">
+              <FaMapMarkerAlt className="text-green-300 mt-1 flex-shrink-0" />
               <div className="text-sm sm:text-base">
                 <div>TECHNOPARK, IIT KANPUR</div>
                 <div>Kalyanpur, Kanpur - 208016</div>
@@ -64,13 +63,13 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Subscription Form */}
+          {/* Subscription */}
           <div className="space-y-4">
             <h4 className="text-lg sm:text-xl font-semibold flex items-center space-x-2">
               <FaEnvelope className="text-green-700" />
               <span>Stay Updated</span>
             </h4>
-            <p className="text-green-950 text-sm sm:text-base opacity-90">
+            <p className="text-green-450 text-sm sm:text-base opacity-90">
               Get the latest news and updates on sustainability initiatives.
             </p>
 
@@ -92,37 +91,48 @@ const Footer = () => {
               </button>
             </form>
 
-            <p className="text-xs sm:text-sm text-green-950 opacity-80">
+            <p className="text-xs sm:text-sm text-green-450 opacity-80">
               We respect your privacy. Unsubscribe anytime.
             </p>
           </div>
 
-          {/* Social & Contact */}
+          {/* Social + Contact */}
           <div className="space-y-4">
             <h4 className="text-lg sm:text-xl font-semibold">Connect With Us</h4>
             <div className="flex space-x-4 flex-wrap sm:flex-nowrap">
               <a
                 href="https://www.linkedin.com/company/ehm-consultancy-pvt-ltd/"
-                className="p-3 bg-green-700 rounded-lg hover:bg-green-800 transition-all"
+                className="p-3 bg-green-600 rounded-lg hover:bg-green-900 transition-all"
               >
                 <FaLinkedin className="text-xl text-white" />
               </a>
               <a
                 href="https://x.com/EhmConsultancy"
-                className="p-3 bg-green-700 rounded-lg hover:bg-green-800 transition-all"
+                className="p-3 bg-green-600 rounded-lg hover:bg-green-900 transition-all"
               >
                 <FaTwitter className="text-xl text-white" />
               </a>
             </div>
-            <div className="pt-4 space-y-2 text-green-950 opacity-90 text-sm sm:text-base">
+            <div className="pt-4 space-y-2 text-green-450 opacity-90 text-sm sm:text-base">
               <div><strong>Email:</strong> info@ehmconsultancy.co.in</div>
               <div><strong>Phone:</strong> +91 9892396408</div>
             </div>
           </div>
         </div>
 
-        {/* Footer Bottom */}
-        <div className="border-t border-green-300 pt-6 mt-6 flex flex-col md:flex-row justify-between items-center text-green-950 opacity-90 text-xs sm:text-sm gap-4 md:gap-0">
+       
+        <div className="">
+          <nav className="flex flex-wrap gap-6 text-green-450 text-sm sm:text-base font-medium">
+            <a href="/" className="hover:text-green-200 transition-all">Home</a>
+            <a href="/about" className="hover:text-green-200 transition-all">About</a>
+            <a href="/offerings" className="hover:text-green-200 transition-all">Offerings</a>
+            <a href="/projects" className="hover:text-green-200 transition-all">Projects</a>
+            <a href="/resources" className="hover:text-green-200 transition-all">Resources</a>
+            <a href="/contact" className="hover:text-green-200 transition-all">Contact</a>
+          </nav>
+        </div>
+
+        <div className="border-t border-green-450 pt-6 mt-6 flex flex-col md:flex-row justify-between items-center text-green-450 opacity-90 text-xs sm:text-sm gap-4 md:gap-0">
           <p>© {new Date().getFullYear()} EHM Consultancy. All rights reserved.</p>
           <div className="flex flex-wrap gap-4 md:gap-6">
             <a href="#" className="hover:text-green-700">Privacy Policy</a>
