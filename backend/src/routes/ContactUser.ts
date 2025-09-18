@@ -26,7 +26,7 @@ ContactUserRouter.post("/contact", async (req: Request, res: Response) => {
 
   try {
     const contactData = new ContactModel({
-         name,
+      name,
       email,
       mobile,
       interestedIn,

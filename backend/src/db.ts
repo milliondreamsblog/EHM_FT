@@ -127,6 +127,8 @@ interface ContactType {
   name: string;
   email: string;
   message: string;
+  mobile : string;
+  interestedIn : string;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -137,6 +139,8 @@ const ContactSchema = new Schema<ContactType>(
     name: { type: String, required: true },
     email: { type: String, required: true },
     message: { type: String, required: true },
+    mobile: { type: String, required: false },
+    interestedIn: { type: String, required: true },
   },
   { timestamps: true }
 );
