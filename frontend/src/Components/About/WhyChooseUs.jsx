@@ -78,7 +78,7 @@ const WhyChooseUsSection = () => {
         );
       });
     } else {
-      // 💻 Desktop: original pinned animation
+      // pinned animation
       const titleBlock = ".title-block";
       const cards = gsap.utils.toArray(".feature-card");
 
@@ -144,7 +144,7 @@ const WhyChooseUsSection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-6xl mx-auto px-6 py-16 lg:py-24">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 py-16 lg:py-24 top-1/3">
         {/* Title */}
         <div className="title-block text-center lg:absolute lg:text-left lg:top-1/2 lg:-translate-y-1/2">
           <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-white drop-shadow-lg mb-4">

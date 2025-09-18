@@ -1,37 +1,96 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import {
+  BookOpen,
+  Clipboard,
+  Image,
+  Video,
+  FileText,
+  Leaf,
+  Building2,
+  Globe,
+  GraduationCap,
+  Layers,
+} from "lucide-react";
+
+// === RESOURCES MENU DATA ===
+const resourcesMenu = [
+  {
+    title: "Discover",
+    items: [
+      { name: "Blogs", path: "/resources/blogs", icon: BookOpen },
+      { name: "Case Studies", path: "/resources/casestudies", icon: Clipboard },
+    ],
+  },
+  {
+    title: "Learn",
+    items: [
+      { name: "Webinars", path: "/resources/webinar", icon: Video },
+      { name: "Gallery", path: "/resources/gallery", icon: Image },
+    ],
+  },
+];
+
+// === OFFERINGS MENU DATA ===
+const offeringsMenu = [
+  {
+    title: "Main",
+    items: [
+      { name: "Offerings ", path: "/offerings", icon: Layers },
+    ],
+  },
+  {
+    title: "Sustainability Services",
+    items: [
+      { name: "Sustainability Assessment & Reporting", path: "/offerings", icon: FileText },
+      { name: "Environmental Management", path: "/offerings", icon: Leaf },
+    ],
+  },
+  {
+    title: "Urban & Research",
+    items: [
+      { name: "Urban Planning & Management", path: "/offerings", icon: Building2 },
+      { name: "Geophysical Investigation", path: "/offerings", icon: Globe },
+    ],
+  },
+  {
+    title: "Capacity Building",
+    items: [
+      { name: "Training & Workshops", path: "/offerings", icon: GraduationCap },
+    ],
+  },
+];
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isResourcesOpen, setIsResourcesOpen] = useState(false);
-  const resourcesRef = useRef(null);
+  const [activeDropdown, setActiveDropdown] = useState(null);
 
+  const dropdownRef = useRef(null);
+  const buttonRef = useRef(null);
+
+  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (resourcesRef.current && !resourcesRef.current.contains(event.target)) {
-        setIsResourcesOpen(false);
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target)
+      ) {
+        setActiveDropdown(null);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const toggleMenu = () => {
-    setIsMenuOpen((prev) => !prev);
-    setIsResourcesOpen(false);
-  };
-
-  const toggleResources = () => {
-    setIsResourcesOpen((prev) => !prev);
-  };
-
   const handleNavClick = () => {
     setIsMenuOpen(false);
-    setIsResourcesOpen(false);
+    setActiveDropdown(null);
   };
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-white/15 backdrop-blur-md shadow-md">
+    <header className="fixed top-0 left-0 w-full z-50 bg-white/20 backdrop-blur-md shadow-md">
       <nav className="max-w-6xl mx-auto flex items-center justify-between px-6 py-3">
         {/* Logo */}
         <Link to="/" onClick={handleNavClick}>
@@ -44,136 +103,104 @@ const NavBar = () => {
 
         {/* Desktop Menu */}
         <ul className="hidden lg:flex items-center space-x-6 font-medium">
-          <li>
-            <Link to="/" className="text-green-900 hover:text-yellow-400" onClick={handleNavClick}>
-              HOME
-            </Link>
-          </li>
-          <li>
-            <Link to="/about" className="text-green-900 hover:text-yellow-400" onClick={handleNavClick}>
-              ABOUT
-            </Link>
-          </li>
-          <li>
-            <Link to="/offerings" className="text-green-900 hover:text-yellow-400" onClick={handleNavClick}>
+          <li><Link to="/" className="text-green-900 hover:text-yellow-400">HOME</Link></li>
+          <li><Link to="/about" className="text-green-900 hover:text-yellow-400">ABOUT</Link></li>
+
+          {/* Offerings Dropdown */}
+          <li className="relative group">
+            <span
+              ref={buttonRef}
+              onClick={() =>
+                setActiveDropdown(activeDropdown === "offerings" ? null : "offerings")
+              }
+              className={`cursor-pointer flex items-center transition-colors duration-200 
+                ${activeDropdown === "offerings" ? "text-yellow-400" : "text-green-900 hover:text-yellow-400"}`}
+            >
               OFFERINGS
-            </Link>
-          </li>
-          <li>
-            <Link to="/projects" className="text-green-900 hover:text-yellow-400" onClick={handleNavClick}>
-              PROJECTS
-            </Link>
+              <span
+                className={`ml-2 inline-block p-1 border-b-2 border-r-2 transition-all -translate-y-0.5 duration-300 ease-in-out 
+                  ${activeDropdown === "offerings"
+                    ? "-rotate-180 border-yellow-400"
+                    : "rotate-45 border-green-900 group-hover:-rotate-180 group-hover:border-yellow-400"}`}
+              ></span>
+            </span>
           </li>
 
           {/* Resources Dropdown */}
-          <li className="relative" ref={resourcesRef}>
+          <li className="relative group">
             <span
-              onClick={toggleResources}
-              className="cursor-pointer text-green-900 hover:text-yellow-400 flex items-center"
+              onClick={() =>
+                setActiveDropdown(activeDropdown === "resources" ? null : "resources")
+              }
+              className={`cursor-pointer flex items-center transition-colors duration-200 
+                ${activeDropdown === "resources" ? "text-yellow-400" : "text-green-900 hover:text-yellow-400"}`}
             >
-              RESOURCES ▾
+              RESOURCES
+              <span
+                className={`ml-2 inline-block p-1 border-b-2 border-r-2 transition-all -translate-y-0.5 duration-300 ease-in-out 
+                  ${activeDropdown === "resources"
+                    ? "-rotate-180 border-yellow-400"
+                    : "rotate-45 border-green-900 group-hover:-rotate-180 group-hover:border-yellow-400"}`}
+              ></span>
             </span>
-            {isResourcesOpen && (
-              <ul className="absolute top-full mt-2 w-40 bg-white text-black rounded shadow-lg z-50">
-                <li>
-                  <Link
-                    to="/resources/blogs"
-                    className="block px-4 py-2 hover:bg-gray-100"
-                    onClick={handleNavClick}
-                  >
-                    Blogs
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/resources/casestudies"
-                    className="block px-4 py-2 hover:bg-gray-100"
-                    onClick={handleNavClick}
-                  >
-                    Case Studies
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/resources/gallery"
-                    className="block px-4 py-2 hover:bg-gray-100"
-                    onClick={handleNavClick}
-                  >
-                    Gallery
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/resources/webinar"
-                    className="block px-4 py-2 hover:bg-gray-100"
-                    onClick={handleNavClick}
-                  >
-                    Webinar
-                  </Link>
-                </li>
-              </ul>
-            )}
           </li>
 
-          <li>
-            <Link to="/contact" className="text-green-900 hover:text-yellow-400" onClick={handleNavClick}>
-              CONTACT
-            </Link>
-          </li>
+          <li><Link to="/projects" className="text-green-900 hover:text-yellow-400">PROJECTS</Link></li>
+          <li><Link to="/contact" className="text-green-900 hover:text-yellow-400">CONTACT</Link></li>
         </ul>
 
-        {/* Mobile menu button */}
-        <div className="lg:hidden text-green-900 text-3xl cursor-pointer" onClick={toggleMenu}>
-          <i className={isMenuOpen ? "ri-close-large-line" : "ri-menu-4-line"}></i>
+        {/* Mobile Menu Toggle */}
+        <div className="lg:hidden text-green-900 text-3xl cursor-pointer" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <span>{isMenuOpen ? '✕' : '☰'}</span>
         </div>
       </nav>
 
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="lg:hidden bg-white text-black px-6 py-4 space-y-3 absolute w-full shadow-lg">
-          <Link to="/" onClick={handleNavClick} className="block hover:text-yellow-400 py-2">
-            HOME
-          </Link>
-          <Link to="/about" onClick={handleNavClick} className="block hover:text-yellow-400 py-2">
-            ABOUT
-          </Link>
-          <Link to="/offerings" onClick={handleNavClick} className="block hover:text-yellow-400 py-2">
-            OFFERINGS
-          </Link>
-          <Link to="/projects" onClick={handleNavClick} className="block hover:text-yellow-400 py-2">
-            PROJECTS
-          </Link>
-          <div>
-            <span
-              onClick={toggleResources}
-              className="flex justify-between items-center cursor-pointer hover:text-yellow-400 py-2"
-            >
-              RESOURCES <span>▾</span>
-            </span>
-            {isResourcesOpen && (
-              <div className="ml-4 mt-1 space-y-1 pt-2 border-l-2 border-green-100">
-                <Link to="/resources/blogs" onClick={handleNavClick} className="block hover:text-yellow-400 pl-3 py-1">
-                  Blogs
-                </Link>
-                <Link
-                  to="/resources/casestudies"
-                  onClick={handleNavClick}
-                  className="block hover:text-yellow-400 pl-3 py-1"
-                >
-                  Case Studies
-                </Link>
-                <Link to="/resources/gallery" onClick={handleNavClick} className="block hover:text-yellow-400 pl-3 py-1">
-                  Gallery
-                </Link>
-                <Link to="/resources/webinar" onClick={handleNavClick} className="block hover:text-yellow-400 pl-3 py-1">
-                  Webinar
-                </Link>
+      {/* Dropdown Content */}
+      {activeDropdown && (
+        <div
+          ref={dropdownRef}
+          className="absolute left-0 w-full bg-[#eaf7ef] shadow-lg animate-fadeIn"
+        >
+          <div className="max-w-6xl mx-auto px-6 py-8 grid lg:grid-cols-4 gap-10 p-15">
+            {/* LEFT MAIN SECTION */}
+            <div className="col-span-3">
+              <h3 className="text-lg font-semibold text-green-900 mb-4 border-b pb-7  uppercase">
+                {activeDropdown}
+              </h3>
+              <div className="flex flex-cols-4 gap-10 p-10 ">
+                {(activeDropdown === "resources" ? resourcesMenu : offeringsMenu).map(
+                  (section) => (
+                    <div key={section.title}>
+                      <h4 className="text-green-800 font-semibold mb-3">{section.title}</h4>
+                      <ul className="space-y-2">
+                        {section.items.map((item) => (
+                          <li key={item.path}>
+                            <Link
+                              to={item.path}
+                              onClick={handleNavClick}
+                              className="flex items-center space-x-2 text-green-900 hover:text-yellow-400 transition group"
+                            >
+                              <item.icon className="w-5 h-5 text-green-900 group-hover:text-yellow-400" />
+                              <span>{item.name}</span>
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )
+                )}
               </div>
-            )}
+            </div>
+
+            {/* RIGHT SIDE LINKS  */}
+            <div className="border-l p-14">
+              <ul className="space-y-3">
+
+                <li><Link to="/contact" className="text-green-900 hover:text-yellow-500 uppercase">contact</Link></li>
+                <li><Link to="/more" className="text-green-900 hover:text-yellow-500 uppercase">See More</Link></li>
+              </ul>
+            </div>
           </div>
-          <Link to="/contact" onClick={handleNavClick} className="block hover:text-yellow-400 py-2">
-            CONTACT
-          </Link>
         </div>
       )}
     </header>
