@@ -6,7 +6,7 @@ import img from '../../assets/bg/logobg8.jpg'
 
 const PartnersLogo = () => {
   return (
-    <div className="pt-16 pb-24 bg-gradient-to-b from-[#d7fff14b] to-[#ededed]">
+    <div className="pt-16 pb-24 bg-gradient-to-b from-[#d7fff14b] to-[#d7fff14b]">
 
       <div className="text-center mb-12">
         <div className="flex items-center justify-center gap-4 mb-6">

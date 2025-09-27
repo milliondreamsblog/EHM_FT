@@ -28,7 +28,7 @@ const Logo = () => {
   }, [nextIndex]);
 
   return (
-    <section className="relative py-16  overflow-hidden">
+    <section className="relative py-16  overflow-hidden bg-white">
       {/* Decorative background blur
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-10 left-10 w-80 h-80 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>

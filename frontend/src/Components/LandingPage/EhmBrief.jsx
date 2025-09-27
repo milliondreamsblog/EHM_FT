@@ -2,19 +2,9 @@ import React from "react";
 
 const EhmBrief = () => {
   return (
-    <section className="relative py-36 overflow-hidden">
+    <section className="relative py-36 overflow-hidden bg-green-200/25">
       {/* This container is now hidden on mobile and visible on desktop (lg) */}
-      <div className="absolute inset-0 z-0 hidden lg:flex items-center justify-center">
-        {/* Circle 1 */}
-        <div className="w-[97%] h-[800px] flex items-center justify-center rounded-full border-2 border-black/10 bg-[#dbdddc] relative overflow-hidden">
-          {/* Top gradient blur */}
-          <div className="absolute top-0 left-0 w-full h-[50%] bg-gradient-to-b from-[#ededed] blur-5xl" />
-          {/* Bottom gradient blur */}
-          <div className="absolute bottom-0 left-0 w-full h-[50%] bg-gradient-to-t from-[#ededed] blur-5xl" />
-          {/* Circle 2 */}
-          <div className="w-[88%] h-[700px] rounded-full border-2 border-black/10 bg-[#c9c9c9] relative overflow-hidden "></div>
-        </div>
-      </div>
+
 
       {/* Top gradient blur */}
       <div className="absolute top-0 left-0 w-full h-3/4 bg-gradient-to-b from-[#ededed] blur-5xl" />
