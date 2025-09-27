@@ -4,7 +4,6 @@ import { Sparkles } from 'lucide-react';
 
 const Team = ({ title, members, limit }) => {
   useEffect(() => {
-
     const cards = document.querySelectorAll('.team-card');
     cards.forEach((card, index) => {
       card.style.animationDelay = `${index * 0.2}s`;
@@ -14,8 +13,9 @@ const Team = ({ title, members, limit }) => {
   const membersToDisplay = limit ? members.slice(0, limit) : members;
 
   return (
-    <div id="team" className="relative py-12 flex flex-col items-center justify-center font-sans">
-      {/* Title Section  */}
+    <div id="team" className="relative py-12 flex flex-col items-center justify-center font-sans bg-gradient-to-b from-[#d4d4d4a8] to-white ">
+
+      {/* Title Section */}
       <div className="text-center mb-12 py-8">
         <div className="flex items-center justify-center gap-4 mb-6">
           <Sparkles className="text-teal-500 animate-pulse" size={40} />
@@ -33,10 +33,10 @@ const Team = ({ title, members, limit }) => {
           <div
             key={index}
             className="team-card group relative w-full sm:w-64 h-[280px] overflow-hidden rounded-3xl 
-                       bg-gradient-to-br from-teal-500 to-emerald-600
-                       shadow-lg transition-all duration-500 ease-out 
-                       hover:-translate-y-3 hover:shadow-2xl 
-                       opacity-0 animate-fadeInUp"
+                         bg-gradient-to-br from-teal-500 to-emerald-600
+                         shadow-lg transition-all duration-500 ease-out 
+                         hover:-translate-y-3 hover:shadow-2xl 
+                         opacity-0 animate-fadeInUp"
             style={{ animationFillMode: 'forwards' }}
           >
             {/* Floating Background Blobs */}
@@ -62,24 +62,30 @@ const Team = ({ title, members, limit }) => {
             <div className="circular-overlay absolute inset-0 z-20 flex flex-col items-center justify-center 
                          bg-black/70 backdrop-blur-lg p-6 text-center">
               <div className="text-center opacity-0 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:delay-200">
-                <h3 className="text-xl font-bold text-white">{member.name}</h3>
-                <h4 className="tracking-wider text-sm font-semibold text-emerald-300">
+                <img
+                  className="mx-auto mb-2 h-28 w-28 rounded-full border-4 border-emerald-300 object-cover shadow-lg"
+                  src={member.img}
+                  alt={member.name}
+                />
+
+                <h3 className="text-base font-bold text-white leading-tight">{member.name}</h3>
+                <h4 className="text-xs font-semibold text-emerald-300">
                   {member.title}
                 </h4>
-                <p className="mb-4 text-xs text-gray-300">
+                <p className="mb-2 text-xs text-gray-300 opacity-80">
                   {member.degree}
                 </p>
 
                 {/* Social Links */}
-                <div className="flex justify-center">
+                <div className="flex justify-center mt-2">
                   {member.social && (
                     <a
                       href={member.social}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-emerald-300 text-white transition-transform duration-300 hover:scale-110 hover:bg-emerald-500/20"
+                      className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-emerald-300 text-white transition-transform duration-300 hover:scale-110 hover:bg-emerald-500/20"
                     >
-                      <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                      <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                       </svg>
                     </a>
@@ -111,7 +117,6 @@ const Team = ({ title, members, limit }) => {
         )}
       </div>
 
-
       <style jsx>{`
         @keyframes fadeInUp {
           from { opacity: 0; transform: translateY(40px); }
@@ -120,20 +125,20 @@ const Team = ({ title, members, limit }) => {
         .animate-fadeInUp { animation: fadeInUp 0.8s ease forwards; }
 
         @keyframes float-1 {
-            0%, 100% { transform: translateY(0) rotate(0); }
-            50% { transform: translateY(-15px) rotate(12deg); }
+          0%, 100% { transform: translateY(0) rotate(0); }
+          50% { transform: translateY(-15px) rotate(12deg); }
         }
         .animate-float-1 { animation: float-1 8s ease-in-out infinite; }
 
         @keyframes float-2 {
-            0%, 100% { transform: translateY(0) rotate(0); }
-            50% { transform: translateY(-10px) rotate(-8deg); }
+          0%, 100% { transform: translateY(0) rotate(0); }
+          50% { transform: translateY(-10px) rotate(-8deg); }
         }
         .animate-float-2 { animation: float-2 10s ease-in-out infinite reverse; }
         
         @keyframes float-3 {
-            0%, 100% { transform: translateY(0) rotate(0); }
-            50% { transform: translateY(12px) rotate(10deg); }
+          0%, 100% { transform: translateY(0) rotate(0); }
+          50% { transform: translateY(12px) rotate(10deg); }
         }
         .animate-float-3 { animation: float-3 9s ease-in-out infinite; }
 
@@ -150,3 +155,4 @@ const Team = ({ title, members, limit }) => {
 };
 
 export default Team;
+

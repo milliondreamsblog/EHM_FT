@@ -29,11 +29,11 @@ const Logo = () => {
 
   return (
     <section className="relative py-16  overflow-hidden">
-      {/* Decorative background blur */}
+      {/* Decorative background blur
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-10 left-10 w-80 h-80 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
         <div className="absolute bottom-10 right-10 w-80 h-80 bg-emerald-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
-      </div>
+      </div> */}
 
       <div className="container mx-auto px-6">
         {/* Clean rectangular grid with dotted dividers */}
