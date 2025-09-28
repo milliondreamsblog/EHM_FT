@@ -70,7 +70,17 @@ const HomePage = () => {
       {/* <ProductSection /> */}
       {/* <Product /> */}
 
-      <Team title="Our Team" members={members} limit={3} />
+      
+        <Partners_logo />
+      
+
+ 
+        <Testimonials />
+  
+
+ 
+        <TestimonialsSection />
+      
 
 
 
