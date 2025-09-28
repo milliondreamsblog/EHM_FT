@@ -12,7 +12,7 @@ const WebinarCard = ({ webinar }) => {
           <img
             src={webinar.thumbnail}
             alt={webinar.title}
-            className="w-full h-48 object-cover"
+            className="w-full h-full object-cover"
           />
           {/* Hover play button */}
           <div
