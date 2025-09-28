@@ -1,17 +1,17 @@
 export const companies = [
-  "CSIRNEERI",
-  "csir",
-  "CSJMU",
-  "GovernmentofTelangana",
-  "JhansiNagarNigam",
-  "Jhansismartcity",
-  "Kanpursmartcity",
-  "Parivartan",
-  "Picture3",
-  "Prachileathers",
-  "TamilNadu",
-  "Thrivenisainiklogo",
-  "UPSICLogo",
+  { name: "CSIRNEERI", url: "https://www.neeri.res.in" },
+  { name: "csir", url: "https://www.csir.res.in" },
+  { name: "CSJMU", url: "https://csjmu.ac.in" },
+  { name: "GovernmentofTelangana", url: "https://www.telangana.gov.in" },
+  { name: "JhansiNagarNigam", url: "https://www.jhansi.nic.in" },
+  { name: "Jhansismartcity", url: "https://smartcityjhansi.in" },
+  { name: "Kanpursmartcity", url: "https://kanpursmartcity.org" },
+  { name: "Parivartan", url: "https://parivartan.org" }, // update if different
+  { name: "Picture3", url: "http://www.uppcb.com" }, 
+  { name: "Prachileathers", url: "https://www.prachileathers.com" },
+  { name: "TamilNadu", url: "https://www.tn.gov.in" },
+  { name: "Thrivenisainiklogo", url: "https://thriveni.com" }, 
+  { name: "UPSICLogo", url: "https://upsic.in" },
 ];
 
 export const partners = [
