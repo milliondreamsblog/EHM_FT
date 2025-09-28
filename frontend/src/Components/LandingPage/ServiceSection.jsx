@@ -33,7 +33,7 @@ const ServiceSection = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <div className="min-h-screen w-full flex flex-col items-center justify-center p-8">
+    <div className="min-h-screen w-full flex flex-col items-center justify-center p-8 bg-white">
       {/* Heading */}
       <div className="text-center mb-12 py-8">
         <div className="flex items-center justify-center gap-4 mb-6 flex-wrap">

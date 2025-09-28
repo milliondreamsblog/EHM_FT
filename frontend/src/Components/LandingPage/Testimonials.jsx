@@ -77,6 +77,7 @@ const Testimonials = () => {
             Completed Projects
           </h1>
           <Sparkles className="text-emerald-500 animate-pulse" size={40} />
+
         </div>
         <div className="w-32 h-1 bg-gradient-to-r from-teal-400 to-emerald-500 rounded-full mx-auto"></div>
       </div>

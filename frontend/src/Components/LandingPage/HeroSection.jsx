@@ -79,7 +79,7 @@ const HeroSection = () => {
     enabled: !isMobile,
   });
 
- 
+
   const textYTarget = useTransform(scrollYProgress, [0, 0.2, 0.7], ['0%', '50%', '500%']);
   const textOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
   const hill1YTarget = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
@@ -93,7 +93,7 @@ const HeroSection = () => {
   const leafYTarget = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
   const leafXTarget = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
- 
+
   const springConfig = { damping: 50, stiffness: 400 };
   const textY = useSpring(isMobile ? '0%' : textYTarget, springConfig);
   const hill1Y = useSpring(isMobile ? '0%' : hill1YTarget, springConfig);
@@ -179,8 +179,8 @@ const HeroSection = () => {
         </div>
       </motion.div>
 
-      <ParallaxImage src={IMAGE_ASSETS.hill5} alt="Foreground hill 5" y={hill5Y} x={hill5X} zIndex={30} />
-      <ParallaxImage src={IMAGE_ASSETS.plant} alt="Foreground plants" zIndex={40} />
+      <ParallaxImage src={IMAGE_ASSETS.hill5} alt="Foreground hill 5" y={hill5Y} x={hill5X} zIndex={16} />
+      <ParallaxImage src={IMAGE_ASSETS.plant} alt="Foreground plants" zIndex={17} />
     </section>
   );
 };
