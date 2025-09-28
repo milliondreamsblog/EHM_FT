@@ -16,6 +16,7 @@ import EhmBrief from "../Components/LandingPage/EhmBrief";
 
 // Scroll animation wrapper
 import ScrollReveal from "../Components/Animations/ScrollReveal";
+import Resource from "../Components/LandingPage/Resource";
 
 const HomePage = () => {
   return (
@@ -79,7 +80,9 @@ const HomePage = () => {
       </ScrollReveal>
 
       
-
+<ScrollReveal>
+       <Resource />
+      </ScrollReveal>
 
       
 
