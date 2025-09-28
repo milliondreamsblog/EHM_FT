@@ -124,7 +124,7 @@ const TestimonialsColumn = ({ className = "", testimonials, duration, direction 
 
 export const TestimonialsSection = () => {
   return (
-    <section className="bg-green-50 py-30">
+    <section className="py-20">
       <div className="container mx-auto px-4">
         <div className="section-heading text-center">
           <div className="flex items-center justify-center gap-4 mb-6">
@@ -145,7 +145,7 @@ export const TestimonialsSection = () => {
         </div>
 
         {/* Dynamic Testimonials */}
-        <div className="flex justify-center gap-6 [mask-image:linear-gradient(to_bottom,transparent,white_20%,white_80%,transparent)] max-h-[738px] overflow-hidden">
+        <div className="mt-8 flex justify-center gap-6 [mask-image:linear-gradient(to_bottom,transparent,white_20%,white_80%,transparent)] max-h-[738px] overflow-hidden">
           <TestimonialsColumn testimonials={firstColumn} duration={18} direction="up" />
           <TestimonialsColumn testimonials={secondColumn} className="hidden md:block" duration={14} direction="down" />
           <TestimonialsColumn testimonials={thirdColumn} className="hidden lg:block" duration={20} direction="up" />

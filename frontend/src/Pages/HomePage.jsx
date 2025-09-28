@@ -20,7 +20,7 @@ import Resource from "../Components/LandingPage/Resource";
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-teal-50">
+    <div className="min-h-screen bg-[#ededed] ">
       <HeroSection />
 
 
@@ -79,18 +79,21 @@ const HomePage = () => {
         <TestimonialsSection />
       </ScrollReveal>
 
+
       
 <ScrollReveal>
        <Resource />
       </ScrollReveal>
 
-      
+
+
+
 
       <ScrollReveal>
         <FootPrint />
       </ScrollReveal>
 
-      
+
 
     </div>
   );
