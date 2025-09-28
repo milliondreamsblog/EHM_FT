@@ -43,7 +43,7 @@ const Testimonials = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 py-12 px-4 font-sans">
+    <div className=" py-12 px-4 font-sans bg-white">
       <div className="max-w-[69rem] mx-auto">
         {/* Title */}
         <div className="text-center mb-12 py-8">
