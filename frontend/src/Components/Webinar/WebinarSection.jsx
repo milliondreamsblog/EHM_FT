@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import WebinarCard from "./WebinarCard";
 import { webinars } from "../../Data/webinars";
+import { FaFilePdf } from "react-icons/fa";
 
 // Card animation
 const cardVariants = {
@@ -12,9 +13,13 @@ const cardVariants = {
   }),
 };
 
-// Hexagon component (responsive sizes)
-// Hexagon component (bigger + dynamic sizes)
-const Hexagon = ({ children, className = "", size = { base: 100, md: 140, lg: 180 }, delay = 0 }) => {
+// Hexagon component
+const Hexagon = ({
+  children,
+  className = "",
+  size = { base: 100, md: 140, lg: 180 },
+  delay = 0,
+}) => {
   const currentSize = typeof size === "object" ? size.base : size;
   const points = [];
   for (let i = 0; i < 6; i++) {
@@ -60,14 +65,15 @@ const Hexagon = ({ children, className = "", size = { base: 100, md: 140, lg: 18
   );
 };
 
-
 // Hexagon icons
 const illustrations = [
   <div className="flex items-center justify-center">🎤</div>,
   <div className="flex items-center justify-center">💻</div>,
   <div className="flex items-center justify-center">🌱</div>,
   <div className="flex items-center justify-center">👥</div>,
-  <div className="flex items-center justify-center">▶</div>,
+  <div className="flex items-center justify-center text-red-500">
+    <FaFilePdf />
+  </div>,
   <div className="flex items-center justify-center">🤖</div>,
 ];
 
@@ -87,9 +93,11 @@ const WebinarSection = () => {
       <div
         className="relative text-white overflow-hidden pt-24 sm:pt-32 md:pt-40"
         style={{
-          backgroundImage: "url('')", // ✅ background image
+          backgroundImage: "url('https://img.freepik.com/premium-photo/generative-ai-human-hand-handshaking-hand-nature-love-nature-environment-concept_93150-38217.jpg')", // ✅ replace with your image path
           backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
+          minHeight: "600px",
         }}
       >
         {/* Background Overlay */}
@@ -142,7 +150,7 @@ const WebinarSection = () => {
             className="lg:w-2/5 text-center lg:text-left"
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 leading-tight">
-              <span className="block">Upcoming & Past</span>
+              <span className="block text-teal-600">Upcoming & Past</span>
               <span className="text-yellow-300">Webinars</span>
             </h2>
             <p className="text-gray-100 max-w-xl mx-auto lg:mx-0 mb-6 text-base sm:text-lg">
@@ -161,24 +169,11 @@ const WebinarSection = () => {
           {/* Hexagon Grid */}
           <div className="lg:w-3/5 flex justify-center">
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4">
-              <div className="col-start-1 sm:col-start-2">
-                <Hexagon delay={0.2}>{illustrations[0]}</Hexagon>
-              </div>
-              <div>
-                <Hexagon delay={0.4}>{illustrations[1]}</Hexagon>
-              </div>
-              <div className="col-start-1">
-                <Hexagon delay={0.6}>{illustrations[2]}</Hexagon>
-              </div>
-              <div>
-                <Hexagon delay={0.8}>{illustrations[3]}</Hexagon>
-              </div>
-              <div>
-                <Hexagon delay={1.0}>{illustrations[4]}</Hexagon>
-              </div>
-              <div className="col-start-1 sm:col-start-2">
-                <Hexagon delay={1.2}>{illustrations[5]}</Hexagon>
-              </div>
+              {illustrations.map((icon, idx) => (
+                <Hexagon key={idx} delay={0.2 * (idx + 1)}>
+                  {icon}
+                </Hexagon>
+              ))}
             </div>
           </div>
         </div>
@@ -215,7 +210,7 @@ const WebinarSection = () => {
                 boxShadow: "0 15px 25px rgba(0,0,0,0.15)",
               }}
             >
-              <WebinarCard webinar={webinar} />
+              <WebinarCard webinar={webinar} isPdf /> {/* ✅ PDF enabled */}
             </motion.div>
           ))}
         </div>
