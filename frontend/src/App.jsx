@@ -30,6 +30,7 @@ import BlogsPage from './Pages/BlogsPage.jsx';
 import CaseStudyPage from './Pages/CaseStudyPage.jsx';
 
 import WebinarPage from './Pages/WebinarPage.jsx';
+import WebinarDetails from './Components/Webinar/WebinarDetails.jsx';
 
 
 
@@ -54,7 +55,8 @@ function App() {
 
           <Route path="/offerings" element={<ServicePage />} />
           <Route path="resources/gallery" element={<GalleryPage />} />
-           <Route path="resources/webinar" element={<WebinarPage/>}  />
+           <Route path="/resources/webinar" element={<WebinarPage/>}  />
+           <Route path="/resources/webinar/:id" element={<WebinarDetails />} />
 
           <Route path="/resources/blogs" element={<BlogsPage />} />
           <Route path="/resources/casestudies" element={<CaseStudyPage />} />
