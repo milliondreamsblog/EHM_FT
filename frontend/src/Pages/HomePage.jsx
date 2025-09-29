@@ -17,6 +17,7 @@ import EhmBrief from "../Components/LandingPage/EhmBrief";
 // Scroll animation wrapper
 import ScrollReveal from "../Components/Animations/ScrollReveal";
 import Resource from "../Components/LandingPage/Resource";
+import LatestBlogs from "../Components/LandingPage/LatestBlogs";
 
 const HomePage = () => {
   return (
@@ -80,14 +81,15 @@ const HomePage = () => {
       </ScrollReveal>
 
 
-      
-<ScrollReveal>
-       <Resource />
+
+      <ScrollReveal>
+        <Resource />
       </ScrollReveal>
 
 
-
-
+      <ScrollReveal>
+        <LatestBlogs />
+      </ScrollReveal>
 
       <ScrollReveal>
         <FootPrint />

@@ -5,7 +5,7 @@ const EhmBrief = () => {
     <section className="relative font-sans overflow-hidden">
       {/* Top Section */}
       <div className="relative text-center w-full h-auto mx-auto py-16 sm:py-20 md:py-24">
-        {/* Background Circles (hidden on < md) */}
+        {/* Background Circles */}
         <div className="absolute inset-0 z-0 hidden md:flex items-center justify-center pointer-events-none translate-y-10 p-8 sm:p-16 md:p-20">
           {/* Outer Circle */}
           <div className="w-[95vw] max-w-[1200px] aspect-square rounded-full border-2 border-black/20 bg-[#ededed] relative flex items-center justify-center p-6 sm:p-10">
@@ -25,7 +25,7 @@ const EhmBrief = () => {
             About <span className="font-bold">EHM</span>
           </span>
 
-          {/* Adjust spacing when integral symbol hidden */}
+
           <div className="translate-y-8 lg:translate-y-12">
             {/* Main Text */}
             <p className="text-base sm:text-xl md:text-2xl lg:text-3xl text-gray-700 leading-relaxed text-center">
