@@ -49,31 +49,31 @@ const Resource = () => {
         </div>
       <div className="max-w-7xl mt-20 mb-10 mx-auto">
        
-        <div className="relative bg-gradient-to-br from-slate-700 to-slate-900 text-white p-8 rounded-xl mb-8 overflow-hidden">
+       <div className="relative bg-gradient-to-br from-slate-700 to-slate-900 text-white p-8 rounded-xl mb-8 overflow-hidden">
        
-          <div className="absolute inset-0 ">
-           <img className='w-full h-full object-cover' src="./sea.webp" alt="Background" />
-          </div>
-          
-         
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-5 bg-repeat"
-               style={{ backgroundImage: 'repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255,255,255,0.1) 2px, rgba(255,255,255,0.1) 4px)' }}>
-          </div>
+  <div className="absolute inset-0">
+    <img className='w-full h-full object-cover' src="./sea.webp" alt="Background" />
+  </div>
+  
+  
+  <div className="absolute inset-0 bg-black/50"></div>
+  
+  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-5 bg-repeat"
+       style={{ backgroundImage: 'repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255,255,255,0.1) 2px, rgba(255,255,255,0.1) 4px)' }}>
+  </div>
 
-      
-          <div className="absolute top-8 right-8 text-4xl md:text-5xl font-thin opacity-60 z-10">
-            dx
-          </div>
+  <div className="absolute top-8 right-8 text-4xl md:text-5xl font-thin opacity-60 z-10">
+    dx
+  </div>
 
-       
-          <div className="relative z-10">
-            <h1 className="text-3xl md:text-4xl font-light mb-3">Find our resources</h1>
-            <p className="text-sm md:text-base opacity-90 leading-relaxed">
-              dignissim volutpat mi maths blanenoper ut at sed risus mi. Magna ac<br className="hidden md:block" />
-              themernt cras congue nibh id ipsum
-            </p>
-          </div>
-        </div>
+  <div className="relative z-10">
+    <h1 className="text-3xl md:text-4xl font-light mb-3">Find our resources</h1>
+    <p className="text-sm md:text-base opacity-90 leading-relaxed">
+      dignissim volutpat mi maths blanenoper ut at sed risus mi. Magna ac<br className="hidden md:block" />
+      themernt cras congue nibh id ipsum
+    </p>
+  </div>
+</div>
 
        
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -105,7 +105,7 @@ const Resource = () => {
     <div className="mt-auto">
       <button
         onClick={() => handleButtonClick(resource.buttonText)}
-        className="bg-teal-400 hover:bg-teal-500 text-white px-6 py-3 rounded-md font-medium text-sm transition-all duration-300 flex items-center gap-2"
+        className="bg-green-600 hover:bg-green-500 text-white px-6 py-3 rounded-md font-medium text-sm transition-all duration-300 flex items-center gap-2"
       >
         {resource.buttonText}
         <span className="transition-transform duration-300">→</span>
@@ -123,3 +123,4 @@ const Resource = () => {
 };
 
 export default Resource;
+
