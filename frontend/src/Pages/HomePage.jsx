@@ -17,6 +17,9 @@ import EhmBrief from "../Components/LandingPage/EhmBrief";
 // Scroll animation wrapper
 import ScrollReveal from "../Components/Animations/ScrollReveal";
 import Resource from "../Components/LandingPage/Resource";
+import NewsLetter from "../Components/LandingPage/NewsLetter";
+import { Feather } from "lucide-react";
+import Feature from "../Components/LandingPage/Feature";
 
 const HomePage = () => {
   return (
@@ -75,9 +78,13 @@ const HomePage = () => {
         <Testimonials />
       </ScrollReveal>
 
+
+
       <ScrollReveal>
         <TestimonialsSection />
       </ScrollReveal>
+
+     
 
 
       
@@ -86,6 +93,8 @@ const HomePage = () => {
       </ScrollReveal>
 
 
+       <NewsLetter/>
+    
 
 
 
@@ -93,6 +102,12 @@ const HomePage = () => {
         <FootPrint />
       </ScrollReveal>
 
+
+    <ScrollReveal>
+        <Feature />
+      </ScrollReveal>
+
+       
 
 
     </div>

@@ -58,7 +58,7 @@ const FootPrint = () => {
   };
 
   return (
-    <div className="w-full flex flex-col items-center justify-center overflow-hidden py-4 sm:py-8 md:py-10 lg:py-16 bg-white mb-5">
+    <div className="w-full flex flex-col items-center justify-center overflow-hidden py-4 sm:py-8 md:py-10 lg:py-16 bg-white ">
       {/* Header */}
       <div className="flex flex-col gap-3 mb-8 items-center">
         <div className="text-center mb-12 py-8">
