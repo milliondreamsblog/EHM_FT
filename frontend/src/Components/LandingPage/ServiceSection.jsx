@@ -1,5 +1,7 @@
 import { Sparkles } from "lucide-react";
 import { useState } from "react";
+import { motion } from "framer-motion";
+import ScrollRevealElements from '../Animations/ScrollRevealElements';
 
 const data = [
   {
@@ -34,44 +36,49 @@ const ServiceSection = () => {
 
   return (
     <div className="min-h-screen w-full flex flex-col items-center justify-center p-8 bg-white">
-      {/* Heading */}
-      <div className="text-center mb-12 py-8">
-        <div className="flex items-center justify-center gap-4 mb-6 flex-wrap">
+
+      <ScrollRevealElements
+        className="text-center mb-12 py-8"
+        staggerAmount={0.5}
+      >
+        <motion.div className="flex items-center justify-center gap-4 mb-6 flex-wrap">
           <Sparkles className="text-teal-500 animate-pulse" size={40} />
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-teal-600 via-emerald-600 to-green-600 bg-clip-text text-transparent">
             Offerings
           </h1>
           <Sparkles className="text-emerald-500 animate-pulse" size={40} />
-        </div>
-        <div className="w-32 h-1 bg-gradient-to-r from-teal-400 to-emerald-500 rounded-full mx-auto"></div>
-      </div>
+        </motion.div>
+        <motion.div className="w-32 h-1 bg-gradient-to-r from-teal-400 to-emerald-500 rounded-full mx-auto"></motion.div>
+      </ScrollRevealElements>
 
-      {/* Cards container */}
-      <div className="flex flex-wrap justify-center gap-4 max-w-[1400px] mx-auto">
+
+      <ScrollRevealElements
+        className="flex flex-wrap justify-center gap-4 max-w-[1400px] mx-auto"
+        staggerAmount={0.3}
+      >
         {data.map((item, index) => {
           const isHovered = hoveredIndex === index;
           const isOtherHovered = hoveredIndex !== null && hoveredIndex !== index;
 
           return (
-            <div
+
+            <motion.div
               key={index}
-              className={`relative bg-cover bg-center rounded-2xl shadow-2xl overflow-hidden cursor-pointer h-80 transition-all duration-500 ease-in-out hover:shadow-3xl ${
-                isHovered ? "w-80" : isOtherHovered ? "w-48" : "w-56"
-              }`}
+              className={`relative bg-cover bg-center rounded-2xl shadow-2xl overflow-hidden cursor-pointer h-80 transition-all duration-500 ease-in-out hover:shadow-3xl ${isHovered ? "w-80" : isOtherHovered ? "w-48" : "w-56"
+                }`}
               style={{ backgroundImage: `url(${item.image})` }}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              {/* Overlay */}
+
               <div
-                className={`absolute inset-0 transition-all duration-500 ease-in-out ${
-                  isHovered
-                    ? "bg-gradient-to-t from-black/80 via-black/50 to-transparent"
-                    : "bg-gradient-to-t from-black/70 via-black/20 to-transparent"
-                }`}
+                className={`absolute inset-0 transition-all duration-500 ease-in-out ${isHovered
+                  ? "bg-gradient-to-t from-black/80 via-black/50 to-transparent"
+                  : "bg-gradient-to-t from-black/70 via-black/20 to-transparent"
+                  }`}
               ></div>
 
-              {/* Top-right button */}
+
               <button className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm text-white rounded-full p-2 hover:bg-white/30 transition-all duration-300 z-10">
                 <svg
                   className={`w-4 h-4 transition-transform duration-300 ${isHovered ? "rotate-[-90deg]" : ""}`}
@@ -100,10 +107,10 @@ const ServiceSection = () => {
                   </svg>
                 </button>
               </div>
-            </div>
+            </motion.div>
           );
         })}
-      </div>
+      </ScrollRevealElements>
     </div>
   );
 };

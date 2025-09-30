@@ -2,6 +2,8 @@ import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import gsap from 'gsap';
 
+import ScrollRevealElements from '../Animations/ScrollRevealElements';
+
 const IMAGE_ASSETS = {
   hill1: '/ParallexHeroImages/hill1.png',
   hill2: '/ParallexHeroImages/hill2.png',
@@ -13,7 +15,6 @@ const IMAGE_ASSETS = {
   tree: '/ParallexHeroImages/tree.png',
 };
 
-// responsive
 const useIsMobile = (breakpoint = 768) => {
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
@@ -40,16 +41,12 @@ const HeroSection = () => {
   const targetRef = useRef(null);
   const h1Ref = useRef(null);
 
-
   useEffect(() => {
-
     const ctx = gsap.context(() => {
-
       const tl = gsap.timeline({
         repeat: -1,
         repeatDelay: 1,
       });
-
 
       tl.from('.underline-anim', {
         scaleX: 0,
@@ -58,7 +55,6 @@ const HeroSection = () => {
         ease: 'power2.inOut',
         stagger: 0.2,
       })
-
         .to('.underline-anim', {
           scaleX: 0,
           transformOrigin: 'right',
@@ -68,17 +64,14 @@ const HeroSection = () => {
         }, '+=1');
     }, h1Ref);
 
-
     return () => ctx.revert();
   }, []);
-
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ['start start', 'end start'],
     enabled: !isMobile,
   });
-
 
   const textYTarget = useTransform(scrollYProgress, [0, 0.2, 0.7], ['0%', '50%', '500%']);
   const textOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
@@ -92,7 +85,6 @@ const HeroSection = () => {
   const hill5XTarget = useTransform(scrollYProgress, [0, 1], ['0%', '10%']);
   const leafYTarget = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
   const leafXTarget = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
-
 
   const springConfig = { damping: 50, stiffness: 400 };
   const textY = useSpring(isMobile ? '0%' : textYTarget, springConfig);
@@ -117,6 +109,7 @@ const HeroSection = () => {
       <ParallaxImage src={IMAGE_ASSETS.hill2} alt="Background hill 2" y={hill2Y} zIndex={11} />
       <ParallaxImage src={IMAGE_ASSETS.hill3} alt="Background hill 3" y={hill3Y} zIndex={12} />
       <ParallaxImage src={IMAGE_ASSETS.tree} alt="Tree" y={treeY} zIndex={13} />
+
       <ParallaxImage src={IMAGE_ASSETS.hill4} alt="Foreground hill 4" y={hill4Y} x={hill4X} zIndex={14} />
       <div className="absolute top-0 left-0 h-full w-full bg-black/20 z-20"></div>
       <ParallaxImage
@@ -132,12 +125,14 @@ const HeroSection = () => {
         style={{ y: textY, opacity: isMobile ? 1 : textOpacity, willChange: 'transform, opacity' }}
         className="relative z-20 flex h-full flex-col items-center justify-center text-center -translate-y-28 md:-translate-y-40"
       >
-        <div className='flex flex-col items-center -translate-y-19'>
-
-          <h1
+        <ScrollRevealElements
+          yOffset={60}
+          staggerAmount={0.5}
+          className='flex flex-col items-center -translate-y-19'
+        >
+          <motion.h1
             ref={h1Ref}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold uppercase leading-tight tracking-wider text-white"
-
           >
             <span className="relative inline-block pb-2">
               Sustainability
@@ -153,13 +148,15 @@ const HeroSection = () => {
               Approach
               <span className="underline-anim absolute bottom-0 left-0 h-1.5 w-full bg-white" />
             </span>
-          </h1>
-          <p
+          </motion.h1>
+
+          <motion.p
             className="mt-4 mb-8 text-base sm:text-lg md:text-2xl lg:text-3xl font-semibold text-white max-w-[90%]"
           >
             <span className="text-green-200">TRANSFORM</span> YOUR BUSINESS WITH <span className="text-green-200">SUSTAINABLE</span> INNOVATION
-          </p>
-          <div className="flex flex-col gap-4 sm:flex-row">
+          </motion.p>
+
+          <motion.div className="flex flex-col gap-4 sm:flex-row">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -175,8 +172,8 @@ const HeroSection = () => {
             >
               Learn More
             </motion.button>
-          </div>
-        </div>
+          </motion.div>
+        </ScrollRevealElements>
       </motion.div>
 
       <ParallaxImage src={IMAGE_ASSETS.hill5} alt="Foreground hill 5" y={hill5Y} x={hill5X} zIndex={16} />

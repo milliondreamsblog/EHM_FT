@@ -25,19 +25,19 @@ const HomePage = () => {
       <HeroSection />
 
 
-      <ScrollReveal>
-        <Logo />
-      </ScrollReveal>
+
+      <Logo />
+
 
       {/* <ServicePage /> */}
 
-      <ScrollReveal>
-        <EhmBrief />
-      </ScrollReveal>
 
-      <ScrollReveal>
-        <ServiceSection />
-      </ScrollReveal>
+      <EhmBrief />
+
+
+
+      <ServiceSection />
+
       {/* <ServicePage /> */}
 
       {/* <ServiceSection />
@@ -64,36 +64,36 @@ const HomePage = () => {
       {/* <ServiceSection /> */}
       {/* <ProductSection /> */}
       {/* <Product /> */}
-      <ScrollReveal>
-        <Team title="Our Team" members={members} limit={3} />
-      </ScrollReveal>
 
-      <ScrollReveal>
-        <Partners_logo />
-      </ScrollReveal>
-
-      <ScrollReveal>
-        <Testimonials />
-      </ScrollReveal>
-
-      <ScrollReveal>
-        <TestimonialsSection />
-      </ScrollReveal>
+      <Team title="Our Team" members={members} limit={3} />
 
 
 
-      <ScrollReveal>
-        <Resource />
-      </ScrollReveal>
+      <Partners_logo />
 
 
-      <ScrollReveal>
-        <LatestBlogs />
-      </ScrollReveal>
 
-      <ScrollReveal>
-        <FootPrint />
-      </ScrollReveal>
+      <Testimonials />
+
+
+
+      <TestimonialsSection />
+
+
+
+
+
+      <Resource />
+
+
+
+
+      <LatestBlogs />
+
+
+
+      <FootPrint />
+
 
 
 
