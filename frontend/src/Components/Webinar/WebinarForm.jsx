@@ -29,7 +29,7 @@ const WebinarForm = ({ webinarTitle, isCompleted, recordingLink }) => {
   // ✅ If webinar is completed → show "Watch Event Recording"
   if (isCompleted) {
     return (
-      <div className="w-full max-w-md p-6 border rounded-lg shadow-md bg-white flex flex-col items-center justify-center">
+      <div className="w-full max-w-md p-6 border rounded-lg  bg-white flex flex-col items-center justify-center">
         <h2 className="text-2xl font-semibold mb-4 text-gray-800">
           {webinarTitle}
         </h2>
@@ -50,7 +50,7 @@ const WebinarForm = ({ webinarTitle, isCompleted, recordingLink }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-full max-w-md p-6 border rounded-lg shadow-md bg-white"
+      className="w-full max-w-md p-6 border rounded-lg  bg-white"
     >
       <h2 className="text-2xl font-semibold mb-4 text-gray-800">
         Register for this Webinar
@@ -62,13 +62,13 @@ const WebinarForm = ({ webinarTitle, isCompleted, recordingLink }) => {
         name="firstName"
         value={formData.firstName}
         onChange={handleChange}
-        placeholder="First Name"
+        placeholder="Name"
         className="w-full mb-3 p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
         required
       />
 
       {/* Last Name */}
-      <input
+      {/* <input
         type="text"
         name="lastName"
         value={formData.lastName}
@@ -76,7 +76,7 @@ const WebinarForm = ({ webinarTitle, isCompleted, recordingLink }) => {
         placeholder="Last Name"
         className="w-full mb-3 p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
         required
-      />
+      /> */}
 
       {/* Email */}
       <input

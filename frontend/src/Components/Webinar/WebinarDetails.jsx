@@ -9,7 +9,7 @@ const WebinarDetails = () => {
   if (!webinar) return <p className="p-6 text-red-500">Webinar not found</p>;
 
   return (
-    <div className="bg-gray-50 min-h-screen pt-24 md:pt-32 px-6">
+    <div className="bg-gray-50 min-h-screen pt-24 md:pt-32 px-6 p-4">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
         
         {/* LEFT SIDE */}
