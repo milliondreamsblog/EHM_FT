@@ -10,7 +10,7 @@ export default function NewsLetter() {
 
           <ScrollRevealElements
             className="flex flex-col space-y-8"
-            staggerAmount={0.5}
+            staggerAmount={0.4}
           >
 
             <motion.div>

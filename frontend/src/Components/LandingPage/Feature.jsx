@@ -116,7 +116,7 @@ const Feature = () => {
 
         <ScrollRevealElements
           className="space-y-4"
-          staggerAmount={0.5}
+          staggerAmount={0.8}
         >
           {articles.map((article) => (
             <motion.div

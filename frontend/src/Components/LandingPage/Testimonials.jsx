@@ -363,7 +363,7 @@ const Testimonials = () => {
 
       <ScrollRevealElements
         className="bg-emerald-500 p-6 sm:p-10 md:p-16 lg:p-20"
-        staggerAmount={0.5}
+        staggerAmount={0.7}
       >
         <motion.div className="container mx-auto px-4 py-12 sm:py-16 md:py-20 lg:py-24">
           <div className="flex flex-col sm:flex-row justify-center items-center gap-8 sm:gap-16 md:gap-24 lg:gap-36">
