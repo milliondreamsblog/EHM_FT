@@ -6,6 +6,8 @@ import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper/modules";
 import { RxArrowRight, RxArrowLeft } from "react-icons/rx";
 import { Sparkles } from "lucide-react";
+import { motion } from "framer-motion";
+import ScrollRevealElements from '../Animations/ScrollRevealElements';
 
 import API from "../../api/axios";
 import KnowMoreButton from "./KnowMoreButton";
@@ -58,10 +60,13 @@ const FootPrint = () => {
   };
 
   return (
-    <div className="w-full flex flex-col items-center justify-center overflow-hidden py-4 sm:py-8 md:py-10 lg:py-16 bg-white ">
-      {/* Header */}
-      <div className="flex flex-col gap-3 mb-8 items-center">
-        <div className="text-center mb-12 py-8">
+    <div className="w-full flex flex-col items-center justify-center overflow-hidden py-4 sm:py-8 md:py-10 lg:py-16 bg-white">
+
+      <ScrollRevealElements
+        className="flex flex-col gap-3 mb-8 items-center"
+        staggerAmount={0.5}
+      >
+        <motion.div className="text-center mb-12 py-8">
           <div className="flex items-center justify-center gap-4 mb-6">
             <Sparkles className="text-teal-500 animate-pulse" size={32} />
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold bg-gradient-to-r from-teal-600 via-emerald-600 to-green-600 bg-clip-text text-transparent">
@@ -70,21 +75,27 @@ const FootPrint = () => {
             <Sparkles className="text-emerald-500 animate-pulse" size={32} />
           </div>
           <div className="w-20 sm:w-28 md:w-32 h-1 bg-gradient-to-r from-teal-400 to-emerald-500 rounded-full mx-auto"></div>
-        </div>
-      </div>
+        </motion.div>
+      </ScrollRevealElements>
 
-      {/* Swiper */}
-      <div className="w-full max-w-[90%] sm:max-w-[95%] md:max-w-[69rem] mx-auto relative group">
+
+      <motion.div
+        className="w-full max-w-[90%] sm:max-w-[95%] md:max-w-[69rem] mx-auto relative group"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
         <Swiper
           slidesPerView={1}
           spaceBetween={16}
           breakpoints={{
-            480: { slidesPerView: 1, spaceBetween: 16 }, // small mobiles
-            640: { slidesPerView: 2, spaceBetween: 20 }, // tablets
-            768: { slidesPerView: 2, spaceBetween: 24 }, // larger tablets
-            1024: { slidesPerView: 3, spaceBetween: 32 }, // laptops
-            1280: { slidesPerView: 4, spaceBetween: 32 }, // desktops
-            1536: { slidesPerView: 5, spaceBetween: 36 }, // very large screens
+            480: { slidesPerView: 1, spaceBetween: 16 },
+            640: { slidesPerView: 2, spaceBetween: 20 },
+            768: { slidesPerView: 2, spaceBetween: 24 },
+            1024: { slidesPerView: 3, spaceBetween: 32 },
+            1280: { slidesPerView: 4, spaceBetween: 32 },
+            1536: { slidesPerView: 5, spaceBetween: 36 },
           }}
           pagination={{ clickable: true }}
           navigation={{
@@ -161,7 +172,7 @@ const FootPrint = () => {
         >
           <RxArrowRight className="w-5 sm:w-6 h-5 sm:h-6" />
         </button>
-      </div>
+      </motion.div>
 
       {/* Modal Image Preview */}
       {modalImage && (

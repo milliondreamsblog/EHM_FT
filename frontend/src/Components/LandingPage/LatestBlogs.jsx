@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import API from '../../api/axios';
 import { ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import ScrollRevealElements from '../Animations/ScrollRevealElements';
 
 const LatestBlogCard = ({ item }) => {
     const formatDate = (dateString) => {
@@ -20,11 +22,10 @@ const LatestBlogCard = ({ item }) => {
         return null;
     }
 
-
     const imageUrl = item.image;
 
     return (
-        <Link to={`/blogs/${item._id}`} className="flex flex-col bg-white rounded-xl overflow-hidden group w-full max-w-sm transform transition-all duration-300 hover:-translate-y-2 shadow-md hover:shadow-2xl">
+        <Link to={`/blogs/${item._id}`} className="flex flex-col bg-white rounded-xl overflow-hidden group w-full max-w-sm transform transition-all duration-300 hover:-translate-y-2 shadow-md hover:shadow-2xl h-full">
             <div className="w-full h-48 overflow-hidden">
                 <img
                     src={imageUrl || 'https://placehold.co/600x400/a0aec0/ffffff?text=Blog+Image'}
@@ -57,9 +58,7 @@ const LatestBlogCard = ({ item }) => {
     );
 };
 
-
 const LatestBlogs = () => {
-
     const [blogs, setBlogs] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -90,31 +89,50 @@ const LatestBlogs = () => {
         <section className="bg-gray-50 py-16 sm-py-24">
             <div className="container mx-auto px-4">
                 <div className="flex flex-col lg:flex-row gap-12 lg:gap-8 items-start lg:items-center">
-                    <div className="w-full lg:w-1/3 text-center lg:text-left mb-8 lg:mb-0">
-                        <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">
+
+                    <ScrollRevealElements
+                        className="w-full lg:w-1/3 text-center lg:text-left mb-8 lg:mb-0"
+                        staggerAmount={0.5}
+                    >
+                        <motion.h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">
                             Latest Blogs
-                        </h2>
-                        <Link
-                            to="/resources/blogs"
-                            className="inline-flex items-center justify-center px-6 py-3 bg-emerald-500 text-white font-semibold rounded-md shadow-md hover:bg-emerald-600 transition-all duration-300 transform hover:-translate-y-1"
-                        >
-                            Read More Blogs
-                            <ArrowRight className="ml-2 h-5 w-5" />
-                        </Link>
-                    </div>
+                        </motion.h2>
+
+
+                        <motion.div>
+                            <Link
+                                to="/resources/blogs"
+                                className="inline-flex items-center justify-center px-6 py-3 bg-emerald-500 text-white font-semibold rounded-md shadow-md hover:bg-emerald-600 transition-all duration-300 transform hover:-translate-y-1"
+                            >
+                                Read More Blogs
+                                <ArrowRight className="ml-2 h-5 w-5" />
+                            </Link>
+                        </motion.div>
+
+
+                    </ScrollRevealElements>
+
                     <div className="w-full lg:w-2/3">
                         {loading && <div className="text-center text-gray-700">Loading latest blogs...</div>}
                         {error && <div className="text-center text-red-500 font-semibold">{error}</div>}
                         {!loading && !error && (
-                            <div className="flex flex-col sm:flex-row justify-center gap-8">
+                            <ScrollRevealElements
+                                className="flex flex-col sm:flex-row justify-center items-stretch gap-8"
+                                staggerAmount={0.5}
+                            >
                                 {blogs.length > 0 ? (
                                     blogs.map((blog) => (
-                                        <LatestBlogCard key={blog._id} item={blog} />
+                                        <motion.div
+                                            key={blog._id}
+                                            className="w-full sm:w-1/2 flex justify-center"
+                                        >
+                                            <LatestBlogCard item={blog} />
+                                        </motion.div>
                                     ))
                                 ) : (
                                     <p className="text-center text-gray-600">No recent blogs found.</p>
                                 )}
-                            </div>
+                            </ScrollRevealElements>
                         )}
                     </div>
                 </div>

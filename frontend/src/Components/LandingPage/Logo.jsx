@@ -1,6 +1,9 @@
 import { companies } from "../../Data/Data";
 import { motion } from "framer-motion";
 
+
+import ScrollRevealElements from '../Animations/ScrollRevealElements';
+
 const Logo = () => {
   return (
     <section
@@ -10,28 +13,37 @@ const Logo = () => {
           "url('https://img.freepik.com/premium-photo/fantasy-island-with-floating-waterfalls-octane-ren_1022456-71481.jpg')",
       }}
     >
-      {/* Overlay for readability */}
+
       <div className="absolute inset-0 bg-white/40 backdrop-blur-sm"></div>
 
       <div className="relative container mx-auto px-6 text-center">
-        {/* Section Title */}
-        <h2 className="text-xl md:text-2xl font-bold text-green-800 mb-10">
-          " The Leaders We Work With "
-        </h2>
 
-        {/* Scrollable grid with two visible rows */}
+        <motion.h2
+          className="text-xl md:text-2xl font-bold text-green-800 mb-10"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          " The Leaders We Work With "
+        </motion.h2>
+
+
         <div className="max-h-[320px] overflow-y-scroll scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent rounded-lg border border-dashed border-gray-200 bg-white/60 backdrop-blur-sm">
-          <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-y divide-dashed divide-gray-300">
+
+
+          <ScrollRevealElements
+            className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-y divide-dashed divide-gray-300"
+            staggerAmount={0.1}
+          >
             {companies.map((company, idx) => (
+
               <motion.a
                 key={idx}
                 href={company.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center p-4 hover:bg-white/80 transition"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: idx * 0.05 }}
               >
                 <img
                   src={`/Client/${company.name}.png`}
@@ -40,13 +52,19 @@ const Logo = () => {
                 />
               </motion.a>
             ))}
-          </div>
+          </ScrollRevealElements>
         </div>
 
-        {/* Small scroll hint */}
-        <p className="text-center text-gray-700 mt-4 text-sm animate-bounce">
+
+        <motion.p
+          className="text-center text-gray-700 mt-4 text-sm animate-bounce"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+        >
           Scroll down for more ↓
-        </p>
+        </motion.p>
       </div>
     </section>
   );

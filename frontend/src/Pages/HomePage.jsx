@@ -30,19 +30,19 @@ const HomePage = () => {
       <HeroSection />
 
 
-      <ScrollReveal>
-        <Logo />
-      </ScrollReveal>
+
+      <Logo />
+
 
       {/* <ServicePage /> */}
 
-      <ScrollReveal>
-        <EhmBrief />
-      </ScrollReveal>
 
-      <ScrollReveal>
-        <ServiceSection />
-      </ScrollReveal>
+      <EhmBrief />
+
+
+
+      <ServiceSection />
+
       {/* <ServicePage /> */}
 
       {/* <ServiceSection />
@@ -69,52 +69,52 @@ const HomePage = () => {
       {/* <ServiceSection /> */}
       {/* <ProductSection /> */}
       {/* <Product /> */}
-      <ScrollReveal>
-        <Team title="Our Team" members={members} limit={3} />
-      </ScrollReveal>
 
-      <ScrollReveal>
-        <Partners_logo />
-      </ScrollReveal>
-
-      <ScrollReveal>
-        <Testimonials />
-      </ScrollReveal>
+      <Team title="Our Team" members={members} limit={3} />
 
 
 
-      <ScrollReveal>
-        <TestimonialsSection />
-      </ScrollReveal>
+      <Partners_logo />
 
-     
+
+
+      <Testimonials />
 
 
 
 
-       <NewsLetter/>
-    
 
-      <ScrollReveal>
-        <Resource />
-      </ScrollReveal>
+      <TestimonialsSection />
 
 
 
-      <ScrollReveal>
-        <LatestBlogs />
-      </ScrollReveal>
-
-      <ScrollReveal>
-        <FootPrint />
-      </ScrollReveal>
 
 
-    <ScrollReveal>
-        <Feature />
-      </ScrollReveal>
 
-       
+
+      <NewsLetter />
+
+
+
+      <Resource />
+
+
+
+
+
+      <LatestBlogs />
+
+
+
+      <FootPrint />
+
+
+
+
+      <Feature />
+
+
+
 
 
     </div>
