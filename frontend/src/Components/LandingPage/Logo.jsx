@@ -10,13 +10,17 @@ const Logo = () => {
       className="relative py-16 bg-cover bg-center"
       style={{
         backgroundImage:
-          "url('https://img.freepik.com/premium-photo/fantasy-island-with-floating-waterfalls-octane-ren_1022456-71481.jpg')",
+          "url('htps://img.freepik.com/premium-photo/fantasy-island-with-floating-waterfalls-octane-ren_1022456-71481.jpg')",
       }}
     >
 
       <div className="absolute inset-0 bg-white/40 backdrop-blur-sm"></div>
 
       <div className="relative container mx-auto px-6 text-center">
+        {/* Section Title */}
+        <h2 className="text-xl md:text-2xl font-bold text-green-800 mb-10">
+           The Leaders We Work With 
+        </h2>
 
         <motion.h2
           className="text-xl md:text-2xl font-bold text-green-800 mb-10"
