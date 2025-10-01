@@ -21,6 +21,9 @@ import NewsLetter from "../Components/LandingPage/NewsLetter";
 import { Feather } from "lucide-react";
 import Feature from "../Components/LandingPage/Feature";
 
+import LatestBlogs from "../Components/LandingPage/LatestBlogs";
+
+
 const HomePage = () => {
   return (
     <div className="min-h-screen bg-[#ededed] ">
@@ -87,16 +90,20 @@ const HomePage = () => {
      
 
 
-      
-<ScrollReveal>
-       <Resource />
-      </ScrollReveal>
 
 
        <NewsLetter/>
     
 
+      <ScrollReveal>
+        <Resource />
+      </ScrollReveal>
 
+
+
+      <ScrollReveal>
+        <LatestBlogs />
+      </ScrollReveal>
 
       <ScrollReveal>
         <FootPrint />
