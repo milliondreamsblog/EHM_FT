@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+}
+
+.blog-content-view p {
+  text-align: justify;
+}
+
+.blog-content-view img {
+  width: 100%;
+  max-width: 100% !important;
+  height: auto;
+  border-radius: 0.75rem; 
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fadein {
+  animation: fadeIn 1s ease forwards;
+}
+.scrollbar-thin::-webkit-scrollbar {
+  height: 6px;
+}
+.scrollbar-thumb-indigo-500::-webkit-scrollbar-thumb {
+  background-color: #6366f1; /* indigo-500 */
+  border-radius: 10px;
+}
+.scrollbar-track-gray-900::-webkit-scrollbar-track {
+  background-color: #111827; /* gray-900 */
+  border-radius: 10px;
+}
+.scroll-snap-align-center {
+  scroll-snap-align: center;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fadeIn {
+  animation: fadeIn 0.25s ease-out forwards;
+}

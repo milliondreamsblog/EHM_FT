@@ -1,0 +1,121 @@
+
+@media (hover: none) and (pointer: coarse) {
+  .project-card:hover .know-more-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .project-card:hover .know-more-button-container {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  .project-card:hover .project-image {
+    transform: scale(1.05) translateY(-0.5rem);
+  }
+  
+  .project-card:hover .card-shadow {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  }
+}
+
+
+.project-card:focus-within .know-more-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.project-card:focus-within .know-more-button-container {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.project-card:focus-within .project-image {
+  transform: scale(1.05) translateY(-0.5rem);
+}
+
+.project-card:focus-within .card-shadow {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+
+.project-card:hover .know-more-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.project-card:hover .know-more-button-container {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.05) translateY(-0.5rem);
+}
+
+.project-card:hover .card-shadow {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+
+.swiper-slide {
+  transition: all 0.3s ease-out;
+}
+
+
+.know-more-button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.know-more-button:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.know-more-button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+
+.project-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, box-shadow;
+}
+
+.project-card:hover,
+.project-card:focus-within {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+
+.modal-backdrop {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+
+@media (max-width: 640px) {
+  .project-card:hover,
+  .project-card:focus-within {
+    transform: translateY(-2px) scale(1.01);
+  }
+  
+  .know-more-button:hover {
+    transform: translateY(-1px) scale(1.01);
+  }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card,
+  .know-more-button,
+  .swiper-slide {
+    transition: none;
+  }
+  
+  .project-card:hover,
+  .project-card:focus-within {
+    transform: none;
+  }
+  
+  .know-more-button:hover {
+    transform: none;
+  }
+} 
