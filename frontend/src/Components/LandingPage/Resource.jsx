@@ -8,28 +8,29 @@ const Resource = () => {
     setIsLoaded(true);
   }, []);
 
-  const handleButtonClick = (action) => {
-    alert(`${action} - This would navigate to the respective section`);
-  };
+ 
 
   const resources = [
     {
       id: 'dx¹',
       title: 'Webinars',
       description: 'We host a topical dialogue every month, bringing together an eclectic set of experts on the subject to share their learnings with climate finance practitioners',
-      buttonText: 'Explore webinars'
+      buttonText: 'Explore webinars',
+      link: '/resources/webinar'
     },
     {
       id: 'dx²',
       title: 'Newsletter',
       description: 'We pen down a deep dive for 2-3 key developments in sustainable finance landscape, in our bi-weekly newsletter',
-      buttonText: 'Read our newsletters'
+      buttonText: 'Read our newsletters',
+      link: '/resources/casestudies'
     },
     {
       id: 'dx³',
       title: 'Research papers',
       description: 'We leverage our internal research capabilities alongside state-of-the-art academic insights to build new capabilities for our partner clients',
-      buttonText: 'Explore our papers'
+      buttonText: 'Explore our papers',
+      link: '/resources/blogs'
     }
   ];
 
@@ -52,7 +53,7 @@ const Resource = () => {
        <div className="relative bg-gradient-to-br from-slate-700 to-slate-900 text-white p-8 rounded-xl mb-8 overflow-hidden">
        
   <div className="absolute inset-0">
-    <img className='w-full h-full object-cover' src="./sea.webp" alt="Background" />
+    <img className='w-full h-full object-cover' src="./seaa.jpg" alt="Background" />
   </div>
   
   
@@ -80,7 +81,7 @@ const Resource = () => {
           {resources.map((resource, index) => (
             <div
   key={resource.id}
-  className={`bg-white p-8 rounded-xl shadow-lg transition-all duration-300 relative ${
+  className={` p-8 rounded-xl  transition-all duration-300 relative ${
     isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
   } flex flex-col`}
   style={{
@@ -94,7 +95,7 @@ const Resource = () => {
 
  
   <div className="relative z-10 flex flex-col flex-grow">
-    <h2 className="text-2xl font-semibold text-slate-700 mb-5">
+    <h2 className="text-2xl font-semibold text-slate-700 mb-5 font-montserrat">
       {resource.title}
     </h2>
 
@@ -102,15 +103,17 @@ const Resource = () => {
       {resource.description}
     </p>
 
-    <div className="mt-auto">
+  <a href={resource.link || '#'} >
+      <div className="mt-auto">
       <button
         onClick={() => handleButtonClick(resource.buttonText)}
-        className="bg-green-600 hover:bg-green-500 text-white px-6 py-3 rounded-md font-medium text-sm transition-all duration-300 flex items-center gap-2"
+        className="bg-green-600  text-white px-6 py-3 rounded-md font-medium text-sm  flex items-center gap-2"
       >
         {resource.buttonText}
         <span className="transition-transform duration-300">→</span>
       </button>
     </div>
+  </a>
   </div>
 </div>
 

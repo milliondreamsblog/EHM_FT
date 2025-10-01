@@ -5,6 +5,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        montserrat: ['Montserrat', 'sans-serif'],
+      },
       animation: {
         fadeIn: "fadeIn 1.2s ease-in-out forwards",
          marquee: "marquee 15s linear infinite",
