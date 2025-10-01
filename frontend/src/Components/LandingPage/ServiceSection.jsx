@@ -1,5 +1,6 @@
 import { Sparkles } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const data = [
   {
@@ -31,6 +32,16 @@ const data = [
 
 const ServiceSection = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const containerRef = useRef(null);
+
+  // Scroll effect
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+
+  const x = useTransform(scrollYProgress, [0, 0.5], [200, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.5], [0, 0.7, 1]);
 
   return (
     <div className="min-h-screen w-full flex flex-col items-center justify-center p-8 bg-white">
@@ -47,7 +58,14 @@ const ServiceSection = () => {
       </div>
 
       {/* Cards container */}
-      <div className="flex flex-wrap justify-center gap-4 max-w-[1400px] mx-auto">
+      <motion.div
+        ref={containerRef}
+        className="flex flex-wrap justify-center gap-4 max-w-[1400px] mx-auto"
+        style={{
+          x,
+          opacity
+        }}
+      >
         {data.map((item, index) => {
           const isHovered = hoveredIndex === index;
           const isOtherHovered = hoveredIndex !== null && hoveredIndex !== index;
@@ -103,7 +121,7 @@ const ServiceSection = () => {
             </div>
           );
         })}
-      </div>
+      </motion.div>
     </div>
   );
 };

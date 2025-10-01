@@ -15,13 +15,15 @@ import { TestimonialsSection } from "../Components/LandingPage/testimonials1";
 import EhmBrief from "../Components/LandingPage/EhmBrief";
 
 // Scroll animation wrapper
-import ScrollReveal from "../Components/Animations/ScrollReveal";
+
 import Resource from "../Components/LandingPage/Resource";
 import NewsLetter from "../Components/LandingPage/NewsLetter";
 import { Feather } from "lucide-react";
 import Feature from "../Components/LandingPage/Feature";
 
 import LatestBlogs from "../Components/LandingPage/LatestBlogs";
+import ScrollReveal from "../Components/Animations/ScrollReveal";
+
 
 
 const HomePage = () => {
@@ -77,9 +79,11 @@ const HomePage = () => {
         <Partners_logo />
       </ScrollReveal>
 
-      <ScrollReveal>
+      {/* <ScrollReveal>
         <Testimonials />
-      </ScrollReveal>
+      </ScrollReveal> */}
+
+      <Testimonials />
 
 
 
