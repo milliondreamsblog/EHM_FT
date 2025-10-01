@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
+import ScrollRevealElements from '../Animations/ScrollRevealElements';
 
 import avatar1 from "../../assets/testimgs/S1.avif";
 import avatar2 from "../../assets/testimgs/S2.webp";
@@ -73,6 +74,7 @@ const firstColumn = testimonials.slice(0, 3);
 const secondColumn = testimonials.slice(3, 6);
 const thirdColumn = testimonials.slice(6, 9);
 
+
 const TestimonialsColumn = ({ className = "", testimonials, duration, direction = "up" }) => (
   <div className={className}>
     <motion.div
@@ -126,30 +128,32 @@ export const TestimonialsSection = () => {
   return (
     <section className="py-20">
       <div className="container mx-auto px-4">
-        <div className="section-heading text-center">
-          <div className="flex items-center justify-center gap-4 mb-6">
+
+        <ScrollRevealElements
+          className="section-heading text-center"
+          staggerAmount={0.5}
+        >
+          <motion.div className="flex items-center justify-center gap-4 mb-6">
             <Sparkles className="text-teal-500 animate-pulse" size={40} />
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-teal-600 via-emerald-600 to-green-600 bg-clip-text text-transparent">
               Testimonials
             </h1>
             <Sparkles className="text-emerald-500 animate-pulse" size={40} />
-          </div>
+          </motion.div>
+        </ScrollRevealElements>
 
-          {/* <h2 className="section-title mt-5 text-3xl font-bold text-gray-800">
-            What our users say
-          </h2>
-          <p className="section-body mt-5 text-gray-600 max-w-2xl mx-auto">
-            From intuitive design to powerful features, our app has become an
-            essential tool for users around the world.
-          </p> */}
-        </div>
 
-        {/* Dynamic Testimonials */}
-        <div className="mt-8 flex justify-center gap-6 [mask-image:linear-gradient(to_bottom,transparent,white_20%,white_80%,transparent)] max-h-[738px] overflow-hidden">
+        <motion.div
+          className="mt-8 flex justify-center gap-6 [mask-image:linear-gradient(to_bottom,transparent,white_20%,white_80%,transparent)] max-h-[738px] overflow-hidden"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+        >
           <TestimonialsColumn testimonials={firstColumn} duration={18} direction="up" />
           <TestimonialsColumn testimonials={secondColumn} className="hidden md:block" duration={14} direction="down" />
           <TestimonialsColumn testimonials={thirdColumn} className="hidden lg:block" duration={20} direction="up" />
-        </div>
+        </motion.div>
       </div>
     </section>
   );

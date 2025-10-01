@@ -1,52 +1,51 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Sparkles } from 'lucide-react';
+import { motion } from 'framer-motion';
+import ScrollRevealElements from '../Animations/ScrollRevealElements';
 
 const Team = ({ title, members, limit }) => {
-  useEffect(() => {
-    const cards = document.querySelectorAll('.team-card');
-    cards.forEach((card, index) => {
-      card.style.animationDelay = `${index * 0.2}s`;
-    });
-  }, [members, limit]);
-
   const membersToDisplay = limit ? members.slice(0, limit) : members;
 
   return (
     <div id="team" className="relative py-12 flex flex-col items-center justify-center font-sans bg-gradient-to-b from-[#d4d4d4a8] to-white ">
 
-      {/* Title Section */}
-      <div className="text-center mb-12 py-8">
-        <div className="flex items-center justify-center gap-4 mb-6">
+
+      <ScrollRevealElements
+        className="text-center mb-12 py-8"
+        staggerAmount={0.5}
+      >
+        <motion.div className="flex items-center justify-center gap-4 mb-6">
           <Sparkles className="text-teal-500 animate-pulse" size={40} />
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-teal-600 via-emerald-600 to-green-600 bg-clip-text text-transparent">
             {title}
           </h1>
           <Sparkles className="text-emerald-500 animate-pulse" size={40} />
-        </div>
-        <div className="w-32 h-1 bg-gradient-to-r from-teal-400 to-emerald-500 rounded-full mx-auto"></div>
-      </div>
+        </motion.div>
+        <motion.div className="w-32 h-1 bg-gradient-to-r from-teal-400 to-emerald-500 rounded-full mx-auto"></motion.div>
+      </ScrollRevealElements>
 
-      {/* Team Cards */}
-      <div className="flex justify-center flex-wrap gap-8 w-full max-w-6xl mx-auto px-4 sm:px-0">
+
+      <ScrollRevealElements
+        className="flex justify-center flex-wrap gap-8 w-full max-w-6xl mx-auto px-4 sm:px-0"
+        staggerAmount={0.4}
+      >
         {membersToDisplay && membersToDisplay.map((member, index) => (
-          <div
+          <motion.div
             key={index}
             className="team-card group relative w-full sm:w-64 h-[280px] overflow-hidden rounded-3xl 
-                         bg-gradient-to-br from-teal-500 to-emerald-600
-                         shadow-lg transition-all duration-500 ease-out 
-                         hover:-translate-y-3 hover:shadow-2xl 
-                         opacity-0 animate-fadeInUp"
-            style={{ animationFillMode: 'forwards' }}
+                      bg-gradient-to-br from-teal-500 to-emerald-600
+                      shadow-lg transition-all duration-500 ease-out 
+                      hover:-translate-y-3 hover:shadow-2xl"
           >
-            {/* Floating Background Blobs */}
+
             <div className="absolute inset-0 z-0 opacity-100 transition-opacity duration-500 group-hover:opacity-0">
               <div className="absolute top-5 -left-8 h-20 w-20 rounded-full bg-white/10 animate-float-1"></div>
               <div className="absolute top-24 right-5 h-12 w-12 rounded-full bg-white/10 animate-float-2"></div>
               <div className="absolute bottom-5 left-10 h-8 w-8 rounded-full bg-white/10 animate-float-3"></div>
             </div>
 
-            {/* Main Card Content */}
+
             <div className="relative z-10 flex h-full flex-col items-center justify-center p-6 text-center">
               <img
                 className="h-32 w-32 rounded-full border-4 border-white/80 object-cover shadow-lg transition-transform duration-500 ease-out group-hover:scale-105 group-hover:-rotate-2"
@@ -58,16 +57,15 @@ const Team = ({ title, members, limit }) => {
               </div>
             </div>
 
-            {/* Hover Overlay */}
+
             <div className="circular-overlay absolute inset-0 z-20 flex flex-col items-center justify-center 
-                         bg-black/70 backdrop-blur-lg p-6 text-center">
+                          bg-black/70 backdrop-blur-lg p-6 text-center">
               <div className="text-center opacity-0 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:delay-200">
                 <img
                   className="mx-auto mb-2 h-28 w-28 rounded-full border-4 border-emerald-300 object-cover shadow-lg"
                   src={member.img}
                   alt={member.name}
                 />
-
                 <h3 className="text-base font-bold text-white leading-tight">{member.name}</h3>
                 <h4 className="text-xs font-semibold text-emerald-300">
                   {member.title}
@@ -75,8 +73,6 @@ const Team = ({ title, members, limit }) => {
                 <p className="mb-2 text-xs text-gray-300 opacity-80">
                   {member.degree}
                 </p>
-
-                {/* Social Links */}
                 <div className="flex justify-center mt-2">
                   {member.social && (
                     <a
@@ -93,12 +89,18 @@ const Team = ({ title, members, limit }) => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </ScrollRevealElements>
 
-      {/* Button to About Page */}
-      <div className="mt-16 text-center">
+
+      <motion.div
+        className="mt-16 text-center"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+      >
         {limit && members.length > limit && (
           <Link
             to="/about"
@@ -115,14 +117,10 @@ const Team = ({ title, members, limit }) => {
             </svg>
           </Link>
         )}
-      </div>
+      </motion.div>
 
       <style jsx>{`
-        @keyframes fadeInUp {
-          from { opacity: 0; transform: translateY(40px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fadeInUp { animation: fadeInUp 0.8s ease forwards; }
+        /* Removed the fadeInUp animation, as it's now handled by Framer Motion */
 
         @keyframes float-1 {
           0%, 100% { transform: translateY(0) rotate(0); }
@@ -155,4 +153,3 @@ const Team = ({ title, members, limit }) => {
 };
 
 export default Team;
-

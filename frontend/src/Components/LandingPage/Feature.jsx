@@ -1,5 +1,7 @@
 import React from 'react';
 import { ExternalLink } from 'lucide-react';
+import { motion } from 'framer-motion';
+import ScrollRevealElements from '../Animations/ScrollRevealElements';
 
 const Feature = () => {
   const articles = [
@@ -30,14 +32,15 @@ const Feature = () => {
   ];
 
   const renderImage = (type) => {
-    switch(type) {
+
+    switch (type) {
       case 'teal-lines':
         return (
           <div className="relative w-full h-full bg-gradient-to-br from-[#003d33] to-[#005544] overflow-hidden rounded-lg">
             <div className="absolute inset-0 animate-slide">
               {[...Array(30)].map((_, i) => (
-                <div 
-                  key={i} 
+                <div
+                  key={i}
                   className="absolute h-full w-[2px] bg-teal-400/15"
                   style={{ left: `${i * 3}%` }}
                 />
@@ -69,7 +72,8 @@ const Feature = () => {
   };
 
   const renderLogo = (logo) => {
-    switch(logo) {
+
+    switch (logo) {
       case 'Bloomberg':
         return (
           <div className="bg-gray-400 text-white px-5 py-2  text-xl  tracking-wide">
@@ -98,55 +102,58 @@ const Feature = () => {
   return (
     <div className=" bg-white py-6 px-4 sm:px-6 lg:px-8">
       <div className="max-w-[1100px] max-h-[900px] mx-auto">
-        <h1 className="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-8 sm:mb-10">
-          Featured in
-        </h1>
 
-        <div className="space-y-4">
+        <motion.h1
+          className="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-8 sm:mb-10"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
+          Featured in
+        </motion.h1>
+
+
+        <ScrollRevealElements
+          className="space-y-4"
+          staggerAmount={0.8}
+        >
           {articles.map((article) => (
-            <div 
+            <motion.div
               key={article.id}
               className="bg-gray-100 border-[1.5px] border-green-300 rounded-2xl p-5 sm:p-6 "
             >
               <div className="flex flex-col lg:flex-row gap-5 sm:gap-6 lg:gap-7">
-                {/* Image Section */}
                 <div className="w-full lg:w-[420px] h-44 sm:h-48 lg:h-[180px] flex-shrink-0">
                   {renderImage(article.imageType)}
                 </div>
-
-                {/* Content Section */}
                 <div className="flex flex-col flex-1 min-w-0">
                   <div className="text-[11px] sm:text-xs font-semibold text-gray-500 tracking-wide mb-2 sm:mb-2.5">
                     {article.date}
                   </div>
-                  
                   <h2 className="text-lg sm:text-xl lg:text-[22px]  text-gray-700 leading-snug mb-2 sm:mb-2.5">
                     {article.title}
                   </h2>
-                  
                   <p className="text-[13px] sm:text-sm text-gray-600 tracking-wide mb-3 sm:mb-4 flex-grow">
                     {article.description}
                   </p>
-
-                  {/* Footer */}
                   <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mt-auto">
-                    <a 
-                      href="#" 
+                    <a
+                      href="#"
                       className="inline-flex items-center gap-2 text-lg  text-gray-500  "
                     >
                       Read more
                       <ExternalLink className="w-[15px] h-[15px] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     </a>
-                    
                     <div className="flex items-center">
                       {renderLogo(article.logo)}
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </ScrollRevealElements>
       </div>
 
       <style jsx>{`
