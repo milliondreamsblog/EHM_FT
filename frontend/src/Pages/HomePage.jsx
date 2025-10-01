@@ -71,56 +71,13 @@ const HomePage = () => {
       {/* <Product /> */}
 
       
-        <Partners_logo />
-      
-
- 
-        <Testimonials />
-  
-
- 
-        <TestimonialsSection />
-      
-
-
-
       <Partners_logo />
-
-
-
       <Testimonials />
-
-
-
-
-
       <TestimonialsSection />
-
-
-
-
-
-
-
       <NewsLetter />
-
-
-
       <Resource />
-
-
-
-
-
       <LatestBlogs />
-
-
-
       <FootPrint />
-
-
-
-
       <Feature />
 
 

@@ -13,7 +13,7 @@ export const ChoiceOption = ({ option, isSelected, onSelect }) => {
       className={`
         relative p-5 cursor-pointer transition-all duration-300
         ${isSelected 
-          ? 'bg-background border-l-2 border-title  bg-green-500 border-green-950' 
+          ? 'bg-gradient-to-r from-emerald-500 via-emerald-200 to-white border-l-2 border-green-950' 
           : 'bg-white   '
         }
       `}

@@ -5,9 +5,9 @@ export const FeaturedImage = ({ selectedChoice }) => {
   const Icon = iconMap[selectedChoice.icon] || iconMap.Sparkles;
   
   return (
-    <div className="lg:sticky lg:top-8">
-      <div className=" w-[500px] relative overflow-hidden rounded-2xl shadow-2xl  bg-white">
-        <div className="aspect-[4/3] overflow-hidden">
+   <div className="lg:sticky lg:top-8">
+      <div className="w-[500px] relative overflow-hidden rounded-2xl shadow-2xl bg-white">
+        <div className="w-full h-[375px] overflow-hidden relative">
           <img
             src={selectedChoice.image}
             alt={selectedChoice.title}
