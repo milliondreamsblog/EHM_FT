@@ -352,7 +352,7 @@ const Testimonials = () => {
                 In line with our vision to expand the Natural Capital ecosystem, we do not shy away from opportunistically taking up assignments which we believe expand the pie for the overall market and add value to its stakeholders in the long run.
               </p>
             </div>
-            <div className="mt-4 md:mt-0 md:ml-6 flex-shrink-0">
+            <div className="mt-4 md:mt-1 md:ml-6 flex-shrink-0">
               <a 
                 className="inline-flex items-center justify-center px-6 sm:px-8 md:px-10 py-2 bg-emerald-500 text-white font-semibold rounded-md shadow-sm hover:bg-emerald-600 transition-colors text-sm" 
                 href="/offerings"
@@ -368,7 +368,7 @@ const Testimonials = () => {
       </div>
 
       {/* Contact Section - Responsive */}
-      <div className="bg-emerald-400 p-6 sm:p-10 md:p-16 lg:p-20">
+      <div className="bg-emerald-500 p-6 sm:p-10 md:p-16 lg:p-20">
         <div className="container mx-auto px-4 py-12 sm:py-16 md:py-20 lg:py-24">
           <div className="flex flex-col sm:flex-row justify-center items-center gap-8 sm:gap-16 md:gap-24 lg:gap-36">
             <div className="text-white text-center sm:text-left">
