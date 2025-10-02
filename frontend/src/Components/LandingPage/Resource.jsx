@@ -81,7 +81,7 @@ const Resource = () => {
           {resources.map((resource) => (
             <motion.div
               key={resource.id}
-              className="p-8 rounded-xl transition-all duration-300 relative flex flex-col bg-white shadow-lg"
+              className=""
             >
               <div className="absolute top-5 right-5 text-6xl md:text-7xl font-thin text-gray-200 font-serif">
                 {resource.id}
