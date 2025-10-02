@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import './App.css'
 import About from './Pages/About.jsx';
@@ -13,8 +12,10 @@ import Layout from "./Layout.jsx";
 
 import ProductPage from "./Pages/Products.jsx";
 import ServicePage from "./Pages/Services.jsx";
-import Projects from "./Pages/Projects.jsx";
-
+// V-- CHANGE MADE HERE --V //
+// We are now importing the new ProjectsPage component.
+import ProjectsPage from "./Pages/ProjectsPage.jsx"; 
+// ^-- CHANGE MADE HERE --^ //
 
 
 import "aos/dist/aos.css";
@@ -46,11 +47,16 @@ function App() {
       <Layout>
         <ScrollToTop />
         <Routes>
+           
           {/* Public Pages */}
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<ContactPage />} />
 
-          <Route path="/projects" element={<Projects />} />
+          {/* V-- CHANGE MADE HERE --V */}
+          {/* This route now renders our new, detailed ProjectsPage component. */}
+          <Route path="/projects" element={<ProjectsPage />} />
+          {/* ^-- CHANGE MADE HERE --^ */}
+          
           <Route path="/offerings/products" element={<ProductPage />} />
 
           <Route path="/offerings" element={<ServicePage />} />
@@ -101,3 +107,4 @@ function App() {
 }
 
 export default App;
+
