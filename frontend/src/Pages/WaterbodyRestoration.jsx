@@ -190,6 +190,12 @@ const WaterbodyRestoration = () => {
                             </svg>
                         </div>
                     </div>
+
+
+                    {/* Scroll-down indicator */}
+                    <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+                        <div className="w-11 h-11 border-r-4 border-b-4 rounded border-emerald-500/80 rotate-45"></div>
+                    </div>
                 </section>
 
                 {/* MAJOR FACTORS & IMPACTS */}
