@@ -1,8 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import ScrollRevealElements from '../Animations/ScrollRevealElements';
 
 export default function NewsLetter() {
+
+  const [email, setEmail] = useState("");
+    const [isSubmitting, setIsSubmitting] = useState(false);
+  
+    const handleSubscribe = async (e) => {
+      e.preventDefault();
+      setIsSubmitting(true);
+      try {
+        const res = await API.post("/subscribe", { email });
+        setEmail("");
+        alert(res.data.message);
+      } catch (err) {
+        if (err.response?.data?.message) {
+          alert(err.response.data.message);
+        } else {
+          console.log("Something went wrong");
+        }
+      } finally {
+        setIsSubmitting(false);
+      }
+    };
+
   return (
     <div className="bg-white font-sans text-gray-800">
       <div className=" flex items-start justify-start p-8 sm:p-12 md:p-16 lg:p-20 relative overflow-hidden folded-corner">
@@ -37,24 +59,32 @@ export default function NewsLetter() {
               </p>
             </motion.div>
 
-            <motion.div className="flex flex-col sm:flex-row gap-1">
+            <motion.div className="flex flex-col sm:flex-row gap-3">
+         <form onSubmit={handleSubscribe} className="flex space-x-1">
               <input
-                className="flex-grow px-24 py-3 rounded-lg border-0 bg-gray-100 placeholder-gray-600 focus:ring-2 focus:ring-emerald-500 focus:outline-none text-gray-800"
-                placeholder="Enter your Email Address"
                 type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                className="flex-1 px-16 py-1 bg-gray-50 border border-gray-300 rounded-lg "
               />
               <button
-                className="bg-emerald-500 text-white font-semibold px-20 py-3 rounded-lg hover:bg-emerald-600 transition-colors"
                 type="submit"
+                disabled={isSubmitting}
+                className="px-20 py-1 bg-green-600 text-white font-bold rounded-lg "
               >
-                Subscribe
+                {isSubmitting ? 'Subscribing...' : 'Subscribe'}
               </button>
+            </form>
+
+
             </motion.div>
 
             <motion.div className="pt-4">
               <a
                 className="inline-flex items-center space-x-2 px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-800 hover:bg-gray-50 transition-colors"
-                href="#"
+                href="/resources/blogs"
               >
                 <span>Read the latest Edition</span>
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
@@ -67,6 +97,44 @@ export default function NewsLetter() {
         </main>
       </div>
 
+<div className="py-16 bg-gray-300">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl font-bold text-center font-montserrat  text-black mb-12">
+          Industry Partners
+        </h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 items-center justify-items-center">
+          <div>
+            <img
+              alt="Microsoft logo"
+              className="h-32 grayscale dark:brightness-200"
+              src="./Partners/CSJMIF.png"
+            />
+          </div>
+          <div>
+            <img
+              alt="FICCI logo"
+              className="h-32 grayscale dark:brightness-200"
+              src="./Partners/E&ICT logo.png"
+            />
+          </div>
+          <div>
+            <img
+              alt="Bursa Carbon Exchange logo"
+              className="h-32 w-full grayscale dark:brightness-200"
+              src="./Partners/Technopark logo.png"
+            />
+          </div>
+          <div>
+            <img
+              alt="SEAS logo"
+              className="h-32  grayscale dark:brightness-200"
+              src="./Partners/IITR.png"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
       <style>{`
         .folded-corner {
           position: relative;
@@ -77,7 +145,7 @@ export default function NewsLetter() {
           position: absolute;
           bottom: 0;
           right: 0;
-          border-width: 0 0 140px 140px;
+          border-width: 0 0 120px 120px;
           border-style: solid;
           border-color: transparent transparent #d1d5db transparent;
           box-shadow: -15px -15px 20px rgba(0,0,0,0.2);
