@@ -1,17 +1,17 @@
 export const companies = [
-  { name: "CSIRNEERI", url: "https://www.neeri.res.in" },
-  { name: "csir", url: "https://www.csir.res.in" },
-  { name: "CSJMU", url: "https://csjmu.ac.in" },
-  { name: "GovernmentofTelangana", url: "https://www.telangana.gov.in" },
-  { name: "JhansiNagarNigam", url: "https://www.jhansi.nic.in" },
-  { name: "Jhansismartcity", url: "https://smartcityjhansi.in" },
-  { name: "Kanpursmartcity", url: "https://kanpursmartcity.org" },
+  { name: "NEERI", url: "https://www.neeri.res.in" },
+  { name: "CSIR.", url: "https://www.csir.res.in" },
+  { name: "CSJMU, Kanpur", url: "https://csjmu.ac.in" },
+  { name: "Government of Telangana", url: "https://www.telangana.gov.in" },
+  { name: "Jhansi Nagar Nigam", url: "https://www.jhansi.nic.in" },
+  { name: "Jhansi Smart City", url: "https://smartcityjhansi.in" },
+  { name: "Kanpur Smart City", url: "https://kanpursmartcity.org" },
   { name: "Parivartan", url: "https://parivartan.org" }, // update if different
-  { name: "Picture3", url: "http://www.uppcb.com" }, 
-  { name: "Prachileathers", url: "https://www.prachileathers.com" },
-  { name: "TamilNadu", url: "https://www.tn.gov.in" },
-  { name: "Thrivenisainiklogo", url: "https://thriveni.com" }, 
-  { name: "UPSICLogo", url: "https://upsic.in" },
+  { name: "UPPCB", url: "http://www.uppcb.com" }, 
+  { name: "Prachi Leathers", url: "https://www.prachileathers.com" },
+  { name: "Government of TamilNadu", url: "https://www.tn.gov.in" },
+  { name: "Thriveni Sainik", url: "https://thriveni.com" }, 
+  { name: "UPSIC, Kanpur", url: "https://upsic.in" },
 ];
 
 export const partners = [
