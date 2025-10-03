@@ -21,7 +21,7 @@ import NewsLetter from "../Components/LandingPage/NewsLetter";
 import { Feather } from "lucide-react";
 import Feature from "../Components/LandingPage/Feature";
 
-import LatestBlogs from "../Components/LandingPage/LatestBlogs";
+import LatestBlogSection  from "../Components/LandingPage/LatestBlogSection";
 
 
 const HomePage = () => {
@@ -76,7 +76,7 @@ const HomePage = () => {
       <TestimonialsSection />
       <NewsLetter />
       <Resource />
-      <LatestBlogs />
+      <LatestBlogSection />
       <FootPrint />
       <Feature />
 
