@@ -11,6 +11,7 @@ import {
   Globe,
   GraduationCap,
   Layers,
+  Recycle,
 } from "lucide-react";
 
 // === RESOURCES MENU DATA ===
@@ -27,6 +28,12 @@ const resourcesMenu = [
     items: [
       { name: "Webinars", path: "/resources/webinar", icon: Video },
       { name: "Gallery", path: "/resources/gallery", icon: Image },
+    ],
+  },
+  {
+    title: "Solutions",
+    items: [
+      { name: "Waterbody Restoration", path: "/resources/WaterbodyRestoration", icon: Recycle },
     ],
   },
 ];
