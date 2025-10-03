@@ -1,4 +1,6 @@
 import React from "react";
+import { motion } from "framer-motion";
+import ScrollRevealElements from '../Animations/ScrollRevealElements';
 
 export default function Hero() {
   return (
@@ -24,37 +26,45 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 h-full flex items-center justify-center text-white px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl text-center">
+
+        <ScrollRevealElements
+          className="max-w-5xl text-center"
+          staggerAmount={0.5}
+        >
           {/* Heading */}
-          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold mb-4 sm:mb-6 leading-tight">
+          <motion.h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold mb-4 sm:mb-6 leading-tight">
             Our Story
-          </h1>
+          </motion.h1>
 
           {/* Paragraph */}
-          <p className="text-base sm:text-lg md:text-2xl leading-relaxed mb-6 sm:mb-8">
+          <motion.p className="text-base sm:text-lg md:text-2xl leading-relaxed mb-6 sm:mb-8">
             Born from a vision to create impact, we combine innovation and
             purpose to build solutions that inspire change and shape a
             sustainable future.
-          </p>
+          </motion.p>
 
           {/* Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+          <motion.div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <a
               href="/about#team"
               className="px-6 py-3 sm:px-8 sm:py-3 bg-white text-black hover:bg-white/90 transition-colors rounded-lg font-medium text-sm sm:text-base"
             >
               Meet the Team
             </a>
-
             <button className="px-6 py-3 sm:px-8 sm:py-3 border-2 border-white hover:bg-white/10 transition-colors rounded-lg font-medium text-sm sm:text-base">
               Our Process
             </button>
-          </div>
-        </div>
+          </motion.div>
+        </ScrollRevealElements>
       </div>
 
-      {/* Scroll-down indicator */}
-      <div className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
+
+      <motion.div
+        className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-bounce"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 1.5 }}
+      >
         <svg
           className="w-6 h-6 sm:w-8 sm:h-8 text-white"
           fill="none"
@@ -68,7 +78,7 @@ export default function Hero() {
             d="M19 14l-7 7m0 0l-7-7m7 7V3"
           />
         </svg>
-      </div>
+      </motion.div>
     </section>
   );
-}
+} 

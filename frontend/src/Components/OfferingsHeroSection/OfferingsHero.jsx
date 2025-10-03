@@ -1,37 +1,28 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowUpRight } from 'lucide-react';
-
+import { motion } from 'framer-motion';
+import ScrollRevealElements from '../Animations/ScrollRevealElements';
 
 const useWindowWidth = () => {
     const [windowWidth, setWindowWidth] = useState(0);
-
     useEffect(() => {
-        const handleResize = () => {
-            setWindowWidth(window.innerWidth);
-        };
-
+        const handleResize = () => setWindowWidth(window.innerWidth);
         handleResize();
         window.addEventListener('resize', handleResize);
-
-
         return () => window.removeEventListener('resize', handleResize);
     }, []);
-
     return windowWidth;
 };
 
 const OfferingsHero = () => {
     const width = useWindowWidth();
-
-
     const showOuterCircle = width >= 400;
     const showInnerCircle = width >= 750;
 
     return (
         <div className="w-full font-sans overflow-x-hidden">
 
-            {/* CIRCLES */}
+            {/* CIRCLES  */}
             <section className="relative py-20 px-4 sm:py-28 md:py-40 overflow-hidden bg-gradient-to-r from-[#c2e7d8]">
                 {showOuterCircle && (
                     <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
@@ -42,21 +33,25 @@ const OfferingsHero = () => {
                         </div>
                     </div>
                 )}
-
                 <div className="absolute top-10 left-0 w-full h-[70%] bg-gradient-to-b from-[#c2e7d8]" />
                 <div className="absolute -bottom-10 left-0 w-full h-[70%] bg-gradient-to-t from-[#c2e7d8]" />
 
-                <div className="max-w-3xl mx-auto text-center relative z-10 pt-10 md:pt-20">
-                    <p className="text-sm text-emerald-800 mb-4 px-4">
+                <ScrollRevealElements
+                    className="max-w-3xl mx-auto text-center relative z-10 pt-10 md:pt-20"
+                    staggerAmount={0.5}
+                >
+                    <motion.p className="text-sm text-emerald-800 mb-4 px-4">
                         *Updated accordingly to v4.2 from Verra AFOLU Non-Permanence Risk tool
-                    </p>
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 leading-tight mb-6 pb-10">
+                    </motion.p>
+                    <motion.h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 leading-tight mb-6 pb-10">
                         Easy and Intuitive risk analysis for your projects
-                    </h1>
-                    <button className="bg-emerald-500 text-white font-semibold px-8 py-3 md:px-10 rounded-lg shadow-md hover:bg-emerald-600 transition-all duration-300 transform hover:scale-105">
-                        Request a Demo of Risk Analysis Tool
-                    </button>
-                </div>
+                    </motion.h1>
+                    <motion.div>
+                        <button className="bg-emerald-500 text-white font-semibold px-8 py-3 md:px-10 rounded-lg shadow-md hover:bg-emerald-600 transition-all duration-300 transform hover:scale-105">
+                            Request a Demo of Risk Analysis Tool
+                        </button>
+                    </motion.div>
+                </ScrollRevealElements>
             </section>
 
             {/* Upper Section */}
@@ -175,27 +170,34 @@ const OfferingsHero = () => {
                 <span className="absolute bottom-4 left-4 md:left-20 text-gray-100 text-7xl md:text-8xl font-serif select-none">∫dx</span>
                 <span className="absolute bottom-4 right-4 md:right-20 text-gray-100 text-4xl md:text-5xl font-serif select-none">dx</span>
                 <div className="container mx-auto px-4">
-                    <div className="max-w-4xl mx-auto text-center mb-16">
-                        <h2 className="text-2xl md:text-3xl font-bold text-gray-700">
+                    <ScrollRevealElements
+                        className="max-w-4xl mx-auto text-center mb-16"
+                        staggerAmount={1}
+                    >
+                        <motion.h2 className="text-2xl md:text-3xl font-bold text-gray-700">
                             Doing away with tedious Verra AFOLU documentation and updates, this tool will help you undertake the non-permanence risk analysis with <span className="text-emerald-600">easy navigation and clean UI</span>
-                        </h2>
-                    </div>
-                    <div className="max-w-4xl mx-auto bg-white border-2 border-[#3f8c5b] rounded-xl shadow-md p-6 flex flex-col md:flex-row items-center gap-6 relative">
+                        </motion.h2>
+                    </ScrollRevealElements>
+                    <motion.div
+                        className="max-w-4xl mx-auto bg-white border-2 border-[#3f8c5b] rounded-xl shadow-md p-6 flex flex-col md:flex-row items-center gap-6 relative"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7, ease: "easeOut" }}
+                    >
                         <div className="w-full md:w-1/3 h-48 md:h-full">
                             <img src="https://res.cloudinary.com/dlpluej6w/image/upload/v1756388925/EHM-APP/rnifglwnnstvedixsrrb.png" alt="Forest" className="w-full h-full object-cover rounded-lg" />
                         </div>
                         <div className="flex-1 text-center md:text-left">
                             <p className="text-xs font-semibold text-gray-500 mb-2">August 28, 2025</p>
                             <h3 className="text-lg font-bold text-gray-800 mb-2">Water Stewardship in India: A Call for Collective Action</h3>
-                            <p className="text-sm text-gray-600 mb-4">
-                                In India, the spectre of water scarcity looms large, menacing cities and villages alike. With...
-                            </p>
+                            <p className="text-sm text-gray-600 mb-4">In India, the spectre of water scarcity looms large...</p>
                             <a href="/resources/blogs" className="font-semibold text-emerald-600 inline-flex items-center gap-1 group">
                                 Read more
                                 <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
                             </a>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </section>
         </div>
