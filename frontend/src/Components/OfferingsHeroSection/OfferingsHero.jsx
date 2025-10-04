@@ -68,7 +68,7 @@ const OfferingsHero = () => {
                         viewBox="0 0 1440 800"
                         preserveAspectRatio="xMidYMid slice"
                         fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns="http://www.w3s.org/2000/svg"
                     >
                         <rect width="1440" height="800" fill="#c2e7d8" />
                         <path
