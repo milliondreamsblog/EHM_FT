@@ -36,6 +36,7 @@ import WebinarDetails from './Components/Webinar/WebinarDetails.jsx';
 
 
 
+
 function App() {
 
   useEffect(() => {
