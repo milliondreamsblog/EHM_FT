@@ -57,7 +57,7 @@ const WaterbodyRestoration = () => {
         </div>
       </div>
 
-      
+      {/* flowchart */}
 
       {/* CASE STUDY */}
       <div className="max-w-6xl mx-auto bg-white rounded-3xl shadow-lg p-8 mb-20">
