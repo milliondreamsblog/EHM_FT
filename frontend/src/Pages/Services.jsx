@@ -4,6 +4,7 @@ import RiskAssessment from "../Components/Risk Assessment/RiskAssessment";
 import RiskQuestionnaire from "../Components/Risk Assessment/RiskQuestionnaire";
 import HelpSection from "../Components/HelpSection";
 import OfferingsHero from "../Components/OfferingsHeroSection/OfferingsHero";
+import WaterbodyRestoration from "../Components/WaterbodyRestoration";
 
 const ServicePage = () => {
     return(
@@ -13,6 +14,8 @@ const ServicePage = () => {
             <RiskAssessment/>
             <RiskQuestionnaire/>
             <HelpSection/>
+            <WaterbodyRestoration />
+
         </div>
     )
 }
