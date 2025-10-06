@@ -31,6 +31,7 @@
     "react-router-dom": "^7.7.1",
     "react-scroll-parallax": "^3.4.5",
     "react-simple-typewriter": "^5.0.1",
+    "reactflow": "^11.11.4",
     "swiper": "^11.2.10",
     "tailwind-merge": "^3.3.1"
   },

@@ -1,9 +1,11 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import ScrollRevealElements from '../Animations/ScrollRevealElements';
 
 const Hero = () => {
   return (
     <section className="h-screen w-full relative pt-20 flex items-center justify-center overflow-hidden">
-
+      {/* Background video & overlay */}
       <div className="absolute inset-0 top-0">
         <img
           src="/im.jpg"
@@ -13,7 +15,7 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/70 via-green-50/60 to-teal-50/70"></div>
       </div>
 
-
+      {/* Floating background elements */}
       {[1, 2, 3, 4].map((bird) => (
         <div
           key={bird}
@@ -38,26 +40,28 @@ const Hero = () => {
       ))}
 
 
-      <div className="relative z-10 max-w-2xl mx-auto text-center px-6 py-16 space-y-6 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 shadow-lg mt-12">
-        <div className="inline-block px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full shadow-sm border border-white/30 mb-6">
+      <ScrollRevealElements
+        className="relative z-10 max-w-2xl mx-auto text-center px-6 py-16 space-y-6 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 shadow-lg mt-12"
+        staggerAmount={0.5}
+      >
+        <motion.div className="inline-block px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full shadow-sm border border-white/30 mb-6">
           <span className="text-sm font-medium text-emerald-600 tracking-wider">CONTACT US</span>
-        </div>
+        </motion.div>
 
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4 leading-tight">
+        <motion.h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4 leading-tight">
           Let's Create <span className="text-emerald-600">Together</span>
-        </h1>
+        </motion.h1>
 
-        <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
+        <motion.p className="text-lg md:text-xl text-gray-700 leading-relaxed">
           Reach out to start a conversation about your vision.
           <br className="hidden md:block" /> Our team is ready to bring ideas to life.
-        </p>
-      </div>
+        </motion.p>
+      </ScrollRevealElements>
 
-
+      {/* Scroll-down indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
         <div className="animate-bounce w-8 h-8 border-r-2 border-b-2 border-emerald-500/80 rotate-45"></div>
       </div>
-
 
       <style jsx global>{`
         @keyframes float {

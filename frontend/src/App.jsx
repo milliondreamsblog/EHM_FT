@@ -14,7 +14,7 @@ import ProductPage from "./Pages/Products.jsx";
 import ServicePage from "./Pages/Services.jsx";
 // V-- CHANGE MADE HERE --V //
 // We are now importing the new ProjectsPage component.
-import ProjectsPage from "./Pages/ProjectsPage.jsx"; 
+import ProjectsPage from "./Pages/ProjectsPage.jsx";
 // ^-- CHANGE MADE HERE --^ //
 
 
@@ -32,6 +32,7 @@ import CaseStudyPage from './Pages/CaseStudyPage.jsx';
 
 import WebinarPage from './Pages/WebinarPage.jsx';
 import WebinarDetails from './Components/Webinar/WebinarDetails.jsx';
+import WaterbodyRestoration from './Pages/WaterbodyRestoration.jsx';
 
 
 
@@ -48,7 +49,7 @@ function App() {
       <Layout>
         <ScrollToTop />
         <Routes>
-           
+
           {/* Public Pages */}
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<ContactPage />} />
@@ -57,16 +58,17 @@ function App() {
           {/* This route now renders our new, detailed ProjectsPage component. */}
           <Route path="/projects" element={<ProjectsPage />} />
           {/* ^-- CHANGE MADE HERE --^ */}
-          
+
           <Route path="/offerings/products" element={<ProductPage />} />
 
           <Route path="/offerings" element={<ServicePage />} />
           <Route path="resources/gallery" element={<GalleryPage />} />
-           <Route path="/resources/webinar" element={<WebinarPage/>}  />
-           <Route path="/resources/webinar/:id" element={<WebinarDetails />} />
+          <Route path="/resources/webinar" element={<WebinarPage />} />
+          <Route path="/resources/webinar/:id" element={<WebinarDetails />} />
 
           <Route path="/resources/blogs" element={<BlogsPage />} />
           <Route path="/resources/casestudies" element={<CaseStudyPage />} />
+          <Route path="/resources/WaterbodyRestoration" element={<WaterbodyRestoration />} />
 
           <Route
             path="/blogs/:id"
