@@ -2,6 +2,7 @@ import { Sparkles } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import ScrollRevealElements from '../Animations/ScrollRevealElements';
+import { Link } from "react-router-dom";
 
 const data = [
   {
@@ -98,14 +99,17 @@ const ServiceSection = () => {
                 <p className={`text-sm text-gray-200 mb-4 transition-all duration-500 overflow-hidden ${isHovered ? "opacity-100 max-h-20" : "opacity-0 max-h-0"}`}>
                   {item.paragraph}
                 </p>
-                <button
-                  className={`bg-white text-gray-900 px-4 py-2 rounded-full flex items-center gap-2 font-medium hover:bg-gray-100 transition-all duration-300 ${isHovered ? "opacity-100 translate-y-0" : "opacity-90 translate-y-1"}`}
-                >
-                  Explore
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
+                <Link to ="/offerings">
+
+                  <button
+                    className={`bg-white text-gray-900 px-4 py-2 rounded-full flex items-center gap-2 font-medium hover:bg-gray-100 transition-all duration-300 ${isHovered ? "opacity-100 translate-y-0" : "opacity-90 translate-y-1"}`}
+                  >
+                    Explore
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+               </Link>
               </div>
             </motion.div>
           );

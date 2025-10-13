@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import gsap from 'gsap';
 
 import ScrollRevealElements from '../Animations/ScrollRevealElements';
+import { Link } from 'react-router-dom';
 
 const IMAGE_ASSETS = {
   hill1: '/ParallexHeroImages/hill1.png',
@@ -156,23 +157,29 @@ const HeroSection = () => {
           >
             <span className="text-green-200">TRANSFORM</span> YOUR BUSINESS WITH <span className="text-green-200">SUSTAINABLE</span> INNOVATION
           </motion.p>
-
-          <motion.div className="flex flex-col gap-4 sm:flex-row">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="flex items-center justify-center rounded-lg bg-white px-6 py-2 md:px-8 md:py-3 font-medium text-[#004f3e] shadow-lg transition-colors duration-300 hover:bg-[#004f3e] hover:text-white"
-            >
-              Book a Call
-              <svg className="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="rounded-lg border-2 border-white bg-white/20 px-6 py-2 md:px-8 md:py-3 font-medium text-white shadow-lg backdrop-blur-sm transition-colors duration-300 hover:bg-white/30"
-            >
-              Learn More
-            </motion.button>
+        
+           <motion.div className="flex flex-col gap-4 sm:flex-row">
+            <Link to="/contact#form">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="flex items-center justify-center rounded-lg bg-white px-6 py-2 md:px-8 md:py-3 font-medium text-[#004f3e] shadow-lg transition-colors duration-300 hover:bg-[#004f3e] hover:text-white"
+              >
+                Book a Call
+                <svg className="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </motion.button>
+            </Link>
+            <Link to="/about">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="rounded-lg border-2 border-white bg-white/20 px-6 py-2 md:px-8 md:py-3 font-medium text-white shadow-lg backdrop-blur-sm transition-colors duration-300 hover:bg-white/30"
+              >
+                Learn More
+              </motion.button>
+            </Link>
           </motion.div>
         </ScrollRevealElements>
       </motion.div>

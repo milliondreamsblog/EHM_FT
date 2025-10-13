@@ -204,48 +204,96 @@ import { motion } from 'framer-motion';
 import ScrollRevealElements from '../Animations/ScrollRevealElements';
 
 const cardData = [
-  {
-    title: 'Market Making',
-    description:
-      'Advised AT Kearney on carbon origination potential via regenerative agriculture for an agri-tech client',
-    logo: './Projects/img1.jpg',
-  },
-  {
-    title: 'Market Making',
-    description:
-      'Working to finance and scale biochar production in the western India using cotton feedstock',
-    logo: './Projects/img2.jpg',
-  },
-  {
-    title: 'Market Making',
-    description:
-      'Sourcing high quality offsets for sale to Invernes downstream clients in Oil & Gas, through our partnership',
-    logo: './Projects/img9.jpg',
-  },
-  {
-    title: 'Market Making',
-    description:
-      'Sourcing high quality offsets for sale to Invernes downstream clients in Oil & Gas, through our partnership',
-    logo: './Projects/img10.jpg',
-  },
-  {
-    title: 'Market Making',
-    description:
-      'Sourcing high quality offsets for sale to Invernes downstream clients in Oil & Gas, through our partnership',
-    logo: './Projects/img8.jpeg',
-  },
-  {
-    title: 'Market Making',
-    description:
-      'Sourcing high quality offsets for sale to Invernes downstream clients in Oil & Gas, through our partnership',
-    logo: './Projects/img7.png',
-  },
-  {
-    title: 'Market Making',
-    description:
-      'Sourcing high quality offsets for sale to Invernes downstream clients in Oil & Gas, through our partnership',
-    logo: './Projects/img6.png',
-  },
+{
+title: 'Electrical Resistivity Tomography (ERT) Survey',
+description: 'Estimation of coal reserves, identification of galleries, coal seam voids, and water-filled zones in an abandoned coal mine.',
+logo: 'https://res.cloudinary.com/dlpluej6w/image/upload/v1756901212/Electrical_Resistivity_Tomography_te2a4b.jpg',
+},
+{
+title: 'ESG Course Modules & TOT for MSME',
+description: 'Develop course curriculum and organize Train the Trainer programs for RAMP Programme, a World Bank assisted project.',
+logo: 'https://res.cloudinary.com/dlpluej6w/image/upload/v1756901263/ESG_Course_Modules_TOT_for_MSME_fcduho.jpg',
+},
+{
+title: 'Audit of Kanpur Smart City Projects',
+description: 'Audit and quality check of various projects executed under smart city mission in Kanpur, starting from the DPR phase till the completion of the project.',
+logo: 'https://res.cloudinary.com/dlpluej6w/image/upload/v1756901226/Kanpur_Smart_City_Audit_r4memd.png',
+},
+{
+title: 'Audit of Jhansi Smart City Projects',
+description: 'Audit and quality check of various projects executed under smart city mission in Jhansi, starting from the DPR phase till the completion of the project.',
+logo: 'https://placehold.co/600x400/FF6347/FFFFFF?text=Jhansi+Smart+City',
+},
+{
+title: 'Restoration of Waterbody',
+description: 'Design and commissioning of bioremediation floating wetland.',
+logo: 'https://res.cloudinary.com/dlpluej6w/image/upload/v1756901253/Restoration_of_Waterbody_hrs3eq.jpg',
+},
+{
+title: 'Social Impact Assessment',
+description: 'Social impact assessment of various projects of tourism, water, health, sports, park category executed under smart city mission.',
+logo: 'https://res.cloudinary.com/dlpluej6w/image/upload/v1756901244/social_Impact_tybcom.jpg',
+},
+{
+title: 'Agra Project',
+description: 'Designing and Project Management of 80 KLD Decentralized Effluent Treatment Plant.',
+logo: 'https://res.cloudinary.com/dlpluej6w/image/upload/v1756901211/Designing_Constructed_Wetland_ggm9s5.jpg',
+},
+{
+title: 'Designing Constructed Wetland',
+description: 'Design of a 0.5 MLD STP based on decentralized nature based treatment technique.',
+logo: 'https://res.cloudinary.com/dlpluej6w/image/upload/v1756901211/Designing_Constructed_Wetland_ggm9s5.jpg',
+},
+{
+title: 'Restoration of Adiyur lake, Tirupathur',
+description: 'Restoration of lake by treating and reuse the adjacent drain carrying the graywater.',
+logo: 'https://res.cloudinary.com/dlpluej6w/image/upload/v1756901237/Restoration_of_Adiyur_lake_Tirupathur_mepq3b.jpg',
+},
+{
+title: 'Grey Water Management',
+description: 'Treatment of grey water generated inside the premises of the leather industry.',
+logo: 'https://res.cloudinary.com/dlpluej6w/image/upload/v1756901213/Grey_Water_Management_orkst3.jpg',
+},
+{
+title: 'Environmental Audit',
+description: 'Analyzing the Energy/water usage and waste generation of the building to optimize/reduce the operations as per the SDGs guidelines.',
+logo: 'https://res.cloudinary.com/dlpluej6w/image/upload/v1756901211/Environmental_Audit_oeafkp.jpg',
+},
+{
+title: 'Artificial Intelligence - Entrepreneurship Development',
+description: 'Delivered sessions under the flagship training programme i.e. Advanced ESDP and MDP supported by the Ministry of MSME, GoI. Expert: Dr. Harshit Mishra.',
+logo: 'https://res.cloudinary.com/dlpluej6w/image/upload/v1756901263/ESG_Course_Modules_TOT_for_MSME_fcduho.jpg',
+},
+{
+title: 'Artificial Intelligence - Entrepreneurship Development',
+description: 'Delivered sessions under the flagship training programme i.e. Advanced ESDP and MDP supported by the Ministry of MSME, GoI. Expert: Dr. Harshit Mishra.',
+logo: 'https://res.cloudinary.com/dlpluej6w/image/upload/v1756901263/ESG_Course_Modules_TOT_for_MSME_fcduho.jpg',
+},
+{
+title: 'Artificial Intelligence - Entrepreneurship Development',
+description: 'Delivered sessions under the flagship training programme i.e. Advanced ESDP and MDP supported by the Ministry of MSME, GoI. Expert: Dr. Harshit Mishra.',
+logo: 'https://res.cloudinary.com/dlpluej6w/image/upload/v1756901263/ESG_Course_Modules_TOT_for_MSME_fcduho.jpg',
+},
+{
+title: 'Sustainability Report',
+description: 'Sustainability reporting using UNSDG framework, GHG emission accounting, and identifying interventions as per ESG framework to achieve Net-zero goals.',
+logo: 'https://res.cloudinary.com/dlpluej6w/image/upload/v1756901213/CSJMU_Sustainability_Report_be0pv3.jpg',
+},
+{
+title: 'Sustainable Management Plan, Antia Taal',
+description: 'Assessing the technical feasibility of treated water and financial sustainability of the project.',
+logo: 'https://res.cloudinary.com/dlpluej6w/image/upload/v1756901266/Sustainable_Management_Plan_Antia_Taal_zctqbx.jpg',
+},
+{
+title: 'Sustainable Management Plan, Laxmi Taal',
+description: 'Preparation of a Detailed project report to ensure the sustainable management of Laxmi Taal waterbody spread over a 80-85 acres by building a comprehensive strategy for implementing ex-situ and in-situ interventions, maintaining water levels, and safeguarding the overall health and sustainability of the lake.',
+logo: 'https://placehold.co/600x400/4682B4/FFFFFF?text=Laxmi+Taal',
+},
+{
+title: 'Artificial Intelligence - Entrepreneurship Development',
+description: 'Delivered sessions under the flagship training programme i.e. Advanced Entrepreneurship and Skill Development Programme (ESDP) and Management Development Programmes (MDP) supported by the Ministry of MSME, GoI. Expert: Dr. Utsav Mishra.',
+logo: 'https://res.cloudinary.com/dlpluej6w/image/upload/v1756901263/ESG_Course_Modules_TOT_for_MSME_fcduho.jpg',
+},
 ];
 
 const Testimonials = () => {
@@ -297,7 +345,7 @@ const Testimonials = () => {
 
         <div className="relative z-10 w-full h-full px-4 sm:px-6 md:px-8 lg:px-10 py-6 sm:py-8 md:py-10 flex flex-col text-white">
           <ScrollRevealElements className="text-left mb-4 sm:mb-6" staggerAmount={0.5}>
-            <motion.h2 className="text-xl sm:text-2xl md:text-3xl font-bold">Market Making Transactions</motion.h2>
+            <motion.h2 className="text-xl sm:text-2xl md:text-3xl font-bold">Our Completed Projects</motion.h2>
             <motion.p className="text-xs sm:text-sm text-gray-200">
               We deeply value our clients and their trust in our capabilities
             </motion.p>
@@ -314,8 +362,9 @@ const Testimonials = () => {
                 <motion.div key={idx} className="relative rounded-xl shadow-md min-w-[250px] sm:min-w-[280px] md:min-w-[300px] max-w-[280px] sm:max-w-[300px] md:max-w-[320px] h-48 sm:h-52 md:h-60 flex-shrink-0 overflow-hidden scroll-snap-start">
                   <img src={card.logo} alt={`Project ${idx}`} className="absolute inset-0 w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-opacity-40 flex flex-col justify-end p-3 sm:p-4 text-white">
-                    <h3 className="text-base sm:text-lg font-semibold">{card.title}</h3>
-                    <p className="text-xs sm:text-sm line-clamp-3">{card.description}</p>
+                    <h3 className="text-base sm:text-lg font-semibold relative z-10">{card.title}</h3>
+                    <p className="text-xs sm:text-sm line-clamp-3 relative z-10">{card.description}</p>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent rounded-md -m-1"></div>
                   </div>
                 </motion.div>
               ))}
@@ -342,14 +391,15 @@ const Testimonials = () => {
           <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-6 sm:gap-10 md:gap-16">
             <div className="md:w-3/5">
               <h2 className="text-xl sm:text-2xl font-bold text-gray-900">
-                Our work beyond Market Making
+                Our Services
               </h2>
               <p className="mt-2 text-gray-600 text-xs sm:text-sm leading-relaxed">
                 In line with our vision to expand the Natural Capital ecosystem, we do not shy away from opportunistically taking up assignments which we believe expand the pie for the overall market and add value to its stakeholders in the long run.
               </p>
             </div>
             <div className="mt-4 md:mt-1 md:ml-6 flex-shrink-0">
-              <a className="inline-flex items-center justify-center px-6 sm:px-8 md:px-10 py-2 bg-emerald-500 text-white font-semibold rounded-md shadow-sm hover:bg-emerald-600 transition-colors text-sm" href="/offerings">
+              <a className="inline-flex items-center justify-center px-6 sm:px-8 md:px-10 py-2 bg-emerald-500 text-white font-semibold rounded-md shadow-sm hover:bg-emerald-600 transition-colors text-sm" 
+              href="/offerings">
                 See all services
                 <svg className="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -361,29 +411,7 @@ const Testimonials = () => {
       </ScrollRevealElements>
 
 
-      <ScrollRevealElements
-        className="bg-emerald-500 p-6 sm:p-10 md:p-16 lg:p-20"
-        staggerAmount={0.7}
-      >
-        <motion.div className="container mx-auto px-4 py-12 sm:py-16 md:py-20 lg:py-24">
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-8 sm:gap-16 md:gap-24 lg:gap-36">
-            <div className="text-white text-center sm:text-left">
-              <p className="text-2xl sm:text-3xl md:text-4xl font-light">
-                We'd <span className="font-bold">love</span> to hear your
-              </p>
-              <p className="text-2xl sm:text-3xl md:text-4xl font-bold">
-                thoughts <span className="font-light">on our work</span>
-              </p>
-            </div>
-            <a className="inline-flex items-center justify-center px-8 sm:px-12 md:px-16 py-2.5 sm:py-3 bg-white text-gray-800 rounded-lg shadow-md hover:bg-gray-100 transition-colors" href="/contact">
-              <span className="font-semibold text-xs sm:text-sm">Contact us</span>
-              <svg className="ml-2 w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
-            </a>
-          </div>
-        </motion.div>
-      </ScrollRevealElements>
+
 
       <style>{`
         .no-scrollbar::-webkit-scrollbar { display: none; }

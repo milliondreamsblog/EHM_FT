@@ -64,7 +64,7 @@ export default function Contact() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center py-16 bg-gradient-to-br from-green-50 to-emerald-100">
+    <div  className="min-h-screen flex items-center justify-center py-16 bg-gradient-to-br from-green-50 to-emerald-100">
       <div className="w-full max-w-3xl bg-white/95 backdrop-blur-md shadow-2xl rounded-3xl p-10 border border-green-200">
         <h1 className="text-3xl font-bold text-green-800 text-center mb-8">Get in Touch</h1>
         {errorMsg && <div className="p-3 bg-red-100 text-red-700 rounded mb-6">{errorMsg}</div>}

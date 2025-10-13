@@ -8,7 +8,7 @@ import {
   FaTint,
 } from "react-icons/fa";
 
-const WaterbodyRestoration = () => {
+const   WaterbodyRestoration = () => {
   const factors = [
     { icon: <FaIndustry />, label: "Industry Waste" },
     { icon: <FaTrash />, label: "Solid Waste Dumping" },

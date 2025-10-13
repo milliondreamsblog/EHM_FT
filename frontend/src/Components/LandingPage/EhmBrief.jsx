@@ -6,24 +6,24 @@ const EhmBrief = () => {
   return (
     <section className="relative font-sans overflow-hidden">
       {/* Top Section */}
-      <div className="relative text-center w-full h-auto mx-auto py-16 sm:py-20 md:py-24">
+      <div className="relative text-center w-full h-auto mx-auto py-8 sm:py-8 md:py-8">
         {/* Background Circles  */}
-        <div className="absolute inset-0 z-0 hidden md:flex items-center justify-center pointer-events-none translate-y-10 p-8 sm:p-16 md:p-20">
+        {/* <div className="absolute inset-0 z-0 hidden md:flex items-center justify-center pointer-events-none translate-y-10 p-8 sm:p-16 md:p-20">
           <div className="w-[95vw] max-w-[1200px] aspect-square rounded-full border-2 border-black/20 bg-[#ededed] relative flex items-center justify-center p-6 sm:p-10">
             <div className="w-[85%] aspect-square rounded-full border-2 border-black/20 bg-[#eff5f2e8] relative"></div>
           </div>
         </div>
         <div className="absolute -top-10 left-0 w-full h-[70%] bg-gradient-to-b from-[#ededed]" />
-        <div className="absolute bottom-0 left-0 w-full h-[70%] bg-gradient-to-t from-[#ededed]" />
+        <div className="absolute bottom-0 left-0 w-full h-[70%] bg-gradient-to-t from-[#ededed]" /> */}
 
         {/* Top Section Content */}
-        <ScrollRevealElements
+        {/* <ScrollRevealElements
           className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6"
           staggerAmount={0.5}
           yOffset={40}
-        >
+        > */}
 
-          <motion.span className="inline-block px-4 py-1.5 mb-4 sm:mb-5 text-lg sm:text-2xl bg-emerald-100 text-emerald-800 rounded-3xl">
+          {/* <motion.span className="inline-block px-4 py-1.5 mb-4 sm:mb-5 text-lg sm:text-2xl bg-emerald-100 text-emerald-800 rounded-3xl">
             About <span className="font-bold">EHM</span>
           </motion.span>
 
@@ -45,14 +45,14 @@ const EhmBrief = () => {
               and engineering sustainable solutions that deliver lasting value
               and impact.
             </p>
-          </motion.div>
+          </motion.div> */}
 
-          <motion.div className="hidden lg:flex col-span-2 justify-center items-start pt-8 -translate-x-1/2 translate-y-14">
+          {/* <motion.div className="hidden lg:flex col-span-2 justify-center items-start pt-8 -translate-x-1/2 translate-y-14">
             <span className="text-7xl xl:text-9xl font-light text-gray-300">
               ∫<em className="text-7xl xl:text-9xl not-italic">dx</em>
             </span>
           </motion.div>
-        </ScrollRevealElements>
+        </ScrollRevealElements> */}
       </div>
 
       {/* Bottom Section */}
@@ -66,7 +66,7 @@ const EhmBrief = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            Discover Our Eco-Centric Approach
+            
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10 md:gap-12 lg:gap-16 xl:gap-20 items-center">
@@ -91,7 +91,7 @@ const EhmBrief = () => {
               yOffset={30}
             >
               <motion.h3 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-semibold text-gray-800 mb-3 sm:mb-4">
-                Climate Risk Intelligence
+                
               </motion.h3>
               <motion.p className="text-gray-600 leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base md:text-base lg:text-lg">
                 EHM is a sustainability and deep tech startup founded by IIT
@@ -107,7 +107,7 @@ const EhmBrief = () => {
                 while creating long-term value and impact.
               </motion.p>
               <motion.a
-                href="#"
+                href="/contact"
                 className="group inline-flex items-center justify-center gap-2 self-start bg-emerald-500 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-emerald-600 transition-all duration-300"
               >
                 Know more

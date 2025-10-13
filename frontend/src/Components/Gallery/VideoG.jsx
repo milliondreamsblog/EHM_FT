@@ -68,7 +68,7 @@ const VideoG = () => {
             key={index}
             src={url}
             controls
-            width="300"
+            width="500"
             style={{ border: "1px solid #ccc", borderRadius: "8px" }}
           />
         ))}

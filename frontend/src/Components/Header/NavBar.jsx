@@ -102,77 +102,77 @@ const NavBar = () => {
     setActiveDropdown(null);
   };
 
-  return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-white/20 backdrop-blur-md shadow-md">
-      <nav className="max-w-6xl mx-auto flex items-center justify-between px-6 py-3">
-        {/* Logo */}
-        <Link to="/" onClick={handleNavClick}>
-          <img
-            src="https://startinup.up.gov.in/crm/assets/user/images/Documents/Startup/A_STARTUP_UP_UPLC_00004244/startup_logo/168067577328965.png"
-            alt="EHM Logo"
-            className="h-12"
-          />
-        </Link>
+    return (
+      <header className="fixed top-0 left-0 w-full z-50 bg-white/20 backdrop-blur-md shadow-md">
+        <nav className="max-w-6xl mx-auto flex items-center justify-between px-6 py-3">
+          {/* Logo */}
+          <Link to="/" onClick={handleNavClick}>
+            <img
+              src="https://startinup.up.gov.in/crm/assets/user/images/Documents/Startup/A_STARTUP_UP_UPLC_00004244/startup_logo/168067577328965.png"
+              alt="EHM Logo"
+              className="h-12"
+            />
+          </Link>
 
-        {/* Desktop Menu */}
-        <ul className="hidden lg:flex items-center space-x-6 font-medium">
-          <li>
-            <Link to="/" className="text-green-900 hover:text-yellow-400">
-              HOME
-            </Link>
-          </li>
-          <li>
-            <Link to="/about" className="text-green-900 hover:text-yellow-400">
-              ABOUT
-            </Link>
-          </li>
+          {/* Desktop Menu */}
+          <ul className="hidden lg:flex items-center space-x-6 font-medium">
+            <li>
+              <Link to="/" className="text-green-900 hover:text-yellow-400">
+                HOME
+              </Link>
+            </li>
+            <li>
+              <Link to="/about" className="text-green-900 hover:text-yellow-400">
+                ABOUT
+              </Link>
+            </li>
 
-          {/* Offerings Dropdown */}
-          <li className="relative group">
-            <span
-              ref={buttonRef}
-              onClick={() =>
-                setActiveDropdown(
-                  activeDropdown === "offerings" ? null : "offerings"
-                )
-              }
-              className={`cursor-pointer flex items-center transition-colors duration-200 
-                ${activeDropdown === "offerings"
-                  ? "text-yellow-400"
-                  : "text-green-900 hover:text-yellow-400"
-                }`}
-            >
-              OFFERINGS
+            {/* Offerings Dropdown */}
+            <li className="relative group">
               <span
-                className={`ml-2 inline-block p-1 border-b-2 border-r-2 transition-all -translate-y-0.5 duration-300 ease-in-out 
+                ref={buttonRef}
+                onClick={() =>
+                  setActiveDropdown(
+                    activeDropdown === "offerings" ? null : "offerings"
+                  )
+                }
+                className={`cursor-pointer flex items-center transition-colors duration-200 
                   ${activeDropdown === "offerings"
-                    ? "-rotate-180 border-yellow-400"
-                    : "rotate-45 border-green-900 group-hover:-rotate-180 group-hover:border-yellow-400"
+                    ? "text-yellow-400"
+                    : "text-green-900 hover:text-yellow-400"
                   }`}
-              ></span>
-            </span>
-          </li>
+              >
+                OFFERINGS
+                <span
+                  className={`ml-2 inline-block p-1 border-b-2 border-r-2 transition-all -translate-y-0.5 duration-300 ease-in-out 
+                    ${activeDropdown === "offerings"
+                      ? "-rotate-180 border-yellow-400"
+                      : "rotate-45 border-green-900 group-hover:-rotate-180 group-hover:border-yellow-400"
+                    }`}
+                ></span>
+              </span>
+            </li>
 
-          {/* Resources Dropdown */}
-          <li className="relative group">
-            <span
-              onClick={() =>
-                setActiveDropdown(
-                  activeDropdown === "resources" ? null : "resources"
-                )
-              }
-              className={`cursor-pointer flex items-center transition-colors duration-200 
-                ${activeDropdown === "resources"
-                  ? "text-yellow-400"
-                  : "text-green-900 hover:text-yellow-400"
-                }`}
-            >
-              RESOURCES
+            {/* Resources Dropdown */}
+            <li className="relative group">
               <span
-                className={`ml-2 inline-block p-1 border-b-2 border-r-2 transition-all -translate-y-0.5 duration-300 ease-in-out 
+                onClick={() =>
+                  setActiveDropdown(
+                    activeDropdown === "resources" ? null : "resources"
+                  )
+                }
+                className={`cursor-pointer flex items-center transition-colors duration-200 
                   ${activeDropdown === "resources"
-                    ? "-rotate-180 border-yellow-400"
-                    : "rotate-45 border-green-900 group-hover:-rotate-180 group-hover:border-yellow-400"
+                    ? "text-yellow-400"
+                    : "text-green-900 hover:text-yellow-400"
+                  }`}
+              >
+                RESOURCES
+                <span
+                  className={`ml-2 inline-block p-1 border-b-2 border-r-2 transition-all -translate-y-0.5 duration-300 ease-in-out 
+                    ${activeDropdown === "resources"
+                      ? "-rotate-180 border-yellow-400"
+                      : "rotate-45 border-green-900 group-hover:-rotate-180 group-hover:border-yellow-400"
                   }`}
               ></span>
             </span>

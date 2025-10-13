@@ -22,7 +22,9 @@ const VideoHeroSection = () => {
 
   return (
     <div className="relative  w-full bg-black overflow-hidden p-4 md:p-6 lg:p-16" style={{ height: '40vh' }}>
-    
+      <div className='relative z-10 flex justify-center items-center text-7xl'>
+        <h1>Videos</h1>
+      </div>
       <video
         ref={videoRef}
         autoPlay

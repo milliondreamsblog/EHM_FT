@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { MapPin, ChevronDown, ChevronUp, ExternalLink, Share2, Bookmark, Eye, Award, Target, Zap, Users, Calendar } from 'lucide-react';
-
+import Logo from "../Components/LandingPage/Logo";
 // ProjectsPage.jsx
 
 
@@ -230,6 +230,7 @@ const ProjectsPage = () => {
         @media (min-width: 768px) { .projects-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
         @media (min-width: 1280px) { .projects-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
       `}</style>
+      
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-white/90 via-teal-50/80 to-blue-50/70"></div>
       </div>
@@ -241,6 +242,20 @@ const ProjectsPage = () => {
           <div className="w-32 h-1 bg-gradient-to-r from-teal-400 to-emerald-500 rounded-full mx-auto mt-6"></div>
         </header>
         <section className="max-w-7xl mx-auto px-4 mb-12">
+            <section className="max-w-6xl mx-auto px-4 mb-16">
+            <div className="relative">
+              <div className="absolute inset-0 bg-white/20 backdrop-blur-sm rounded-3xl"></div>
+              <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 p-6">
+                {stats.map(({ number, label, icon: Icon }, index) => (
+                  <div key={index} className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center group">
+                    <Icon className="w-8 h-8 text-teal-600 mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
+                    <div className="text-3xl font-bold text-teal-600 mb-1">{number}</div>
+                    <div className="text-sm text-gray-600 font-medium">{label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+        </section>
           <div className="flex flex-wrap justify-center gap-3">
             {filterOptions.map((filter) => (
               <button
@@ -269,20 +284,7 @@ const ProjectsPage = () => {
             ))}
           </div>
         </section>
-        <section className="max-w-6xl mx-auto px-4 mb-16">
-          <div className="relative">
-            <div className="absolute inset-0 bg-white/20 backdrop-blur-sm rounded-3xl"></div>
-            <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 p-6">
-              {stats.map(({ number, label, icon: Icon }, index) => (
-                <div key={index} className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center group">
-                  <Icon className="w-8 h-8 text-teal-600 mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
-                  <div className="text-3xl font-bold text-teal-600 mb-1">{number}</div>
-                  <div className="text-sm text-gray-600 font-medium">{label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        
       </main>
       {message && (
         <div className="fixed bottom-5 left-1/2 -translate-x-1/2 bg-gray-800 text-white px-6 py-3 rounded-lg shadow-lg z-50 animate-fadeIn">

@@ -5,31 +5,31 @@ import ScrollRevealElements from '../Animations/ScrollRevealElements';
 
 const Resource = () => {
   const resources = [
-    {
-      id: 'dx¹',
-      title: 'Webinars',
-      description: 'We host a topical dialogue every month, bringing together an eclectic set of experts on the subject to share their learnings with climate finance practitioners',
-      buttonText: 'Explore webinars',
-      link: '/resources/webinar'
-    },
-    {
-      id: 'dx²',
-      title: 'Newsletter',
-      description: 'We pen down a deep dive for 2-3 key developments in sustainable finance landscape, in our bi-weekly newsletter',
-      buttonText: 'Read our newsletters',
-      link: '/resources/casestudies'
-    },
-    {
-      id: 'dx³',
-      title: 'Research papers',
-      description: 'We leverage our internal research capabilities alongside state-of-the-art academic insights to build new capabilities for our partner clients',
-      buttonText: 'Explore our papers',
-      link: '/resources/blogs'
-    }
-  ];
+  {
+    id: 'dx1',
+    title: 'Webinars',
+    description: 'We host a topical dialogue every month, bringing together an eclectic set of experts on the subject to share their insights with climate finance practitioners.',
+    buttonText: 'Explore webinars',
+    link: '/resources/webinar'
+  },
+  {
+    id: 'dx2',
+    title: 'Case Studies',
+    description: 'We provide detailed case studies on two to three significant advancements shaping the global sustainable finance landscape and its evolution.',
+    buttonText: 'Explore case studies',
+    link: '/resources/casestudies'
+  },
+  {
+    id: 'dx3',
+    title: 'Blogs',
+    description: 'We leverage our internal research capabilities alongside state-of-the-art academic insights to develop new capabilities for our partner clients.',
+    buttonText: 'Explore our blogs',
+    link: '/resources/blogs'
+  }
+];
 
   return (
-    <div className="h-full bg-gray-100 p-5 ">
+    <div className="h-full px-16 bg-gray-100 p-5 ">
 
       <ScrollRevealElements
         className="text-center mb-12 py-8"

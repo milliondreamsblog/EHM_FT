@@ -3,7 +3,7 @@
 import React from 'react';
 
 
-
+import LogoScroll from "../Components/LandingPage/Logoscroll"
 import HeroSection from "../Components/LandingPage/HeroSection";
 import FootPrint from "../Components/LandingPage/FootPrint";
 import Testimonials from "../Components/LandingPage/Testimonials";
@@ -18,25 +18,31 @@ import Resource from "../Components/LandingPage/Resource";
 import NewsLetter from "../Components/LandingPage/NewsLetter";
 import Feature from "../Components/LandingPage/Feature";
 import LatestBlogSection from "../Components/LandingPage/LatestBlogSection";
+import ContactSection from "../Components/LandingPage/CTA"
+import HeroSection2 from '../Components/LandingPage/HeroSection2';
 
 const HomePage = () => {
   return (
     <div className="min-h-screen bg-[#ededed]">
 
+      <HeroSection2 />
+      {/* <HeroSection /> */}
+      <LogoScroll/>
+      {/* <Logo /> */}
       
-      <HeroSection />
-      <Logo />
       <EhmBrief />
       <ServiceSection />
+      <ContactSection /> 
       <Partners_logo />
       <Testimonials />
-      <TestimonialsSection />
-      <NewsLetter />
+     
+      {/* <TestimonialsSection /> */}
+      {/* <NewsLetter /> */}
       <Resource />
-      <LatestBlogSection />
+      {/* <LatestBlogSection /> */}
       
       <FootPrint />
-      <Feature />
+      {/* <Feature /> */}
     </div>
   );
 };

@@ -8,6 +8,7 @@ import AOS from 'aos';
 import ContactPage from './Pages/ContactPage.jsx';
 import AdminDashboard from "./Pages/AdminDashboard.jsx";
 import Layout from "./Layout.jsx";
+import ScrollToHashElement from './Components/Animations/ScrollToHashElement.jsx';
 
 
 import ProductPage from "./Pages/Products.jsx";
@@ -46,6 +47,7 @@ function App() {
 
   return (
     <BrowserRouter>
+    <ScrollToHashElement />
       <Layout>
         <ScrollToTop />
         <Routes>

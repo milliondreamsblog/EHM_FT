@@ -15,8 +15,8 @@ export const companies = [
 ];
 
 export const partners = [
-  "Technopark logo",
-  "E&ICT logo",
+  "Technopark IIT Kanpur",
+  "E&ICT IIT Kanpur",
   "CSJMIF",
   "IITR",
   "HBTU",
@@ -56,13 +56,13 @@ const members = [
     img: two,
     social: "https://www.linkedin.com/in/neha-shukla-307b0b5b/",
   },
-  {
-    name: "Vikas Dohare",
-    title: "Lead Outreach",
-    degree: "M.Sc. IITB",
-    img: "/Team/Vikas-Dohare.png",
-    social: "https://www.linkedin.com/in/vikas-dohare-647301201/",
-  },
+  // {
+  //   name: "Vikas Dohare",
+  //   title: "Lead Outreach",
+  //   degree: "M.Sc. IITB",
+  //   img: "/Team/Vikas-Dohare.png",
+  //   social: "https://www.linkedin.com/in/vikas-dohare-647301201/",
+  // },
 ];
 
 const advisors = [

@@ -2,10 +2,13 @@ import { Sparkles } from "lucide-react";
 import { partners } from "../../Data/Data";
 import { motion } from "framer-motion";
 import ScrollRevealElements from '../Animations/ScrollRevealElements';
+import { useState } from "react";
 
 import img from '../../assets/bg/logobg8.jpg'
 
 const PartnersLogo = () => {
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
   return (
     <div className="pt-16 pb-24 bg-gradient-to-b from-[#d7fff14b] to-[#d7fff14b]">
 
@@ -47,13 +50,27 @@ const PartnersLogo = () => {
 
               <motion.div
                 key={index}
-                className="flex items-center justify-center p-6 rounded-lg cursor-pointer"
+                className="relative flex items-center justify-center p-6 rounded-lg cursor-pointer transition-all duration-300 hover:bg-gradient-to-br hover:from-teal-50 hover:to-emerald-50 group"
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
               >
                 <img
                   src={`/Partners/${partner}.png`}
                   alt={partner}
-                  className="h-20 md:h-20 w-auto object-contain"
+                  className="h-20 md:h-20 w-auto object-contain transition-all duration-300 group-hover:scale-110"
                 />
+                
+                {/* Partner name tooltip */}
+                <div 
+                  className={`absolute bottom-2 left-1/45 -translate-x-1 translate-y-14 bg-gradient-to-r from-teal-600 to-emerald-600 text-white px-4 py-2 rounded-lg text-sm font-semibold whitespace-nowrap shadow-lg transition-all duration-300 ${
+                    hoveredIndex === index 
+                      ? 'opacity-100 translate-y-0' 
+                      : 'opacity-0 translate-y-2 pointer-events-none'
+                  }`}
+                >
+                  {partner}
+                  <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-teal-600 rotate-45"></div>
+                </div>
               </motion.div>
             ))}
           </ScrollRevealElements>

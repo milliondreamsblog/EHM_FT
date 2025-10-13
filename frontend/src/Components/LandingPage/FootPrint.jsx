@@ -13,8 +13,10 @@ import API from "../../api/axios";
 import KnowMoreButton from "./KnowMoreButton";
 import ProjectModal from "./ProjectModal";
 import "./FootPrint.css";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const FootPrint = () => {
+  const navigate = useNavigate();
   const [footprints, setFootprints] = useState([]);
   const [loading, setLoading] = useState(true);
   const [modalImage, setModalImage] = useState(null);
@@ -70,7 +72,7 @@ const FootPrint = () => {
           <div className="flex items-center justify-center gap-4 mb-6">
             <Sparkles className="text-teal-500 animate-pulse" size={32} />
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold bg-gradient-to-r from-teal-600 via-emerald-600 to-green-600 bg-clip-text text-transparent">
-              EHM FootPrint
+             FootPrint
             </h1>
             <Sparkles className="text-emerald-500 animate-pulse" size={32} />
           </div>
@@ -144,7 +146,7 @@ const FootPrint = () => {
                         }}
                         className="bg-white text-green-600 hover:bg-green-50 border-2 border-white hover:border-green-200 shadow-xl know-more-button"
                       >
-                        Know More
+                        Open
                       </KnowMoreButton>
                     </div>
                   </div>
@@ -154,6 +156,7 @@ const FootPrint = () => {
             ))
           )}
         </Swiper>
+        
 
         {/* Navigation Buttons */}
         <button
@@ -162,7 +165,7 @@ const FootPrint = () => {
           aria-label="Previous"
           type="button"
         >
-          <RxArrowLeft className="w-5 sm:w-6 h-5 sm:h-6" />
+          <RxArrowLeft className="w-5 sm:w-6 h-5 sm:h-6" /> 
         </button>
         <button
           className="custom-swiper-next absolute top-1/2 right-2 -translate-y-1/2 z-30 opacity-0 group-hover:opacity-100 transition-opacity bg-green-600 hover:bg-green-700 text-white rounded-full w-8 sm:w-10 h-8 sm:h-10 flex items-center justify-center shadow-lg focus:outline-none focus:ring-2 focus:ring-green-400"
@@ -172,6 +175,8 @@ const FootPrint = () => {
         >
           <RxArrowRight className="w-5 sm:w-6 h-5 sm:h-6" />
         </button>
+
+        
       </motion.div>
 
       {/* Modal Image Preview */}
@@ -200,12 +205,26 @@ const FootPrint = () => {
         </div>
       )}
 
+
+
       {/* Project Modal */}
       <ProjectModal
         isOpen={isModalOpen}
         onClose={closeModal}
         project={selectedProject}
       />
+
+            <div className="know-more-button-container opacity-100 transform translate-y-2 py-4 sm:translate-y-4 transition-all duration-300">
+                      <KnowMoreButton
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          navigate(`/resources/gallery`);
+                        }}
+                        className="bg-black text-green-600 hover:bg-green-50 border-2 border-white hover:border-green-200 shadow-xl know-more-button"
+                      >
+                        Gallary
+                      </KnowMoreButton>
+          </div>
     </div>
   );
 };

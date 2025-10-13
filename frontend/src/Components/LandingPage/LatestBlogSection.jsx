@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { motion } from "framer-motion";
 // Component for individual blog cards
 
 const BlogCard = ({ imageUrl, tag, date, title, description }) => {
