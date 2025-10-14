@@ -8,6 +8,7 @@ import { RxArrowRight, RxArrowLeft } from "react-icons/rx";
 import { Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import ScrollRevealElements from '../Animations/ScrollRevealElements';
+import SectionHeading from '../../Common/SectionHeading';
 
 import API from "../../api/axios";
 import KnowMoreButton from "./KnowMoreButton";
@@ -69,14 +70,7 @@ const FootPrint = () => {
         staggerAmount={0.5}
       >
         <motion.div className="text-center mb-12 py-8">
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <Sparkles className="text-teal-500 animate-pulse" size={32} />
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold bg-gradient-to-r from-teal-600 via-emerald-600 to-green-600 bg-clip-text text-transparent">
-             FootPrint
-            </h1>
-            <Sparkles className="text-emerald-500 animate-pulse" size={32} />
-          </div>
-          <div className="w-20 sm:w-28 md:w-32 h-1 bg-gradient-to-r from-teal-400 to-emerald-500 rounded-full mx-auto"></div>
+          <SectionHeading>EHM FootPrint</SectionHeading>
         </motion.div>
       </ScrollRevealElements>
 

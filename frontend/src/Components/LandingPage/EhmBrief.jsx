@@ -1,12 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 import ScrollRevealElements from '../Animations/ScrollRevealElements';
+import SectionHeading from '../../Common/SectionHeading';
 
 const EhmBrief = () => {
   return (
-    <section className="relative font-sans overflow-hidden">
+    <section className="relative font-sans overflow-hidden bg-white">
       {/* Top Section */}
-      <div className="relative text-center w-full h-auto mx-auto py-8 sm:py-8 md:py-8">
+      <div className="relative text-center w-full h-auto mx-auto py-16 sm:py-16 md:py-16">
         {/* Background Circles  */}
         {/* <div className="absolute inset-0 z-0 hidden md:flex items-center justify-center pointer-events-none translate-y-10 p-8 sm:p-16 md:p-20">
           <div className="w-[95vw] max-w-[1200px] aspect-square rounded-full border-2 border-black/20 bg-[#ededed] relative flex items-center justify-center p-6 sm:p-10">
@@ -16,7 +17,8 @@ const EhmBrief = () => {
         <div className="absolute -top-10 left-0 w-full h-[70%] bg-gradient-to-b from-[#ededed]" />
         <div className="absolute bottom-0 left-0 w-full h-[70%] bg-gradient-to-t from-[#ededed]" /> */}
 
-        {/* Top Section Content */}
+  {/* Top Section Content */}
+  <SectionHeading>About EHM</SectionHeading>
         {/* <ScrollRevealElements
           className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6"
           staggerAmount={0.5}
@@ -55,19 +57,11 @@ const EhmBrief = () => {
         </ScrollRevealElements> */}
       </div>
 
-      {/* Bottom Section */}
-      <div className="w-full relative z-10 bg-[#ededed]">
+  {/* Bottom Section */}
+  <div className="w-full relative z-10">
         <div className="col-span-12 lg:col-span-10 pb-16 sm:pb-20 px-4 sm:px-8 md:px-12 lg:px-32">
 
-          <motion.h2
-            className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-6 sm:mb-8 md:mb-10 text-center md:text-left"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            
-          </motion.h2>
+          {/* Main descriptive area - heading intentionally omitted here to keep page flow concise */}
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10 md:gap-12 lg:gap-16 xl:gap-20 items-center">
 

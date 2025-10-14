@@ -2,6 +2,7 @@ import { Sparkles } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import ScrollRevealElements from '../Animations/ScrollRevealElements';
+import SectionHeading from '../../Common/SectionHeading';
 import { Link } from "react-router-dom";
 
 const data = [
@@ -42,14 +43,7 @@ const ServiceSection = () => {
         className="text-center mb-12 py-8"
         staggerAmount={0.5}
       >
-        <motion.div className="flex items-center justify-center gap-4 mb-6 flex-wrap">
-          <Sparkles className="text-teal-500 animate-pulse" size={40} />
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-teal-600 via-emerald-600 to-green-600 bg-clip-text text-transparent">
-            Offerings
-          </h1>
-          <Sparkles className="text-emerald-500 animate-pulse" size={40} />
-        </motion.div>
-        <motion.div className="w-32 h-1 bg-gradient-to-r from-teal-400 to-emerald-500 rounded-full mx-auto"></motion.div>
+        <SectionHeading>Offerings</SectionHeading>
       </ScrollRevealElements>
 
 

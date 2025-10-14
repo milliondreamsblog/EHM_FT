@@ -18,22 +18,20 @@ import Resource from "../Components/LandingPage/Resource";
 import NewsLetter from "../Components/LandingPage/NewsLetter";
 import Feature from "../Components/LandingPage/Feature";
 import LatestBlogSection from "../Components/LandingPage/LatestBlogSection";
-import ContactSection from "../Components/LandingPage/CTA"
 import HeroSection2 from '../Components/LandingPage/HeroSection2';
 
 const HomePage = () => {
   return (
     <div className="min-h-screen bg-[#ededed]">
 
-      <HeroSection2 />
-      {/* <HeroSection /> */}
-      <LogoScroll/>
-      {/* <Logo /> */}
-      
-      <EhmBrief />
-      <ServiceSection />
-      <ContactSection /> 
-      <Partners_logo />
+  <HeroSection2 />
+  {/* <HeroSection /> */}
+  {/* About EHM now appears before the logos to improve flow */}
+  <EhmBrief />
+  <ServiceSection />
+  <LogoScroll/>
+  {/* <Logo /> */}
+  <Partners_logo />
       <Testimonials />
      
       {/* <TestimonialsSection /> */}

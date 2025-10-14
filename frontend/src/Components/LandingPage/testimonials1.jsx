@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
 import ScrollRevealElements from '../Animations/ScrollRevealElements';
+import SectionHeading from '../../Common/SectionHeading';
 
 import avatar1 from "../../assets/testimgs/S1.avif";
 import avatar2 from "../../assets/testimgs/S2.webp";
@@ -129,17 +130,8 @@ export const TestimonialsSection = () => {
     <section className="py-20">
       <div className="container mx-auto px-4">
 
-        <ScrollRevealElements
-          className="section-heading text-center"
-          staggerAmount={0.5}
-        >
-          <motion.div className="flex items-center justify-center gap-4 mb-6">
-            <Sparkles className="text-teal-500 animate-pulse" size={40} />
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-teal-600 via-emerald-600 to-green-600 bg-clip-text text-transparent">
-              Testimonials
-            </h1>
-            <Sparkles className="text-emerald-500 animate-pulse" size={40} />
-          </motion.div>
+        <ScrollRevealElements className="section-heading text-center" staggerAmount={0.5}>
+          <SectionHeading>Testimonials</SectionHeading>
         </ScrollRevealElements>
 
 

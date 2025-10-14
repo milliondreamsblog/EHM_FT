@@ -1,76 +1,89 @@
+import React from 'react';
 import { companies } from "../../Data/Data";
-import { motion } from "framer-motion";
-
-
 import ScrollRevealElements from '../Animations/ScrollRevealElements';
+import SectionHeading from '../../Common/SectionHeading';
 
+/**
+ * Full-bleed marquee carousel implemented with duplicated track CSS animation.
+ * This produces a seamless, gap-free infinite scroll. Hover to pause.
+ */
 const Logo = () => {
+  // animation duration (seconds) - adjust to control speed
+  const duration = 20;
+
   return (
-    <section
-      className="relative py-16 bg-cover bg-center"
-      style={{
-        backgroundImage:
-          "url('htps://img.freepik.com/premium-photo/fantasy-island-with-floating-waterfalls-octane-ren_1022456-71481.jpg')",
-      }}
-    >
+    <section className="relative w-full overflow-hidden bg-white py-16">
+      <div className="max-w-6xl mx-auto px-6">
+        <ScrollRevealElements staggerAmount={0.1} className="relative z-10">
+          <SectionHeading>The Leaders We Work With</SectionHeading>
+        </ScrollRevealElements>
+      </div>
 
-      <div className="absolute inset-0 bg-white/40 backdrop-blur-sm"></div>
+      {/* Marquee (full-bleed) */}
+      <div className="w-full mx-0 px-0">
+        <div className="relative overflow-hidden">
+          {/* Inline style for keyframes duration */}
+          <style>{`
+            @keyframes marquee {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+            .marquee-track {
+              display: flex;
+              gap: 1.5rem;
+              width: max-content;
+              align-items: center;
+            }
+            .marquee-wrap {
+              display: flex;
+              width: 200%;
+              animation: marquee ${duration}s linear infinite;
+            }
+            .marquee-wrap:hover { animation-play-state: paused; }
+          `}</style>
 
-      <div className="relative container mx-auto px-6 text-center">
-        {/* Section Title */}
+          <div className="marquee-wrap">
+            {/* First copy */}
+            <div className="marquee-track px-6 py-6">
+              {companies.map((company, idx) => (
+                <a
+                  key={`a-${idx}`}
+                  href={company.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex-shrink-0 flex items-center justify-center bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-transform transform hover:scale-105"
+                >
+                  <div className="flex items-center justify-center h-24 md:h-32 lg:h-40 w-auto">
+                    <img src={`/Client/${company.name}.png`} alt={company.name} className="h-20 md:h-32 lg:h-40 w-auto object-contain" draggable={false} />
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent py-2 px-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                    <p className="text-white text-sm font-medium text-center">{company.name}</p>
+                  </div>
+                </a>
+              ))}
+            </div>
 
-        <motion.h2
-          className="text-xl md:text-2xl font-bold text-gray-900 mb-10"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          The Leaders We Work With
-        </motion.h2>
-
-
-        <div className="max-h-[340px] overflow-y-scroll scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent rounded-lg border border-dashed border-gray-200 bg-white/60 backdrop-blur-sm">
-
-
-          <ScrollRevealElements
-            className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-y divide-dashed divide-gray-300"
-            staggerAmount={0.1}
-          >
-           {companies.map((company, idx) => (
-            <motion.a
-              key={idx}
-              href={company.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative flex items-center bg-white justify-center p-4 hover:bg-white/64 transition overflow-hidden group"
-            >
-              <img
-                src={`/Client/${company.name}.png`}
-                alt={company.name}
-                className="h-16 md:h-20 w-auto object-contain transition-transform group-hover:-translate-y-2"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent py-2 px-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                <p className="text-white text-sm font-medium text-center">
-                  {company.name}
-                </p>
-              </div>
-            </motion.a>
-
-            ))}
-          </ScrollRevealElements>
+            {/* Second copy (duplicate for seamless loop) */}
+            <div className="marquee-track px-6 py-6">
+              {companies.map((company, idx) => (
+                <a
+                  key={`b-${idx}`}
+                  href={company.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex-shrink-0 flex items-center justify-center bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-transform transform hover:scale-105"
+                >
+                  <div className="flex items-center justify-center h-24 md:h-32 lg:h-40 w-auto">
+                    <img src={`/Client/${company.name}.png`} alt={company.name} className="h-20 md:h-32 lg:h-40 w-auto object-contain" draggable={false} />
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent py-2 px-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                    <p className="text-white text-sm font-medium text-center">{company.name}</p>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
-
-
-        <motion.p
-          className="text-center text-gray-700 mt-4 text-sm animate-bounce"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-        >
-          Scroll down for more ↓
-        </motion.p>
       </div>
     </section>
   );

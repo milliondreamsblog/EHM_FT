@@ -1,23 +1,15 @@
 import Marquee from "react-fast-marquee";
 import { companies } from "../../Data/Data";
 import ScrollRevealElements from "../Animations/ScrollRevealElements";
-import { motion } from "framer-motion";
+import SectionHeading from '../../Common/SectionHeading';
 const LogoScroll = () => {
   return (
-    <section className="relative py-8 bg-cover bg-center overflow-y-hidden">
+    <section className="relative py-16 bg-white bg-cover bg-center overflow-y-hidden">
       <div className="absolute inset-0 bg-white backdrop-blur-sm overflow-y-hidden"></div>
        <div className="relative container mx-auto px-6 text-center">
         {/* Section Title */}
 
-        <motion.h2
-          className="text-xl md:text-2xl font-bold text-gray-900 mb-10"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          The Leaders We Work With
-        </motion.h2>
+        <SectionHeading>The Leaders We Work With</SectionHeading>
       </div>
       <div className="relative container mx-auto px-6 text-center overflow-y-hidden">
         <div className="w-full overflow-y-hidden">
