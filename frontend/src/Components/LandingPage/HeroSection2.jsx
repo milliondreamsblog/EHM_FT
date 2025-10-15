@@ -5,6 +5,7 @@ import gsap from 'gsap';
 
 import ScrollRevealElements from '../Animations/ScrollRevealElements';
 import { Link } from 'react-router-dom';
+import RotatingText from '../Animations/TextAnimation';
 
 export default function Homepage() {
   const targetRef = useRef(null);
@@ -120,6 +121,7 @@ export default function Homepage() {
                 <br />
                 Approach
               </h1>
+              
 
               <h2 className="text-lg md:text-xl lg:text-[20px] font-semibold leading-tight mb-10">
                 TRANSFORM <span className="text-[#c39b17]">YOUR BUSINESS WITH </span>
@@ -180,15 +182,21 @@ export default function Homepage() {
 
           {/* Trusted By Section */}
           <div className="mt-auto pt-12">
-            <p className="text-sm uppercase tracking-wider mb-8 opacity-90">Trusted by</p>
-            <div className="flex flex-wrap items-center gap-8 md:gap-16">
+            <p className="text-sm uppercase tracking-wider mb-8 opacity-90">Trusted by {" "} 
+              <span className="text-2xl font-medium tracking-wide opacity-85 hover:opacity-100 transition-opacity">
+              <RotatingText />
+              </span>
+            </p>
+            
+
+            {/* <div className="flex flex-wrap items-center gap-8 md:gap-16">
               <div className="text-2xl font-medium tracking-wide opacity-85 hover:opacity-100 transition-opacity">
                 IIT Kanpur<sup className="text-sm">©</sup>
               </div>
               <div className="text-2xl font-medium tracking-wide opacity-85 hover:opacity-100 transition-opacity">
                 CSJMIF
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 

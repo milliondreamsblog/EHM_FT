@@ -12,6 +12,7 @@ import { Title } from '../Components/Title'
 import WhyChooseUs from '../Components/About/WhyChooseUs'
 import CertifiedLogo from '../Components/LandingPage/certified_logo'
 
+import Mission from '../Components/About/Mission'
 
 const About = () => {
   return (
@@ -25,7 +26,8 @@ const About = () => {
       <WhyChooseSection title='Focus Area' />
 
 
-      <WhyChooseUs />
+      {/* <WhyChooseUs /> */}
+      <Mission />
 
 
       <CertifiedLogo />

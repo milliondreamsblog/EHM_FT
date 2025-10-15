@@ -11,16 +11,23 @@ gsap.registerPlugin(ScrollTrigger);
 const purposeData = [
   {
     id: 1,
-    title: "Our Vision",
+    title: "Diversified Expertise",
     description:
-      "To be the most trusted and preferred partner for businesses seeking innovative and reliable IT solutions, empowering them to achieve their goals and thrive in the digital age.",
+      "Founded by IIT alumni, we excel in deep-tech solutions across Climate Risk, Geophysical Exploration, and Water Management—empowering businesses with innovative, reliable IT solutions to achieve success and thrive in the digital era.",
     lottieSrc: "/lottie-assets/vision-animation/animations/10e621af-4237-47b1-a332-563b013787cd.json",
   },
   {
     id: 2,
-    title: "Our Mission",
+    title: "Our Philosophy",
     description:
-      "To deliver exceptional IT services and solutions through a customer-centric approach, fostering a culture of continuous improvement, and leveraging cutting-edge technology to drive business success.",
+      "Our core mission is to achieve environmental sustainability through a dedicated eco-centric approach, providing practical solutions within the UN's SDG framework.",
+    lottieSrc: "/lottie-assets/paper-airplane-animation/animations/975d33bb-bc2f-413a-bcdf-0ab3647629ca.json",
+  },
+  {
+    id: 3,
+    title: "Our Approach",
+    description:
+      "We utilize data-driven tools like our customized Sustainability Dashboard to deliver comprehensive ESG assessments and ensure regulatory compliance (BRSR).",
     lottieSrc: "/lottie-assets/paper-airplane-animation/animations/975d33bb-bc2f-413a-bcdf-0ab3647629ca.json",
   },
 ];
@@ -54,7 +61,7 @@ function PurposeCard({ lottieSrc, title, description }) {
   );
 }
 
-export default function WhoWeAre() {
+export default function Mission() {
   const container = useRef(null);
 
   useGSAP(
@@ -110,22 +117,14 @@ export default function WhoWeAre() {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
         {/* Header */}
-        <div className="text-center mb-8 sm:mb-12 lg:mb-16 -translate-y-8 sm:-translate-y-12 md:-translate-y-16">
+        <div className="text-center mb-8 sm:mb-6 lg:mb-6 -translate-y-8 sm:-translate-y-12 md:-translate-y-16">
           <div className="intro-title">
-            <SectionHeader title="Who We Are" subtitle="" />
+            <SectionHeader title="Why Choose us" subtitle="" />
           </div>
-          <p className="intro-p max-w-4xl mx-auto text-base sm:text-lg md:text-xl text-slate-600 leading-relaxed mt-4">
-            EHM is a sustainability and deep tech startup founded by IIT alumni,
-            offering services and solutions aligned with the Sustainable
-            Development Goals (SDGs). We assist industries, government
-            organizations and HEI’s in enhancing their ESG practices, meeting
-            regulatory requirements, managing climate risks, and implementing
-            sustainability strategies.
-          </p>
         </div>
 
         {/* Cards - Now using mapped data and reusable component */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 lg:gap-12 -translate-y-8 sm:-translate-y-12 md:-translate-y-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 lg:gap-12 -translate-y-8 sm:-translate-y-12 md:-translate-y-16">
           {purposeData.map((card) => (
             <PurposeCard
               key={card.id}

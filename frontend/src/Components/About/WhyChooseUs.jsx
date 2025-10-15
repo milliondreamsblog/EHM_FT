@@ -208,9 +208,7 @@ const WhyChooseUsSection = () => {
                   Our Approach
                 </h3>
                 <p className="text-gray-200">
-                  We utilize data-driven tools like our customized Sustainability
-                  Dashboard to deliver comprehensive ESG assessments and ensure
-                  regulatory compliance (BRSR).
+                  Our ApproachOur Approach
                 </p>
               </div>
             </div>
