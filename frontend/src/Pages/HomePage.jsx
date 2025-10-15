@@ -2,8 +2,7 @@
 
 import React from 'react';
 
-
-import LogoScroll from "../Components/LandingPage/Logoscroll"
+import LogoScroll from "../Components/LandingPage/Logoscroll";
 import HeroSection from "../Components/LandingPage/HeroSection";
 import FootPrint from "../Components/LandingPage/FootPrint";
 import Testimonials from "../Components/LandingPage/Testimonials";
@@ -23,24 +22,27 @@ import HeroSection2 from '../Components/LandingPage/HeroSection2';
 const HomePage = () => {
   return (
     <div className="min-h-screen bg-[#ededed]">
+      <HeroSection2 />
+      {/* <HeroSection /> */}
 
-  <HeroSection2 />
-  {/* <HeroSection /> */}
-  {/* About EHM now appears before the logos to improve flow */}
-  <EhmBrief />
-  <ServiceSection />
-  <LogoScroll/>
-  {/* <Logo /> */}
-  <Partners_logo />
+      {/* About EHM */}
+      <EhmBrief />
+
+      {/* Offerings */}
+      <ServiceSection />
+
+      {/* Completed Projects / Logo Scroll */}
+      <LogoScroll />
+
+      {/* ✅ Testimonials now come before Partners */}
       <Testimonials />
-     
-      {/* <TestimonialsSection /> */}
-      {/* <NewsLetter /> */}
+
+      {/* Partners logo moved below Testimonials */}
+      <Partners_logo />
+
+      {/* Resources and Footprint sections */}
       <Resource />
-      {/* <LatestBlogSection /> */}
-      
       <FootPrint />
-      {/* <Feature /> */}
     </div>
   );
 };

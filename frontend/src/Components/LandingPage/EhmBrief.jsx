@@ -5,9 +5,24 @@ import SectionHeading from '../../Common/SectionHeading';
 
 const EhmBrief = () => {
   return (
-    <section className="relative font-sans overflow-hidden bg-white">
+    <section className="relative font-sans overflow-hidden">
+      {/* Multiple layered gradients for deep fading effect */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-teal-100 to-white" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-teal-200/70 to-white/95" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-transparent to-white/90" />
+      
+      {/* Diagonal gradient layers for depth */}
+      <div className="absolute inset-0 bg-gradient-to-br from-teal-100/60 via-teal-200/40 to-teal-100/60" />
+      <div className="absolute inset-0 bg-gradient-to-tr from-teal-50/50 via-teal-150/30 to-teal-50/50" />
+      
+      {/* Strong top fade */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white via-white/80 to-transparent z-10" />
+      
+      {/* Strong bottom fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white via-white/80 to-transparent z-10" />
+
       {/* Top Section */}
-      <div className="relative text-center w-full h-auto mx-auto py-16 sm:py-16 md:py-16">
+      <div className="relative text-center w-full h-auto mx-auto py-16 sm:py-16 md:py-16 z-20">
         {/* Background Circles  */}
         {/* <div className="absolute inset-0 z-0 hidden md:flex items-center justify-center pointer-events-none translate-y-10 p-8 sm:p-16 md:p-20">
           <div className="w-[95vw] max-w-[1200px] aspect-square rounded-full border-2 border-black/20 bg-[#ededed] relative flex items-center justify-center p-6 sm:p-10">
@@ -17,8 +32,8 @@ const EhmBrief = () => {
         <div className="absolute -top-10 left-0 w-full h-[70%] bg-gradient-to-b from-[#ededed]" />
         <div className="absolute bottom-0 left-0 w-full h-[70%] bg-gradient-to-t from-[#ededed]" /> */}
 
-  {/* Top Section Content */}
-  <SectionHeading>About EHM</SectionHeading>
+        {/* Top Section Content */}
+        <SectionHeading>About EHM</SectionHeading>
         {/* <ScrollRevealElements
           className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6"
           staggerAmount={0.5}
@@ -57,8 +72,8 @@ const EhmBrief = () => {
         </ScrollRevealElements> */}
       </div>
 
-  {/* Bottom Section */}
-  <div className="w-full relative z-10">
+      {/* Bottom Section */}
+      <div className="w-full relative z-20">
         <div className="col-span-12 lg:col-span-10 pb-16 sm:pb-20 px-4 sm:px-8 md:px-12 lg:px-32">
 
           {/* Main descriptive area - heading intentionally omitted here to keep page flow concise */}
@@ -91,7 +106,7 @@ const EhmBrief = () => {
                 EHM is a sustainability and deep tech startup founded by IIT
                 alumni, offering services and solutions aligned with the
                 Sustainable Development Goals (SDGs). We assist industries,
-                government organizations, and HEI’s in enhancing their ESG
+                government organizations, and HEI's in enhancing their ESG
                 practices, meeting regulatory requirements, managing climate
                 risks, and implementing sustainability strategies.
                 <br />
