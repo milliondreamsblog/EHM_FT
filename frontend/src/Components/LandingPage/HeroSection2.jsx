@@ -182,8 +182,8 @@ export default function Homepage() {
 
           {/* Trusted By Section */}
           <div className="mt-auto pt-12">
-            <p className="text-sm uppercase tracking-wider mb-8 opacity-90">Trusted by {" "} 
-              <span className="text-2xl font-medium tracking-wide opacity-85 hover:opacity-100 transition-opacity">
+            <p className="text-sm uppercase tracking-wider font-medium mb-8 opacity-90 text-[#26438e]">Trusted by {"   "} {"   "} 
+              <span className="text-3xl text-[#c39b17] font-medium tracking-wide opacity-85 hover:opacity-100 transition-opacity">
               <RotatingText />
               </span>
             </p>

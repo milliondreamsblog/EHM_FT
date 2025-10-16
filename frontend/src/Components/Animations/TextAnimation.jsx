@@ -1,63 +1,41 @@
 import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const RotatingText = () => {
-  const words = ["IIT Kanpur", "CSJMF" ,"IIT Kanpur", "CSJMF" ];
+  const words = ["IIT Kanpur", "CSJMF"];
   const [index, setIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIsAnimating(true);
-      setTimeout(() => {
-        setIndex((prev) => (prev + 1) % words.length);
-      }, 900);
-      setTimeout(() => {
-        setIsAnimating(false);
-      }, 1800);
-    }, 4000);
-
+      setIndex((prev) => (prev + 1) % words.length);
+    }, 3000);
     return () => clearInterval(interval);
-  }, [words.length]);
+  }, []);
+
+  // Variants for smooth enter/exit
+  const wordVariants = {
+    hidden: { opacity: 0, y: -20 }, // Start below, transparent
+    visible: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: 20 }, // Slide up and out
+  };
 
   return (
-    <span className="relative inline-block min-w-[200px] h-[1.2em] align-bottom">
-      <span
-        className={`absolute inset-0 transition-all duration-700 ease-in-out ${
-          isAnimating
-            ? "-translate-y-full opacity-0"
-            : "translate-y-0 opacity-100"
-        }`}
-      >
-        {words[(index - 1 + words.length) % words.length]}
-      </span>
-      <span
-        className={`absolute inset-0 transition-all duration-700 ease-in-out ${
-          isAnimating
-            ? "translate-y-0 opacity-100"
-            : "translate-y-full opacity-0"
-        }`}
-      >
-        {words[index]}
-      </span>
+    <span className="relative inline-block min-w-[200px] h-[1.2em] align-bottom overflow-hidden">
+      <AnimatePresence mode="wait">
+        <motion.span
+          key={index} // Key forces exit/enter on change
+          className="absolute inset-0"
+          variants={wordVariants}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+          transition={{ duration: 0.4, ease: "easeInOut" }}
+        >
+          {words[index]}
+        </motion.span>
+      </AnimatePresence>
     </span>
   );
 };
-
-// Demo showing how to use it
-// const Demo = () => {
-//   return (
-//     <div className="flex items-center justify-center min-h-screen bg-gray-50 p-8">
-//       <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-//         <span className="text-[#26438e]">Sustainability </span>
-//         <br />
-//         Through Eco-Centric
-//         <br />
-//         Approach <span className="text-black">
-//           <RotatingText />
-//         </span>
-//       </h1>
-//     </div>
-//   );
-// };
 
 export default RotatingText;
