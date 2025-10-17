@@ -7,6 +7,14 @@ import ScrollRevealElements from '../Animations/ScrollRevealElements';
 import { Link } from 'react-router-dom';
 import RotatingText from '../Animations/TextAnimation';
 
+
+ const purposeData = [
+    {
+      id: 1,
+      title: "Book now"
+    },
+  ]
+
 export default function Homepage() {
   const targetRef = useRef(null);
   const [showCard, setShowCard] = useState(true);
@@ -28,6 +36,7 @@ export default function Homepage() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
 
   return (
     <div>
@@ -121,56 +130,90 @@ export default function Homepage() {
                 <br />
                 Approach
               </h1>
-              
 
               <h2 className="text-lg md:text-xl lg:text-[20px] font-semibold leading-tight mb-10">
                 TRANSFORM <span className="text-[#c39b17]">YOUR BUSINESS WITH </span>
                 <span>SUSTAINABLE INNOVATION</span>
               </h2>
+
               <Link to="/contact#form">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center justify-center rounded-lg bg-white px-6 py-2 md:px-8 md:py-3 font-medium text-[#004f3e] shadow-lg transition-colors duration-300 hover:bg-[#004f3e] hover:text-white"
-              >
-                Book a Call
-                <svg className="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </motion.button>
-            </Link>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="relative flex items-center justify-center rounded-xl px-6 py-3 md:px-8 md:py-4 font-medium text-white shadow-xl transition-all duration-300 hover:scale-105 overflow-hidden group"
+                >
+                  {/* Wavy overlay for organic flow - using pseudo-element via Tailwind arbitrary */}
+                    <div className="h-[10em] w-[10em] sm:h-[12em] sm:w-[12em] bg-[#19a289] rounded-full absolute bottom-full -left-[6em] scale-[250%] z-[-1] duration-[400ms]" />
+                    <div className="h-[8em] w-[8em] sm:h-[10em] sm:w-[10em] bg-[#138c76] rounded-full absolute bottom-full -left-[5em] scale-[200%] z-[-1] duration-[400ms]" />
+                    <div className="h-[6em] w-[6em] sm:h-[8em] sm:w-[8em] bg-[#0d6d5b] rounded-full absolute bottom-full -left-[4em] scale-[180%] z-[-1] duration-[400ms] " />
+                    <div className="h-[4em] w-[4em] sm:h-[6em] sm:w-[6em] bg-[#08493e] rounded-full absolute bottom-full -left-[3em] scale-[150%] z-[-1] duration-[400ms]" />    Book a Call
+                  <svg className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </motion.button>
+              </Link>
             </div>
 
            {/* Right Side - Diamond-shaped Cards */} 
            <div className="absolute top-1/2 -translate-y-1/2 right-8 w-[700px] h-[500px] hidden lg:block pointer-events-none"> 
            <div className="relative w-full h-full">
-             {/* Card 1 - Top Right with green gradient */} 
-             <div className="absolute top-[90px] right-[-50px] w-[280px] h-[280px] bg-white shadow-2xl object-cover transform rotate-[-10deg] transition-all duration-300 hover:rotate-[15deg] hover:scale-105 border-[1px] border-white z-40 pointer-events-auto"
-              style={{ clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' }} >
-                <img src="/Hero/Hero.jpg"
-                  style={{ clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' }}
-                  alt="Forest" className="w-full h-full object-cover" /> 
-                 <div className="w-full h-full bg-gradient-to-br from-[#a8d16f] via-[#8bc34a] to-[#7ab536]"></div>
-                  </div> 
+             {/* Card 1 - Top Right with overlay */}
+            <div className="absolute top-[90px] right-[-50px] w-[280px] h-[280px] bg-white shadow-2xl transform rotate-[-10deg] transition-all duration-300 hover:rotate-[15deg] hover:scale-105 border-[1px] border-white z-40 pointer-events-auto group"
+                  style={{ clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' }}>
+                  <img src="/Hero/Hero.jpg"
+                    style={{ clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' }}
+                    alt="Forest" className="w-full h-full object-cover" />
+                  
+                  {/* Hover Overlay */}
+                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                    style={{ clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' }}>
+                    <span className="text-white font-semibold text-lg text-center px-4">
+                      Climate Risk
+                    </span>
+                  </div>
+                </div>
                   {/* Card 2 - Middle with forest image */} 
-                  <div className="absolute top-[-40px] right-[130px] w-[280px] h-[280px] bg-white shadow-2xl transform rotate-[-10deg] transition-all duration-300 hover:rotate-[-9deg] hover:scale-105 border-[1px] border-white z-30 pointer-events-auto"
+                  <div className="absolute top-[-40px] right-[130px] w-[280px] h-[280px] bg-white shadow-2xl transform rotate-[-10deg] transition-all duration-300 hover:rotate-[-10deg] hover:scale-105 border-[1px] border-white z-30 pointer-events-auto group"
                    style={{ clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' }} > 
                    <img src="/Hero/Hero2.jpg" 
                    alt="Forest" className="w-full h-full object-cover" /> 
-                   </div>
+
+                    {/* Hover Overlay */}
+                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                      style={{ clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' }}>
+                      <span className="text-white font-semibold text-lg text-center px-4">
+                        Water-Positive Systems
+                      </span>
+                    </div>
+                  </div>
                     {/* Card 3 - Bottom Right with green gradient */} 
-                    <div className="absolute top-[270px] right-[80px] w-[280px] h-[280px] bg-white shadow-2xl transform rotate-[-10deg] transition-all duration-300 hover:rotate-[9deg] hover:scale-105 border-[1px] border-white z-20 pointer-events-auto" 
+                    <div className="absolute top-[270px] right-[80px] w-[280px] h-[280px] bg-white shadow-2xl transform rotate-[-10deg] transition-all duration-300 hover:rotate-[9deg] hover:scale-105 border-[1px] border-white z-20 pointer-events-auto group" 
                     style={{ clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' }} >
                       <img src="/Hero/Hero3.jpg"
                       alt="Forest" className="w-full h-full object-cover" /> 
+
+                      {/* Hover Overlay */}
+                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                      style={{ clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' }}>
+                      <span className="text-white font-semibold text-lg text-center px-4">
+                        Sustainability & ESG
+                      </span>
+                    </div>
                     <div className="w-full h-full bg-gradient-to-br from-[#a8d16f] via-[#8bc34a] to-[#7ab536]">
                       </div> 
                       </div>
                        {/* Card 4 - Far left with green gradient */} 
-                       <div className="absolute top-[140px] right-[260px] w-[280px] h-[280px] bg-white shadow-2xl transform rotate-[-10deg] transition-all duration-300 hover:rotate-[9deg] hover:scale-105 border-[1px] border-white z-10 pointer-events-auto" 
+                       <div className="absolute top-[140px] right-[260px] w-[280px] h-[280px] bg-white shadow-2xl transform rotate-[-10deg] transition-all duration-300 hover:rotate-[9deg] hover:scale-105 border-[1px] border-white z-10 pointer-events-auto group" 
                        style={{ clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' }} >
                         <img src="/Hero/Hero4.jpg"
                           alt="Forest" className="w-full h-full object-cover" />  
+                        {/* Hover Overlay */}
+                        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                          style={{ clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' }}>
+                          <span className="text-white font-semibold text-lg text-center px-4">
+                            Geophysical Exploration
+                          </span>
+                        </div>
                        <div className="w-full h-full bg-gradient-to-br from-[#a8d16f] via-[#8bc34a] to-[#7ab536]">
 
                        </div>

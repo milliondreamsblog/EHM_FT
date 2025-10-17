@@ -43,6 +43,11 @@ body {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
+.highlighted-card {
+  @apply border border-blue-400 rounded-lg;
+  /* or any styles you like */
+}
+
 .nav-container {
   display: flex;
   align-items: center;

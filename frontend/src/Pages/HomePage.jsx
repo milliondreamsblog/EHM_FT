@@ -34,7 +34,7 @@ const HomePage = () => {
       {/* Completed Projects / Logo Scroll */}
       <LogoScroll />
 
-      {/* ✅ Testimonials now come before Partners */}
+      
       <Testimonials />
 
       {/* Partners logo moved below Testimonials */}
@@ -43,6 +43,9 @@ const HomePage = () => {
       {/* Resources and Footprint sections */}
       <Resource />
       <FootPrint />
+
+      {/* ✅ Testimonials now come before Partners */}
+      <TestimonialsSection />
     </div>
   );
 };

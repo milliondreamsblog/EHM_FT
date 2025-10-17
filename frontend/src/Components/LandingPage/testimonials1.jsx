@@ -71,9 +71,9 @@ const testimonials = [
   },
 ];
 
-const firstColumn = testimonials.slice(0, 3);
-const secondColumn = testimonials.slice(3, 6);
-const thirdColumn = testimonials.slice(6, 9);
+const firstColumn = testimonials.slice(1, 2);
+const secondColumn = testimonials.slice(2, 3);
+const thirdColumn = testimonials.slice(3, 4);
 
 
 const TestimonialsColumn = ({ className = "", testimonials, duration, direction = "up" }) => (

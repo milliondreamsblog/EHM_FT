@@ -21,6 +21,11 @@
   text-align: justify;
 }
 
+.highlighted-card {
+  @apply  border border-blue-300 rounded-lg shadow-lg;
+  /* or any styles you like */
+}
+
 .blog-content-view img {
   width: 100%;
   max-width: 100% !important;

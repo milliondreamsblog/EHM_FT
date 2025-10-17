@@ -1,6 +1,8 @@
 import React, { useState, useMemo } from 'react';
 import { MapPin, ChevronDown, ChevronUp, ExternalLink, Share2, Bookmark, Eye, Award, Target, Zap, Users, Calendar } from 'lucide-react';
 import Logo from "../Components/LandingPage/Logo";
+import { useEffect ,useRef } from "react";
+import { useLocation } from "react-router-dom";
 // ProjectsPage.jsx
 
 
@@ -99,6 +101,20 @@ const ProjectCard = ({
     document.body.removeChild(dummyInput);
     console.log('Link copied to clipboard!');
   };
+    const locationcard = useLocation();
+
+      useEffect(() => {
+        // If there's a hash in the URL, scroll to that element
+        if (locationcard.hash) {
+          const id = locationcard.hash.replace("#", "");
+          const el = document.getElementById(id);
+          if (el) {
+            el.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }
+      }, [locationcard]);
+
+      
 
   return (
     <div
@@ -218,6 +234,31 @@ const ProjectsPage = () => {
     { number: "99%", label: "Success Rate", icon: Target }
   ];
 
+  const locationcard2 = useLocation();
+      const cardRefs2 = useRef({});
+
+      useEffect(() => {
+        const hash = locationcard2.hash?.slice(1); // e.g. "p1"
+        if (hash && cardRefs2.current[hash]) {
+          const el = cardRefs2.current[hash];
+          // Scroll into view with a little offset if you have a fixed header
+          const yOffset = -250; // adjust this (header height, etc.)
+          const y =
+            el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({ top: y, behavior: "smooth" });
+
+          // Add “highlight” class (Tailwind) to the element
+          el.classList.add("highlighted-card");
+
+          // Optionally remove the highlight after some time
+          const timeout = setTimeout(() => {
+            el.classList.remove("highlighted-card");
+          }, 4000);
+
+          return () => clearTimeout(timeout);
+        }
+      }, [locationcard2.hash, sampleProjects]);
+
   return (
     <div className="min-h-screen font-sans relative overflow-x-hidden bg-gradient-to-br from-gray-50 via-white to-teal-50/30">
       <style>{`
@@ -272,18 +313,28 @@ const ProjectsPage = () => {
           </div>
         </section>
         <section className="max-w-7xl mx-auto px-4 mb-20">
-          <div className="projects-grid">
-            {filteredProjects.map((project, index) => (
+        <div className="projects-grid">
+          {filteredProjects.map((project, index) => (
+            <div
+              key={project.id}
+
+              id={project.id}
+              tabIndex={-1}  // so this element can be focused
+              ref={(el) => {
+                cardRefs2.current[project.id] = el;
+              }}
+
+              className="project-card-wrapper transition-shadow duration-300"
+            >
               <ProjectCard
-                key={project.id}
                 {...project}
                 className="animate-fadeInUp"
                 style={{ animationDelay: `${index * 0.1}s` }}
-                onClick={() => showMessage(`Opening project: ${project.title}`)}
               />
-            ))}
-          </div>
-        </section>
+            </div>
+          ))}
+        </div>
+      </section>
         
       </main>
       {message && (
