@@ -6,21 +6,38 @@ import ScrollRevealElements from "../Animations/ScrollRevealElements";
 import SectionHeading from "../../Common/SectionHeading";
 
 const cardData = [
+
   {
+    id : "p2",
+    title: "ESG Module Development for MSMEs and Training of Trainers (ToT) Workshop",
+    description:
+      ".",
+    logo:
+      "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901263/ESG_Course_Modules_TOT_for_MSME_fcduho.jpg",
+  },
+    {
+    id : "p14",
+    title: "Design of Natural STPs (0.5 MLD, 1.25 MLD, 1.50 MLD, and 3.50 MLD) – Gajwel City, Telangana",
+    description:
+      ".",
+    logo:
+      "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901211/Designing_Constructed_Wetland_ggm9s5.jpg",
+  },
+    {
     id : "p1",
     title: "Electrical Resistivity Tomography (ERT) Survey",
     description:
-      "Estimation of coal reserves, identification of galleries, coal seam voids, and water-filled zones in an abandoned coal mine.",
+      ".",
     logo:
       "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901212/Electrical_Resistivity_Tomography_te2a4b.jpg",
   },
-  {
-    id : "p2",
-    title: "ESG Course Modules & TOT for MSME",
+    {
+    id : "p18",
+    title: "Environmental Audit of CSIR-NEERI Kolkata Zonal Centre West Bengal",
     description:
-      "Develop course curriculum and organize Train the Trainer programs for RAMP Programme, a World Bank assisted project.",
+      ".",
     logo:
-      "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901263/ESG_Course_Modules_TOT_for_MSME_fcduho.jpg",
+      "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901211/Environmental_Audit_oeafkp.jpg",
   },
   {
     id : "p10",
@@ -53,14 +70,7 @@ const cardData = [
     logo:
       "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901244/social_Impact_tybcom.jpg",
   },
-  {
-    id : "p14",
-    title: "Agra Project",
-    description:
-      "Designing and Project Management of 80 KLD Decentralized Effluent Treatment Plant.",
-    logo:
-      "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901211/Designing_Constructed_Wetland_ggm9s5.jpg",
-  },
+
   {
     id : "p15",
     title: "Designing Constructed Wetland",

@@ -17,9 +17,11 @@ body {
   color: white;
   line-height: 1.6;
   overflow-x: hidden;   
-  overflow-y: hidden;     
+  overflow-y: auto;     
+  height: 100%;
+  width: 100%;
+  position: relative;
 }
-
 
 .container {
   max-width: 1200px;

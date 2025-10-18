@@ -103,17 +103,13 @@ const EhmBrief = () => {
                 
               </motion.h3>
               <motion.p className="text-gray-600 leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base md:text-base lg:text-lg">
-                EHM is a sustainability and deep tech startup founded by IIT
-                alumni, offering services and solutions aligned with the
-                Sustainable Development Goals (SDGs). We assist industries,
-                government organizations, and HEI's in enhancing their ESG
-                practices, meeting regulatory requirements, managing climate
-                risks, and implementing sustainability strategies.
+                EHM is a sustainability-focused startup founded by IIT alumni, 
+                working to advance the United Nations Sustainable Development Goals (SDGs). 
+                We partner with industries, government organizations, and higher education institutions 
+                to enhance ESG performance, manage climate risks, meet regulatory standards, and implement long-term sustainability strategies.
                 <br />
                 <br />
-                Through a commitment to excellence and collaboration, EHM
-                continues to support organizations in achieving their goals
-                while creating long-term value and impact.
+
               </motion.p>
               <motion.a
                 href="/contact"

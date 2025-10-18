@@ -74,9 +74,24 @@ export default function Homepage() {
         }
       `}</style>
       
-      <div className="relative min-h-screen bg-gradient-to-b from-[#7dbea8] via-[#99ffdd] to-[#9be2e7] text-white overflow-hidden">
+      <div className="relative min-h-screen text-white overflow-hidden">
+        {/* Background Video */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-0"
+        >
+          <source src="/video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
+        {/* Optional Overlay for Tint (to blend with eco-theme) */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-black/40 to-black/50 z-5"></div>
+
         {/* Background SVG Pattern */}
-        <div className="absolute inset-0 opacity-40">
+        {/* <div className="absolute inset-0 opacity-20 z-5">
           <svg className="w-full h-full" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
             <defs>
               <linearGradient id="g1" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -90,10 +105,10 @@ export default function Homepage() {
             <path d="M0,500 Q300,450 600,480 T1200,500 L1200,800 L0,800 Z" fill="#98d8dc" opacity="0.5" />
             <path d="M0,600 Q300,550 600,580 T1200,600 L1200,800 L0,800 Z" fill="#98d8dc" opacity="0.4" />
           </svg>
-        </div>
+        </div> */}
 
         {/* Floating Bubbles */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
+        {/* <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-5">
           {[...Array(20)].map((_, i) => {
             const size = Math.random() * 80 + 20;
             const style = {
@@ -112,7 +127,7 @@ export default function Homepage() {
               ></div>
             );
           })}
-        </div>
+        </div> */}
 
         {/* Main Content */}
         <div className="relative z-10 flex flex-col min-h-screen px-6 py-24 md:px-20 lg:px-24 max-w-[1400px] mx-auto">
@@ -155,60 +170,60 @@ export default function Homepage() {
             </div>
 
            {/* Right Side - Diamond-shaped Cards */} 
-           <div className="absolute top-1/2 -translate-y-1/2 right-8 w-[700px] h-[500px] hidden lg:block pointer-events-none"> 
-           <div className="relative w-full h-full">
+           {/* <div className="absolute top-1/2 -translate-y-1/2 right-8 w-[700px] h-[500px] hidden lg:block pointer-events-none"> 
+           <div className="relative w-full h-full"> */}
              {/* Card 1 - Top Right with overlay */}
-            <div className="absolute top-[90px] right-[-50px] w-[280px] h-[280px] bg-white shadow-2xl transform rotate-[-10deg] transition-all duration-300 hover:rotate-[15deg] hover:scale-105 border-[1px] border-white z-40 pointer-events-auto group"
+            {/* <div className="absolute top-[90px] right-[-50px] w-[280px] h-[280px] bg-white shadow-2xl transform rotate-[-10deg] transition-all duration-300 hover:rotate-[15deg] hover:scale-105 border-[1px] border-white z-40 pointer-events-auto group"
                   style={{ clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' }}>
                   <img src="/Hero/Hero.jpg"
                     style={{ clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' }}
-                    alt="Forest" className="w-full h-full object-cover" />
+                    alt="Forest" className="w-full h-full object-cover" /> */}
                   
                   {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                  {/* <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
                     style={{ clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' }}>
                     <span className="text-white font-semibold text-lg text-center px-4">
                       Climate Risk
                     </span>
                   </div>
-                </div>
+                </div> */}
                   {/* Card 2 - Middle with forest image */} 
-                  <div className="absolute top-[-40px] right-[130px] w-[280px] h-[280px] bg-white shadow-2xl transform rotate-[-10deg] transition-all duration-300 hover:rotate-[-10deg] hover:scale-105 border-[1px] border-white z-30 pointer-events-auto group"
+                  {/* <div className="absolute top-[-40px] right-[130px] w-[280px] h-[280px] bg-white shadow-2xl transform rotate-[-10deg] transition-all duration-300 hover:rotate-[-10deg] hover:scale-105 border-[1px] border-white z-30 pointer-events-auto group"
                    style={{ clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' }} > 
                    <img src="/Hero/Hero2.jpg" 
-                   alt="Forest" className="w-full h-full object-cover" /> 
+                   alt="Forest" className="w-full h-full object-cover" />  */}
 
                     {/* Hover Overlay */}
-                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                    {/* <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
                       style={{ clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' }}>
                       <span className="text-white font-semibold text-lg text-center px-4">
                         Water-Positive Systems
                       </span>
                     </div>
-                  </div>
+                  </div> */}
                     {/* Card 3 - Bottom Right with green gradient */} 
-                    <div className="absolute top-[270px] right-[80px] w-[280px] h-[280px] bg-white shadow-2xl transform rotate-[-10deg] transition-all duration-300 hover:rotate-[9deg] hover:scale-105 border-[1px] border-white z-20 pointer-events-auto group" 
+                    {/* <div className="absolute top-[270px] right-[80px] w-[280px] h-[280px] bg-white shadow-2xl transform rotate-[-10deg] transition-all duration-300 hover:rotate-[9deg] hover:scale-105 border-[1px] border-white z-20 pointer-events-auto group" 
                     style={{ clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' }} >
                       <img src="/Hero/Hero3.jpg"
-                      alt="Forest" className="w-full h-full object-cover" /> 
+                      alt="Forest" className="w-full h-full object-cover" />  */}
 
                       {/* Hover Overlay */}
-                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                    {/* <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
                       style={{ clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' }}>
                       <span className="text-white font-semibold text-lg text-center px-4">
                         Sustainability & ESG
                       </span>
-                    </div>
-                    <div className="w-full h-full bg-gradient-to-br from-[#a8d16f] via-[#8bc34a] to-[#7ab536]">
+                    </div> */}
+                    {/* <div className="w-full h-full bg-gradient-to-br from-[#a8d16f] via-[#8bc34a] to-[#7ab536]">
                       </div> 
-                      </div>
+                      </div> */}
                        {/* Card 4 - Far left with green gradient */} 
-                       <div className="absolute top-[140px] right-[260px] w-[280px] h-[280px] bg-white shadow-2xl transform rotate-[-10deg] transition-all duration-300 hover:rotate-[9deg] hover:scale-105 border-[1px] border-white z-10 pointer-events-auto group" 
+                       {/* <div className="absolute top-[140px] right-[260px] w-[280px] h-[280px] bg-white shadow-2xl transform rotate-[-10deg] transition-all duration-300 hover:rotate-[9deg] hover:scale-105 border-[1px] border-white z-10 pointer-events-auto group" 
                        style={{ clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' }} >
                         <img src="/Hero/Hero4.jpg"
-                          alt="Forest" className="w-full h-full object-cover" />  
+                          alt="Forest" className="w-full h-full object-cover" />   */}
                         {/* Hover Overlay */}
-                        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                        {/* <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
                           style={{ clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' }}>
                           <span className="text-white font-semibold text-lg text-center px-4">
                             Geophysical Exploration
@@ -216,10 +231,10 @@ export default function Homepage() {
                         </div>
                        <div className="w-full h-full bg-gradient-to-br from-[#a8d16f] via-[#8bc34a] to-[#7ab536]">
 
-                       </div>
-                  </div>
+                       </div> */}
+                  {/* </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           
 
