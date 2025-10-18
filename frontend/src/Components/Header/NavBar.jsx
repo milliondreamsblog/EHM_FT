@@ -299,24 +299,19 @@ const NavBar = () => {
       {/* Desktop Dropdown Content */}
       {activeDropdown && (
         <div
-          ref={dropdownRef}
-          className="absolute left-0 w-full bg-[#ffffff] shadow-xl animate-fadeIn hidden lg:block"
-        >
-          <div className="w-full mx-auto grid lg:grid-cols-4 gap-10">
-            {/* LEFT MAIN SECTION */}
-            <div className="col-span-3">
-              <h3 className="text-lg font-bold text-green-900 mb-4 border-b uppercase pt-10 pb-5 ml-40">
-                {activeDropdown}
-              </h3>
-              <div className="flex flex-cols-4 gap-14 pt-4 ml-40 ">
-                {(activeDropdown === "resources"
-                  ? resourcesMenu
-                  : offeringsMenu
-                ).map((section) => (
+        ref={dropdownRef}
+        className="absolute left-1/4 transform -translate-x-1/2 bg-[#ffffff] shadow-xl animate-fadeIn hidden lg:block max-w-5xl w-[90%]"
+      >
+        <div className="w-full mx-auto grid lg:grid-cols-4 gap-10">
+          {/* LEFT MAIN SECTION */}
+          <div className="col-span-3">
+            <h3 className="text-lg font-bold text-green-900 mb-2 uppercase pt-1 pb-5 ml-10">
+              {/* {activeDropdown} */}
+            </h3>
+            <div className="flex flex-cols-4 gap-14 pt-4 ml-10">
+              {(activeDropdown === "resources" ? resourcesMenu : offeringsMenu).map(
+                (section) => (
                   <div key={section.title}>
-                    <h4 className="text-green-800 font-semibold mb-5 pb-5">
-                      {section.title}
-                    </h4>
                     <ul className="space-y-8 pb-20">
                       {section.items.map((item) => (
                         <li key={item.path}>
@@ -325,40 +320,41 @@ const NavBar = () => {
                             onClick={handleNavClick}
                             className="flex items-center space-x-2 text-green-900 hover:text-yellow-400 transition group"
                           >
-                            <item.icon className="w-5 h-5 text-green-900 group-hover:text-yellow-400" />
+                            <item.icon className="w-12  text-green-900 group-hover:text-yellow-400" />
                             <span>{item.name}</span>
                           </Link>
                         </li>
                       ))}
                     </ul>
                   </div>
-                ))}
-              </div>
-            </div>
+          )
+        )}
+      </div>
+    </div>
 
-            {/* RIGHT SIDE LINKS */}
-            <div className="border-l p-9 pt-20 bg-[#edecec]">
-              <ul className="space-y-4">
-                <li>
-                  <Link
-                    to="/contact"
-                    className="text-green-900 hover:text-yellow-500 uppercase font-semibold"
-                  >
-                    contact
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/more"
-                    className="text-green-900 hover:text-yellow-500 uppercase font-semibold"
-                  >
-                    See More
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+    {/* RIGHT SIDE LINKS */}
+    <div className="border-l p-9 pt-20 bg-[#edecec]">
+      <ul className="space-y-4">
+        <li>
+          <Link
+            to="/contact"
+            className="text-green-900 hover:text-yellow-500 uppercase font-semibold"
+          >
+            contact
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/more"
+            className="text-green-900 hover:text-yellow-500 uppercase font-semibold"
+          >
+            See More
+          </Link>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
       )}
     </header>
   );
