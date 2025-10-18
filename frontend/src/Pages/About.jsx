@@ -20,7 +20,7 @@ const About = () => {
       <Hero />
 
 
-      <WhoWeAre />
+      {<WhoWeAre />}
 
 
       <WhyChooseSection title='Focus Area' />

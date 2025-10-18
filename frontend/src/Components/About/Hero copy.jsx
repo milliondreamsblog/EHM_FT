@@ -10,42 +10,42 @@ export default function Hero() {
     {
       id: 1,
       number: '01 / 04',
-      title: 'Water Positive Systems',
-      description: 'Developing strategies and solutions that optimize water use, promote reuse, and restore natural water balance.',
-      image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1920&q=80',
-      bgPosition: 'center'
+      title: 'Sustainability is our business',
+      description: 'Building a better tomorrow through innovative solutions and responsible practices that benefit our planet and future generations.',
+      image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80',
+      cta: 'Learn More'
     },
     {
       id: 2,
       number: '02 / 04',
-      title: 'Sustainability & ESG',
-      description: 'Advising organizations on ESG integration, reporting, and sustainable transformation aligned with global frameworks.',
-      image: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=1920&q=80',
-      bgPosition: 'center'
+      title: 'Sustainability Report 2025',
+      description: 'Driven by a common purpose to shape a sustainable future, ERM is sustaining our impact and supporting our clients to do the same.',
+      image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1920&q=80',
+      cta: 'Read Report'
     },
     {
       id: 3,
       number: '03 / 04',
-      title: 'Geophysical Exploration',
-      description: 'Applying advanced geophysical methods to assess subsurface conditions for environmental and infrastructure planning.',
-      image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1920&q=80',
-      bgPosition: 'center'
+      title: 'Climate & Net Zero',
+      description: 'Leading the charge towards a carbon-neutral future with comprehensive strategies and actionable insights for businesses worldwide.',
+      image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1920&q=80',
+      cta: 'Explore Solutions'
     },
     {
       id: 4,
       number: '04 / 04',
-      title: 'Climate Risk',
-      description: 'Assessing and mitigating climate-related risks through data analytics, AI, and adaptive resilience planning.',
-      image: 'https://images.unsplash.com/photo-1534629938736-b1b076531d3b?w=1920&q=80',
-      bgPosition: 'center'
+      title: 'Renewable Energy',
+      description: 'Harnessing the power of nature to create clean, sustainable energy solutions for a brighter, greener future.',
+      image: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1920&q=80',
+      cta: 'Discover More'
     }
   ];
 
   const navItems = [
-    { number: '01 / 04', title: 'Water Positive Systems' },
-    { number: '02 / 04', title: 'Sustainability & ESG' },
-    { number: '03 / 04', title: 'Geophysical Exploration' },
-    { number: '04 / 04', title: 'Climate Risk' }
+    { number: '01 / 04', title: 'Sustainability is our business' },
+    { number: '02 / 04', title: 'Sustainability Report 2025' },
+    { number: '03 / 04', title: 'Climate & net zero' },
+    { number: '04 / 04', title: 'Renewable Energy' }
   ];
 
   useEffect(() => {
@@ -122,11 +122,8 @@ export default function Hero() {
             >
               {/* Background Image */}
               <div
-                className="absolute inset-0 bg-cover"
-                style={{ 
-                  backgroundImage: `url(${slide.image})`,
-                  backgroundPosition: slide.bgPosition
-                }}
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: `url(${slide.image})` }}
               />
               
               {/* Gradient Overlay */}
@@ -134,19 +131,23 @@ export default function Hero() {
 
               {/* Content */}
               {currentSlide === index && (
-                <div 
-                  className="slide-content-animated absolute top-1/2 -translate-y-1/2 text-white max-w-[600px] z-10"
-                  style={{ left: index <= 1 ? '31%' : '27%' }}
-                >
+                <div className="slide-content-animated absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-white max-w-[90%] md:max-w-[600px] z-10 px-4 md:px-0 md:left-[20%] md:translate-x-0">
                   <div className="text-xs md:text-sm font-light mb-4 md:mb-5 tracking-[2px] opacity-80">
                     {slide.number}
                   </div>
-                  <h1 className="hero-title text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight drop-shadow-lg">
+                  <h1 className="hero-title text-4xl md:text-5xl lg:text-6xl font-bold mb-6 md:mb-8 leading-tight drop-shadow-lg">
                     {slide.title}
                   </h1>
-                  <p className="text-sm md:text-base leading-relaxed font-light text-white/90 max-w-[500px]">
+                  <p className="hero-description text-base md:text-lg leading-relaxed mb-8 md:mb-10 font-light opacity-90">
                     {slide.description}
                   </p>
+                  <a
+                    href="#"
+                    className="inline-flex items-center gap-2 md:gap-3 px-6 md:px-8 py-3 md:py-4 bg-cyan-400 text-black rounded-full font-semibold text-xs md:text-sm tracking-wider uppercase transition-all duration-300 hover:bg-cyan-300 hover:-translate-y-1 shadow-lg shadow-cyan-400/30 hover:shadow-cyan-400/50"
+                  >
+                    {slide.cta}
+                    <span className="text-base md:text-lg">→</span>
+                  </a>
                 </div>
               )}
             </div>
@@ -161,14 +162,6 @@ export default function Hero() {
         >
           ‹
         </button>
-
-        {/* Static Heading */}
-        <div className="absolute left-1/2 -translate-x-1/2 z-50 pointer-events-none" style={{ top: '25%' }}>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide" style={{ color: '#14b8a6' }}>
-            Our Focus Area
-          </h2>
-        </div>
-
         <button
           onClick={nextSlide}
           className="absolute right-3 md:right-5 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-white/10 backdrop-blur-md border border-white/20 text-white text-xl md:text-2xl rounded-full transition-all duration-300 hover:bg-white/20 hover:scale-110 z-50 cursor-pointer"
@@ -185,10 +178,9 @@ export default function Hero() {
               onClick={() => goToSlide(index)}
               className={`relative cursor-pointer transition-all duration-300 bg-white/10 backdrop-blur-md rounded-lg overflow-hidden border hover:-translate-y-1 hover:shadow-lg ${
                 currentSlide === index
-                  ? 'shadow-lg'
+                  ? 'border-2 border-cyan-400 shadow-lg shadow-cyan-400/40'
                   : 'border border-white/20'
               }`}
-              style={currentSlide === index ? { borderColor: '#14b8a6', borderWidth: '2px', boxShadow: '0 10px 25px rgba(20, 184, 166, 0.4)' } : {}}
             >
               <div className="p-2 md:p-3 flex flex-col gap-1 min-w-[90px] md:min-w-[140px]">
                 <div className="text-[10px] md:text-[11px] text-white/60 font-semibold tracking-wide">
@@ -201,8 +193,7 @@ export default function Hero() {
               {currentSlide === index && (
                 <div 
                   key={`progress-${currentSlide}`}
-                  className="progress-bar-animated absolute bottom-0 left-0 h-[3px]"
-                  style={{ backgroundColor: '#14b8a6' }}
+                  className="progress-bar-animated absolute bottom-0 left-0 h-[3px] bg-cyan-400" 
                 />
               )}
             </button>
