@@ -32,20 +32,21 @@ const HomePage = () => {
       <ServiceSection />
 
       {/* Completed Projects / Logo Scroll */}
-      <LogoScroll />
-
-      
-      <Testimonials />
+      {/*<LogoScroll />*/}
 
       {/* Partners logo moved below Testimonials */}
       <Partners_logo />
+      
+      <Testimonials />
+
+
 
       {/* Resources and Footprint sections */}
       <Resource />
-      <FootPrint />
+      {/*<FootPrint /> */}
 
       {/* ✅ Testimonials now come before Partners */}
-      <TestimonialsSection />
+      {/* <TestimonialsSection /> */}
     </div>
   );
 };

@@ -16,9 +16,9 @@ const cardData = [
   },
   {
     id : "p2",
-    title: "ESG Course Modules & TOT for MSME",
+    title: "ESG Module Development for MSMEs and Training of Trainers (ToT) Workshop",
     description:
-      "Develop course curriculum and organize Train the Trainer programs for RAMP Programme, a World Bank assisted project.",
+      ".",
     logo:
       "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901263/ESG_Course_Modules_TOT_for_MSME_fcduho.jpg",
   },

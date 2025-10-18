@@ -8,27 +8,32 @@ import { Link } from "react-router-dom";
 const data = [
   {
     title: "Sustainability Assessment & Reporting",
-    paragraph: "EHM provides comprehensive sustainability assessments to evaluate an organization's environmental, social and governance (ESG) performance. Our reporting solutions, customised Sustainability Dashboard help businesses ensure regulatory compliance, enhance transparency and align with global sustainability standards.",
+    paragraph: "Supporting ESG disclosure, performance tracking, and SDG-aligned sustainability reporting for organizations and HEIs",
     image: "/offering/img2.png"
   },
   {
     title: "Sustainable Environmental Management",
-    paragraph: "EHM provides sustainable environmental solutions to enhance resource efficiency, promote environmental stewardship and support sustainable practices across various sectors. Our approach integrates cutting-edge technologies and nature-based solutions (NBS) to ensure long-term environmental and economic benefits.",
+    paragraph: "EHM’s work in this domain spans nature-based wastewater treatment, ecosystem restoration, environmental audits, and sustainability monitoring",
     image: "/offering/4.png"
   },
   {
+    title: "Climate Impact & Sustainability Assessment",
+    paragraph: "Using AI and analytics to assess risks, model impacts, and guide adaptation strategies.",
+    image: "/offering/img4.png"
+  },
+  {
     title: "Geophysical Investigation",
-    paragraph: "EHM specialises in geophysical investigations for subsurface exploration, leveraging well established geophysical methods and state of the art instrumentation. Depending upon the specific requirement of projects and site conditions, we integrate various methods and industry standard tools to deliver accurate and data-driven insights.",
+    paragraph: "Conducting subsurface and hydrogeological surveys for resource mapping and environmental planning.",
     image: "/offering/img4.png"
   },
   {
     title: "Urban Planning & Management",
-    paragraph: "EHM provides strategic solutions to develop sustainable, resilient and well-planned urban spaces. With a data-driven, interdisciplinary approach. EHM helps cities, transition toward circular, resource-efficient and climate-resilient urban centers, aligning national urban development frameworks.",
+    paragraph: "Designing data-driven, inclusive, and climate-resilient urban systems through smart planning, water restoration, and sustainable infrastructure",
     image: "/offering/img3.png"
   },
   {
     title: "Training & Capacity Building",
-    paragraph: "EHM provides comprehensive training programs, workshops, hands-on sessions and webinars designed to enhance the skills and knowledge of industry professionals, government officials and municipal engineers. Our goal is to build capacity, increase awareness and integrate sustainability into operations through practical learning and innovative tools.",
+    paragraph: "Professional training on ESG, climate, AI, and geophysical applications.",
     image: "/offering/product5.png"
   }
 ];
@@ -43,84 +48,45 @@ const ServiceSection = () => {
     >
       <ScrollRevealElements
         className="text-center mb-12 py-8"
-        staggerAmount={0.5}
+        staggerAmount={0.6}
       >
         <SectionHeading>Offerings</SectionHeading>
       </ScrollRevealElements>
 
       <ScrollRevealElements
-        className="flex flex-wrap justify-center gap-4 max-w-[1400px] mx-auto"
+        className="flex flex-col justify-center items-center gap-8 w-full max-w-[1600px] mx-auto"
         staggerAmount={0.3}
       >
-        {data.map((item, index) => {
-          const isHovered = hoveredIndex === index;
-          const isOtherHovered = hoveredIndex !== null && hoveredIndex !== index;
+        {[0, 1].map((row) => (
+          <div
+            key={row}
+            className="grid grid-cols-3 gap-6 w-full"
+          >
+            {data.slice(row * 3, row * 3 + 3).map((item, index) => {
+              const actualIndex = row * 3 + index;
+              const isHovered = hoveredIndex === actualIndex;
 
-          return (
-            <motion.div
-              key={index}
-              className={`relative bg-cover bg-center rounded-2xl shadow-2xl overflow-hidden cursor-pointer h-80 transition-all duration-500 ease-in-out hover:shadow-3xl ${
-                isHovered ? "w-80" : isOtherHovered ? "w-48" : "w-56"
-              }`}
-              style={{ backgroundImage: `url(${item.image})` }}
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
-            >
-              <div
-                className={`absolute inset-0 transition-all duration-500 ease-in-out ${
-                  isHovered
-                    ? "bg-gradient-to-t from-black/80 via-black/50 to-transparent"
-                    : "bg-gradient-to-t from-black/70 via-black/20 to-transparent"
-                }`}
-              ></div>
-
-              <button className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm text-white rounded-full p-2 hover:bg-white/30 transition-all duration-300 z-10">
-                <svg
-                  className={`w-4 h-4 transition-transform duration-300 ${
-                    isHovered ? "rotate-[-90deg]" : ""
-                  }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+              return (
+                <motion.div
+                  key={actualIndex}
+                  className={`relative bg-cover bg-center rounded-2xl shadow-2xl overflow-hidden cursor-pointer h-80 transition-all duration-500 ease-in-out hover:shadow-3xl w-full`}
+                  style={{ backgroundImage: `url(${item.image})` }}
+                  onMouseEnter={() => setHoveredIndex(actualIndex)}
+                  onMouseLeave={() => setHoveredIndex(null)}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </button>
-
-              {/* Card content */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-white z-10">
-                <h2
-                  className={`font-bold text-white mb-2 transition-all duration-500 ${
-                    isHovered ? "text-2xl" : "text-lg"
-                  }`}
-                >
-                  {item.title}
-                </h2>
-                <p
-                  className={`text-sm text-gray-200 mb-4 transition-all duration-500 overflow-hidden ${
-                    isHovered
-                      ? "opacity-100 max-h-20"
-                      : "opacity-0 max-h-0"
-                  }`}
-                >
-                  {item.paragraph}
-                </p>
-                <Link to="/offerings">
-                  <button
-                    className={`bg-white text-gray-900 px-4 py-2 rounded-full flex items-center gap-2 font-medium hover:bg-gray-100 transition-all duration-300 ${
+                  <div
+                    className={`absolute inset-0 transition-all duration-500 ease-in-out ${
                       isHovered
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-90 translate-y-1"
+                        ? "bg-gradient-to-t from-black/80 via-black/50 to-transparent"
+                        : "bg-gradient-to-t from-black/70 via-black/20 to-transparent"
                     }`}
-                  >
-                    Explore
+                  ></div>
+
+                  <button className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm text-white rounded-full p-2 hover:bg-white/30 transition-all duration-300 z-10">
                     <svg
-                      className="w-4 h-4"
+                      className={`w-4 h-4 transition-transform duration-300 ${
+                        isHovered ? "rotate-[-90deg]" : ""
+                      }`}
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -133,11 +99,55 @@ const ServiceSection = () => {
                       />
                     </svg>
                   </button>
-                </Link>
-              </div>
-            </motion.div>
-          );
-        })}
+
+                  {/* Card content */}
+                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white z-10">
+                    <h2
+                      className={`font-bold text-white mb-2 transition-all duration-500 ${
+                        isHovered ? "text-2xl" : "text-lg"
+                      }`}
+                    >
+                      {item.title}
+                    </h2>
+                    <p
+                      className={`text-sm text-gray-200 mb-4 transition-all duration-500 overflow-hidden ${
+                        isHovered
+                          ? "opacity-100 max-h-20"
+                          : "opacity-0 max-h-0"
+                      }`}
+                    >
+                      {item.paragraph}
+                    </p>
+                    <Link to="/offerings">
+                      <button
+                        className={`bg-white text-gray-900 px-4 py-2 rounded-full flex items-center gap-2 font-medium hover:bg-gray-100 transition-all duration-300 ${
+                          isHovered
+                            ? "opacity-100 translate-y-0"
+                            : "opacity-90 translate-y-1"
+                        }`}
+                      >
+                        Explore
+                        <svg
+                          className="w-4 h-4"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M9 5l7 7-7 7"
+                          />
+                        </svg>
+                      </button>
+                    </Link>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        ))}
       </ScrollRevealElements>
     </div>
   );
