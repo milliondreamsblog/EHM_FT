@@ -5,6 +5,7 @@ import ProductCard from "../Components/Products/ProductCard";
 import product1 from "../assets/product1.png";
 import product2 from "../assets/product2.jpg";
 import product3 from "../assets/product3.png";
+import { TestimonialsSection } from "../Components/LandingPage/testimonials1";
 
 const products = [
   {
@@ -35,6 +36,7 @@ const ProductsPage = () => {
           <ProductCard key={index} {...product} />
         ))}
       </div>
+      <TestimonialsSection />
     </div>
   );
 };
