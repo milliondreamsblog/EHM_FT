@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 const Resource = () => {
   const sectionRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [debugInfo, setDebugInfo] = useState({});
 
   const resources = [
     {
@@ -45,52 +46,90 @@ const Resource = () => {
 
       const rect = section.getBoundingClientRect();
       const windowHeight = window.innerHeight;
+      const scrollY = window.pageYOffset || document.documentElement.scrollTop;
       
-      // Check if section is in view
-      if (rect.bottom < 0 || rect.top > windowHeight) return;
+      // Update debug info
+      setDebugInfo({
+        rectTop: Math.round(rect.top),
+        rectHeight: Math.round(rect.height),
+        windowHeight: windowHeight,
+        scrollY: Math.round(scrollY),
+      });
 
-      // Calculate how far we've scrolled into the section
-      const sectionHeight = rect.height;
-      const viewportOffset = -rect.top;
+      // Simple calculation: use the middle of viewport as trigger point
+      const viewportMiddle = windowHeight / 2;
+      const sectionStart = rect.top;
+      const sectionEnd = rect.bottom;
       
-      // Ensure we don't go below 0
-      const scrollProgress = Math.max(0, viewportOffset);
-      
-      // Calculate the scrollable area
-      const scrollableArea = sectionHeight - windowHeight;
-      
-      // Get progress as a percentage (0 to 1)
-      let progress = 0;
-      if (scrollableArea > 0) {
-        progress = Math.min(scrollProgress / scrollableArea, 1);
+      // Check if section is in view at all
+      if (sectionEnd < 0 || sectionStart > windowHeight) {
+        return;
       }
+
+      // Calculate distance scrolled into section
+      const scrolledIntoSection = windowHeight - sectionStart;
       
-      // Map progress to resource index
-      const segmentSize = 1 / resources.length;
-      let newIndex = Math.floor(progress / segmentSize);
+      // Total scrollable distance in section
+      const totalScrollable = rect.height;
       
-      // Clamp to valid range
-      newIndex = Math.max(0, Math.min(resources.length - 1, newIndex));
+      // Progress as percentage (0 to 1)
+      let progress = scrolledIntoSection / totalScrollable;
+      progress = Math.max(0, Math.min(1, progress));
       
-      setActiveIndex(newIndex);
+      // Determine index
+      const newIndex = Math.min(
+        Math.floor(progress * resources.length),
+        resources.length - 1
+      );
+      
+      if (newIndex !== activeIndex && newIndex >= 0) {
+        setActiveIndex(newIndex);
+      }
     };
 
-    // Use both scroll and resize events
+    // Try multiple scroll listeners
     window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleScroll, { passive: true });
+    document.addEventListener("scroll", handleScroll, { passive: true });
     
+    // Also try on potential parent containers
+    const checkParentScroll = () => {
+      let parent = sectionRef.current?.parentElement;
+      let attempts = 0;
+      while (parent && attempts < 5) {
+        parent.addEventListener("scroll", handleScroll, { passive: true });
+        parent = parent.parentElement;
+        attempts++;
+      }
+    };
+    checkParentScroll();
+
     // Initial call
-    handleScroll();
+    setTimeout(handleScroll, 100);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
+      document.removeEventListener("scroll", handleScroll);
     };
-  }, [resources.length]);
+  }, [activeIndex, resources.length]);
 
-  const scrollToIndex = (i) => {
-    setActiveIndex(i);
+  // Manual navigation
+  const goToSlide = (index) => {
+    setActiveIndex(index);
   };
+
+  // Auto-advance with arrow keys (for testing)
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "ArrowDown" || e.key === "ArrowRight") {
+        setActiveIndex((prev) => Math.min(prev + 1, resources.length - 1));
+      } else if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
+        setActiveIndex((prev) => Math.max(prev - 1, 0));
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [resources.length]);
 
   return (
     <section
@@ -141,27 +180,28 @@ const Resource = () => {
                     loading="lazy"
                   />
                   
-                  {/* Vertical indicator - aligned with image */}
-                  {activeIndex === idx && (
-                    <div className="absolute right-0 top-0 flex flex-col gap-2" style={{ height: '315px', justifyContent: 'space-between' }}>
-                      {resources.map((res, i) => (
-                        <button
-                          key={res.id}
-                          onClick={() => scrollToIndex(i)}
-                          className={`w-1.5 rounded-full transition-all duration-300 flex-1 ${
-                            activeIndex === i
-                              ? "bg-green-600 shadow-lg scale-110"
-                              : "bg-gray-300 hover:bg-gray-400"
-                          }`}
-                          aria-label={`Go to ${res.title}`}
-                        />
-                      ))}
-                    </div>
-                  )}
+                  {/* Vertical indicator */}
+                  <div className="absolute right-0 top-0 flex flex-col gap-2" style={{ height: '315px', justifyContent: 'space-between' }}>
+                    {resources.map((res, i) => (
+                      <button
+                        key={res.id}
+                        onClick={() => goToSlide(i)}
+                        className={`w-1.5 rounded-full transition-all duration-300 flex-1 ${
+                          activeIndex === i
+                            ? "bg-green-600 shadow-lg scale-110"
+                            : "bg-gray-300 hover:bg-gray-400"
+                        }`}
+                        aria-label={`Go to ${res.title}`}
+                        title={res.title}
+                      />
+                    ))}
+                  </div>
                 </div>
               </motion.div>
             ))}
           </div>
+
+
         </div>
       </div>
     </section>
