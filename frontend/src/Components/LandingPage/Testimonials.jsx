@@ -31,6 +31,22 @@ const cardData = [
     logo:
       "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901212/Electrical_Resistivity_Tomography_te2a4b.jpg",
   },
+      {
+    id : "p8",
+    title: "Sustainable Management Plan for Antia Waterbody, Jhansi",
+    description:
+      ".",
+    logo:
+      "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901266/Sustainable_Management_Plan_Antia_Taal_zctqbx.jpg",
+  },
+    {
+      id : "p10",
+    title: "AI-Driven Governance for Legislators Workshop at Vidhan Sabha, Lucknow",
+    description:
+      ".",
+    logo:
+      "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901226/Kanpur_Smart_City_Audit_r4memd.png",
+  },
     {
     id : "p18",
     title: "Environmental Audit of CSIR-NEERI Kolkata Zonal Centre West Bengal",
@@ -39,70 +55,7 @@ const cardData = [
     logo:
       "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901211/Environmental_Audit_oeafkp.jpg",
   },
-  {
-    id : "p10",
-    title: "Audit of Kanpur Smart City Projects",
-    description:
-      "Audit and quality check of various projects executed under smart city mission in Kanpur, starting from the DPR phase till the completion of the project.",
-    logo:
-      "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901226/Kanpur_Smart_City_Audit_r4memd.png",
-  },
-  {
-    id : "p11",
-    title: "Audit of Jhansi Smart City Projects",
-    description:
-      "Audit and quality check of various projects executed under smart city mission in Jhansi, starting from the DPR phase till the completion of the project.",
-    logo:
-      "https://placehold.co/600x400/FF6347/FFFFFF?text=Jhansi+Smart+City",
-  },
-  {
-    id : "p12",
-    title: "Restoration of Waterbody",
-    description: "Design and commissioning of bioremediation floating wetland.",
-    logo:
-      "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901253/Restoration_of_Waterbody_hrs3eq.jpg",
-  },
-  {
-    id : "p13",
-    title: "Social Impact Assessment",
-    description:
-      "Social impact assessment of various projects of tourism, water, health, sports, park category executed under smart city mission.",
-    logo:
-      "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901244/social_Impact_tybcom.jpg",
-  },
 
-  {
-    id : "p15",
-    title: "Designing Constructed Wetland",
-    description:
-      "Design of a 0.5 MLD STP based on decentralized nature based treatment technique.",
-    logo:
-      "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901211/Designing_Constructed_Wetland_ggm9s5.jpg",
-  },
-  {
-    id : "p16",
-    title: "Restoration of Adiyur lake, Tirupathur",
-    description:
-      "Restoration of lake by treating and reuse the adjacent drain carrying the graywater.",
-    logo:
-      "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901237/Restoration_of_Adiyur_lake_Tirupathur_mepq3b.jpg",
-  },
-  {
-    id : "p17",
-    title: "Grey Water Management",
-    description:
-      "Treatment of grey water generated inside the premises of the leather industry.",
-    logo:
-      "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901213/Grey_Water_Management_orkst3.jpg",
-  },
-  {
-    id : "p18",
-    title: "Environmental Audit",
-    description:
-      "Analyzing the Energy/water usage and waste generation of the building to optimize/reduce the operations as per the SDGs guidelines.",
-    logo:
-      "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901211/Environmental_Audit_oeafkp.jpg",
-  },
 ];
 
 const Testimonials = () => {
@@ -182,19 +135,18 @@ const Testimonials = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
 
-                    <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
+                    <div className="absolute bottom-0 left-0 right-0 p-5 text-white transform -translate-y-[10%]">
                       <h3 className="text-lg font-bold mb-2">{card.title}</h3>
                       <p className="text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 line-clamp-3">
                         {card.description}
                       </p>
-
-                      <Link
-                        to={`/projects#${card.id}`}
-                        className="absolute bottom-4 right-4 px-4 py-2 bg-white/20 hover:bg-white/30 text-white text-sm rounded-full backdrop-blur-sm shadow-md"
-                      >
-                        Explore →
-                      </Link>
-                    </div>  
+                    </div>
+                    <Link
+                      to={`/projects#${card.id}`}
+                      className="absolute bottom-4 right-4 px-4 py-2 bg-white/20 hover:bg-white/30 text-white text-sm rounded-full backdrop-blur-sm shadow-md"
+                    >
+                      Explore →
+                    </Link>
                   </div>
                 </motion.div>
               ))}

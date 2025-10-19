@@ -139,7 +139,7 @@ export default function Homepage() {
                 className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight mb-10"
                 style={{fontFamily: 'Inter'}}
               >
-                <span className='text-[#26438e]'>Sustainability </span>
+                <span className='text-[#fff8e1]'>Sustainability </span>
                 <br />
                 Through Eco-Centric
                 <br />
@@ -240,7 +240,7 @@ export default function Homepage() {
 
           {/* Trusted By Section */}
           <div className="mt-auto pt-12">
-            <p className="text-sm uppercase tracking-wider font-medium mb-8 opacity-90 text-[#26438e]">Trusted by {"   "} {"   "} 
+            <p className="text-sm uppercase tracking-wider font-medium mb-8 opacity-90 text-[#19a289]">Trusted by {"   "} {"   "} 
               <span className="text-3xl text-[#c39b17] font-medium tracking-wide opacity-85 hover:opacity-100 transition-opacity">
               <RotatingText />
               </span>

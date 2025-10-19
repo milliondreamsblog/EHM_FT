@@ -6,7 +6,7 @@ import Hero from '../Components/About/Hero'
 import ChooseUs from '../Components/About/ChooseUS'
 
 import WhoWeAre from '../Components/About/WhoWeAre'
-
+import Awards from '../Components/About/Awards'
 import { WhyChooseSection } from '../Components/WhyChooseUs/WhyChooseSection'
 import { Title } from '../Components/Title'
 import WhyChooseUs from '../Components/About/WhyChooseUs'
@@ -40,6 +40,8 @@ const About = () => {
 
 
       <Team title="Our Experts" members={experts} />
+
+      <Awards />
 
     </div>
   )
