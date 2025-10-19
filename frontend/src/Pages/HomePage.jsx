@@ -47,7 +47,7 @@ const HomePage = () => {
       {<FootPrint /> }
 
       {/* ✅ Testimonials now come before Partners */}
-      {/* <TestimonialsSection /> */}
+      
     </div>
   );
 };
