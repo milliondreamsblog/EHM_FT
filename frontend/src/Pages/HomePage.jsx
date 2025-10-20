@@ -43,7 +43,7 @@ const HomePage = () => {
 
       {/* Resources and Footprint sections */}
       <Resource />
-      {/*<FootPrint /> */}
+      {<FootPrint /> }
 
       {/* ✅ Testimonials now come before Partners */}
       {/* <TestimonialsSection /> */}

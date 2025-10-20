@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import ScrollRevealElements from "../Animations/ScrollRevealElements";
 import SectionHeading from "../../Common/SectionHeading";
 
+
 const cardData = [
 
   {
@@ -36,16 +37,14 @@ const cardData = [
     title: "Sustainable Management Plan for Antia Waterbody, Jhansi",
     description:
       ".",
-    logo:
-      "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901266/Sustainable_Management_Plan_Antia_Taal_zctqbx.jpg",
+    logo:"/Projects/img12.png",
   },
     {
       id : "p10",
     title: "AI-Driven Governance for Legislators Workshop at Vidhan Sabha, Lucknow",
     description:
       ".",
-    logo:
-      "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901226/Kanpur_Smart_City_Audit_r4memd.png",
+    logo:"/Projects/img11.jpg",
   },
     {
     id : "p18",

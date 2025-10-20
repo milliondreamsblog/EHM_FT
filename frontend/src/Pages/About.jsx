@@ -23,7 +23,7 @@ const About = () => {
       {<WhoWeAre />}
 
 
-      <WhyChooseSection title='Focus Area' />
+      {/*<WhyChooseSection title='Focus Area' />*/}
 
 
       {/* <WhyChooseUs /> */}
