@@ -14,19 +14,23 @@ const purposeData = [
     title: "Our Vision",
     description:
       "To be the most trusted and preferred partner for businesses seeking innovative and reliable IT solutions, empowering them to achieve their goals and thrive in the digital age.",
+    subtitle: "Our Mission",
+    subtitleDescription: "To deliver exceptional IT services and solutions through a customer-centric approach, fostering a culture of continuous improvement, and leveraging cutting-edge technology to drive business success.",
     lottieSrc: "/lottie-assets/vision-animation/animations/10e621af-4237-47b1-a332-563b013787cd.json",
   },
   {
     id: 2,
-    title: "Our Mission",
+    title: "Our Expertise",
     description:
-      "To deliver exceptional IT services and solutions through a customer-centric approach, fostering a culture of continuous improvement, and leveraging cutting-edge technology to drive business success.",
+      "Founded by IIT alumni, we excel in deep-tech across Climate Risk, Geophysical Exploration, and Water Management—empowering businesses with reliable IT solutions to thrive in the digital era.",
+    subtitle: "Our Philosophy",
+    subtitleDescription: "Our core mission is to achieve environmental sustainability through a dedicated eco-centric approach, providing practical solutions within the UN's SDG framework.",
     lottieSrc: "/lottie-assets/paper-airplane-animation/animations/975d33bb-bc2f-413a-bcdf-0ab3647629ca.json",
   },
 ];
 
 
-function PurposeCard({ lottieSrc, title, description }) {
+function PurposeCard({ lottieSrc, title, description, subtitle, subtitleDescription }) {
   return (
     <div className="purpose-card group relative overflow-hidden bg-white p-6 sm:p-8 lg:p-10 rounded-2xl shadow-lg border border-slate-200 flex flex-col items-center text-center transition-all duration-300 ease-in-out">
       {/* Background circles */}
@@ -46,9 +50,21 @@ function PurposeCard({ lottieSrc, title, description }) {
         <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 mt-4 mb-3 text-white transition-colors duration-200">
           {title}
         </h2>
-        <p className="text-sm sm:text-base md:text-lg text-slate-600 leading-relaxed text-white transition-colors duration-200">
+        <p className="text-sm sm:text-base md:text-lg text-slate-600 leading-relaxed text-white transition-colors duration-200 mb-3">
           {description}
         </p>
+        
+        {/* Additional subtitle and description */}
+        {subtitle && (
+          <>
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 mb-3 text-white transition-colors duration-200">
+              {subtitle}
+            </h2>
+            <p className="text-sm sm:text-base md:text-lg text-slate-600 leading-relaxed text-white transition-colors duration-200">
+              {subtitleDescription}
+            </p>
+          </>
+        )}
       </div>
     </div>
   );
@@ -111,16 +127,13 @@ export default function WhoWeAre() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12 lg:mb-16 -translate-y-8 sm:-translate-y-12 md:-translate-y-16">
-          <div className="intro-title">
+          {/* <div className="intro-title">
             <SectionHeader title="Who We Are" subtitle="" />
-          </div>
-          <p className="intro-p max-w-4xl mx-auto text-base sm:text-lg md:text-xl text-slate-600 leading-relaxed mt-4">
-            EHM is a sustainability and deep tech startup founded by IIT alumni,
-            offering services and solutions aligned with the Sustainable
-            Development Goals (SDGs). We assist industries, government
-            organizations and HEI’s in enhancing their ESG practices, meeting
-            regulatory requirements, managing climate risks, and implementing
-            sustainability strategies.
+          </div> */}
+          <p className="intro-p max-w-4xl mx-auto text-base sm:text-lg md:text-xl text-slate-600 leading-relaxed mt-4 text-left">
+            <span className="font-semibold text-slate-800">EHM</span> is a <span className="font-semibold text-emerald-600">sustainability and deep tech startup</span> founded by <span className="font-semibold text-blue-600">IIT alumni</span>,<br />
+            offering services and solutions aligned with the <span className="font-semibold text-emerald-600">Sustainable Development Goals (SDGs)</span>. We assist <span className="font-semibold text-slate-800">industries</span>, <span className="font-semibold text-slate-800">government organizations</span> and <span className="font-semibold text-slate-800">HEI's</span> in enhancing their <span className="font-semibold text-emerald-600">ESG practices</span>, meeting<br />
+            regulatory requirements, managing climate Risks and implementing <span className="font-semibold text-emerald-600">sustainability strategies</span>.
           </p>
         </div>
 
@@ -132,6 +145,8 @@ export default function WhoWeAre() {
               lottieSrc={card.lottieSrc}
               title={card.title}
               description={card.description}
+              subtitle={card.subtitle}
+              subtitleDescription={card.subtitleDescription}
             />
           ))}
         </div>

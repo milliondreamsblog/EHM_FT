@@ -27,7 +27,7 @@ const About = () => {
 
 
       {/* <WhyChooseUs /> */}
-      <Mission />
+      {/* <Mission /> */}
 
 
       <CertifiedLogo />

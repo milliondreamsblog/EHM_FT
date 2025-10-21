@@ -12,9 +12,9 @@ const PartnersLogo = () => {
   return (
     <section className="relative w-full py-16 overflow-hidden">
       {/* Layered gradients in background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-teal-100 to-white pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-teal-200/70 to-white/95 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-br from-teal-100/60 via-teal-200/40 to-teal-100/60 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-teal-50 to-white pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-teal-100/70 to-white/95 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-teal-50/60 via-teal-100/40 to-teal-50/60 pointer-events-none" />
 
       {/* Top & bottom fade overlays */}
       <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white via-white/95 to-transparent z-10 pointer-events-none" />
