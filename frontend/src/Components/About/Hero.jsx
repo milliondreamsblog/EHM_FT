@@ -9,7 +9,7 @@ export default function Hero() {
   const slides = [
     {
       id: 1,
-      number: '01 / 04',
+      number: '',
       title: 'Water Positive Systems',
       description: 'Developing strategies and solutions that optimize water use, promote reuse, and restore natural water balance.',
       image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1920&q=80',
@@ -17,7 +17,7 @@ export default function Hero() {
     },
     {
       id: 2,
-      number: '02 / 04',
+      number: '',
       title: 'Sustainability & ESG',
       description: 'Advising organizations on ESG integration, reporting, and sustainable transformation aligned with global frameworks.',
       image: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=1920&q=80',
@@ -25,7 +25,7 @@ export default function Hero() {
     },
     {
       id: 3,
-      number: '03 / 04',
+      number: '',
       title: 'Geophysical Exploration',
       description: 'Applying advanced geophysical methods to assess subsurface conditions for environmental and infrastructure planning.',
       image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1920&q=80',
@@ -33,7 +33,7 @@ export default function Hero() {
     },
     {
       id: 4,
-      number: '04 / 04',
+      number: '',
       title: 'Climate Risk',
       description: 'Assessing and mitigating climate-related risks through data analytics, AI, and adaptive resilience planning.',
       image: 'https://images.unsplash.com/photo-1534629938736-b1b076531d3b?w=1920&q=80',
@@ -42,10 +42,10 @@ export default function Hero() {
   ];
 
   const navItems = [
-    { number: '01 / 04', title: 'Water Positive Systems' },
-    { number: '02 / 04', title: 'Sustainability & ESG' },
-    { number: '03 / 04', title: 'Geophysical Exploration' },
-    { number: '04 / 04', title: 'Climate Risk' }
+    { number: '', title: 'Water Positive Systems' },
+    { number: '', title: 'Sustainability & ESG' },
+    { number: '', title: 'Geophysical Exploration' },
+    { number: '', title: 'Climate Risk' }
   ];
 
   useEffect(() => {

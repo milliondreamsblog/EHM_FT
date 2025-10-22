@@ -1,16 +1,10 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { MapPin, ChevronDown, ChevronUp, ExternalLink, Share2, Bookmark, Eye, Award, Target, Zap, Users, Calendar } from 'lucide-react';
 import Logo from "../Components/LandingPage/Logo";
-import { useEffect ,useRef } from "react";
 import { useLocation } from "react-router-dom";
-// ProjectsPage.jsx
 
-
-
-
-
-
-// To resolve the persistent import errors, all necessary data and components have been consolidated into this single file.
+// ProjectsPage.jsx - Complete Implementation
+// All data, components, and logic consolidated in this file
 
 // 1. DATA SECTION (Contains all 18 projects)
 // =============================================================================
@@ -62,7 +56,68 @@ const filterOptions = [
 ];
 
 
-// 2. REUSABLE CARD COMPONENT (formerly ProjectShow.jsx)
+// 2. ANIMATED COUNTER COMPONENT
+// =============================================================================
+
+const AnimatedCounter = ({ end, duration = 2000, suffix = "" }) => {
+  const [count, setCount] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const counterRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
+          
+          const endValue = parseInt(end);
+          const startTime = Date.now();
+          
+          const animate = () => {
+            const now = Date.now();
+            const progress = Math.min((now - startTime) / duration, 1);
+            
+            // Easing function for smooth animation
+            const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+            const current = Math.floor(easeOutQuart * endValue);
+            
+            setCount(current);
+            
+            if (progress < 1) {
+              requestAnimationFrame(animate);
+            } else {
+              // Ensure we hit the exact end value
+              setCount(endValue);
+            }
+          };
+          
+          requestAnimationFrame(animate);
+        }
+      },
+      { threshold: 0.1, rootMargin: '50px' }
+    );
+
+    if (counterRef.current) {
+      observer.observe(counterRef.current);
+    }
+
+    const currentRef = counterRef.current;
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, [end, duration, hasAnimated]);
+
+  return (
+    <span ref={counterRef}>
+      {count}{suffix}
+    </span>
+  );
+};
+
+
+// 3. PROJECT CARD COMPONENT
 // =============================================================================
 
 const ProjectCard = ({
@@ -101,20 +156,18 @@ const ProjectCard = ({
     document.body.removeChild(dummyInput);
     console.log('Link copied to clipboard!');
   };
-    const locationcard = useLocation();
 
-      useEffect(() => {
-        // If there's a hash in the URL, scroll to that element
-        if (locationcard.hash) {
-          const id = locationcard.hash.replace("#", "");
-          const el = document.getElementById(id);
-          if (el) {
-            el.scrollIntoView({ behavior: "smooth", block: "start" });
-          }
-        }
-      }, [locationcard]);
+  const locationcard = useLocation();
 
-      
+  useEffect(() => {
+    if (locationcard.hash) {
+      const id = locationcard.hash.replace("#", "");
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  }, [locationcard]);
 
   return (
     <div
@@ -208,7 +261,8 @@ const ProjectCard = ({
   );
 };
 
-// 3. MAIN PAGE COMPONENT
+
+// 4. MAIN PAGE COMPONENT
 // =============================================================================
 
 const ProjectsPage = () => {
@@ -228,36 +282,32 @@ const ProjectsPage = () => {
   };
 
   const stats = [
-    { number: "25+", label: "Projects Completed", icon: Award },
-    { number: "15+", label: "Happy Clients", icon: Users },
-    { number: "4+", label: "Years Experience", icon: Calendar },
-    { number: "99%", label: "Success Rate", icon: Target }
+    { number: "25", suffix: "+", label: "Projects Completed", icon: Award },
+    { number: "15", suffix: "+", label: "Happy Clients", icon: Users },
+    { number: "4", suffix: "+", label: "Years Experience", icon: Calendar },
+    { number: "99", suffix: "%", label: "Success Rate", icon: Target }
   ];
 
   const locationcard2 = useLocation();
-      const cardRefs2 = useRef({});
+  const cardRefs2 = useRef({});
 
-      useEffect(() => {
-        const hash = locationcard2.hash?.slice(1); // e.g. "p1"
-        if (hash && cardRefs2.current[hash]) {
-          const el = cardRefs2.current[hash];
-          // Scroll into view with a little offset if you have a fixed header
-          const yOffset = -250; // adjust this (header height, etc.)
-          const y =
-            el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-          window.scrollTo({ top: y, behavior: "smooth" });
+  useEffect(() => {
+    const hash = locationcard2.hash?.slice(1);
+    if (hash && cardRefs2.current[hash]) {
+      const el = cardRefs2.current[hash];
+      const yOffset = -250;
+      const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
 
-          // Add “highlight” class (Tailwind) to the element
-          el.classList.add("highlighted-card");
+      el.classList.add("highlighted-card");
 
-          // Optionally remove the highlight after some time
-          const timeout = setTimeout(() => {
-            el.classList.remove("highlighted-card");
-          }, 4000);
+      const timeout = setTimeout(() => {
+        el.classList.remove("highlighted-card");
+      }, 4000);
 
-          return () => clearTimeout(timeout);
-        }
-      }, [locationcard2.hash, sampleProjects]);
+      return () => clearTimeout(timeout);
+    }
+  }, [locationcard2.hash]);
 
   return (
     <div className="min-h-screen font-sans relative overflow-x-hidden bg-gradient-to-br from-gray-50 via-white to-teal-50/30">
@@ -270,81 +320,87 @@ const ProjectsPage = () => {
         .projects-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(1, minmax(0, 1fr)); }
         @media (min-width: 768px) { .projects-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
         @media (min-width: 1280px) { .projects-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+        .highlighted-card { box-shadow: 0 0 30px rgba(20, 184, 166, 0.6); animation: pulse 2s ease-in-out; }
+        @keyframes pulse { 0%, 100% { box-shadow: 0 0 30px rgba(20, 184, 166, 0.6); } 50% { box-shadow: 0 0 50px rgba(20, 184, 166, 0.9); } }
       `}</style>
       
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-white/90 via-teal-50/80 to-blue-50/70"></div>
       </div>
+      
       <main className="relative z-10 py-16">
-        <header className="text-center mb-4 py-12">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-teal-600 via-emerald-600 to-green-600 bg-clip-text text-transparent">
-            Projects
-          </h1>
-          <div className="w-32 h-1 bg-gradient-to-r from-teal-400 to-emerald-500 rounded-full mx-auto mt-6"></div>
-        </header>
-        <section className="max-w-7xl mx-auto px-4 mb-12">
-            <section className="max-w-6xl mx-auto px-4 mb-16">
-            <div className="relative">
-              <div className="absolute inset-0 bg-white/20 backdrop-blur-sm rounded-3xl"></div>
-              <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 p-6">
-                {stats.map(({ number, label, icon: Icon }, index) => (
-                  <div key={index} className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center group">
-                    <Icon className="w-8 h-8 text-teal-600 mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
-                    <div className="text-3xl font-bold text-teal-600 mb-1">{number}</div>
-                    <div className="text-sm text-gray-600 font-medium">{label}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-        </section>
-          <div className="flex flex-wrap justify-center gap-3">
+        <section className="max-w-7xl mx-auto px-4 mb-12 mt-12">
+          {/* Filter Buttons at Top */}
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
             {filterOptions.map((filter) => (
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
-                className={`px-5 py-2.5 rounded-full font-semibold transition-all duration-300 hover:scale-105 shadow-lg backdrop-blur-sm text-sm ${activeFilter === filter
-                  ? 'bg-teal-600 text-white hover:bg-teal-700'
-                  : 'bg-white/90 text-gray-700 hover:bg-teal-50 hover:text-teal-700 border border-gray-200'
+                className={`px-5 py-2.5 rounded-full font-semibold transition-all duration-300 hover:scale-105 shadow-lg backdrop-blur-sm text-sm ${
+                  activeFilter === filter
+                    ? 'bg-teal-600 text-white hover:bg-teal-700'
+                    : 'bg-white/90 text-gray-700 hover:bg-teal-50 hover:text-teal-700 border border-gray-200'
                 }`}
               >
                 {filter}
               </button>
             ))}
           </div>
-        </section>
-        <section className="max-w-7xl mx-auto px-4 mb-20">
-        <div className="projects-grid">
-          {filteredProjects.map((project, index) => (
-            <div
-              key={project.id}
-
-              id={project.id}
-              tabIndex={-1}  // so this element can be focused
-              ref={(el) => {
-                cardRefs2.current[project.id] = el;
-              }}
-
-              className="project-card-wrapper transition-shadow duration-300"
-            >
-              <ProjectCard
-                {...project}
-                className="animate-fadeInUp"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              />
+          
+          {/* Stats Section with Animated Counters */}
+          <section className="max-w-6xl mx-auto px-4 mb-16">
+            <div className="relative">
+              <div className="absolute inset-0 bg-white/20 backdrop-blur-sm rounded-3xl"></div>
+              <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 p-6">
+                {stats.map(({ number, suffix, label, icon: Icon }, index) => (
+                  <div key={index} className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center group">
+                    <Icon className="w-8 h-8 text-teal-600 mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
+                    <div className="text-3xl font-bold text-teal-600 mb-1">
+                      <AnimatedCounter end={number} suffix={suffix} />
+                    </div>
+                    <div className="text-sm text-gray-600 font-medium">{label}</div>
+                  </div>
+                ))}
+              </div>
             </div>
-          ))}
-        </div>
-      </section>
+          </section>
+        </section>
         
+        {/* Projects Grid */}
+        <section className="max-w-7xl mx-auto px-4 mb-20">
+          <div className="projects-grid">
+            {filteredProjects.map((project, index) => (
+              <div
+                key={project.id}
+                id={project.id}
+                tabIndex={-1}
+                ref={(el) => {
+                  cardRefs2.current[project.id] = el;
+                }}
+                className="project-card-wrapper transition-shadow duration-300"
+              >
+                <ProjectCard
+                  {...project}
+                  className="animate-fadeInUp"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                  onClick={() => showMessage(`Opening ${project.title}...`)}
+                />
+              </div>
+            ))}
+          </div>
+        </section>
       </main>
+      
+      {/* Toast Message */}
       {message && (
         <div className="fixed bottom-5 left-1/2 -translate-x-1/2 bg-gray-800 text-white px-6 py-3 rounded-lg shadow-lg z-50 animate-fadeIn">
           {message}
         </div>
       )}
+
+      
     </div>
   );
 };
 
 export default ProjectsPage;
-
