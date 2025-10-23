@@ -163,17 +163,17 @@ export default function Hero() {
         </button>
 
         {/* Static Heading */}
-<div 
-  className="absolute left-1/2 -translate-x-1/2 pointer-events-none z-10" 
-  style={{ top: '25%' }}
->
-  <h2 
-    className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide text-teal-500 drop-shadow-lg"
-    style={{ textShadow: '0 2px 6px rgba(0,0,0,0.5)' }}
-  >
-    Our Focus Area
-  </h2>
-</div>
+        <div 
+          className="absolute left-1/2 -translate-x-1/2 pointer-events-none z-10" 
+          style={{ top: '25%' }}
+        >
+          <h2 
+            className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide text-teal-500 drop-shadow-lg"
+            style={{ textShadow: '0 2px 6px rgba(0,0,0,0.5)' }}
+          >
+            Our Focus Area
+          </h2>
+        </div>
 
 
         <button
