@@ -4,6 +4,8 @@ import RiskAssessment from "../Components/Risk Assessment/RiskAssessment";
 import RiskQuestionnaire from "../Components/Risk Assessment/RiskQuestionnaire";
 import HelpSection from "../Components/HelpSection";
 import WaterbodyRestoration from "../Components/WaterbodyRestoration";
+import EhmOffering from "../Components/OfferingsHeroSection/Offerings_writeup";
+import Offerings_ShowAll from "../Components/OfferingsHeroSection/Offerings_ShowAll";
 
 // Lazy load components with React.lazy for better performance
 const OfferingsHero = lazy(() => import("../Components/OfferingsHeroSection/OfferingsHero"));
@@ -50,6 +52,8 @@ const ServicePage = () => {
             <Suspense fallback={<LoadingSpinner />}>
                 <OfferingsHero />
                 <div className="bg-gradient-to-br from-green-50 to-teal-50">
+                    <EhmOffering/>
+                    <Offerings_ShowAll/>
                     <ServicesSection/>
                     <RiskAssessment/>
                     <RiskQuestionnaire/>
