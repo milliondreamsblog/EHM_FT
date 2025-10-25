@@ -54,7 +54,7 @@ const ServicePage = () => {
                 <div className="bg-gradient-to-br from-green-50 to-teal-50">
                     <EhmOffering/>
                     <Offerings_ShowAll/>
-                    <ServicesSection/>
+                   {/* <ServicesSection/>
                     <RiskAssessment/>
                     <RiskQuestionnaire/>
                     <Suspense fallback={null}>
@@ -62,7 +62,7 @@ const ServicePage = () => {
                         <OfferingAssesment/>
                     </Suspense>
                     <HelpSection/>
-                    <WaterbodyRestoration />
+                    <WaterbodyRestoration />*/}
                 </div>
             </Suspense>
         </div>
