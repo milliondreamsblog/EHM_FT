@@ -49,7 +49,7 @@ const offeringsMenu = [
     items: [
       {
         name: "Sustainability Assessment & Reporting",
-        path: "/offerings",
+        path: "/offerings/sustainability-assessment-reporting",
         icon: FileText,
       },
       { name: "Environmental Management", path: "/offerings", icon: Leaf },

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Leaf, Building2, CloudRain, Radio, Map, GraduationCap, ArrowRight, Sparkles } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
 
 const OfferingsSection = () => {
   const [hoveredCard, setHoveredCard] = useState(null);
+  const navigate = useNavigate();
 
   const offerings = [
     {
@@ -102,31 +104,39 @@ const OfferingsSection = () => {
                 {/* Card */}
                 <div className="relative h-full bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-slate-100 overflow-hidden">
                   {/* Gradient Overlay on Hover */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${offering.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
+                  <div className={`absolute inset-0 bg-gradient-to-br ${offering.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500 pointer-events-none`}></div>
                   
                   {/* Icon Container */}
-                  <div className="relative mb-6">
+                  <div className="relative mb-6 z-10">
                     <div className={`inline-flex p-4 rounded-2xl ${offering.bgAccent} group-hover:scale-110 transition-transform duration-500`}>
                       <Icon className={`w-8 h-8 ${offering.iconColor}`} />
                     </div>
                     {/* Animated Corner Accent */}
-                    <div className={`absolute -top-2 -right-2 w-20 h-20 bg-gradient-to-br ${offering.color} rounded-full opacity-0 group-hover:opacity-10 blur-2xl transition-opacity duration-500`}></div>
+                    <div className={`absolute -top-2 -right-2 w-20 h-20 bg-gradient-to-br ${offering.color} rounded-full opacity-0 group-hover:opacity-10 blur-2xl transition-opacity duration-500 pointer-events-none`}></div>
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-slate-900 group-hover:to-slate-600 transition-all duration-300">
-                    {offering.title}
-                  </h3>
-                  <p className="text-slate-600 leading-relaxed mb-6">
-                    {offering.description}
-                  </p>
+                  <div className="relative z-10">
+                    <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-slate-900 group-hover:to-slate-600 transition-all duration-300">
+                      {offering.title}
+                    </h3>
+                    <p className="text-slate-600 leading-relaxed mb-6">
+                      {offering.description}
+                    </p>
+                  </div>
 
                   {/* Learn More Link */}
-                  <div className="flex items-center gap-2 text-sm font-semibold group/link">
-                    <span className={`${offering.iconColor} group-hover/link:translate-x-1 transition-transform duration-300`}>
-                      Explore Service
-                    </span>
-                    <ArrowRight className={`w-4 h-4 ${offering.iconColor} group-hover/link:translate-x-2 transition-transform duration-300`} />
+                  <div className="relative z-20">
+                    <Link 
+                      to={`/offerings/${offering.title.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-')}`} 
+                      className="flex items-center gap-2 text-sm font-semibold group/link relative z-20"
+                      style={{ position: 'relative', zIndex: 20 }}
+                    >
+                      <span className={`${offering.iconColor} group-hover/link:translate-x-1 transition-transform duration-300`}>
+                        Explore Service
+                      </span>
+                      <ArrowRight className={`w-4 h-4 ${offering.iconColor} group-hover/link:translate-x-2 transition-transform duration-300`} />
+                    </Link>
                   </div>
 
                   {/* Bottom Accent Line */}
@@ -144,7 +154,10 @@ const OfferingsSection = () => {
               <h3 className="text-2xl font-bold text-white mb-2">Ready to transform your sustainability journey?</h3>
               <p className="text-slate-300">Let's collaborate to create lasting environmental and social impact.</p>
             </div>
-            <button className="whitespace-nowrap px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-semibold rounded-full hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center gap-2">
+            <button 
+              onClick={() => navigate('/contact')}
+              className="whitespace-nowrap px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-semibold rounded-full hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center gap-2"
+            >
               Get Started
               <ArrowRight className="w-5 h-5" />
             </button>

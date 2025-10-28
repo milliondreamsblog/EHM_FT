@@ -207,7 +207,8 @@ const FootPrint = () => {
         project={selectedProject}
       />
 
-      {/* Know More Button */}
+      {/* Know More Button - Commented out as per request */}
+      {/* 
       <div className="know-more-button-container opacity-100 transform translate-y-2 py-4 sm:translate-y-4 transition-all duration-300">
         <KnowMoreButton
           onClick={(e) => {
@@ -219,6 +220,7 @@ const FootPrint = () => {
           Gallery
         </KnowMoreButton>
       </div>
+      */}
     </div>
   );
 };

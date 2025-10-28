@@ -34,7 +34,7 @@ import CaseStudyPage from './Pages/CaseStudyPage.jsx';
 import WebinarPage from './Pages/WebinarPage.jsx';
 import WebinarDetails from './Components/Webinar/WebinarDetails.jsx';
 import WaterbodyRestoration from './Pages/WaterbodyRestoration.jsx';
-
+import SustainabilityAssessment from './Pages/SustainabilityAssessment&Reporting.jsx';
 
 
 
@@ -71,6 +71,7 @@ function App() {
           <Route path="/resources/blogs" element={<BlogsPage />} />
           <Route path="/resources/casestudies" element={<CaseStudyPage />} />
           <Route path="/resources/WaterbodyRestoration" element={<WaterbodyRestoration />} />
+          <Route path="/offerings/sustainability-assessment-reporting" element={<SustainabilityAssessment />} />
 
           <Route
             path="/blogs/:id"

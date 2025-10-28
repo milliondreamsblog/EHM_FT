@@ -43,14 +43,14 @@ const awardsData = [
       .replace(/\s+/g, ' ').trim(),
     icon: '🎤',
   },
-  {
+  /*{
     id: 6,
     title: 'Expert Talk at NSUT (Netaji Subhas University of Technology)',
     date: '2023-10',
     description: 'Delivered a guest lecture on sustainability innovation and climate-tech entrepreneurship to architecture and planning students.'
       .replace(/\s+/g, ' ').trim(),
     icon: '📚',
-  },
+  },*/
   {
     id: 7,
     title: 'Member Company – Technopark, IIT Kanpur',

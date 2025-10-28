@@ -156,7 +156,7 @@ export default function Hero() {
         {/* Arrow Navigation */}
         <button
           onClick={previousSlide}
-          className="absolute left-3 md:left-5 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-white/10 backdrop-blur-md border border-white/20 text-white text-xl md:text-2xl rounded-full transition-all duration-300 hover:bg-white/20 hover:scale-110 z-50 cursor-pointer"
+          className="absolute left-3 md:left-5 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-white/10 backdrop-blur-md border border-white/20 text-white text-xl md:text-2xl rounded-full transition-all duration-300 hover:bg-white/20 hover:scale-110 z-30 cursor-pointer"
           aria-label="Previous slide"
         >
           ‹
@@ -178,14 +178,14 @@ export default function Hero() {
 
         <button
           onClick={nextSlide}
-          className="absolute right-3 md:right-5 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-white/10 backdrop-blur-md border border-white/20 text-white text-xl md:text-2xl rounded-full transition-all duration-300 hover:bg-white/20 hover:scale-110 z-50 cursor-pointer"
+          className="absolute right-3 md:right-5 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-white/10 backdrop-blur-md border border-white/20 text-white text-xl md:text-2xl rounded-full transition-all duration-300 hover:bg-white/20 hover:scale-110 z-30 cursor-pointer"
           aria-label="Next slide"
         >
           ›
         </button>
 
         {/* Bottom Navigation */}
-        <div className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 md:left-[8%] md:translate-x-0 flex flex-wrap gap-3 md:gap-5 z-50 max-w-[90%] md:max-w-[80%] justify-center md:justify-start">
+        <div className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 md:left-[8%] md:translate-x-0 flex flex-wrap gap-3 md:gap-5 z-20 max-w-[90%] md:max-w-[80%] justify-center md:justify-start">
           {navItems.map((item, index) => (
             <button
               key={index}
