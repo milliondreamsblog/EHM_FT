@@ -64,7 +64,8 @@ const SubscriptionPlans = () => {
     navigate('/contact', { state: { selectedPlan: planName } });
   };
   return (
-    <section className="relative py-24 px-6 bg-gradient-to-br from-slate-50 via-white to-slate-100 overflow-hidden">
+    <section className="relative py-24 px-6 overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/40 via-blue-50/30 via-violet-50/30 via-pink-50/20 to-amber-50/30" />
       <SectionHeading>
         <span className="block">Choose a Plan That Fits</span>
         <span className="bg-gradient-to-r from-emerald-600 via-blue-600 to-violet-600 bg-clip-text text-transparent">

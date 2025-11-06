@@ -89,7 +89,7 @@ const EhmBrief = () => {
             >
               <img
                 className="w-full h-full object-cover rounded-2xl shadow-lg"
-                src="https://res.cloudinary.com/dlpluej6w/image/upload/v1756388167/Screenshot_1st_u2ghdl.png"
+                src='/offering/SR.png'
                 alt="Aerial view of green terrace farms"
               />
             </motion.div>

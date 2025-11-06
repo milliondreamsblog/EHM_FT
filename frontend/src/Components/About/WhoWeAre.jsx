@@ -14,18 +14,20 @@ const purposeData = [
     title: "Our Vision",
     description:
       "To be the most trusted and preferred partner for businesses seeking innovative and reliable IT solutions, empowering them to achieve their goals and thrive in the digital age.",
-    subtitle: "Our Mission",
+    /*subtitle: "Our Mission",
     subtitleDescription: "To deliver exceptional IT services and solutions through a customer-centric approach, fostering a culture of continuous improvement, and leveraging cutting-edge technology to drive business success.",
-    lottieSrc: "/lottie-assets/vision-animation/animations/10e621af-4237-47b1-a332-563b013787cd.json",
+    */
+   lottieSrc: "/lottie-assets/vision-animation/animations/10e621af-4237-47b1-a332-563b013787cd.json",
   },
   {
     id: 2,
-    title: "Our Expertise",
+    title: "Our Mission",
     description:
-      "Founded by IIT alumni, we excel in deep-tech across Climate Risk, Geophysical Exploration, and Water Management—empowering businesses with reliable IT solutions to thrive in the digital era.",
-    subtitle: "Our Philosophy",
+      "To deliver exceptional IT services and solutions through a customer-centric approach, fostering a culture of continuous improvement, and leveraging cutting-edge technology to drive business success.",
+    /*subtitle: "Our Philosophy",
     subtitleDescription: "Our core mission is to achieve environmental sustainability through a dedicated eco-centric approach, providing practical solutions within the UN's SDG framework.",
-    lottieSrc: "/lottie-assets/paper-airplane-animation/animations/975d33bb-bc2f-413a-bcdf-0ab3647629ca.json",
+    */
+   lottieSrc: "/lottie-assets/paper-airplane-animation/animations/975d33bb-bc2f-413a-bcdf-0ab3647629ca.json",
   },
 ];
 

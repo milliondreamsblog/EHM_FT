@@ -63,7 +63,7 @@ const offeringsMenu = [
         path: "/offerings",
         icon: Building2,
       },
-      { name: "Geophysical Investigation", path: "/offerings", icon: Globe },
+      { name: "Geophysical Investigation", path: "/offerings/geophysical-investigation", icon: Globe },
     ],
   },
   {

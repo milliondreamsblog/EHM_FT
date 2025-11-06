@@ -18,11 +18,12 @@ import NewsLetter from "../Components/LandingPage/NewsLetter";
 import Feature from "../Components/LandingPage/Feature";
 import LatestBlogSection from "../Components/LandingPage/LatestBlogSection";
 import HeroSection2 from '../Components/LandingPage/HeroSection2';
-
+import Hero from '../Components/About/Hero'
 const HomePage = () => {
   return (
     <div className="min-h-screen bg-[#ededed]">
       <HeroSection2 />
+      {/*<Hero/>*/}  
       {/* <HeroSection /> */}
 
       {/* About EHM */}

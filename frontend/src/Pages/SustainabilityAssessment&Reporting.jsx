@@ -4,6 +4,7 @@ import DashBoardBrief from '../Components/SustainabilityAssessment/DashBoardBrie
 import DashboardFeatures from '../Components/SustainabilityAssessment/DashboardFeatures'
 import ImplementationPlanSection from '../Components/SustainabilityAssessment/ImplementationPlanSection'
 import SubscriptionPlans from '../Components/SustainabilityAssessment/SubscriptionPlans'
+import FeatureProject from '../Components/SustainabilityAssessment/FeatureProject'
 
 
 const SustainabilityAssessment = () => {
@@ -14,7 +15,7 @@ const SustainabilityAssessment = () => {
       <DashboardFeatures/>
       <ImplementationPlanSection/>  
       <SubscriptionPlans/>  
-
+      <FeatureProject/>
     </div>
   )
 }

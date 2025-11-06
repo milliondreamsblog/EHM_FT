@@ -3,6 +3,8 @@ import Team from '../Components/LandingPage/Team'
 
 import { members, advisors, experts } from '../Data/Data'
 import Hero from '../Components/About/Hero'
+import HeroNew from '../Components/About/Hero_1stNov'
+import HeroSection2 from '../Components/LandingPage/HeroSection2';
 import ChooseUs from '../Components/About/ChooseUS'
 
 import WhoWeAre from '../Components/About/WhoWeAre'
@@ -17,7 +19,9 @@ import Mission from '../Components/About/Mission'
 const About = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 ">
-      <Hero />
+      <HeroNew/>
+      {/*<Hero />*/}
+      {/*<HeroSection2 /> */}
 
 
       {<WhoWeAre />}
@@ -26,7 +30,7 @@ const About = () => {
       {/*<WhyChooseSection title='Focus Area' />*/}
 
 
-      {/* <WhyChooseUs /> */}
+      { <WhyChooseUs /> }
       {/* <Mission /> */}
 
 
