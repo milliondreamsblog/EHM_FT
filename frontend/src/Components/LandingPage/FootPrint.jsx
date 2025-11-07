@@ -14,6 +14,67 @@ import ProjectModal from "./ProjectModal";
 import "./FootPrint.css";
 import { useNavigate } from "react-router-dom";
 
+const data = [
+    { image: "/Demo/31th1.JPG" },
+    { image: "/Demo/31th2.JPG" },
+    { image: "/Demo/31th3.jpeg" },
+    { image: "/Demo/31th4.JPG" },
+    { image: "/Demo/31th5.jpeg" },
+    { image: "/Demo/31th6.JPG" },
+    { image: "/Demo/31th7.jpeg" },
+    { image: "/Demo/31th8.jpeg" },
+    { image: "/Demo/31th9.jpeg" },
+    { image: "/Demo/31th9.jpg" },
+    { image: "/Demo/31th10.jpeg" },
+    { image: "/Demo/31th11.JPG" },
+    { image: "/Demo/31th12.JPG" },
+    { image: "/Demo/31th13.JPG" },
+    { image: "/Demo/31th14.jpeg" },
+    { image: "/Demo/31th15.jpeg" },
+    { image: "/Demo/31th16.jpeg" },
+    { image: "/Demo/31th17.jpeg" },
+    { image: "/Demo/31th18.jpeg" },
+    { image: "/Demo/31th19.jpeg" },
+    { image: "/Demo/31th20.jpeg" },
+    { image: "/Demo/31th21.jpeg" },
+    { image: "/Demo/31th22.jpeg" },
+    { image: "/Demo/31th23.JPG" },
+    { image: "/Demo/31th24.JPG" },
+    { image: "/Demo/31th25.jpeg" },
+    { image: "/Demo/31th26.jpeg" },
+    { image: "/Demo/31th27.jpeg" },
+    { image: "/Demo/31th28.jpg" },
+    { image: "/Demo/31th29.jpeg" },
+    { image: "/Demo/31th30.jpeg" },
+    { image: "/Demo/31th31.jpeg" },
+    { image: "/Demo/pic4.jpeg" },
+    { image: "/Demo/pic23.jpeg" },
+    { image: "/Demo/pic2.jpeg" },
+    { image: "/Demo/pic5.jpeg" },
+    { image: "/Demo/pic11.jpg" },
+    { image: "/Demo/pic3.jpeg" },
+    { image: "/Demo/pic7.jpg" },
+    { image: "/Demo/pic21.jpeg" },
+    { image: "/Demo/pic12.jpg" },
+    { image: "/Demo/pic14.jpeg" },
+    { image: "/Demo/pic15.jpeg" },
+    { image: "/Demo/pic16.jpeg" },
+    { image: "/Demo/pic17.jpeg" },
+    { image: "/Demo/pic18.jpeg" },
+    { image: "/Demo/pic19.jpeg" },
+    { image: "/Demo/pic20.jpeg" },
+    { image: "/Demo/pic25.jpeg" },
+    { image: "/Demo/pic6.jpg" },
+    { image: "/Demo/pic8.png" },
+    { image: "/Demo/pic9.JPG" },
+    { image: "/Demo/pic10.JPG" },
+    { image: "/Demo/pic13.jpg" },
+    { image: "/Demo/pic22.jpeg" },
+    { image: "/Demo/pic1.jpeg" },
+   
+  ];
+
+
 const FootPrint = () => {
   const navigate = useNavigate();
   const [footprints, setFootprints] = useState([]);
@@ -111,36 +172,30 @@ const FootPrint = () => {
           }}
           onSlideChange={handleSlideChange}
         >
-          {loading ? (
-            <SwiperSlide className="flex items-center justify-center text-gray-500">
-              Loading Footprints...
+          {data.map((item, index) => (
+            <SwiperSlide key={index} className="flex items-center justify-center">
+              <div
+                className="project-card relative w-full aspect-square mx-auto overflow-hidden rounded-2xl shadow-lg bg-gray-100 cursor-pointer hover:scale-[1.02] transition-transform duration-300"
+                onClick={() => handleImageClick(item)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    handleImageClick(item);
+                  }
+                }}
+                tabIndex={0}
+                role="button"
+                aria-label={`View project image ${index + 1}`}
+              >
+                <img
+                  src={item.image}
+                  alt={`EHM project ${index + 1}`}
+                  className="project-image w-full h-full object-cover transition-all duration-500 hover:scale-105"
+                />
+                <div className="card-shadow absolute inset-0 rounded-2xl shadow-inner transition-all duration-300" />
+              </div>
             </SwiperSlide>
-          ) : (
-            footprints.map((footprint, index) => (
-              <SwiperSlide key={footprint._id} className="flex items-center justify-center">
-                <div
-                  className="project-card relative w-full aspect-square mx-auto overflow-hidden rounded-2xl shadow-lg bg-gray-100 cursor-pointer hover:scale-[1.02] transition-transform duration-300"
-                  onClick={() => handleImageClick(footprint)}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      e.preventDefault();
-                      handleImageClick(footprint);
-                    }
-                  }}
-                  tabIndex={0}
-                  role="button"
-                  aria-label={`View project image ${index + 1}`}
-                >
-                  <img
-                    src={footprint.image}
-                    alt={`EHM project ${index + 1}`}
-                    className="project-image w-full h-full object-cover transition-all duration-500 hover:scale-105"
-                  />
-                  <div className="card-shadow absolute inset-0 rounded-2xl shadow-inner transition-all duration-300" />
-                </div>
-              </SwiperSlide>
-            ))
-          )}
+          ))}
         </Swiper>
 
         {/* Pagination Dots */}
