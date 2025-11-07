@@ -2,6 +2,7 @@ import { certified } from "../../Data/Data";
 import { motion } from "framer-motion";
 import ScrollRevealElements from '../Animations/ScrollRevealElements';
 import { useState } from "react";
+import SectionHeading from "../../Common/SectionHeading";
 
 const CertifiedLogo = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -52,20 +53,12 @@ const CertifiedLogo = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <motion.h2
-            className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 via-cyan-600 to-emerald-600 mb-3"
-            animate={{
-              backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-            }}
-            transition={{
-              duration: 5,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-            style={{ backgroundSize: "200% 200%" }}
-          >
-            Certified & Trusted
-          </motion.h2>
+          <SectionHeading>
+            <span>Certified </span>
+            <span className="bg-gradient-to-r from-emerald-600 via-blue-600 to-violet-600 bg-clip-text text-transparent">
+              & Trusted
+            </span>
+          </SectionHeading>
           <p className="text-gray-600 text-lg">
             Industry-recognized certifications and partnerships
           </p>

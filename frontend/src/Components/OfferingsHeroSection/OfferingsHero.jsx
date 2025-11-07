@@ -21,12 +21,14 @@ export default function OfferingsHero() {
   const specialLabelYOffset = -20;
   
   return (
-    <section
-      className="relative min-h-screen flex items-center justify-center overflow-visible pt-20"
-      style={{
-        background: "linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)"
-      }}
-    >
+
+<section
+  className="relative min-h-screen flex items-center justify-center overflow-visible pt-20"
+  style={{
+    background:
+      "linear-gradient(135deg, #0f2027 0%, #203a43 40%, #2c5364 70%, #433878 100%)"
+  }}
+>
       {/* Ambient glow effects */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-1/4 left-1/3 w-[600px] h-[600px] bg-orange-500/8 blur-3xl rounded-full" />

@@ -29,7 +29,7 @@ const ServicesSection = () => {
     };
   }, [activeIndex]);
 
-  const services = [
+ const services = [
     {
       id: 1,
       number: "01",
@@ -127,7 +127,14 @@ const ServicesSection = () => {
 
           {/* Right Panel - Image Display */}
           <div className="relative lg:sticky lg:top-24 h-[500px] lg:h-[600px]">
-            <div className="relative w-full h-full">
+            {/* Floating Label - Moved to top */}
+            <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 bg-white rounded-full px-6 py-3 shadow-lg border-2 border-teal-100 z-20">
+              <p className="text-xl font-bold text-teal-600 whitespace-nowrap">
+                {services[activeIndex].title}
+              </p>
+            </div>
+
+            <div className="relative w-full h-full mt-8">
               {services.map((service, index) => (
                 <div
                   key={service.id}
@@ -148,27 +155,33 @@ const ServicesSection = () => {
                     <div className="absolute inset-0 bg-gradient-to-br from-teal-400 via-cyan-400 to-blue-400 opacity-20 blur-xl"></div>
                     
                     {/* Main Image */}
-                    <div className="relative w-full h-full bg-gradient-to-br from-slate-200 to-slate-300 flex items-center justify-center overflow-hidden">
-                      <img 
-                        src={service.imagePlaceholder} 
-                        alt={service.title}
-                        className="w-full h-full object-cover"
-                      />
+                    <div className="relative w-full h-full bg-gradient-to-br from-teal-50/50 via-cyan-50/50 to-blue-50/50 flex items-center justify-center overflow-hidden">
+                      {/* Decorative grid pattern */}
+                      <div className="absolute inset-0 opacity-[0.03]" style={{
+                        backgroundImage: 'radial-gradient(circle, #0d9488 1px, transparent 1px)',
+                        backgroundSize: '30px 30px'
+                      }}></div>
                       
-                      {/* Decorative Elements */}
-                      <div className="absolute top-8 right-8 w-32 h-32 bg-teal-300/20 rounded-full blur-2xl"></div>
-                      <div className="absolute bottom-8 left-8 w-40 h-40 bg-cyan-300/20 rounded-full blur-2xl"></div>
+                      {/* Image container with better sizing */}
+                      <div className="relative z-10 w-[85%] h-[85%] flex items-center justify-center">
+                        <img 
+                          src={service.imagePlaceholder} 
+                          alt={service.title}
+                          className="max-w-full max-h-full object-contain drop-shadow-2xl"
+                        />
+                      </div>
+                      
+                      {/* Enhanced decorative elements */}
+                      <div className="absolute top-12 right-12 w-40 h-40 bg-teal-400/10 rounded-full blur-3xl"></div>
+                      <div className="absolute bottom-12 left-12 w-48 h-48 bg-cyan-400/10 rounded-full blur-3xl"></div>
+                      
+                      {/* Corner accents */}
+                      <div className="absolute top-8 left-8 w-16 h-16 border-t-2 border-l-2 border-teal-200/50 rounded-tl-2xl"></div>
+                      <div className="absolute bottom-8 right-8 w-16 h-16 border-b-2 border-r-2 border-cyan-200/50 rounded-br-2xl"></div>
                     </div>
                     
                     {/* Image Overlay Gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-teal-900/10 via-transparent to-transparent"></div>
-                  </div>
-                  
-                  {/* Floating Label */}
-                  <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-white rounded-full px-6 py-3 shadow-lg border-2 border-teal-100">
-                    <p className="text-sm font-semibold text-teal-600 whitespace-nowrap">
-                      {service.title}
-                    </p>
+                    <div className="absolute inset-0 bg-gradient-to-t from-teal-900/5 via-transparent to-transparent pointer-events-none"></div>
                   </div>
                 </div>
               ))}

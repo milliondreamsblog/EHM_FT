@@ -124,6 +124,9 @@ const WhyChooseUsSection = () => {
         .to({}, { duration: 0.5 })
         .to(cards[1], { opacity: 0, y: -50, scale: 0.9, duration: 0.5 }, "swap3")
         .to(cards[2], { opacity: 1, y: 0, scale: 1, duration: 0.5 }, "swap3")
+        .to({}, { duration: 0.5 })
+        .to(cards[2], { opacity: 0, y: -50, scale: 0.9, duration: 0.5 }, "swap4")
+        .to(cards[3], { opacity: 1, y: 0, scale: 1, duration: 0.5 }, "swap4")
         .to({}, { duration: 0.5 });
     }
   }, []);
@@ -157,8 +160,26 @@ const WhyChooseUsSection = () => {
           </p>
         </div>
 
+        
         {/* Cards */}
         <div className="mt-10 space-y-8 lg:mt-0 lg:absolute lg:top-1/2 lg:-translate-y-1/2 lg:right-0 lg:w-2/5 lg:space-y-0 lg:h-[45vh]">
+          {/* Card 4 */}
+          <div className="feature-card relative">
+            <div className="h-full min-h-[300px] sm:min-h-[350px] lg:h-full flex flex-col justify-end rounded-3xl p-6 sm:p-8 bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-2xl border border-white/25 shadow-2xl">
+              <div>
+                <div className="mb-4">
+                  <PhilosophyIcon />
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">
+                  Interdisciplinary Expertise
+                </h3>
+                <p className="text-gray-200">
+                  Our team combines expertise in engineering, environmental science, climate science,
+                  and urban planning to deliver integrated and practical solutions.
+                </p>
+              </div>
+            </div>
+          </div>
           {/* Card 1 */}
           <div className="feature-card relative">
             <div className="h-full min-h-[300px] sm:min-h-[350px] lg:h-full flex flex-col justify-end rounded-3xl p-6 sm:p-8 bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-2xl border border-white/25 shadow-2xl">
@@ -167,12 +188,11 @@ const WhyChooseUsSection = () => {
                   <DiversifiedExpertiseIcon />
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">
-                  Diversified Expertise
+                  Data-Driven Decision-Making
                 </h3>
                 <p className="text-gray-200">
-                  Our foundation by IIT alumni gives us a unique edge in
-                  deep-tech solutions, spanning Climate Risk, Geophysical
-                  Exploration, and Water Management.
+                  We leverage analytics, AI, and geospatial intelligence to transform data into 
+                  actionable insights that drive effective decision-making.
                 </p>
               </div>
             </div>
@@ -186,12 +206,11 @@ const WhyChooseUsSection = () => {
                   <PhilosophyIcon />
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">
-                  Our Philosophy
+                  Sustainable Innovation
                 </h3>
                 <p className="text-gray-200">
-                  Our core mission is to achieve environmental sustainability
-                  through a dedicated eco-centric approach, providing practical
-                  solutions within the UN's SDG framework.
+                  We design adaptive, nature-based, and circular solutions that 
+                  balance growth with environmental responsibility and long-term impact.
                 </p>
               </div>
             </div>
@@ -205,14 +224,17 @@ const WhyChooseUsSection = () => {
                   <ApproachIcon />
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">
-                  Our Approach
+                  Institutional Credibility
                 </h3>
                 <p className="text-gray-200">
-                  Our ApproachOur Approach
+                  Founded by IIT alumni and supported by leading accelerators and innovation networks, 
+                  we bring academic rigor, technical excellence, and reliability to every project.
                 </p>
               </div>
             </div>
           </div>
+
+          
         </div>
       </div>
     </section>

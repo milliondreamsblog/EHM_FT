@@ -135,16 +135,28 @@ export default function Homepage() {
           <div className="flex-1 flex flex-col lg:flex-row items-center justify-between gap-12">
             {/* Left Side - Text Content */}
             <div className="flex-1 max-w-3xl">
-              <h1 
-                className="text-4xl md:text-5xl lg:text-6xl text-outline drop-shadow-2xl font-semibold leading-tight mb-10"
-                style={{fontFamily: 'Inter' , textShadow: '2px 2px 2px rgba(0,0,0,0.2)'}}
-              >
-                <span className='text-[#26438e]'>Sustainability </span>
-                <br />
-                Through Eco-Centric
-                <br />
-                Approach
-              </h1>
+<h1
+  className="text-4xl md:text-5xl lg:text-6xl text-outline drop-shadow-2xl font-semibold leading-tight mb-10"
+  style={{
+    fontFamily: "Inter",
+    textShadow: "0px 4px 30px rgba(255,255,255,0.15)"
+  }}
+>
+  <span
+    className="bg-clip-text text-transparent"
+    style={{
+      backgroundImage:
+        "linear-gradient(90deg, #6b4f28 0%, #0ea5e9 40%, #38bdf8 65%, #fbbf24 100%)"
+    }}
+  >
+    Sustainability
+  </span>
+  <br />
+  Through Eco-Centric
+  <br />
+  Approach
+</h1>
+
 
               <h2 className="text-lg md:text-xl lg:text-[20px] drop-shadow-2xl font-semibold leading-tight mb-10">
                 TRANSFORM <span className="text-[#c39b17]">YOUR BUSINESS WITH </span>

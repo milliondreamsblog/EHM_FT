@@ -162,23 +162,19 @@ export default function Hero() {
           ‹
         </button>
 
-       
-        {/* Static Heading */}
+
+        {/* Static Heading - Commented out as requested
         <div 
           className="absolute left-1/2 -translate-x-1/2 pointer-events-none z-10" 
           style={{ top: '25%' }}
         >
-          {/* Blur Background Box */}
+          {/* Blur Background Box *}
           <div className="absolute inset-0 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 -m-4" />
           
-          {/* Gradient Text */}
+          {/* Gradient Text *}
           <h2 
-            className="relative text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide drop-shadow-lg px-8 py-4"
-            style={{ 
-              background: 'linear-gradient(135deg, #14b8a6 0%, #06b6d4 25%, #3b82f6 50%, #8b5cf6 75%, #ec4899 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
+            className="relative text-4xl md:text-5xl lg:text-6xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-400 py-4 px-8"
+            style={{
               textShadow: 'none'
             }}
           >

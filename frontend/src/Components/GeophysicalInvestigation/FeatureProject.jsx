@@ -62,9 +62,9 @@ const FeaturedProjects = () => {
       <div style={styles.projectCard}>
         <div style={styles.projectContent}>
           <h3 style={styles.projectTitle}>
-            Annual Sustainability Report 2024–25
+            Geophysical Survey (ERT Survey) at Brahmadiha Coal Mine (BCM)
           </h3>
-          <p style={styles.projectSubtitle}>CSJMU, Kanpur</p>
+          <p style={styles.projectSubtitle}>Giridih District, Jharkhand</p>
           <a href="#project-details" style={styles.projectBtn}>
             View Project
           </a>
