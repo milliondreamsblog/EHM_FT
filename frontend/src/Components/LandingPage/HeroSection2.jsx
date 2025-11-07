@@ -83,7 +83,7 @@ export default function Homepage() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover z-0"
         >
-          <source src="/video.mp4" type="video/mp4" />
+          <source src="/HeroPage_img/video.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
 
@@ -240,11 +240,7 @@ export default function Homepage() {
 
           {/* Trusted By Section */}
           <div className="mt-auto pt-12">
-            <p className="text-sm uppercase tracking-wider drop-shadow-2xl font-medium mb-8 opacity-90 text-[#26438e]">Trusted by {"   "} {"   "} 
-              <span className="text-3xl text-[#c39b17] font-medium tracking-wide opacity-85 drop-shadow-2xl hover:opacity-100 transition-opacity">
-              <RotatingText />
-              </span>
-            </p>
+            
             
 
             {/* <div className="flex flex-wrap items-center gap-8 md:gap-16">
