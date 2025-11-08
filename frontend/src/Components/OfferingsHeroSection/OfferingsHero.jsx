@@ -1,5 +1,6 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const SECTIONS = [
   ["Sustainability Assessment", "& Reporting"],
@@ -18,6 +19,7 @@ const circleR = 170;
 const labelR = 195;
 
 export default function OfferingsHero() {
+  const navigate = useNavigate();
   const specialLabelYOffset = -20;
   
   return (
@@ -68,9 +70,10 @@ export default function OfferingsHero() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => navigate('/contact#form')}
               className="px-8 py-4 bg-gradient-to-r from-orange-500 to-amber-500 text-white font-semibold rounded-full shadow-lg hover:shadow-orange-500/50 transition-all duration-300"
             >
-              Explore Services
+              Book a Call
             </motion.button>
           </div>
         </motion.div>

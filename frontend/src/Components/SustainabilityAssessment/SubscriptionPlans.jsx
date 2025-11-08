@@ -6,7 +6,6 @@ import SectionHeading from "../../Common/SectionHeading";
 const plans = [
   {
     name: "Basic",
-    price: "Free",
     color: "from-emerald-500 to-teal-400",
     features: {
       "Framework Alignment": "UNSDG",
@@ -23,7 +22,6 @@ const plans = [
   },
   {
     name: "Standard",
-    price: "$99/mo",
     color: "from-blue-500 to-cyan-400",
     features: {
       "Framework Alignment": "UNSDG, GRI",
@@ -40,7 +38,6 @@ const plans = [
   },
   {
     name: "Premium",
-    price: "$199/mo",
     color: "from-violet-500 to-purple-400",
     features: {
       "Framework Alignment": "BRSR, GRI, UNSDG",
@@ -84,8 +81,7 @@ const SubscriptionPlans = () => {
           >
             {/* Header */}
             <div className={`p-6 bg-gradient-to-br ${plan.color} text-white rounded-t-3xl text-center`}>
-              <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
-              <p className="text-xl font-semibold">{plan.price}</p>
+              <h3 className="text-2xl font-bold">{plan.name}</h3>
             </div>
 
             {/* Features */}

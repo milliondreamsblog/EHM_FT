@@ -126,7 +126,7 @@ const ServicesSection = () => {
           </div>
 
           {/* Right Panel - Image Display */}
-          <div className="relative lg:sticky lg:top-24 h-[500px] lg:h-[600px]">
+          <div className="relative lg:sticky lg:top-12 h-[500px] lg:h-[500px] -mt-4">
             {/* Floating Label - Moved to top */}
             <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 bg-white rounded-full px-6 py-3 shadow-lg border-2 border-teal-100 z-20">
               <p className="text-xl font-bold text-teal-600 whitespace-nowrap">

@@ -18,8 +18,7 @@ const EhmBrief = () => {
       {/* Strong top fade */}
       <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white via-white/80 to-transparent z-10" />
       
-      {/* Strong bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white via-white/80 to-transparent z-10" />
+      {/* Bottom fade removed as requested */}
 
       {/* Top Section */}
       <div className="relative text-center w-full h-auto mx-auto py-16 sm:py-16 md:py-16 z-20">
