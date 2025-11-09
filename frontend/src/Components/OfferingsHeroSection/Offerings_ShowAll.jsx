@@ -231,6 +231,7 @@ const OfferingsSection = () => {
               <p className="text-slate-300">Let's collaborate to create lasting environmental and social impact.</p>
             </div>
             <button 
+              onClick={() => navigate('/contact#form')}
               className="whitespace-nowrap px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-semibold rounded-xl hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex items-center gap-2"
             >
               Get Started

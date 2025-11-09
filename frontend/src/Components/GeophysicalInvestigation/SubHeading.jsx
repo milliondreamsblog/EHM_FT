@@ -1,12 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const ServicesSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-
   const [progress, setProgress] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
 
-  // Auto-advance animation with progress
-  React.useEffect(() => {
+  // Intersection Observer to detect when section is in viewport
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        });
+      },
+      {
+        threshold: 0.3, // Trigger when 30% of the section is visible
+        rootMargin: '-50px' // Add some margin to make it feel more natural
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
+  // Auto-advance animation with progress - only starts when visible
+  useEffect(() => {
+    if (!isVisible) return; // Don't start animation until section is visible
+
     const duration = 5000; // 5 seconds per section
     const intervalTime = 50; // Update every 50ms for smooth animation
     
@@ -27,9 +57,9 @@ const ServicesSection = () => {
       clearInterval(progressInterval);
       clearInterval(sectionInterval);
     };
-  }, [activeIndex]);
+  }, [activeIndex, isVisible]);
 
- const services = [
+  const services = [
     {
       id: 1,
       number: "01",
@@ -61,7 +91,7 @@ const ServicesSection = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-teal-50 via-cyan-50 to-blue-50 py-20 px-4 sm:px-6 lg:px-8">
+    <div ref={sectionRef} className="min-h-screen bg-gradient-to-br from-teal-50 via-cyan-50 to-blue-50 py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           
