@@ -35,42 +35,6 @@ const data = [
     { image: "/Demo/31th17.jpeg" },
     { image: "/Demo/31th18.jpeg" },
     { image: "/Demo/31th19.jpeg" },
-    { image: "/Demo/31th20.jpeg" },
-    { image: "/Demo/31th21.jpeg" },
-    { image: "/Demo/31th22.jpeg" },
-    { image: "/Demo/31th23.JPG" },
-    { image: "/Demo/31th24.JPG" },
-    { image: "/Demo/31th25.jpeg" },
-    { image: "/Demo/31th26.jpeg" },
-    { image: "/Demo/31th27.jpeg" },
-    { image: "/Demo/31th28.jpg" },
-    { image: "/Demo/31th29.jpeg" },
-    { image: "/Demo/31th30.jpeg" },
-    { image: "/Demo/31th31.jpeg" },
-    { image: "/Demo/pic4.jpeg" },
-    { image: "/Demo/pic23.jpeg" },
-    { image: "/Demo/pic2.jpeg" },
-    { image: "/Demo/pic5.jpeg" },
-    { image: "/Demo/pic11.jpg" },
-    { image: "/Demo/pic3.jpeg" },
-    { image: "/Demo/pic7.jpg" },
-    { image: "/Demo/pic21.jpeg" },
-    { image: "/Demo/pic12.jpg" },
-    { image: "/Demo/pic14.jpeg" },
-    { image: "/Demo/pic15.jpeg" },
-    { image: "/Demo/pic16.jpeg" },
-    { image: "/Demo/pic17.jpeg" },
-    { image: "/Demo/pic18.jpeg" },
-    { image: "/Demo/pic19.jpeg" },
-    { image: "/Demo/pic20.jpeg" },
-    { image: "/Demo/pic25.jpeg" },
-    { image: "/Demo/pic6.jpg" },
-    { image: "/Demo/pic8.png" },
-    { image: "/Demo/pic9.JPG" },
-    { image: "/Demo/pic10.JPG" },
-    { image: "/Demo/pic13.jpg" },
-    { image: "/Demo/pic22.jpeg" },
-    { image: "/Demo/pic1.jpeg" },
    
   ];
 
@@ -144,34 +108,38 @@ const FootPrint = () => {
       >
         {/* Swiper Carousel */}
         <Swiper
-          slidesPerView={1}
-          spaceBetween={16}
-          breakpoints={{
-            480: { slidesPerView: 1, spaceBetween: 16 },
-            640: { slidesPerView: 2, spaceBetween: 20 },
-            768: { slidesPerView: 2, spaceBetween: 24 },
-            1024: { slidesPerView: 3, spaceBetween: 32 },
-            1280: { slidesPerView: 4, spaceBetween: 32 },
-            1536: { slidesPerView: 5, spaceBetween: 36 },
-          }}
-          pagination={{
-            clickable: true,
-            el: ".custom-pagination",
-            bulletClass: "swiper-pagination-bullet custom-bullet",
-            bulletActiveClass: "swiper-pagination-bullet-active custom-bullet-active",
-          }}
-          navigation={true}
-          grabCursor={true}
-          speed={700}
-          modules={[Pagination, Navigation]}
-          className="w-full"
-          onSwiper={(swiper) => {
-            swiperRef.current = swiper;
-            setIsBeginning(swiper.isBeginning);
-            setIsEnd(swiper.isEnd);
-          }}
-          onSlideChange={handleSlideChange}
-        >
+              slidesPerView={1}
+              spaceBetween={16}
+              breakpoints={{
+                480: { slidesPerView: 1, spaceBetween: 16 },
+                640: { slidesPerView: 2, spaceBetween: 20 },
+                768: { slidesPerView: 2, spaceBetween: 24 },
+                1024: { slidesPerView: 3, spaceBetween: 32 },
+                1280: { slidesPerView: 4, spaceBetween: 32 },
+                1536: { slidesPerView: 5, spaceBetween: 36 },
+              }}
+              pagination={{
+                clickable: true,
+                el: ".custom-pagination",
+                bulletClass: "swiper-pagination-bullet custom-bullet",
+                bulletActiveClass: "swiper-pagination-bullet-active custom-bullet-active",
+              }}
+              navigation={{
+                prevEl: ".custom-swiper-prev",
+                nextEl: ".custom-swiper-next",
+              }}   // 👈 use this instead of navigation={true}
+              grabCursor={true}
+              speed={700}
+              modules={[Pagination, Navigation]}
+              className="w-full"
+              onSwiper={(swiper) => {
+                swiperRef.current = swiper;
+                setIsBeginning(swiper.isBeginning);
+                setIsEnd(swiper.isEnd);
+              }}
+              onSlideChange={handleSlideChange}
+>
+
           {data.map((item, index) => (
             <SwiperSlide key={index} className="flex items-center justify-center">
               <div

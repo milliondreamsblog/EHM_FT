@@ -247,12 +247,12 @@ const ProjectCard = ({
           </div>
         )}
         <div className="absolute top-3 left-1/2 transform -translate-x-1/2 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
-          <button onClick={handleBookmark} aria-label="Bookmark project" className={`p-2 rounded-full backdrop-blur-md transition-all duration-300 hover:scale-110 ${isBookmarked ? 'bg-yellow-100/90 text-yellow-600 border border-yellow-200' : 'bg-white/90 text-gray-600 border border-gray-200 hover:bg-yellow-100/90 hover:text-yellow-600'}`}>
+          {/* <button onClick={handleBookmark} aria-label="Bookmark project" className={`p-2 rounded-full backdrop-blur-md transition-all duration-300 hover:scale-110 ${isBookmarked ? 'bg-yellow-100/90 text-yellow-600 border border-yellow-200' : 'bg-white/90 text-gray-600 border border-gray-200 hover:bg-yellow-100/90 hover:text-yellow-600'}`}>
             <Bookmark className="w-4 h-4" fill={isBookmarked ? "currentColor" : "none"} />
           </button>
           <button onClick={handleShare} aria-label="Share project" className="p-2 rounded-full bg-white/90 text-gray-600 border border-gray-200 backdrop-blur-md hover:bg-teal-100/90 hover:text-teal-600 transition-all duration-300 hover:scale-110">
             <Share2 className="w-4 h-4" />
-          </button>
+          </button> */}
         </div>
         <div className="absolute bottom-0 left-0 right-0 p-4">
           <h3 className="text-xl md:text-xl font-bold text-white mb-1 drop-shadow-lg leading-tight">{title}</h3>
@@ -428,7 +428,6 @@ const ProjectsPage = () => {
                   {...project}
                   className="animate-fadeInUp"
                   style={{ animationDelay: `${index * 0.1}s` }}
-                  onClick={() => showMessage(`Opening ${project.title}...`)}
                 />
               </div>
             ))}

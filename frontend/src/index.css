@@ -34,6 +34,12 @@
   margin-top: 2em;
   margin-bottom: 2em;
 }
+.no-bg {
+  background: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
 
 @keyframes fadeIn {
   from {

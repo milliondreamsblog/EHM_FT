@@ -117,12 +117,12 @@ const NavBar = () => {
           {/* Desktop Menu */}
           <ul className="hidden lg:flex items-center space-x-6 font-medium">
             <li>
-              <Link to="/" className="text-green-900 hover:text-yellow-400">
+              <Link to="/" className="text-green-900 hover:shadow-none hover:text-yellow-400">
                 HOME
               </Link>
             </li>
             <li>
-              <Link to="/about" className="text-green-900 hover:text-yellow-400">
+              <Link to="/about" className="text-green-900  hover:text-yellow-400 group hover:shadow-none focus:shadow-none focus:outline-none">
                 ABOUT
               </Link>
             </li>
@@ -153,30 +153,32 @@ const NavBar = () => {
               </span>
             </li>
 
-            {/* Resources Dropdown */}
-            <li className="relative group">
+           {/* Resources Dropdown */}
+          <li className="relative group">
+            <span
+              onClick={() =>
+                setActiveDropdown(
+                  activeDropdown === "resources" ? null : "resources"
+                )
+              }
+              className={`cursor-pointer flex items-center transition-colors duration-200 select-none no-bg
+                ${activeDropdown === "resources"
+                  ? "text-yellow-400"
+                  : "text-green-900 hover:text-yellow-400"
+                } 
+                bg-none hover:bg-none focus:bg-none shadow-none hover:shadow-none focus:shadow-none outline-none`}
+            >
+              RESOURCES
               <span
-                onClick={() =>
-                  setActiveDropdown(
-                    activeDropdown === "resources" ? null : "resources"
-                  )
-                }
-                className={`cursor-pointer flex items-center transition-colors duration-200 
+                className={`ml-2 inline-block p-1 border-b-2 border-r-2 transition-all -translate-y-0.5 duration-300 ease-in-out 
                   ${activeDropdown === "resources"
-                    ? "text-yellow-400"
-                    : "text-green-900 hover:text-yellow-400"
-                  }`}
-              >
-                RESOURCES
-                <span
-                  className={`ml-2 inline-block p-1 border-b-2 border-r-2 transition-all -translate-y-0.5 duration-300 ease-in-out 
-                    ${activeDropdown === "resources"
-                      ? "-rotate-180 border-yellow-400"
-                      : "rotate-45 border-green-900 group-hover:-rotate-180 group-hover:border-yellow-400"
+                    ? "-rotate-180 border-yellow-400"
+                    : "rotate-45 border-green-900 group-hover:-rotate-180 group-hover:border-yellow-400"
                   }`}
               ></span>
             </span>
           </li>
+
 
           <li>
             <Link
@@ -236,10 +238,11 @@ const NavBar = () => {
                     {section.items.map((item) => (
                       <li key={item.path}>
                         <Link
-                          to={item.path}
-                          onClick={handleNavClick}
-                          className="flex items-center space-x-2 text-green-900 hover:text-yellow-400"
-                        >
+                            to={item.path}
+                            onClick={handleNavClick}
+                            className="flex items-center space-x-2 text-green-900 hover:text-yellow-400 bg-transparent hover:bg-transparent focus:bg-transparent transition group"
+                          >
+
                           <item.icon className="w-4 h-4" />
                           <span>{item.name}</span>
                         </Link>
@@ -266,8 +269,10 @@ const NavBar = () => {
                         <Link
                           to={item.path}
                           onClick={handleNavClick}
-                          className="flex items-center space-x-2 text-green-900 hover:text-yellow-400"
+                          className="flex items-center space-x-2 text-green-900 hover:text-yellow-400 transition group hover:shadow-none focus:shadow-none focus:outline-none"
                         >
+
+
                           <item.icon className="w-4 h-4" />
                           <span>{item.name}</span>
                         </Link>
@@ -282,7 +287,7 @@ const NavBar = () => {
           <Link
             to="/projects"
             onClick={handleNavClick}
-            className="block text-green-900 hover:text-yellow-400"
+            className="block text-green-900 bg-transparent hover:text-yellow-400"
           >
             PROJECTS
           </Link>
@@ -297,32 +302,32 @@ const NavBar = () => {
       )}
 
       {/* Desktop Dropdown Content */}
-      {activeDropdown && (
-        <div
-        ref={dropdownRef}
-        className="absolute left-1/4 transform -translate-x-1/2 bg-[#ffffff] shadow-xl animate-fadeIn hidden lg:block max-w-5xl w-[90%]"
-      >
-        <div className="w-full mx-auto grid lg:grid-cols-4 gap-10">
-          {/* LEFT MAIN SECTION */}
-          <div className="col-span-3">
-            <h3 className="text-lg font-bold text-green-900 mb-2 uppercase pt-1 pb-5 ml-10">
-              {/* {activeDropdown} */}
-            </h3>
-            <div className="flex flex-cols-4 gap-14 pt-4 ml-10">
-              {(activeDropdown === "resources" ? resourcesMenu : offeringsMenu).map(
-                (section) => (
-                  <div key={section.title}>
-                    <ul className="space-y-8 pb-20">
-                      {section.items.map((item) => (
-                        <li key={item.path}>
-                          <Link
-                            to={item.path}
-                            onClick={handleNavClick}
-                            className="flex items-center space-x-2 text-green-900 hover:text-yellow-400 transition group"
-                          >
-                            <item.icon className="w-12  text-green-900 group-hover:text-yellow-400" />
-                            <span>{item.name}</span>
-                          </Link>
+     {activeDropdown && (
+  <div
+    ref={dropdownRef}
+    className="absolute left-1/4 transform -translate-x-1/2 bg-[#ffffff] animate-fadeIn hidden lg:block max-w-5xl w-[90%]"
+  >
+    <div className="w-full mx-auto grid lg:grid-cols-4 gap-10">
+      {/* LEFT MAIN SECTION */}
+      <div className="col-span-3">
+        <h3 className="text-lg font-bold text-green-900 mb-2 uppercase pt-1 pb-5 ml-10">
+          {/* {activeDropdown} */}
+        </h3>
+        <div className="flex flex-cols-4 gap-14 pt-4 ml-10">
+          {(activeDropdown === "resources" ? resourcesMenu : offeringsMenu).map(
+            (section) => (
+              <div key={section.title}>
+                <ul className="space-y-8 pb-20">
+                  {section.items.map((item) => (
+                    <li key={item.path}>
+                      <Link
+                        to={item.path}
+                        onClick={handleNavClick}
+                        className="flex items-center space-x-2 text-green-900 hover:text-yellow-400 transition group"
+                      >
+                        <item.icon className="w-12 text-green-900 group-hover:text-yellow-400" />
+                        <span>{item.name}</span>
+                      </Link>
                         </li>
                       ))}
                     </ul>
@@ -333,7 +338,7 @@ const NavBar = () => {
     </div>
 
     {/* RIGHT SIDE LINKS */}
-    <div className="border-l p-9 pt-20 bg-[#edecec]">
+    {/* <div className="border-l p-9 pt-20 bg-[#edecec]">
       <ul className="space-y-4">
         <li>
           <Link
@@ -352,7 +357,7 @@ const NavBar = () => {
           </Link>
         </li>
       </ul>
-    </div>
+    </div> */}
   </div>
 </div>
       )}
