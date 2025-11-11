@@ -202,7 +202,7 @@ styleSheet.textContent = `
     50% { transform: translate(20px, -20px); }
   }
   
-  a:hover {
+  .project-link:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(10, 77, 60, 0.4) !important;
   }
