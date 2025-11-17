@@ -305,19 +305,18 @@ const NavBar = () => {
      {activeDropdown && (
   <div
     ref={dropdownRef}
-    className="absolute left-1/4 transform -translate-x-1/2 bg-[#ffffff] animate-fadeIn hidden lg:block max-w-5xl w-[90%]"
+    className="absolute left-0 bg-[#ffffff] animate-fadeIn hidden lg:block shadow-lg rounded-b-lg"
+    style={{ 
+      marginLeft: activeDropdown === 'offerings' ? '280px' : activeDropdown === 'resources' ? '380px' : '0',
+      width: activeDropdown === 'resources' ? '700px' : '900px',
+      maxWidth: '90vw'
+    }}
   >
-    <div className="w-full mx-auto grid lg:grid-cols-4 gap-10">
-      {/* LEFT MAIN SECTION */}
-      <div className="col-span-3">
-        <h3 className="text-lg font-bold text-green-900 mb-2 uppercase pt-1 pb-5 ml-10">
-          {/* {activeDropdown} */}
-        </h3>
-        <div className="flex flex-cols-4 gap-14 pt-4 ml-10">
+    <div className={`grid gap-12 px-4 pt-8 pb-6 ${activeDropdown === 'resources' ? 'grid-cols-3' : 'grid-cols-4'}`}>
           {(activeDropdown === "resources" ? resourcesMenu : offeringsMenu).map(
             (section) => (
-              <div key={section.title}>
-                <ul className="space-y-8 pb-20">
+              <div key={section.title} className="col-span-1">
+                <ul className="space-y-4">
                   {section.items.map((item) => (
                     <li key={item.path}>
                       <Link
@@ -328,14 +327,13 @@ const NavBar = () => {
                         <item.icon className="w-12 text-green-900 group-hover:text-yellow-400" />
                         <span>{item.name}</span>
                       </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-          )
-        )}
-      </div>
-    </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )
+          )}
+        </div>
 
     {/* RIGHT SIDE LINKS */}
     {/* <div className="border-l p-9 pt-20 bg-[#edecec]">
@@ -359,7 +357,6 @@ const NavBar = () => {
       </ul>
     </div> */}
   </div>
-</div>
       )}
     </header>
   );

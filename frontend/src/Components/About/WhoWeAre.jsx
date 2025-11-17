@@ -13,8 +13,8 @@ const purposeData = [
     id: 1,
     title: "Our Vision",
     description:
-      "To be the most trusted and preferred partner for businesses seeking innovative and reliable IT solutions, empowering them to achieve their goals and thrive in the digital age.",
-    /*subtitle: "Our Mission",
+      "To create regenerative, resilient, and sustainable systems through an eco-centric approach that harmonizes growth with environmental stewardship.",
+      /*subtitle: "Our Mission",
     subtitleDescription: "To deliver exceptional IT services and solutions through a customer-centric approach, fostering a culture of continuous improvement, and leveraging cutting-edge technology to drive business success.",
     */
    lottieSrc: "/lottie-assets/vision-animation/animations/10e621af-4237-47b1-a332-563b013787cd.json",
@@ -23,8 +23,8 @@ const purposeData = [
     id: 2,
     title: "Our Mission",
     description:
-      "To deliver exceptional IT services and solutions through a customer-centric approach, fostering a culture of continuous improvement, and leveraging cutting-edge technology to drive business success.",
-    /*subtitle: "Our Philosophy",
+      "To empower industries, organizations, and cities to achieve measurable impact by adopting sustainable solutions through data-driven planning and adaptive design — enabling long-term environmental and economic value.",
+      /*subtitle: "Our Philosophy",
     subtitleDescription: "Our core mission is to achieve environmental sustainability through a dedicated eco-centric approach, providing practical solutions within the UN's SDG framework.",
     */
    lottieSrc: "/lottie-assets/paper-airplane-animation/animations/975d33bb-bc2f-413a-bcdf-0ab3647629ca.json",

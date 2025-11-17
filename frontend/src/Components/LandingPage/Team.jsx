@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import ScrollRevealElements from "../Animations/ScrollRevealElements";
 import SectionHeading from "../../Common/SectionHeading";
@@ -35,7 +34,13 @@ const Team = ({ title, members, limit }) => {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
             >
-              <img src={member.img} alt={member.name} className="w-full h-44 object-cover" />
+              {/* FIX: Fill area like before but avoid head cropping */}
+              <img
+                src={member.img}
+                alt={member.name}
+                className="w-full h-44 object-cover object-top"
+              />
+
               <div className="flex flex-col items-center p-4 text-center w-full">
                 <div className="flex items-center justify-center gap-3 mb-1">
                   <h3 className="text-lg font-semibold text-gray-800">{member.name}</h3>
