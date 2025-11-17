@@ -1,6 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const FeaturedProjects = () => {
+  const navigate = useNavigate();
+
+  const handleViewProject = () => {
+    navigate('/projects#p2');
+  };
   return (
     <div style={styles.container}>
       <div style={styles.featuredSection}>
@@ -65,9 +71,9 @@ const FeaturedProjects = () => {
             Annual Sustainability Report 2024–25
           </h3>
           <p style={styles.projectSubtitle}>CSJMU, Kanpur</p>
-          <a href="#project-details" style={styles.projectBtn}>
+          <button onClick={handleViewProject} style={styles.projectBtn}>
             View Project
-          </a>
+          </button>
         </div>
       </div>
     </div>
