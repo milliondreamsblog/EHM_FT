@@ -1,6 +1,17 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function GeophysicalHero() {
+  const navigate = useNavigate();
+
+  const handleTalkToExpert = () => {
+    navigate('/contact');
+  };
+
+  const handleViewCaseStudies = () => {
+    navigate('/resources/casestudies');
+  };
+
   return (
     <section className="relative min-h-screen flex items-center bg-gradient-to-br from-[#0a1628] via-[#1a2942] to-[#0f3460] overflow-hidden pt-20 py-16">
       {/* Background Effects */}
@@ -43,13 +54,13 @@ export default function GeophysicalHero() {
             </p>
             
             <div className="flex flex-wrap gap-4 pt-4">
-              <button className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#00ff9d] to-[#00d084] text-[#0a1628] font-bold text-lg rounded-xl shadow-[0_10px_40px_rgba(0,255,157,0.3)] hover:shadow-[0_15px_50px_rgba(0,255,157,0.5)] hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+              <button onClick={handleTalkToExpert} className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#00ff9d] to-[#00d084] text-[#0a1628] font-bold text-lg rounded-xl shadow-[0_10px_40px_rgba(0,255,157,0.3)] hover:shadow-[0_15px_50px_rgba(0,255,157,0.5)] hover:-translate-y-1 transition-all duration-300 overflow-hidden">
                 <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
                 <span className="relative text-2xl">💬</span>
                 <span className="relative">Talk to Our Expert</span>
               </button>
               
-              <button className="inline-flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-md text-white font-semibold text-lg rounded-xl border border-white/20 hover:bg-white/15 hover:border-white/30 hover:-translate-y-1 transition-all duration-300">
+              <button onClick={handleViewCaseStudies} className="inline-flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-md text-white font-semibold text-lg rounded-xl border border-white/20 hover:bg-white/15 hover:border-white/30 hover:-translate-y-1 transition-all duration-300">
                 <span className="text-2xl">📊</span>
                 <span>View Case Studies</span>
               </button>
