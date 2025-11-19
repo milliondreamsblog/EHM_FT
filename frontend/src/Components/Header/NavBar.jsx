@@ -103,7 +103,7 @@ const NavBar = () => {
   };
 
     return (
-      <header className="fixed top-0 left-0 w-full z-50 bg-white/20 backdrop-blur-md shadow-md">
+      <header className="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
         <nav className="max-w-6xl mx-auto flex items-center justify-between px-6 py-3">
           {/* Logo */}
           <Link to="/" onClick={handleNavClick}>

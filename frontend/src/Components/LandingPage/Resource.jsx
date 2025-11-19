@@ -139,7 +139,7 @@ const Resource = () => {
       <div className="sticky top-0 h-screen flex items-center justify-center py-12">
         <div className="w-full max-w-7xl mx-auto px-8">
           <motion.div
-            className="text-center mb-12 py-8"
+            className="text-center mb-4 py-8"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -148,7 +148,7 @@ const Resource = () => {
             <SectionHeading>Resources</SectionHeading>
           </motion.div>
 
-          <div className="relative h-[500px]">
+          <div className="relative h-[500px] -mt-12">
             {resources.map((resource, idx) => (
               <motion.div
                 key={resource.id}
@@ -170,7 +170,7 @@ const Resource = () => {
                     {resource.description}
                   </p>
                   <Link to={resource.link}>
-                    <button className="bg-green-600 text-white px-8 py-3 rounded-md font-semibold shadow-md hover:bg-green-700 transition-all duration-300 text-base">
+                    <button className="bg-emerald-500 text-white px-8 py-3 rounded-md font-semibold shadow-md hover:bg-emerald-600 transition-all duration-300 text-base">
                       {resource.buttonText}
                     </button>
                   </Link>

@@ -34,17 +34,16 @@ export default function AboutIntro() {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
         <div className="text-center mb-0 -translate-y-0">
-          {/* Optional Section Header */}
-          {/* <SectionHeader title="Who We Are" subtitle="" /> */}
 
-          <p className="intro-p max-w-4xl mx-auto text-base sm:text-lg md:text-xl text-slate-600 leading-relaxed mt-0 mb-0 text-left">
+          <p className="intro-p max-w-4xl mx-auto text-base sm:text-lg md:text-xl text-slate-600 leading-snug mt-0 mb-0 text-left">
+
             <span className="font-semibold text-slate-800">EHM</span> provides{" "}
             <span className="font-semibold text-emerald-600">
               integrated sustainability solutions
             </span>{" "}
             powered by science, technology, and systems thinking.
             <br />
-            <br />
+
             Our offerings span{" "}
             <span className="font-semibold text-emerald-600">
               Water-Positive Systems, Sustainability & ESG, Geophysical
@@ -53,7 +52,7 @@ export default function AboutIntro() {
             — designed to help clients achieve long-term environmental and
             economic value.
             <br />
-            <br />
+
             We partner with{" "}
             <span className="font-semibold text-slate-800">
               cities, industries, and institutions
@@ -68,6 +67,7 @@ export default function AboutIntro() {
             </span>
             .
           </p>
+
         </div>
       </div>
     </section>

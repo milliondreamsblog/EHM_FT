@@ -132,11 +132,36 @@ export default function WhoWeAre() {
           {/* <div className="intro-title">
             <SectionHeader title="Who We Are" subtitle="" />
           </div> */}
-          <p className="intro-p max-w-4xl mx-auto text-base sm:text-lg md:text-xl text-slate-600 leading-relaxed mt-4 text-left">
-            <span className="font-semibold text-slate-800">EHM</span> is a <span className="font-semibold text-emerald-600">sustainability and deep tech startup</span> founded by <span className="font-semibold text-blue-600">IIT alumni</span>,<br />
-            offering services and solutions aligned with the <span className="font-semibold text-emerald-600">Sustainable Development Goals (SDGs)</span>. We assist <span className="font-semibold text-slate-800">industries</span>, <span className="font-semibold text-slate-800">government organizations</span> and <span className="font-semibold text-slate-800">HEI's</span> in enhancing their <span className="font-semibold text-emerald-600">ESG practices</span>, meeting<br />
-            regulatory requirements, managing climate Risks and implementing <span className="font-semibold text-emerald-600">sustainability strategies</span>.
-          </p>
+<p className="intro-p max-w-4xl mx-auto text-base sm:text-lg md:text-xl text-slate-600 leading-snug mt-8 text-left">
+  <span className="font-semibold text-slate-800">EHM</span> is a{" "}
+  <span className="font-semibold text-emerald-600">
+    sustainability and deep tech startup
+  </span>{" "}
+  founded by{" "}
+  <span className="font-semibold text-blue-600">IIT alumni</span>,
+  <br className="mb-3" />
+
+  offering services and solutions aligned with the{" "}
+  <span className="font-semibold text-emerald-600">
+    Sustainable Development Goals (SDGs).
+  </span>
+  <br className="mb-3" />
+  We assist{" "}
+
+  <span className="font-semibold text-slate-800">industries</span>,{" "}
+  <span className="font-semibold text-slate-800">government organizations</span>{" "}
+  and <span className="font-semibold text-slate-800">HEI's</span> in enhancing
+  their{" "}
+  <span className="font-semibold text-emerald-600">ESG practices</span>, meeting
+  <br className="mb-3" />
+
+  regulatory requirements, managing climate risks and implementing{" "}
+  <span className="font-semibold text-emerald-600">
+    sustainability strategies
+  </span>
+  .
+</p>
+
         </div>
 
         {/* Cards - Now using mapped data and reusable component */}

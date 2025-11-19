@@ -41,7 +41,7 @@ const Footer2 = () => {
               />
               <div>
                 <h3 className="text-2xl font-bold bg-gradient-to-r from-green-300 to-emerald-300 bg-clip-text text-transparent">
-                  EHM CONSULTANCY
+                  EHM
                 </h3>
                 <p className="text-slate-400 text-sm">Sustainable Solutions for Tomorrow</p>
               </div>

@@ -27,7 +27,7 @@ const Footer = () => {
 
   const socialLinks = [
     { icon: Linkedin, url: 'https://www.linkedin.com/company/ehm-consultancy-pvt-ltd/', label: 'LinkedIn' },
-    { icon: Twitter, url: 'https://x.com/EhmConsultancy', label: 'Twitter' },
+    { icon: Twitter, url: 'https://x.com/EHMOfficial1', label: 'Twitter' },
     { icon: Instagram, url: 'https://www.instagram.com/ehmofficial1/', label: 'Instagram' },
     { icon: Facebook, url: 'https://www.facebook.com/profile.php?id=100063877967113', label: 'Facebook' },
     { icon: Youtube, url: 'https://www.youtube.com/@EHMOfficial1', label: 'YouTube' },
@@ -66,7 +66,7 @@ const Footer = () => {
                 className="h-12 w-12 rounded-lg shadow-lg bg-white p-1"
               />
               <div>
-                <h3 className="text-xl font-bold text-white">EHM CONSULTANCY</h3>
+                <h3 className="text-xl font-bold text-white">EHM</h3>
                 <p className="text-emerald-400 text-sm">Sustainable Solutions</p>
               </div>
             </div>

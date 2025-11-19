@@ -26,7 +26,7 @@ const PartnersLogo = () => {
         </ScrollRevealElements>
       </div>
 
-      <div className="w-full mx-0 px-0 relative z-20 overflow-hidden">
+      <div className="w-full mx-0 px-0 relative z-20 overflow-hidden -mt-8">
         <div className="relative">
           <style
             dangerouslySetInnerHTML={{

@@ -1,6 +1,5 @@
 import React from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const SECTIONS = [
   ["Sustainability Assessment", "& Reporting"],
@@ -19,22 +18,25 @@ const circleR = 170;
 const labelR = 195;
 
 export default function OfferingsHero() {
-  const navigate = useNavigate();
   const specialLabelYOffset = -20;
   
+  const handleNavigate = (section) => {
+    console.log(`Navigating to: ${section}`);
+    // Add your navigation logic here
+  };
+  
   return (
-
-<section
-  className="relative min-h-screen flex items-center justify-center overflow-visible pt-20"
-  style={{
-    background:
-      "linear-gradient(135deg, #0f2027 0%, #203a43 40%, #2c5364 70%, #433878 100%)"
-  }}
->
+    <section
+      className="relative min-h-screen flex items-center justify-center overflow-visible pt-20"
+      style={{
+        background:
+          "linear-gradient(135deg, #0a1628 0%, #1a2942 40%, #0f3460 70%, #1a2942 100%)"
+      }}
+    >
       {/* Ambient glow effects */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/4 left-1/3 w-[600px] h-[600px] bg-orange-500/8 blur-3xl rounded-full" />
-        <div className="absolute bottom-1/4 right-1/3 w-[600px] h-[600px] bg-yellow-500/8 blur-3xl rounded-full" />
+        <div className="absolute top-1/4 left-1/3 w-[600px] h-[600px] bg-cyan-500/8 blur-3xl rounded-full" />
+        <div className="absolute bottom-1/4 right-1/3 w-[600px] h-[600px] bg-blue-500/8 blur-3xl rounded-full" />
       </div>
 
       {/* Heading on the left */}
@@ -45,20 +47,21 @@ export default function OfferingsHero() {
           transition={{ duration: 0.8 }}
         >
           <h1
-            className="text-white font-bold text-7xl leading-tight mb-6"
-            style={{
-              fontFamily: "'Inter', 'Segoe UI', sans-serif",
-              textShadow: "0 4px 30px rgba(255, 159, 64, 0.4)"
-            }}
-          >
-            Our Services &{" "}
-            <span className="bg-gradient-to-r from-orange-400 via-amber-400 to-yellow-400 bg-clip-text text-transparent">
-              Offerings
-            </span>
-          </h1>
+  className="font-bold text-7xl leading-tight mb-6"
+  style={{
+    fontFamily: "'Inter', 'Segoe UI', sans-serif"
+  }}
+>
+  <span className="bg-gradient-to-r from-emerald-400 via-green-400 to-teal-400 bg-clip-text text-transparent">
+    Our Services &{" "}
+  </span>
+  <span className="bg-gradient-to-r from-[#00ff9d] via-[#3498db] to-[#9b59b6] bg-clip-text text-transparent">
+    Offerings
+  </span>
+</h1>
           
           <p
-            className="text-slate-300 text-xl leading-relaxed max-w-lg mb-8"
+            className="text-white/70 text-xl leading-relaxed max-w-lg mb-8"
             style={{
               fontFamily: "'Inter', 'Segoe UI', sans-serif"
             }}
@@ -70,8 +73,8 @@ export default function OfferingsHero() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => navigate('/contact#form')}
-              className="px-8 py-4 bg-gradient-to-r from-orange-500 to-amber-500 text-white font-semibold rounded-full shadow-lg hover:shadow-orange-500/50 transition-all duration-300"
+              onClick={() => handleNavigate('/contact#form')}
+              className="px-8 py-4 bg-gradient-to-r from-[#00ff9d] to-[#00d084] text-[#0a1628] font-semibold rounded-full shadow-lg hover:shadow-[0_10px_40px_rgba(0,255,157,0.5)] transition-all duration-300"
             >
               Book a Call
             </motion.button>
@@ -91,9 +94,9 @@ export default function OfferingsHero() {
       >
         <defs>
           <linearGradient id="warmGradient" x1="0" x2="1">
-            <stop offset="0%" stopColor="#f97316" />
-            <stop offset="50%" stopColor="#fb923c" />
-            <stop offset="100%" stopColor="#fbbf24" />
+            <stop offset="0%" stopColor="#00ff9d" />
+            <stop offset="50%" stopColor="#3498db" />
+            <stop offset="100%" stopColor="#9b59b6" />
           </linearGradient>
           <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
             <feGaussianBlur stdDeviation="14" result="blurred" />
@@ -107,7 +110,7 @@ export default function OfferingsHero() {
               dx="0"
               dy="0"
               stdDeviation="3"
-              floodColor="#fb923c"
+              floodColor="#00ff9d"
               floodOpacity="0.7"
             />
           </filter>
@@ -233,7 +236,7 @@ export default function OfferingsHero() {
                 cx={dotX}
                 cy={i === 0 ? dotY + 15 : dotY}
                 r="10"
-                fill="#fb923c"
+                fill="#00ff9d"
                 filter="url(#glow)"
               />
               <text
@@ -244,7 +247,7 @@ export default function OfferingsHero() {
                 fontFamily="'Inter', 'Segoe UI', sans-serif"
                 fontWeight={700}
                 fontSize="20"
-                fill="#e5e7eb"
+                fill="#ffffff"
                 filter="url(#textGlow)"
                 pointerEvents="auto"
                 style={{ cursor: "pointer" }}
