@@ -20,7 +20,7 @@ const awardsData = [
   },
   {
     id: 3,
-    title: 'Graduate – GreenR Sustainability Accelerator',
+    title: 'Graduate GreenR Sustainability Accelerator',
     date: '2023-08',
     description: 'Organized by TechnoServe, supported by IKEA Foundation & Visa Foundation, recognizing EHM\'s high-impact climate-tech business model.'
       .replace(/\s+/g, ' ').trim(),
@@ -28,16 +28,16 @@ const awardsData = [
   },
   {
     id: 4,
-    title: 'Convenor – AI for Sustainable Cities National Conference (Feb 2024)',
+    title: 'AI for Sustainable Cities National Conference',
     date: '2024-02',
-    description: 'Co-hosted with the Association of Indian Universities (AIU), CSJMU, and IIT Kanpur; convened 50+ universities and institutions to explore the role of AI in accelerating ESG, climate adaptation, and urban sustainability.'
+    description: 'Co-hosted with the Association of Indian Universities (AIU), CSJMU, and IIT Kanpur; convened 50+ universities and institutions to explore the role of AI in accelerating ESG, climate adaptation, and urban sustainability in feb 2024'
       .replace(/\s+/g, ' ').trim(),
     icon: '🤝',
     link: 'https://aisustainablecities.com',
   },
   {
     id: 5,
-    title: 'Led AI Workshop at the Uttar Pradesh Vidhan Sabha',
+    title: 'AI Workshop at the Uttar Pradesh Vidhan Sabha',
     date: '2024-01',
     description: 'Conducted a high-level workshop on AI-driven climate governance, engaging MLAs, state officials, and policy leaders on technology for resilience and disaster preparedness.'
       .replace(/\s+/g, ' ').trim(),
@@ -95,14 +95,14 @@ const AwardsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1, duration: 0.6 }}
-              className="relative bg-white/80 backdrop-blur-md p-8 rounded-3xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-emerald-100"
+              className="relative bg-white/80 backdrop-blur-md p-6 pb-4 rounded-3xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-emerald-100"
             >
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 to-green-400 rounded-t-3xl" />
 
               <div className="flex items-center mb-5">
                 <div className="text-4xl mr-4">{item.icon}</div>
                 <div>
-                  <h3 className="text-2xl font-semibold text-gray-800 leading-snug">
+                  <h3 className="text-xl font-semibold text-gray-800 leading-snug">
                     {item.title}
                   </h3>
                 </div>

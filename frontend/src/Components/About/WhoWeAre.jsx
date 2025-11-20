@@ -145,15 +145,14 @@ export default function WhoWeAre() {
   <span className="font-semibold text-emerald-600">
     Sustainable Development Goals (SDGs).
   </span>
-  <br className="mb-3" />
-  We assist{" "}
+  <br />
 
-  <span className="font-semibold text-slate-800">industries</span>,{" "}
-  <span className="font-semibold text-slate-800">government organizations</span>{" "}
+<span className="block mt-3">
+  We assist <span className="font-semibold text-slate-800">industries</span>, 
+  <span className="font-semibold text-slate-800"> government organizations</span> 
   and <span className="font-semibold text-slate-800">HEI's</span> in enhancing
-  their{" "}
-  <span className="font-semibold text-emerald-600">ESG practices</span>, meeting
-  <br className="mb-3" />
+  their <span className="font-semibold text-emerald-600">ESG practices</span>, meeting
+</span>
 
   regulatory requirements, managing climate risks and implementing{" "}
   <span className="font-semibold text-emerald-600">
