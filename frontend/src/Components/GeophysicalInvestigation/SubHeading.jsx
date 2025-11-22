@@ -91,7 +91,7 @@ const ServicesSection = () => {
   ];
 
   return (
-    <div ref={sectionRef} className="min-h-screen bg-gradient-to-br from-teal-50 via-cyan-50 to-blue-50 py-20 px-4 sm:px-6 lg:px-8">
+    <div ref={sectionRef} className="min-h-screen bg-gradient-to-br from-teal-50 via-teal-100 to-teal-200 py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           

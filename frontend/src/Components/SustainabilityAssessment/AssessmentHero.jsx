@@ -1,7 +1,13 @@
 import React from "react";
 import { Calendar, PhoneCall } from "lucide-react";
+import { useNavigate } from 'react-router-dom';
 
 const SustainabilityHero = () => {
+  const navigate = useNavigate();
+
+  const handleViewCaseStudies = () => {
+    navigate('/resources/casestudies');
+  };
   return (
     <section className="relative min-h-screen flex items-center bg-gradient-to-br from-[#0a1628] via-[#1a2942] to-[#0f3460] overflow-hidden pt-20 py-16">
       {/* Background Effects */}
@@ -53,7 +59,10 @@ const SustainabilityHero = () => {
                 <span className="relative z-10">Book a Demo</span>
               </a>
               
-<button className="inline-flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-md text-white font-semibold text-lg rounded-xl border border-white/20 hover:bg-white/15 hover:border-white/30 hover:-translate-y-1 transition-all duration-300">
+<button 
+  onClick={handleViewCaseStudies}
+  className="inline-flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-md text-white font-semibold text-lg rounded-xl border border-white/20 hover:bg-white/15 hover:border-white/30 hover:-translate-y-1 transition-all duration-300"
+>
   <span className="text-2xl">📊</span>
   <span>View Case Studies</span>
 </button>

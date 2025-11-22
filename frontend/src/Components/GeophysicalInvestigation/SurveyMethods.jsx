@@ -10,6 +10,7 @@ export default function GeophysicalMethodsSection() {
       icon: "⚡",
       color: "#00ff9d",
       gradient: "from-[#00ff9d] to-[#00d084]",
+      image: "/offering/ResistivitySurvey.png",
       description: "Resistivity method used to determine the subsurface's resistivity distribution by making measurements on the ground surface. Resistivity data are rapidly collected with an automated multi-electrode resistivity meter. This method is widely applied in groundwater exploration, environmental site assessments, mineral prospecting, engineering investigations, and archaeological studies. By mapping variations in subsurface resistivity, it helps identify features such as aquifers, contaminated zones, bedrock depth, fractures, and buried objects, making it a valuable tool for non-invasive and detailed subsurface characterization."
     },
     {
@@ -18,6 +19,7 @@ export default function GeophysicalMethodsSection() {
       icon: "🌍",
       color: "#3498db",
       gradient: "from-[#3498db] to-[#2980b9]",
+      image: "/offering/GravitySurvey.png",
       description: "Gravity surveys, which measure subtle variations in the Earth's gravitational field, are widely used to map subsurface structures and identify areas where local masses differ in density from surrounding formations. Their main applications include exploring for mineral and hydrocarbon deposits, locating geologic features such as faults, cavities, or salt domes, and determining the thickness or characteristics of sedimentary basins. Additionally, gravity surveys assist in groundwater investigations, environmental studies, and civil engineering projects by providing crucial information about subsurface density variations, helping to guide exploration and inform construction or resource management decisions."
     },
     {
@@ -26,6 +28,7 @@ export default function GeophysicalMethodsSection() {
       icon: "🧲",
       color: "#9b59b6",
       gradient: "from-[#9b59b6] to-[#8e44ad]",
+      image: "/offering/MagneticSurvey .png",
       description: "Magnetic surveys are widely used in geophysics to measure variations in the Earth's magnetic field that arise from subsurface geology. They play a crucial role in mineral exploration by detecting deposits of iron ore and other minerals with distinct magnetic properties. In archaeology, magnetic surveys help locate buried artifacts, structures, or ancient features without excavation. This technique is also applied in environmental studies for mapping contaminated land, locating buried tanks or utilities, and in oil and gas exploration for basin and fault mapping. Overall, magnetic surveys provide a rapid, non-invasive approach to understanding subsurface conditions and guiding resource, environmental, or cultural investigations."
     },
     {
@@ -34,23 +37,23 @@ export default function GeophysicalMethodsSection() {
       icon: "📡",
       color: "#e74c3c",
       gradient: "from-[#e74c3c] to-[#c0392b]",
+      image: "/offering/GPRsurvey.png",
       description: "Ground Penetrating Radar (GPR) is a powerful geophysical method that uses pulses of electromagnetic waves to image the subsurface, offering a quick, nonintrusive means of surveying beneath the ground. It is extensively used to locate and map underground utilities such as pipes and cables, assess the integrity and thickness of pavements and concrete structures, detect voids, fractures, or buried objects, and evaluate environmental or archaeological sites for hidden features. GPR's versatility and high-resolution capabilities make it invaluable for civil engineering, construction planning, forensic investigations, and environmental assessments where detailed, nondestructive subsurface information is required."
     }
   ];
 
   return (
-    <section className="relative py-32 bg-gradient-to-br from-[#ccfbf1] via-[#99f6e4] to-[#5eead4] overflow-hidden">
-      {/* Top Fade to White */}
-      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white to-transparent z-20 pointer-events-none"></div>
+    <section className="relative py-32 bg-gradient-to-br from-teal-50 via-teal-100 to-teal-200 overflow-hidden">
+      {/* Top Fade */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-teal-50 to-transparent z-20 pointer-events-none"></div>
       
-      {/* Bottom Fade to White */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent z-20 pointer-events-none"></div>
+      {/* Bottom Fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-teal-100 to-transparent z-20 pointer-events-none"></div>
 
       {/* Animated Background */}
       <div className="absolute inset-0">
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-tr from-[#ccfbf1]/50 via-[#99f6e4]/30 to-[#d1fae5]/20"></div>
-        <div className="absolute inset-0 bg-gradient-to-bl from-[#5eead4]/40 via-transparent to-[#a7f3d0]/60"></div>
+        <div className="absolute inset-0 bg-gradient-to-tr from-teal-50/50 via-teal-100/30 to-teal-200/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-bl from-teal-200/30 via-transparent to-teal-100/40"></div>
         
         {/* Floating Orbs */}
         <div className="absolute inset-0 opacity-30">
@@ -84,7 +87,7 @@ export default function GeophysicalMethodsSection() {
             <span className="bg-gradient-to-r from-[#dc2626] via-[#ef4444] to-[#f87171] bg-clip-text text-transparent">Survey </span>
             <span className="text-gray-900">Methods</span>
           </h2>
-          <div className="h-1 w-32 mx-auto bg-gradient-to-r from-transparent via-[#dc2626] to-transparent rounded-full"></div>
+          <div className="h-1 w-40 mx-auto bg-gradient-to-r from-transparent via-[#dc2626] to-transparent rounded-full"></div>
         </div>
 
         {/* Vertical Timeline Layout */}
@@ -122,7 +125,7 @@ export default function GeophysicalMethodsSection() {
                     </div>
                   </div>
 
-                  {/* Title with Icon */}
+                  {/* Title with Icon (UNCHANGED) */}
                   <div className="flex items-center gap-4 group">
                     <div 
                       className="text-5xl transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-12"
@@ -182,16 +185,16 @@ export default function GeophysicalMethodsSection() {
                         }}
                       />
                       
-                      {/* Center Icon */}
-                      <div 
-                        className="text-9xl transform transition-all duration-500"
+                      {/* Image per method */}
+                      <img
+                        src={method.image}
+                        alt={method.title}
+                        className="w-56 h-56 object-contain transition-all duration-500"
                         style={{
                           filter: `drop-shadow(0 0 40px ${method.color})`,
                           transform: hoveredMethod === index ? 'scale(1.2) rotate(360deg)' : 'scale(1) rotate(0deg)'
                         }}
-                      >
-                        {method.icon}
-                      </div>
+                      />
                     </div>
 
                     {/* Orbiting Dots */}
