@@ -1,0 +1,16 @@
+<IfModule mod_rewrite.c>
+  Options -MultiViews
+  RewriteEngine On
+  RewriteBase /
+
+  # Prevent rewriting of the index file itself
+  RewriteRule ^index\.html$ - [L]
+
+  # If the request is for a real file or directory, serve it as is
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-l
+
+  # Otherwise redirect everything to index.html
+  RewriteRule . /index.html [L]
+</IfModule>
