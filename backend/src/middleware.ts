@@ -8,9 +8,9 @@ import { CloudinaryStorage } from "multer-storage-cloudinary";
 dotenv.config();
 
 const JWT_SECRET = process.env.JWT_SECRET!;
-if (!JWT_SECRET || !process.env.CLOUDINARY_CLOUD_NAME) {
-  throw new Error("Missing environment configuration for JWT or Cloudinary");
-}
+// if (!JWT_SECRET || !process.env.CLOUDINARY_CLOUD_NAME) {
+//   throw new Error("Missing environment configuration for JWT or Cloudinary");
+// }
 
 interface CustomRequest extends Request {
   adminId?: string;
