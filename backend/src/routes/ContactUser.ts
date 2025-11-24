@@ -46,4 +46,22 @@ ContactUserRouter.post("/contact", async (req: Request, res: Response) => {
   }
 });
 
+// GET endpoint - Fetch all contacts (for admin)
+ContactUserRouter.get("/contacts", async (req: Request, res: Response) => {
+  try {
+    const contacts = await ContactModel.find().sort({ createdAt: -1 });
+    return res.status(200).json({
+      success: true,
+      contacts,
+    });
+  } catch (err: any) {
+    console.error("Error fetching contacts:", err);
+    return res.status(500).json({
+      success: false,
+      message: "Error fetching contacts",
+      error: err,
+    });
+  }
+});
+
 export { ContactUserRouter };
