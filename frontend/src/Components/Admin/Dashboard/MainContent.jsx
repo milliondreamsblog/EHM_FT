@@ -5,7 +5,7 @@ import BlogsManage from "../sidebarOptions/blogsManage";
 import ArticleManage from "../sidebarOptions/ArticleManage";
 import FootprintManage from "../sidebarOptions/footprintManage";
 import CaseStudiesManage from "../sidebarOptions/CaseStudiesManage";
-import { ContactUserRouter } from "../sidebarOptions/ContactUser";
+import  ContactUserRouter  from "../sidebarOptions/ContactUser";
 
 export default function MainContent({ activeTab }) {
   return (
