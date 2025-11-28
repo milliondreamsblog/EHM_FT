@@ -7,7 +7,7 @@ export default function ContactUsers() {
 
   useEffect(() => {
     setLoadingContacts(true);
-    API.get("/admin/contacts")
+    API.get("/contacts")
       .then((res) => {
         const sorted = res.data.contacts.sort(
           (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
