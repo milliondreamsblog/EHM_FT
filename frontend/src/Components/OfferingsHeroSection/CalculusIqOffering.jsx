@@ -1,27 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight } from 'lucide-react';
-import {
-  IconBrightnessDown,
-  IconBrightnessUp,
-  IconCaretRightFilled,
-  IconCaretUpFilled,
-  IconChevronUp,
-  IconMicrophone,
-  IconMoon,
-  IconPlayerSkipForward,
-  IconPlayerTrackNext,
-  IconPlayerTrackPrev,
-  IconTable,
-  IconVolume,
-  IconVolume2,
-  IconVolume3,
-  IconSearch,
-  IconWorld,
-  IconCommand,
-  IconCaretLeftFilled,
-  IconCaretDownFilled,
-} from "@tabler/icons-react";
+import { IconBrightnessDown, IconBrightnessUp, IconCaretRightFilled, IconCaretUpFilled, IconChevronUp, IconMicrophone, IconMoon, IconPlayerSkipForward, IconPlayerTrackNext, IconPlayerTrackPrev, IconTable, IconVolume, IconVolume2, IconVolume3, IconSearch, IconWorld, IconCommand, IconCaretLeftFilled, IconCaretDownFilled } from "@tabler/icons-react";
 
 // Utility function for conditional class names
 const cn = (...classes) => classes.filter(Boolean).join(' ');
