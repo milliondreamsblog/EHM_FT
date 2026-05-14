@@ -171,7 +171,7 @@ const Lid = ({
         className="absolute inset-0 h-96 w-[32rem] rounded-2xl bg-[#010101] p-2"
       >
         <div className="absolute inset-0 rounded-lg bg-[#272729]" />
-        <img loading="lazy" src={src}
+        <img loading="eager" fetchpriority="high" src={src}
           alt="macbook screen"
           className="absolute inset-0 h-full w-full rounded-lg object-cover object-left-top"
         />

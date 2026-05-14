@@ -1,53 +1,46 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Mail, User, MessageSquare, Send, CheckCircle, Calendar } from "lucide-react";
 import API from "../../api/axios";
 
 export default function StarcContact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    mobile: "",
-    interestedIn: "Sustainability Reporting / ESG Support",
-    message: "",
-  });
-
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const formRef = useRef(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     setErrorMsg("");
+
+    const formData = new FormData(e.target);
+    const name = formData.get("name") || "";
+    const email = formData.get("email") || "";
+    const mobile = formData.get("mobile") || "";
+    const interestedIn = formData.get("interestedIn") || "STARC Sustainability Tracking, Assessment & Reporting for Campus";
+    const message = formData.get("message") || "";
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const mobileRegex = /^\+?[0-9]{10,15}$/;
 
-    if (!emailRegex.test(formData.email.trim())) {
+    if (!emailRegex.test(email.trim())) {
       setErrorMsg("Please enter a valid email address.");
       setIsLoading(false);
       return;
     }
 
-    if (formData.mobile.trim() && !mobileRegex.test(formData.mobile.trim())) {
+    if (mobile.trim() && !mobileRegex.test(mobile.trim())) {
       setErrorMsg("Please enter a valid mobile number (e.g., +911234567890).");
       setIsLoading(false);
       return;
     }
 
     const cleanedData = {
-      ...formData,
-      name: formData.name.trim(),
-      email: formData.email.trim(),
-      mobile: formData.mobile.trim(),
-      interestedIn: formData.interestedIn.trim(),
-      message: formData.message.trim(),
+      name: name.trim(),
+      email: email.trim(),
+      mobile: mobile.trim(),
+      interestedIn: interestedIn.trim(),
+      message: message.trim(),
     };
 
     try {
@@ -58,13 +51,9 @@ export default function StarcContact() {
 
         setTimeout(() => {
           setIsSubmitted(false);
-          setFormData({
-            name: "",
-            email: "",
-            mobile: "",
-            interestedIn: "Sustainability Reporting / ESG Support (STARC)",
-            message: "",
-          });
+          // When the form unmounts and remounts, it natively resets, 
+          // but we can be safe and try to reset if the ref is attached
+          if (formRef.current) formRef.current.reset();
         }, 3000);
       }
     } catch (err) {
@@ -95,7 +84,7 @@ export default function StarcContact() {
   }
 
   return (
-    <div className="min-h-screen lg:h-screen flex items-center justify-center py-8 px-4 relative overflow-hidden bg-slate-50">
+    <div className="min-h-screen flex items-center justify-center pt-32 pb-12 px-4 relative overflow-hidden bg-slate-50">
       
       {/* Subtle Background Decorations */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -124,18 +113,18 @@ export default function StarcContact() {
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <form ref={formRef} onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="space-y-1">
-            <label className="block text-[10px] font-bold text-slate-400 ml-1 uppercase tracking-wider">Full Name</label>
+            <label htmlFor="name" className="block text-[10px] font-bold text-slate-400 ml-1 uppercase tracking-wider">Full Name <span className="text-red-500">*</span></label>
             <div className="relative group">
               <div className="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
                 <User className="w-5 h-5 text-slate-300 group-focus-within:text-[#4B7635] transition-colors" />
               </div>
               <input
+                id="name"
                 type="text"
                 name="name"
-                value={formData.name}
-                onChange={handleChange}
+                autoComplete="name"
                 required
                 className="w-full pl-14 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#4B7635]/20 focus:border-[#4B7635] transition-all duration-300 text-slate-900 font-medium placeholder-slate-300 hover:bg-white"
                 placeholder="Enter your full name"
@@ -144,16 +133,16 @@ export default function StarcContact() {
           </div>
 
           <div className="space-y-1">
-            <label className="block text-[10px] font-bold text-slate-400 ml-1 uppercase tracking-wider">Work Email Address</label>
+            <label htmlFor="email" className="block text-[10px] font-bold text-slate-400 ml-1 uppercase tracking-wider">Work Email Address <span className="text-red-500">*</span></label>
             <div className="relative group">
               <div className="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
                 <Mail className="w-5 h-5 text-slate-300 group-focus-within:text-[#4B7635] transition-colors" />
               </div>
               <input
+                id="email"
                 type="email"
                 name="email"
-                value={formData.email}
-                onChange={handleChange}
+                autoComplete="email"
                 required
                 className="w-full pl-14 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#4B7635]/20 focus:border-[#4B7635] transition-all duration-300 text-slate-900 font-medium placeholder-slate-300 hover:bg-white"
                 placeholder="your.name@organization.com"
@@ -162,16 +151,16 @@ export default function StarcContact() {
           </div>
 
           <div className="space-y-1">
-            <label className="block text-[10px] font-bold text-slate-400 ml-1 uppercase tracking-wider">Mobile Number</label>
+            <label htmlFor="mobile" className="block text-[10px] font-bold text-slate-400 ml-1 uppercase tracking-wider">Mobile Number</label>
             <div className="relative group">
               <div className="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
                 <User className="w-5 h-5 text-slate-300 group-focus-within:text-[#4B7635] transition-colors" />
               </div>
               <input
+                id="mobile"
                 type="tel"
                 name="mobile"
-                value={formData.mobile}
-                onChange={handleChange}
+                autoComplete="tel"
                 className="w-full pl-14 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#4B7635]/20 focus:border-[#4B7635] transition-all duration-300 text-slate-900 font-medium placeholder-slate-300 hover:bg-white"
                 placeholder="Enter your mobile number"
               />
@@ -179,37 +168,27 @@ export default function StarcContact() {
           </div>
 
           <div className="space-y-1">
-            <label className="block text-[10px] font-bold text-slate-400 ml-1 uppercase tracking-wider">Solution of Interest</label>
-            <div className="relative ring-offset-bg">
-              <select
+            <label htmlFor="interestedIn" className="block text-[10px] font-bold text-slate-400 ml-1 uppercase tracking-wider">Solution of Interest</label>
+            <div className="relative group">
+              <input
+                id="interestedIn"
                 name="interestedIn"
-                value={formData.interestedIn}
-                onChange={handleChange}
-                required
-                className="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-2xl text-slate-900 font-medium focus:outline-none focus:ring-2 focus:ring-[#4B7635]/20 focus:border-[#4B7635] transition-all duration-300 hover:bg-white appearance-none cursor-pointer"
-                style={{ backgroundImage: 'url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23a1a1aa\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'%3e%3cpolyline points=\'6 9 12 15 18 9\'%3e%3c/polyline%3e%3c/svg%3e")', backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1.25rem center', backgroundSize: '1.2em' }}
-              >
-                <option value="Sustainability Reporting / ESG Support (STARC)">Sustainability Reporting (STARC)</option>
-                <option value="Wastewater Treatment & Waterbody Restoration">Wastewater Treatment</option>
-                <option value="Geophysical / Subsurface Investigation">Geophysical Investigation</option>
-                <option value="Urban Planning & City Project Support">Urban Planning Support</option>
-                <option value="Climate Risk Assessment / Data Advisory">Climate Risk Assessment</option>
-                <option value="Training, Workshops, or Capacity Building">Training & Workshops</option>
-                <option value="General Inquiry">General Inquiry</option>
-              </select>
+                value="STARC Sustainability Tracking, Assessment & Reporting for Campus"
+                readOnly
+                className="w-full px-5 py-4 bg-slate-100 border border-slate-200 rounded-2xl text-slate-600 font-semibold focus:outline-none cursor-not-allowed select-none"
+              />
             </div>
           </div>
 
           <div className="md:col-span-2 space-y-1">
-            <label className="block text-[10px] font-bold text-slate-400 ml-1 uppercase tracking-wider">Requirements</label>
+            <label htmlFor="message" className="block text-[10px] font-bold text-slate-400 ml-1 uppercase tracking-wider">Requirements</label>
             <div className="relative group">
               <div className="absolute top-5 left-5">
                 <MessageSquare className="w-5 h-5 text-slate-300 group-focus-within:text-[#4B7635] transition-colors" />
               </div>
               <textarea
+                id="message"
                 name="message"
-                value={formData.message}
-                onChange={handleChange}
                 required
                 rows="2"
                 className="w-full pl-14 pr-5 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#4B7635]/20 focus:border-[#4B7635] transition-all duration-300 resize-none text-slate-900 font-medium placeholder-slate-300 hover:bg-white"
@@ -256,3 +235,4 @@ export default function StarcContact() {
     </div>
   );
 }
+
