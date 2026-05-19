@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 import Logo from "../Components/LandingPage/Logo";
 import Logoscroll from "../Components/LandingPage/Logoscroll";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 // ProjectsPage.jsx - Complete Implementation
 // All data, components, and logic consolidated in this file
@@ -862,6 +862,8 @@ const ProjectsPage = () => {
               </div>
             </div>
           </section>
+
+
 
           {/* Company Logos Section */}
           <Logoscroll />

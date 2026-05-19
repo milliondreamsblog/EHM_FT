@@ -139,11 +139,11 @@ export default function CaseStudiesManage() {
 
     const openEditModal = (study) => {
         setSelectedCaseStudy(study);
-        setFormData({ 
-            title: study.title, 
-            author: study.author, 
+        setFormData({
+            title: study.title,
+            author: study.author,
             content: study.content, // Already HTML from Quill
-            image: study.image 
+            image: study.image
         });
         setIsEditModalOpen(true);
     };
@@ -206,13 +206,13 @@ function Modal({ title, children, onClose, onSubmit, hideSubmit }) {
 
 function ContentForm({ formData, handleChange, contentType }) {
     const removeImage = () => handleChange({ target: { name: "image", value: null, files: null } });
-    
+
     const quillModules = {
         toolbar: [
             [{ 'header': [1, 2, 3, false] }],
             ['bold', 'italic', 'underline', 'strike'],
             ['blockquote', 'code-block'],
-            [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+            [{ 'list': 'ordered' }, { 'list': 'bullet' }],
             ['link', 'image'],
             [{ 'color': [] }, { 'background': [] }],
             ['clean']

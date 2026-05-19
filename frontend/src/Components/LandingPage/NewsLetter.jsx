@@ -1,29 +1,30 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import ScrollRevealElements from '../Animations/ScrollRevealElements';
+import API from '../../api/axios';
 
 export default function NewsLetter() {
 
   const [email, setEmail] = useState("");
-    const [isSubmitting, setIsSubmitting] = useState(false);
-  
-    const handleSubscribe = async (e) => {
-      e.preventDefault();
-      setIsSubmitting(true);
-      try {
-        const res = await API.post("/subscribe", { email });
-        setEmail("");
-        alert(res.data.message);
-      } catch (err) {
-        if (err.response?.data?.message) {
-          alert(err.response.data.message);
-        } else {
-          console.log("Something went wrong");
-        }
-      } finally {
-        setIsSubmitting(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    try {
+      const res = await API.post("/subscribe", { email });
+      setEmail("");
+      alert(res.data.message);
+    } catch (err) {
+      if (err.response?.data?.message) {
+        alert(err.response.data.message);
+      } else {
+        console.log("Something went wrong");
       }
-    };
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="bg-white font-sans text-gray-800">
@@ -60,23 +61,23 @@ export default function NewsLetter() {
             </motion.div>
 
             <motion.div className="flex flex-col sm:flex-row gap-3">
-         <form onSubmit={handleSubscribe} className="flex space-x-1">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="flex-1 px-16 py-1 bg-gray-50 border border-gray-300 rounded-lg "
-              />
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="px-20 py-1 bg-green-600 text-white font-bold rounded-lg "
-              >
-                {isSubmitting ? 'Subscribing...' : 'Subscribe'}
-              </button>
-            </form>
+              <form onSubmit={handleSubscribe} className="flex space-x-1">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="flex-1 px-16 py-1 bg-gray-50 border border-gray-300 rounded-lg "
+                />
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="px-20 py-1 bg-green-600 text-white font-bold rounded-lg "
+                >
+                  {isSubmitting ? 'Subscribing...' : 'Subscribe'}
+                </button>
+              </form>
 
 
             </motion.div>
@@ -97,39 +98,39 @@ export default function NewsLetter() {
         </main>
       </div>
 
-<div className="py-16 bg-gray-300">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center font-montserrat  text-black mb-12">
-          Industry Partners
-        </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 items-center justify-items-center">
-          <div>
-            <img loading="lazy" alt="Microsoft logo"
-              className="h-32 grayscale dark:brightness-200"
-              src="./Partners/CSJMIF.webp"
-            />
-          </div>
-          <div>
-            <img loading="lazy" alt="FICCI logo"
-              className="h-32 grayscale dark:brightness-200"
-              src="./Partners/E&ICT logo.webp"
-            />
-          </div>
-          <div>
-            <img loading="lazy" alt="Bursa Carbon Exchange logo"
-              className="h-32 w-full grayscale dark:brightness-200"
-              src="./Partners/Technopark logo.webp"
-            />
-          </div>
-          <div>
-            <img loading="lazy" alt="SEAS logo"
-              className="h-32  grayscale dark:brightness-200"
-              src="./Partners/IITR.webp"
-            />
+      <div className="py-16 bg-gray-300">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center font-montserrat  text-black mb-12">
+            Industry Partners
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 items-center justify-items-center">
+            <div>
+              <img loading="lazy" alt="Microsoft logo"
+                className="h-32 grayscale dark:brightness-200"
+                src="./Partners/CSJMIF.webp"
+              />
+            </div>
+            <div>
+              <img loading="lazy" alt="FICCI logo"
+                className="h-32 grayscale dark:brightness-200"
+                src="./Partners/E&ICT logo.webp"
+              />
+            </div>
+            <div>
+              <img loading="lazy" alt="Bursa Carbon Exchange logo"
+                className="h-32 w-full grayscale dark:brightness-200"
+                src="./Partners/Technopark logo.webp"
+              />
+            </div>
+            <div>
+              <img loading="lazy" alt="SEAS logo"
+                className="h-32  grayscale dark:brightness-200"
+                src="./Partners/IITR.webp"
+              />
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
       <style>{`
         .folded-corner {

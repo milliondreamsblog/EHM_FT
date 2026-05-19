@@ -152,7 +152,7 @@ export default function ArticleManage() {
               className="bg-white rounded-lg shadow hover:shadow-lg overflow-hidden"
             >
               {article.image ? (
-                <img loading="lazy" src={API.defaults.baseURL + article.image}
+                <img loading="lazy" src={article.image}
                   alt={article.title}
                   className="w-full h-40 object-cover"
                 />
@@ -255,7 +255,7 @@ export default function ArticleManage() {
               {selectedArticle.author}
             </span>
             {selectedArticle.image ? (
-              <img loading="lazy" src={API.defaults.baseURL + selectedArticle.image}
+              <img loading="lazy" src={selectedArticle.image}
                 alt={selectedArticle.title}
                 className="w-full h-60 object-cover mb-4"
               />
