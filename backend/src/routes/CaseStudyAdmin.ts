@@ -19,7 +19,7 @@ CaseStudyAdminRouter.post(
   upload.single("image"), // Handle file upload
   async (req: CustomRequest, res: Response) => {
     try {
-      const { title, author, content } = req.body;
+      const { title, author, content, customDate } = req.body;
 
       const caseStudy = new CaseStudyModel({
         title,
@@ -30,6 +30,7 @@ CaseStudyAdminRouter.post(
         author,
         content,
         creatorId: req.adminId,
+        ...(customDate ? { createdAt: new Date(customDate) } : {}),
       });
 
       await caseStudy.save();
@@ -55,7 +56,7 @@ CaseStudyAdminRouter.put(
   upload.single("image"),
   async (req: CustomRequest, res: Response) => {
     try {
-      const { title, author, content } = req.body;
+      const { title, author, content, customDate } = req.body;
       const caseStudyId = req.params.id;
 
       const existingCaseStudy = await CaseStudyModel.findById(caseStudyId);
@@ -69,11 +70,16 @@ CaseStudyAdminRouter.put(
         content: string;
         image?: string;
         imagePublicId?: string;
+        createdAt?: Date;
       } = {
         title,
         author,
         content,
       };
+
+      if (customDate) {
+        updateData.createdAt = new Date(customDate);
+      }
 
       // Check if a new file is being uploaded
       if (req.file) {

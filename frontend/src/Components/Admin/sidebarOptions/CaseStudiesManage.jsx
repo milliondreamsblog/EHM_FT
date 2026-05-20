@@ -47,7 +47,7 @@ export default function CaseStudiesManage() {
     const [isFullViewOpen, setIsFullViewOpen] = useState(false);
     const [isDeleteConfirmOpen, setIsDeleteConfirmOpen] = useState(false);
 
-    const [formData, setFormData] = useState({ title: "", author: "", content: "", image: null });
+    const [formData, setFormData] = useState({ title: "", author: "", content: "", image: null, customDate: "" });
     const [selectedCaseStudy, setSelectedCaseStudy] = useState(null);
 
     const fetchCaseStudies = async () => {
@@ -66,7 +66,28 @@ export default function CaseStudiesManage() {
 
     const handleChange = (e) => {
         const { name, value, files } = e.target;
-        setFormData(prev => ({ ...prev, [name]: files ? files[0] : value }));
+        if (files) {
+            const file = files[0];
+            if (file) {
+                // Check format
+                const validFormats = ["image/jpeg", "image/png", "image/webp"];
+                if (!validFormats.includes(file.type)) {
+                    alert("Only JPEG, PNG, and WEBP formats are allowed.");
+                    e.target.value = "";
+                    return;
+                }
+                // Check size (max 5MB)
+                const maxSize = 5 * 1024 * 1024;
+                if (file.size > maxSize) {
+                    alert("Image size should not exceed 5MB.");
+                    e.target.value = "";
+                    return;
+                }
+            }
+            setFormData(prev => ({ ...prev, [name]: file }));
+        } else {
+            setFormData(prev => ({ ...prev, [name]: value }));
+        }
     };
 
     const processContent = (html) => {
@@ -86,6 +107,7 @@ export default function CaseStudiesManage() {
             data.append("title", formData.title);
             data.append("author", formData.author);
             data.append("content", processContent(formData.content));
+            if (formData.customDate) data.append("customDate", formData.customDate);
             if (formData.image) data.append("image", formData.image);
 
             await API.post("/admin/casestudies", data);
@@ -94,7 +116,7 @@ export default function CaseStudiesManage() {
         } catch (err) {
             setFeedback({ show: true, type: 'error', message: 'Upload failed. Please try again.' });
         } finally {
-            setFormData({ title: "", author: "", content: "", image: null });
+            setFormData({ title: "", author: "", content: "", image: null, customDate: "" });
         }
     };
 
@@ -110,6 +132,7 @@ export default function CaseStudiesManage() {
             data.append("title", formData.title);
             data.append("author", formData.author);
             data.append("content", processContent(formData.content));
+            if (formData.customDate) data.append("customDate", formData.customDate);
             if (formData.image instanceof File) data.append("image", formData.image);
 
             await API.put(`/admin/casestudies/${selectedCaseStudy._id}`, data);
@@ -119,7 +142,7 @@ export default function CaseStudiesManage() {
             setFeedback({ show: true, type: 'error', message: 'Update failed. Please try again.' });
         } finally {
             setSelectedCaseStudy(null);
-            setFormData({ title: "", author: "", content: "", image: null });
+            setFormData({ title: "", author: "", content: "", image: null, customDate: "" });
         }
     };
 
@@ -143,7 +166,8 @@ export default function CaseStudiesManage() {
             title: study.title,
             author: study.author,
             content: study.content, // Already HTML from Quill
-            image: study.image
+            image: study.image,
+            customDate: study.createdAt ? new Date(study.createdAt).toISOString().slice(0, 16) : ""
         });
         setIsEditModalOpen(true);
     };
@@ -233,7 +257,8 @@ function ContentForm({ formData, handleChange, contentType }) {
             <div><label className="block text-sm font-medium text-gray-700 mb-1">Title</label><input type="text" name="title" placeholder={`Enter ${contentType} title`} value={formData.title} onChange={handleChange} className="text-black bg-gray-200 w-full border-gray-300 px-4 py-2.5 rounded-lg focus:ring-2 focus:ring-green-500" /></div>
             <div><label className="block text-sm font-medium text-gray-700 mb-1">Author</label><input type="text" name="author" placeholder="Author's name" value={formData.author} onChange={handleChange} className="text-black bg-gray-200 w-full border-gray-300 px-4 py-2.5 rounded-lg focus:ring-2 focus:ring-green-500" /></div>
             <div><label className="block text-sm font-medium text-gray-700 mb-1">Content</label><ReactQuill value={formData.content} onChange={(content) => handleChange({ target: { name: 'content', value: content } })} modules={quillModules} formats={quillFormats} theme="snow" placeholder={`Write your ${contentType} content...`} style={{ height: '300px', marginBottom: '40px' }} /></div>
-            <div><label className="block text-sm font-medium text-gray-700 mb-1">{contentType} Image</label>{formData.image ? (<div className="flex items-center gap-3 mt-2"><p className="text-sm text-gray-700 bg-green-100 px-3 py-1 rounded-full">{typeof formData.image === "string" ? formData.image.split("/").pop() : formData.image.name}</p><button type="button" onClick={removeImage} className="text-red-500 font-bold hover:text-red-700 text-xl" title="Remove image">&times;</button></div>) : (<input type="file" name="image" accept="image/*" onChange={handleChange} className="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-green-100 file:text-green-700 hover:file:bg-green-200" />)}</div>
+            <div><label className="block text-sm font-medium text-gray-700 mb-1">Upload Date & Time (Optional)</label><input type="datetime-local" name="customDate" value={formData.customDate || ""} onChange={handleChange} className="text-black bg-gray-200 w-full border-gray-300 px-4 py-2.5 rounded-lg focus:ring-2 focus:ring-green-500" title="Leave blank to use current time" /></div>
+            <div><label className="block text-sm font-medium text-gray-700 mb-1">{contentType} Image (JPEG, PNG, WEBP, Max 5MB)</label>{formData.image ? (<div className="flex items-center gap-3 mt-2"><p className="text-sm text-gray-700 bg-green-100 px-3 py-1 rounded-full">{typeof formData.image === "string" ? formData.image.split("/").pop() : formData.image.name}</p><button type="button" onClick={removeImage} className="text-red-500 font-bold hover:text-red-700 text-xl" title="Remove image">&times;</button></div>) : (<input type="file" name="image" accept="image/jpeg, image/png, image/webp" onChange={handleChange} className="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-green-100 file:text-green-700 hover:file:bg-green-200" />)}</div>
         </form>
     );
 }
