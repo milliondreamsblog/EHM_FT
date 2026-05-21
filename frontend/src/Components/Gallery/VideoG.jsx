@@ -11,13 +11,13 @@ import Video6 from "../../assets/Updated Video and Thumbnail/YouTube all video/W
 import Video7 from "../../assets/Updated Video and Thumbnail/YouTube all video/Water Positive.mp4";
 
 // Import thumbnails
-import Thumb1 from "../../assets/Updated Video and Thumbnail/EHM- CSJMU Sustainability report 2024-25 - YOUTUBE THUMBNAILS  (1).png";
-import Thumb2 from "../../assets/Updated Video and Thumbnail/EHM- CSJMU UNIVERSITY WATER POSITIVE CAMPUS - YOUTUBE THUMBNAILS.png";
-import Thumb3 from "../../assets/Updated Video and Thumbnail/EHM- Centralised STPs vs DNTS- Youtube Thumbnail.png";
-import Thumb4 from "../../assets/Updated Video and Thumbnail/EHM- DNTS - YOUTUBE THUMBNAILS.png";
-import Thumb5 from "../../assets/Updated Video and Thumbnail/EHM- ESG - YOUTUBE THUMBNAILS .png";
-import Thumb6 from "../../assets/Updated Video and Thumbnail/EHM- WATER POSITIVE CAMPUS - YOUTUBE THUMBNAILS  (1).png";
-import Thumb7 from "../../assets/Updated Video and Thumbnail/EHM- WATER POSITIVE- YOUTUBE THUMBNAILS  (1).png";
+import Thumb1 from "../../assets/Updated Video and Thumbnail/EHM- CSJMU Sustainability report 2024-25 - YOUTUBE THUMBNAILS  (1).webp";
+import Thumb2 from "../../assets/Updated Video and Thumbnail/EHM- CSJMU UNIVERSITY WATER POSITIVE CAMPUS - YOUTUBE THUMBNAILS.webp";
+import Thumb3 from "../../assets/Updated Video and Thumbnail/EHM- Centralised STPs vs DNTS- Youtube Thumbnail.webp";
+import Thumb4 from "../../assets/Updated Video and Thumbnail/EHM- DNTS - YOUTUBE THUMBNAILS.webp";
+import Thumb5 from "../../assets/Updated Video and Thumbnail/EHM- ESG - YOUTUBE THUMBNAILS .webp";
+import Thumb6 from "../../assets/Updated Video and Thumbnail/EHM- WATER POSITIVE CAMPUS - YOUTUBE THUMBNAILS  (1).webp";
+import Thumb7 from "../../assets/Updated Video and Thumbnail/EHM- WATER POSITIVE- YOUTUBE THUMBNAILS  (1).webp";
 
 const VideoG = () => {
   const [playingIndex, setPlayingIndex] = useState(null);
@@ -139,8 +139,7 @@ const VideoG = () => {
             </button>
 
             {/* Video Player */}
-            <video
-              src={videos[playingIndex].video}
+            <video preload="none" src={videos[playingIndex].video}
               controls
               autoPlay
               className="w-full rounded-xl shadow-2xl"

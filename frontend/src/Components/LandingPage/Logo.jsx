@@ -67,7 +67,7 @@ const Logo = () => {
                     className="group flex-shrink-0 flex items-center justify-center bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-transform transform hover:scale-105 cursor-pointer"
                   >
                     <div className="flex items-center justify-center h-24 md:h-32 lg:h-40 w-auto">
-                      <img src={'/Client/' + company.name + '.png'} alt={company.name} className="h-20 md:h-32 lg:h-40 w-auto object-contain" draggable={false} />
+                      <img src={'/Client/' + company.name + '.webp'} alt={company.name} className="h-20 md:h-32 lg:h-40 w-auto object-contain" draggable={false} loading="lazy" />
                     </div>
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent py-2 px-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                       <p className="text-white text-sm font-medium text-center">{company.name}</p>
@@ -86,7 +86,7 @@ const Logo = () => {
                     className="group flex-shrink-0 flex items-center justify-center bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-transform transform hover:scale-105 cursor-pointer"
                   >
                     <div className="flex items-center justify-center h-24 md:h-32 lg:h-40 w-auto">
-                      <img src={'/Client/' + company.name + '.png'} alt={company.name} className="h-20 md:h-32 lg:h-40 w-auto object-contain" draggable={false} />
+                      <img src={'/Client/' + company.name + '.webp'} alt={company.name} className="h-20 md:h-32 lg:h-40 w-auto object-contain" draggable={false} loading="lazy" />
                     </div>
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent py-2 px-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                       <p className="text-white text-sm font-medium text-center">{company.name}</p>

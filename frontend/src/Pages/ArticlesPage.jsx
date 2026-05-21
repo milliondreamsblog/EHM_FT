@@ -2,8 +2,8 @@ import React from "react";
 import ArticleCard from "../Components/Articles/ArticleCard";
 
 import natureImg from "../assets/nature.webp";
-import aiImg from "../assets/ai.jpg";
-import sustainableImg from "../assets/sustainable.png";
+import aiImg from "../assets/ai.webp";
+import sustainableImg from "../assets/sustainable.webp";
 
 const articles = [
   {

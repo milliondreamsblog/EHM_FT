@@ -10,7 +10,7 @@ export default function GeophysicalMethodsSection() {
       icon: "⚡",
       color: "#00ff9d",
       gradient: "from-[#00ff9d] to-[#00d084]",
-      image: "/offering/ResistivitySurvey.png",
+      image: "/offering/ResistivitySurvey.webp",
       description: "Resistivity method used to determine the subsurface's resistivity distribution by making measurements on the ground surface. Resistivity data are rapidly collected with an automated multi-electrode resistivity meter. This method is widely applied in groundwater exploration, environmental site assessments, mineral prospecting, engineering investigations, and archaeological studies. By mapping variations in subsurface resistivity, it helps identify features such as aquifers, contaminated zones, bedrock depth, fractures, and buried objects, making it a valuable tool for non-invasive and detailed subsurface characterization."
     },
     {
@@ -19,7 +19,7 @@ export default function GeophysicalMethodsSection() {
       icon: "🌍",
       color: "#3498db",
       gradient: "from-[#3498db] to-[#2980b9]",
-      image: "/offering/GravitySurvey.png",
+      image: "/offering/GravitySurvey.webp",
       description: "Gravity surveys, which measure subtle variations in the Earth's gravitational field, are widely used to map subsurface structures and identify areas where local masses differ in density from surrounding formations. Their main applications include exploring for mineral and hydrocarbon deposits, locating geologic features such as faults, cavities, or salt domes, and determining the thickness or characteristics of sedimentary basins. Additionally, gravity surveys assist in groundwater investigations, environmental studies, and civil engineering projects by providing crucial information about subsurface density variations, helping to guide exploration and inform construction or resource management decisions."
     },
     {
@@ -28,7 +28,7 @@ export default function GeophysicalMethodsSection() {
       icon: "🧲",
       color: "#9b59b6",
       gradient: "from-[#9b59b6] to-[#8e44ad]",
-      image: "/offering/MagneticSurvey .png",
+      image: "/offering/MagneticSurvey .webp",
       description: "Magnetic surveys are widely used in geophysics to measure variations in the Earth's magnetic field that arise from subsurface geology. They play a crucial role in mineral exploration by detecting deposits of iron ore and other minerals with distinct magnetic properties. In archaeology, magnetic surveys help locate buried artifacts, structures, or ancient features without excavation. This technique is also applied in environmental studies for mapping contaminated land, locating buried tanks or utilities, and in oil and gas exploration for basin and fault mapping. Overall, magnetic surveys provide a rapid, non-invasive approach to understanding subsurface conditions and guiding resource, environmental, or cultural investigations."
     },
     {
@@ -37,7 +37,7 @@ export default function GeophysicalMethodsSection() {
       icon: "📡",
       color: "#e74c3c",
       gradient: "from-[#e74c3c] to-[#c0392b]",
-      image: "/offering/GPRsurvey.png",
+      image: "/offering/GPRsurvey.webp",
       description: "Ground Penetrating Radar (GPR) is a powerful geophysical method that uses pulses of electromagnetic waves to image the subsurface, offering a quick, nonintrusive means of surveying beneath the ground. It is extensively used to locate and map underground utilities such as pipes and cables, assess the integrity and thickness of pavements and concrete structures, detect voids, fractures, or buried objects, and evaluate environmental or archaeological sites for hidden features. GPR's versatility and high-resolution capabilities make it invaluable for civil engineering, construction planning, forensic investigations, and environmental assessments where detailed, nondestructive subsurface information is required."
     }
   ];
@@ -186,8 +186,7 @@ export default function GeophysicalMethodsSection() {
                       />
                       
                       {/* Image per method */}
-                      <img
-                        src={method.image}
+                      <img loading="lazy" src={method.image}
                         alt={method.title}
                         className="w-56 h-56 object-contain transition-all duration-500"
                         style={{
@@ -221,7 +220,7 @@ export default function GeophysicalMethodsSection() {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes float {
           0%, 100% {
             transform: translate(0, 0);

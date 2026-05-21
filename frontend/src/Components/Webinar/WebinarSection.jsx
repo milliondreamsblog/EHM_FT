@@ -43,7 +43,11 @@ const Hexagon = ({
       className={`relative ${className}`}
       style={{ width: currentSize, height: currentSize }}
     >
-      <svg width={currentSize} height={currentSize} className="absolute inset-0">
+      <svg
+        width={currentSize}
+        height={currentSize}
+        className="absolute inset-0"
+      >
         <polygon
           points={points.join(" ")}
           fill="rgba(255,255,255,0.2)"
@@ -94,7 +98,7 @@ const WebinarSection = () => {
       <div
         className="relative text-white overflow-hidden pt-24 sm:pt-32 md:pt-40"
         style={{
-          backgroundImage: "url('https://img.freepik.com/premium-photo/generative-ai-human-hand-handshaking-hand-nature-love-nature-environment-concept_93150-38217.jpg')", // ✅ replace with your image path
+          backgroundImage: "url('https://img.freepik.com/premium-photo/generative-ai-human-hand-handshaking-hand-nature-love-nature-environment-concept_93150-38217.webp')", // ✅ replace with your image path
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",

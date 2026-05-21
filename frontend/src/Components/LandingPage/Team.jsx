@@ -28,15 +28,14 @@ const Team = ({ title, members, limit }) => {
           {membersToDisplay.map((member, index) => (
             <motion.div
               key={index}
-              className="w-[240px] h-auto flex flex-col items-center bg-white rounded-2xl shadow-md transition-transform transform hover:-translate-y-2 hover:shadow-xl overflow-hidden"
+              className="w-full sm:w-[280px] h-auto flex flex-col items-center bg-white rounded-2xl shadow-lg transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl overflow-hidden"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
             >
               {/* FIX: Fill area like before but avoid head cropping */}
-              <img
-                src={member.img}
+              <img loading="lazy" src={member.img}
                 alt={member.name}
                 className="w-full h-44 object-cover object-top"
               />

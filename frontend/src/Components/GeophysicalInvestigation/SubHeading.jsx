@@ -65,28 +65,28 @@ const ServicesSection = () => {
       number: "01",
       title: "Mineral Exploration",
       description: "Geophysical methods are integral to modern mineral exploration, providing non-invasive and cost-effective solutions for mapping subsurface geology and identifying potential resource zones. At EHM, we recognize the essential role minerals play in national economic development and focus on delivering value-driven site assessments. By employing advanced geophysical techniques and proven methodologies, we systematically map and delineate prospective mineral zones, empowering our clients to make informed decisions and maximize the profitability of their mining projects through targeted exploration strategies.",
-      imagePlaceholder: "/offering/MineralExploration.png"
+      imagePlaceholder: "/offering/MineralExploration.webp"
     },
     {
       id: 2,
       number: "02",
       title: "Engineering and Geotechnical Services",
       description: "We provide comprehensive geophysical services including detailed characterization of foundations beneath critical structures, mapping of the bedrock surface, and nondestructive evaluation of engineered infrastructures such as bridges, buildings, and dams. Our expertise extends to pipeline leakage detection, cavity identification, utility mapping, and subsurface settlement studies. These services deliver precise subsurface insights essential for informed engineering decisions, risk mitigation, and ensuring structural safety and integrity.",
-      imagePlaceholder: "/offering/EngineeringGeotechnicalservices.png"
+      imagePlaceholder: "/offering/EngineeringGeotechnicalservices.webp"
     },
     {
       id: 3,
       number: "03",
       title: "Hydrological Investigation",
       description: "We specialize in identifying optimal sites for water-well drilling, detailed mapping of the water table, and locating critical fracture zones to enhance groundwater extraction. Our services include comprehensive groundwater quality assessments, as well as advanced mapping and monitoring of contamination plumes and artificial recharge zones. These offerings enable sustainable water resource management and ensure the protection and efficient utilization of subsurface water resources.",
-      imagePlaceholder: "/offering/HydrologicalInvestigation.png"
+      imagePlaceholder: "/offering/HydrologicalInvestigation.webp"
     },
     {
       id: 4,
       number: "04",
       title: "Archaeological Investigation",
       description: "We offer specialized geophysical services for the detection and assessment of archaeological sites, supporting cultural resource management with precision and care. Our expertise includes locating historic and prehistoric graves, hearths, and burial pits, mapping building foundations, and identifying buried artifacts. Using advanced, non-invasive geophysical techniques such as ground-penetrating radar, magnetometry, and electrical resistivity imaging, we provide detailed subsurface insights that aid in site preservation, guide archaeological investigations, and minimize disturbance to culturally significant areas.",
-      imagePlaceholder: "/offering/ArchaeologicalInvestigation.png"
+      imagePlaceholder: "/offering/ArchaeologicalInvestigation.webp"
     }
   ];
 
@@ -194,8 +194,7 @@ const ServicesSection = () => {
                       
                       {/* Image container with better sizing */}
                       <div className="relative z-10 w-[85%] h-[85%] flex items-center justify-center">
-                        <img 
-                          src={service.imagePlaceholder} 
+                        <img loading="lazy" src={service.imagePlaceholder} 
                           alt={service.title}
                           className="max-w-full max-h-full object-contain drop-shadow-2xl"
                         />

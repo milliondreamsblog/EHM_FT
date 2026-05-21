@@ -42,8 +42,7 @@ const WebinarDetails = () => {
 
         {/* RIGHT SIDE */}
         <div>
-          <img
-            src={webinar.thumbnail}
+          <img loading="lazy" src={webinar.thumbnail}
             alt={webinar.title}
             className="w-full h-48 md:h-80 object-cover rounded-lg shadow-md mb-6"
           />

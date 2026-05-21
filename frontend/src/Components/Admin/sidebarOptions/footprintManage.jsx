@@ -91,8 +91,7 @@ export default function FootprintManage() {
               key={footprint._id}
               className="relative bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group overflow-hidden"
             >
-              <img
-                // ## FIX #1: Use the direct Cloudinary URL ##
+              <img loading="lazy" // ## FIX #1: Use the direct Cloudinary URL ##
                 src={footprint.image}
                 alt="Footprint"
                 className="w-full h-56 object-cover rounded-lg"
@@ -143,8 +142,7 @@ export default function FootprintManage() {
           hideSubmit={true}
         >
           <div className="max-h-[80vh] overflow-y-auto">
-            <img
-              // ## FIX #2: Use the direct Cloudinary URL for the modal ##
+            <img loading="lazy" // ## FIX #2: Use the direct Cloudinary URL for the modal ##
               src={selectedFootprint.image}
               alt="Full view of footprint"
               className="w-full h-auto object-contain rounded-lg"

@@ -35,8 +35,7 @@ const ContentCard = ({ item, basePath, delay }) => {
             <div className="relative h-48 overflow-hidden">
                 <Link to={`/${basePath}/${item._id}`} className="block w-full h-full">
                     {imageUrl && !imageError ? (
-                        <img
-                            src={imageUrl}
+                        <img loading="lazy" src={imageUrl}
                             alt={item.title}
                             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                             onError={() => setImageError(true)}

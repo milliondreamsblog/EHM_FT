@@ -6,8 +6,7 @@ const BlogCard = ({ imageUrl, tag, date, title, description }) => {
   return (
     <div className="bg-[#f1f2f1] rounded-lg overflow-hidden transform hover:-translate-y-1 transition-transform duration-300 ease-in-out">
       {/* Blog Post Image */}
-      <img
-        className="w-full h-52 object-cover rounded-b-lg"
+      <img loading="lazy" className="w-full h-52 object-cover rounded-b-lg"
         src={imageUrl}
         alt={title}
         onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/600x400/e2e8f0/4a5568?text=Image+Not+Found'; }}

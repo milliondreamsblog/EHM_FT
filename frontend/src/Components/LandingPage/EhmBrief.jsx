@@ -74,11 +74,8 @@ const EhmBrief = () => {
 
       {/* Bottom Section */}
       <div className="w-full relative z-20">
-        <div className="col-span-12 lg:col-span-10 pb-16 sm:pb-20 px-4 sm:px-8 md:px-12 lg:px-32">
-
-          {/* Main descriptive area - heading intentionally omitted here to keep page flow concise */}
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10 md:gap-12 lg:gap-16 xl:gap-20 items-center">
+        <div className="pb-16 sm:pb-20 px-4 sm:px-8 md:px-12 lg:px-32 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-20 items-center">
 
             <motion.div
               className="w-full h-full"
@@ -87,9 +84,8 @@ const EhmBrief = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.7, ease: "easeOut" }}
             >
-              <img
-                className="w-full h-full object-cover rounded-2xl shadow-lg"
-                src="https://res.cloudinary.com/dlpluej6w/image/upload/v1756388167/Screenshot_1st_u2ghdl.png"
+              <img loading="lazy" className="w-full h-full object-cover rounded-2xl shadow-lg"
+                src="https://res.cloudinary.com/dlpluej6w/image/upload/v1756388167/Screenshot_1st_u2ghdl.webp"
                 alt="Aerial view of green terrace farms"
               />
             </motion.div>

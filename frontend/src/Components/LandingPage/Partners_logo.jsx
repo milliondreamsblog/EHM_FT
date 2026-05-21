@@ -20,8 +20,8 @@ const PartnersLogo = () => {
       <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white via-white/95 to-transparent z-10 pointer-events-none" />
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white via-white/95 to-transparent z-10 pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto px-6 relative z-20">
-        <ScrollRevealElements staggerAmount={0.1} className="relative z-10">
+      <div className="max-w-6xl mx-auto px-4 md:px-6 relative z-20">
+        <ScrollRevealElements staggerAmount={0.1} className="relative z-10 text-center md:text-left">
           <SectionHeading>Partners</SectionHeading>
         </ScrollRevealElements>
       </div>
@@ -149,8 +149,7 @@ const PartnersLogo = () => {
                   className="partner-card relative group flex-shrink-0 flex items-center justify-center"
                 >
                   <div className="partner-logo-container">
-                    <img
-                      src={`/Partners/${partner}.png`}
+                    <img loading="lazy" src={`/Partners/${partner}.webp`}
                       alt={partner}
                       draggable={false}
                       className={`partner-logo ${
@@ -171,8 +170,7 @@ const PartnersLogo = () => {
                   className="partner-card relative group flex-shrink-0 flex items-center justify-center"
                 >
                   <div className="partner-logo-container">
-                    <img
-                      src={`/Partners/${partner}.png`}
+                    <img loading="lazy" src={`/Partners/${partner}.webp`}
                       alt={partner}
                       draggable={false}
                       className={`partner-logo ${

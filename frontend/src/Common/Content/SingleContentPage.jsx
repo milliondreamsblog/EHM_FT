@@ -58,7 +58,7 @@ const SingleContentPage = ({ basePath, contentName }) => {
                     </div>
                     <div className="w-full aspect-video rounded-2xl shadow-xl my-8 bg-gray-100 flex items-center justify-center overflow-hidden">
                         {imageUrl && !imageError ? (
-                            <img src={imageUrl} alt={item.title} className="w-full h-full object-cover" onError={() => setImageError(true)} />
+                            <img loading="lazy" src={imageUrl} alt={item.title} className="w-full h-full object-cover" onError={() => setImageError(true)} />
                         ) : (
                             <div className="flex flex-col items-center text-gray-300">
                                 <ImageIcon size={64} />

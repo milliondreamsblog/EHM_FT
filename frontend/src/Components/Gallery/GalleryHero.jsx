@@ -1,67 +1,66 @@
 import { useState } from "react";
 import VideoG from "./VideoG";
-import Vid from '../Gallery/Vid'
+import Vid from "../Gallery/Vid";
 
 const GalleryHero = () => {
   const [showAll, setShowAll] = useState(false);
 
   const data = [
-    { image: "/Demo/31th1.JPG" },
-    { image: "/Demo/31th2.JPG" },
-    { image: "/Demo/31th3.jpeg" },
-    { image: "/Demo/31th4.JPG" },
-    { image: "/Demo/31th5.jpeg" },
-    { image: "/Demo/31th6.JPG" },
-    { image: "/Demo/31th7.jpeg" },
-    { image: "/Demo/31th8.jpeg" },
-    { image: "/Demo/31th9.jpeg" },
-    { image: "/Demo/31th9.jpg" },
-    { image: "/Demo/31th10.jpeg" },
-    { image: "/Demo/31th11.JPG" },
-    { image: "/Demo/31th12.JPG" },
-    { image: "/Demo/31th13.JPG" },
-    { image: "/Demo/31th14.jpeg" },
-    { image: "/Demo/31th15.jpeg" },
-    { image: "/Demo/31th16.jpeg" },
-    { image: "/Demo/31th17.jpeg" },
-    { image: "/Demo/31th19.jpeg" },
-    { image: "/Demo/31th20.jpeg" },
-    { image: "/Demo/31th21.jpeg" },
-    { image: "/Demo/31th22.jpeg" },
-    { image: "/Demo/31th23.JPG" },
-    { image: "/Demo/31th24.JPG" },
-    { image: "/Demo/31th25.jpeg" },
-    { image: "/Demo/31th26.jpeg" },
-    { image: "/Demo/31th27.jpeg" },
-    { image: "/Demo/31th28.jpg" },
-    { image: "/Demo/31th29.jpeg" },
-    { image: "/Demo/31th30.jpeg" },
-    { image: "/Demo/31th31.jpeg" },
-    { image: "/Demo/pic4.jpeg" },
-    { image: "/Demo/pic23.jpeg" },
-    { image: "/Demo/pic2.jpeg" },
-    { image: "/Demo/pic5.jpeg" },
-    { image: "/Demo/pic11.jpg" },
-    { image: "/Demo/pic3.jpeg" },
-    { image: "/Demo/pic7.jpg" },
-    { image: "/Demo/pic21.jpeg" },
-    { image: "/Demo/pic12.jpg" },
-    { image: "/Demo/pic14.jpeg" },
-    { image: "/Demo/pic15.jpeg" },
-    { image: "/Demo/pic16.jpeg" },
-    { image: "/Demo/pic17.jpeg" },
-    { image: "/Demo/pic18.jpeg" },
-    { image: "/Demo/pic19.jpeg" },
-    { image: "/Demo/pic20.jpeg" },
-    { image: "/Demo/pic25.jpeg" },
-    { image: "/Demo/pic6.jpg" },
-    { image: "/Demo/pic8.png" },
-    { image: "/Demo/pic9.JPG" },
-    { image: "/Demo/pic10.JPG" },
-    { image: "/Demo/pic13.jpg" },
-    { image: "/Demo/pic22.jpeg" },
-    { image: "/Demo/pic1.jpeg" },
-   
+    { image: "/Demo/31th1.webp" },
+    { image: "/Demo/31th2.webp" },
+    { image: "/Demo/31th3.webp" },
+    { image: "/Demo/31th4.webp" },
+    { image: "/Demo/31th5.webp" },
+    { image: "/Demo/31th6.webp" },
+    { image: "/Demo/31th7.webp" },
+    { image: "/Demo/31th8.webp" },
+    { image: "/Demo/31th9.webp" },
+    { image: "/Demo/31th9.webp" },
+    { image: "/Demo/31th10.webp" },
+    { image: "/Demo/31th11.webp" },
+    { image: "/Demo/31th12.webp" },
+    { image: "/Demo/31th13.webp" },
+    { image: "/Demo/31th14.webp" },
+    { image: "/Demo/31th15.webp" },
+    { image: "/Demo/31th16.webp" },
+    { image: "/Demo/31th17.webp" },
+    { image: "/Demo/31th19.webp" },
+    { image: "/Demo/31th20.webp" },
+    { image: "/Demo/31th21.webp" },
+    { image: "/Demo/31th22.webp" },
+    { image: "/Demo/31th23.webp" },
+    { image: "/Demo/31th24.webp" },
+    { image: "/Demo/31th25.webp" },
+    { image: "/Demo/31th26.webp" },
+    { image: "/Demo/31th27.webp" },
+    { image: "/Demo/31th28.webp" },
+    { image: "/Demo/31th29.webp" },
+    { image: "/Demo/31th30.webp" },
+    { image: "/Demo/31th31.webp" },
+    { image: "/Demo/pic4.webp" },
+    { image: "/Demo/pic23.webp" },
+    { image: "/Demo/pic2.webp" },
+    { image: "/Demo/pic5.webp" },
+    { image: "/Demo/pic11.webp" },
+    { image: "/Demo/pic3.webp" },
+    { image: "/Demo/pic7.webp" },
+    { image: "/Demo/pic21.webp" },
+    { image: "/Demo/pic12.webp" },
+    { image: "/Demo/pic14.webp" },
+    { image: "/Demo/pic15.webp" },
+    { image: "/Demo/pic16.webp" },
+    { image: "/Demo/pic17.webp" },
+    { image: "/Demo/pic18.webp" },
+    { image: "/Demo/pic19.webp" },
+    { image: "/Demo/pic20.webp" },
+    { image: "/Demo/pic25.webp" },
+    { image: "/Demo/pic6.webp" },
+    { image: "/Demo/pic8.webp" },
+    { image: "/Demo/pic9.webp" },
+    { image: "/Demo/pic10.webp" },
+    { image: "/Demo/pic13.webp" },
+    { image: "/Demo/pic22.webp" },
+    { image: "/Demo/pic1.webp" },
   ];
 
   const visibleData = showAll ? data : data.slice(0, 8);
@@ -77,11 +76,12 @@ const GalleryHero = () => {
         </span>
       </h1> */}
 
-  
       <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
         {visibleData.map((item, i) => (
           <div key={i} className="rounded-xl overflow-hidden aspect-square">
-            <img
+            <img 
+              loading={i < 4 ? "eager" : "lazy"} 
+              fetchpriority={i < 4 ? "high" : "auto"} 
               src={item.image}
               alt={`Gallery ${i}`}
               className="w-full h-full object-cover"
@@ -90,7 +90,6 @@ const GalleryHero = () => {
         ))}
       </div>
 
-   
       {!showAll && (
         <div className="text-center mt-10">
           <button
@@ -102,10 +101,10 @@ const GalleryHero = () => {
         </div>
       )}
       <div className="-mx-20 mt-8 px-0">
-        <Vid/>
+        <Vid />
       </div>
 
-      <VideoG/>
+      <VideoG />
     </section>
   );
 };

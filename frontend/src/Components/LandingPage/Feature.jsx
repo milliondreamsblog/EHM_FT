@@ -156,7 +156,7 @@ const Feature = () => {
         </ScrollRevealElements>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes slide {
           0% { transform: translateX(0); }
           100% { transform: translateX(50px); }

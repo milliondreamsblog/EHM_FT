@@ -17,8 +17,7 @@ const ProductCard = ({ title, description, imageUrl, delay }) => {
         data-aos-delay={delay}
       >
         <div className="relative h-64 overflow-hidden">
-          <img
-            src={imageUrl}
+          <img loading="lazy" src={imageUrl}
             alt={title}
             className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
           />

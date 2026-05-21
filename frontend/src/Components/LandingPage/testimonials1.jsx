@@ -1,15 +1,15 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
-import ScrollRevealElements from '../Animations/ScrollRevealElements';
-import SectionHeading from '../../Common/SectionHeading';
+import ScrollRevealElements from "../Animations/ScrollRevealElements";
+import SectionHeading from "../../Common/SectionHeading";
 
 import avatar1 from "../../assets/testimgs/S1.avif";
 import avatar2 from "../../assets/testimgs/S2.webp";
 import avatar3 from "../../assets/testimgs/S3.webp";
 import avatar4 from "../../assets/testimgs/S4.avif";
-import avatar5 from "../../assets/testimgs/S5.jpg";
-import avatar6 from "../../assets/testimgs/S6.jpg";
+import avatar5 from "../../assets/testimgs/S5.webp";
+import avatar6 from "../../assets/testimgs/S6.webp";
 import avatar7 from "../../assets/testimgs/S7.webp";
 import avatar8 from "../../assets/testimgs/S8.webp";
 import avatar9 from "../../assets/testimgs/S9.webp";
@@ -75,8 +75,12 @@ const firstColumn = testimonials.slice(1, 2);
 const secondColumn = testimonials.slice(2, 3);
 const thirdColumn = testimonials.slice(3, 4);
 
-
-const TestimonialsColumn = ({ className = "", testimonials, duration, direction = "up" }) => (
+const TestimonialsColumn = ({
+  className = "",
+  testimonials,
+  duration,
+  direction = "up",
+}) => (
   <div className={className}>
     <motion.div
       animate={{ translateY: direction === "up" ? "-50%" : "0%" }}
@@ -101,8 +105,7 @@ const TestimonialsColumn = ({ className = "", testimonials, duration, direction 
             >
               <p className="text-gray-700">{testimonial.text}</p>
               <div className="flex items-center gap-2 mt-5">
-                <img
-                  src={testimonial.imageSrc}
+                <img loading="lazy" src={testimonial.imageSrc}
                   width={40}
                   height={40}
                   alt={`Avatar of ${testimonial.name}`}
@@ -129,22 +132,37 @@ export const TestimonialsSection = () => {
   return (
     <section className="py-20">
       <div className="container mx-auto px-4">
-
-        <ScrollRevealElements className="section-heading text-center" staggerAmount={0.5}>
+        <ScrollRevealElements
+          className="section-heading text-center"
+          staggerAmount={0.5}
+        >
           <SectionHeading>Testimonials</SectionHeading>
         </ScrollRevealElements>
-
 
         <motion.div
           className="mt-8 flex justify-center gap-6 [mask-image:linear-gradient(to_bottom,transparent,white_20%,white_80%,transparent)] max-h-[738px] overflow-hidden"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <TestimonialsColumn testimonials={firstColumn} duration={18} direction="up" />
-          <TestimonialsColumn testimonials={secondColumn} className="hidden md:block" duration={14} direction="down" />
-          <TestimonialsColumn testimonials={thirdColumn} className="hidden lg:block" duration={20} direction="up" />
+          <TestimonialsColumn
+            testimonials={firstColumn}
+            duration={18}
+            direction="up"
+          />
+          <TestimonialsColumn
+            testimonials={secondColumn}
+            className="hidden md:block"
+            duration={14}
+            direction="down"
+          />
+          <TestimonialsColumn
+            testimonials={thirdColumn}
+            className="hidden lg:block"
+            duration={20}
+            direction="up"
+          />
         </motion.div>
       </div>
     </section>

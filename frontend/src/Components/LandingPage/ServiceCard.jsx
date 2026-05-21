@@ -58,8 +58,7 @@ const ServiceCard = ({ title, description, bullets = [], imageUrl, fileUrl, dela
           onClick={() => setIsModalOpen(true)}
         >
           <div className="overflow-hidden rounded-xl border border-gray-200">
-            <img
-              src={imageUrl}
+            <img loading="lazy" src={imageUrl}
               alt={title}
               className="w-full h-64 object-cover transition-transform duration-500 hover:scale-110"
             />
@@ -73,8 +72,7 @@ const ServiceCard = ({ title, description, bullets = [], imageUrl, fileUrl, dela
           className="fixed inset-0 z-50 bg-black bg-opacity-80 flex items-center justify-center p-4 backdrop-blur-sm"
           onClick={() => setIsModalOpen(false)}
         >
-          <img
-            src={imageUrl}
+          <img loading="lazy" src={imageUrl}
             alt="Zoomed"
             className="max-w-3xl w-full rounded-xl shadow-2xl scale-100"
           />

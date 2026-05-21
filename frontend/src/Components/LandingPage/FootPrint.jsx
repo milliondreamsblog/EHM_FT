@@ -15,29 +15,27 @@ import "./FootPrint.css";
 import { useNavigate } from "react-router-dom";
 
 const data = [
-    { image: "/Demo/31th1.JPG" },
-    { image: "/Demo/31th2.JPG" },
-    { image: "/Demo/31th3.jpeg" },
-    { image: "/Demo/31th4.JPG" },
-    { image: "/Demo/31th5.jpeg" },
-    { image: "/Demo/31th6.JPG" },
-    { image: "/Demo/31th7.jpeg" },
-    { image: "/Demo/31th8.jpeg" },
-    { image: "/Demo/31th9.jpeg" },
-    { image: "/Demo/31th9.jpg" },
-    { image: "/Demo/31th10.jpeg" },
-    { image: "/Demo/31th11.JPG" },
-    { image: "/Demo/31th12.JPG" },
-    { image: "/Demo/31th13.JPG" },
-    { image: "/Demo/31th14.jpeg" },
-    { image: "/Demo/31th15.jpeg" },
-    { image: "/Demo/31th16.jpeg" },
-    { image: "/Demo/31th17.jpeg" },
-    { image: "/Demo/31th21.jpeg" },
-    { image: "/Demo/31th19.jpeg" },
-   
-  ];
-
+  { image: "/Demo/31th1.webp" },
+  { image: "/Demo/31th2.webp" },
+  { image: "/Demo/31th3.webp" },
+  { image: "/Demo/31th4.webp" },
+  { image: "/Demo/31th5.webp" },
+  { image: "/Demo/31th6.webp" },
+  { image: "/Demo/31th7.webp" },
+  { image: "/Demo/31th8.webp" },
+  { image: "/Demo/31th9.webp" },
+  { image: "/Demo/31th9.webp" },
+  { image: "/Demo/31th10.webp" },
+  { image: "/Demo/31th11.webp" },
+  { image: "/Demo/31th12.webp" },
+  { image: "/Demo/31th13.webp" },
+  { image: "/Demo/31th14.webp" },
+  { image: "/Demo/31th15.webp" },
+  { image: "/Demo/31th16.webp" },
+  { image: "/Demo/31th17.webp" },
+  { image: "/Demo/31th21.webp" },
+  { image: "/Demo/31th19.webp" },
+];
 
 const FootPrint = () => {
   const navigate = useNavigate();
@@ -93,7 +91,10 @@ const FootPrint = () => {
 
   return (
     <div className="w-full flex flex-col items-center justify-center overflow-visible py-10 bg-white relative">
-      <ScrollRevealElements className="flex flex-col gap-3 mb-8 items-center" staggerAmount={0.5}>
+      <ScrollRevealElements
+        className="flex flex-col gap-3 mb-8 items-center"
+        staggerAmount={0.5}
+      >
         <motion.div className="text-center mb-12 py-8">
           <SectionHeading>EHM FootPrint</SectionHeading>
         </motion.div>
@@ -108,40 +109,43 @@ const FootPrint = () => {
       >
         {/* Swiper Carousel */}
         <Swiper
-              slidesPerView={1}
-              spaceBetween={16}
-              breakpoints={{
-                480: { slidesPerView: 1, spaceBetween: 16 },
-                640: { slidesPerView: 2, spaceBetween: 20 },
-                768: { slidesPerView: 2, spaceBetween: 24 },
-                1024: { slidesPerView: 3, spaceBetween: 32 },
-                1280: { slidesPerView: 4, spaceBetween: 32 },
-                1536: { slidesPerView: 5, spaceBetween: 36 },
-              }}
-              pagination={{
-                clickable: true,
-                el: ".custom-pagination",
-                bulletClass: "swiper-pagination-bullet custom-bullet",
-                bulletActiveClass: "swiper-pagination-bullet-active custom-bullet-active",
-              }}
-              navigation={{
-                prevEl: ".custom-swiper-prev",
-                nextEl: ".custom-swiper-next",
-              }}   // 👈 use this instead of navigation={true}
-              grabCursor={true}
-              speed={700}
-              modules={[Pagination, Navigation]}
-              className="w-full"
-              onSwiper={(swiper) => {
-                swiperRef.current = swiper;
-                setIsBeginning(swiper.isBeginning);
-                setIsEnd(swiper.isEnd);
-              }}
-              onSlideChange={handleSlideChange}
->
-
+          slidesPerView={1}
+          spaceBetween={16}
+          breakpoints={{
+            480: { slidesPerView: 1, spaceBetween: 16 },
+            640: { slidesPerView: 2, spaceBetween: 20 },
+            768: { slidesPerView: 2, spaceBetween: 24 },
+            1024: { slidesPerView: 3, spaceBetween: 32 },
+            1280: { slidesPerView: 4, spaceBetween: 32 },
+            1536: { slidesPerView: 5, spaceBetween: 36 },
+          }}
+          pagination={{
+            clickable: true,
+            el: ".custom-pagination",
+            bulletClass: "swiper-pagination-bullet custom-bullet",
+            bulletActiveClass:
+              "swiper-pagination-bullet-active custom-bullet-active",
+          }}
+          navigation={{
+            prevEl: ".custom-swiper-prev",
+            nextEl: ".custom-swiper-next",
+          }} // 👈 use this instead of navigation={true}
+          grabCursor={true}
+          speed={700}
+          modules={[Pagination, Navigation]}
+          className="w-full"
+          onSwiper={(swiper) => {
+            swiperRef.current = swiper;
+            setIsBeginning(swiper.isBeginning);
+            setIsEnd(swiper.isEnd);
+          }}
+          onSlideChange={handleSlideChange}
+        >
           {data.map((item, index) => (
-            <SwiperSlide key={index} className="flex items-center justify-center">
+            <SwiperSlide
+              key={index}
+              className="flex items-center justify-center"
+            >
               <div
                 className="project-card relative w-full aspect-square mx-auto overflow-hidden rounded-2xl shadow-lg bg-gray-100 cursor-pointer hover:scale-[1.02] transition-transform duration-300"
                 onClick={() => handleImageClick(item)}
@@ -155,8 +159,7 @@ const FootPrint = () => {
                 role="button"
                 aria-label={`View project image ${index + 1}`}
               >
-                <img
-                  src={item.image}
+                <img loading="lazy" src={item.image}
                   alt={`EHM project ${index + 1}`}
                   className="project-image w-full h-full object-cover transition-all duration-500 hover:scale-105"
                 />
@@ -214,8 +217,7 @@ const FootPrint = () => {
             >
               &times;
             </button>
-            <img
-              src={modalImage}
+            <img loading="lazy" src={modalImage}
               alt="Large preview"
               className="w-full h-auto max-h-[75vh] rounded-lg shadow-2xl border-4 border-white"
             />

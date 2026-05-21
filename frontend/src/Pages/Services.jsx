@@ -36,7 +36,7 @@ const ServicePage = () => {
 
     return (
         <div className="min-h-screen bg-white">
-            <style jsx global>{`
+            <style>{`
                 html, body {
                     overflow-x: hidden;
                     margin: 0;

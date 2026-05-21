@@ -18,7 +18,7 @@ export default function Contact() {
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value.trim(),
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -26,24 +26,53 @@ export default function Contact() {
     e.preventDefault();
     setIsLoading(true);
     setErrorMsg("");
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const mobileRegex = /^\+?[0-9]{10,15}$/;
+
+    if (!emailRegex.test(formData.email.trim())) {
+      setErrorMsg("Please enter a valid email address.");
+      setIsLoading(false);
+      return;
+    }
+
+    if (formData.mobile.trim() && !mobileRegex.test(formData.mobile.trim())) {
+      setErrorMsg("Please enter a valid mobile number (e.g., +911234567890).");
+      setIsLoading(false);
+      return;
+    }
+
+    const cleanedData = {
+      ...formData,
+      name: formData.name.trim(),
+      email: formData.email.trim(),
+      mobile: formData.mobile.trim(),
+      interestedIn: formData.interestedIn.trim(),
+      message: formData.message.trim(),
+    };
 
     try {
-      const res = await API.post("/contact", formData);
+      const res = await API.post("/contact", cleanedData);
 
-      if (res.data.sucess) {
+      if (res?.data?.success || res?.data?.sucess) {
         setIsSubmitted(true);
+
         setTimeout(() => {
           setIsSubmitted(false);
-          setFormData({ name: "", email: "", mobile: "", interestedIn: "", message: "" });
-        }, 3000);
+          setFormData({
+            name: "",
+            email: "",
+            mobile: "",
+            interestedIn: "",
+            message: "",
+          });
+        }, 5000);
       }
     } catch (err) {
-      if (err.response?.data?.error) {
-        const firstError = Object.values(err.response.data.error)[0]?.[0];
-        setErrorMsg(firstError || "Something went wrong. Please try again.");
-      } else {
-        setErrorMsg("Unable to send message. Please try again later.");
-      }
+      const firstError = err.response?.data?.error
+        ? Object.values(err.response.data.error)[0]?.[0]
+        : null;
+
+      setErrorMsg(err.response?.data?.message || firstError || "Something went wrong. Please try again.");
     } finally {
       setIsLoading(false);
     }
@@ -64,7 +93,7 @@ export default function Contact() {
   }
 
   return (
-    <div  className="min-h-screen flex items-center justify-center py-16 bg-gradient-to-br from-green-50 to-emerald-100">
+    <div className="min-h-screen flex items-center justify-center py-16 bg-gradient-to-br from-green-50 to-emerald-100">
       <div className="w-full max-w-3xl bg-white/95 backdrop-blur-md shadow-2xl rounded-3xl p-10 border border-green-200">
         <h1 className="text-3xl font-bold text-green-800 text-center mb-8">Get in Touch</h1>
         {errorMsg && <div className="p-3 bg-red-100 text-red-700 rounded mb-6">{errorMsg}</div>}
@@ -126,56 +155,55 @@ export default function Contact() {
             </div>
           </div>
 
-         
-<div>
-  <label className="block text-sm font-medium mb-1 text-green-800">What type of support are you looking for?</label>
-  <select
-    name="interestedIn"
-    value={formData.interestedIn}
-    onChange={handleChange}
-    required
-    className="w-full pl-3 pr-4 py-3 border border-green-300 rounded-xl bg-green-50 text-green-900 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 transition-all duration-200 hover:bg-green-100"
-  >
-    <option value="" disabled></option>
-    <option value="Sustainability Reporting / ESG Support">Sustainability Reporting / ESG Support</option>
-    <option value="Wastewater Treatment & Waterbody Restoration">Wastewater Treatment & Waterbody Restoration</option>
-    <option value="Geophysical / Subsurface Investigation">Geophysical / Subsurface Investigation</option>
-    <option value="Urban Planning & City Project Support">Urban Planning & City Project Support</option>
-    <option value="Climate Risk Assessment / Climate Data Advisory">Climate Risk Assessment / Climate Data Advisory</option>
-    <option value="Training, Workshops, or Capacity Building">Training, Workshops, or Capacity Building</option>
-    <option value="General Inquiry">General Inquiry</option>
-  </select>
-</div>
+
+          <div>
+            <label className="block text-sm font-medium mb-1 text-green-800">What type of support are you looking for?</label>
+            <select
+              name="interestedIn"
+              value={formData.interestedIn}
+              onChange={handleChange}
+              required
+              className="w-full pl-3 pr-4 py-3 border border-green-300 rounded-xl bg-green-50 text-green-900 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 transition-all duration-200 hover:bg-green-100"
+            >
+              <option value="" disabled></option>
+              <option value="Sustainability Reporting / ESG Support">Sustainability Reporting / ESG Support</option>
+              <option value="Wastewater Treatment & Waterbody Restoration">Wastewater Treatment & Waterbody Restoration</option>
+              <option value="Geophysical / Subsurface Investigation">Geophysical / Subsurface Investigation</option>
+              <option value="Urban Planning & City Project Support">Urban Planning & City Project Support</option>
+              <option value="Climate Risk Assessment / Climate Data Advisory">Climate Risk Assessment / Climate Data Advisory</option>
+              <option value="Training, Workshops, or Capacity Building">Training, Workshops, or Capacity Building</option>
+              <option value="General Inquiry">General Inquiry</option>
+            </select>
+          </div>
 
 
-          
- <div className="relative">
-  <label className="block text-sm font-medium mb-1 text-green-800">Your Message</label>
-  <div className="relative">
-    <div className="absolute top-3 left-3">
-      <MessageSquare className="w-5 h-5 text-green-400" />
-    </div>
-    <textarea
-      name="message"
-      value={formData.message}
-      onChange={handleChange}
-      required
-      rows="5"
-      className="w-full pl-10 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 transition-all duration-200 resize-none 
+
+          <div className="relative">
+            <label className="block text-sm font-medium mb-1 text-green-800">Your Message</label>
+            <div className="relative">
+              <div className="absolute top-3 left-3">
+                <MessageSquare className="w-5 h-5 text-green-400" />
+              </div>
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                rows="5"
+                className="w-full pl-10 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 transition-all duration-200 resize-none 
                  bg-white text-gray-900 placeholder-gray-400"
-      placeholder="How can we help you?"
-    ></textarea>
-  </div>
-</div>
+                placeholder="How can we help you?"
+              ></textarea>
+            </div>
+          </div>
 
 
-      
+
           <button
             type="submit"
             disabled={isLoading}
-            className={`w-full bg-gradient-to-r from-emerald-500 to-green-400 text-white py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 hover:shadow-lg transition-all duration-200 ${
-              isLoading ? "opacity-70 cursor-not-allowed" : ""
-            }`}
+            className={`w-full bg-gradient-to-r from-emerald-500 to-green-400 text-white py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 hover:shadow-lg transition-all duration-200 ${isLoading ? "opacity-70 cursor-not-allowed" : ""
+              }`}
           >
             {isLoading ? (
               <span>Sending...</span>

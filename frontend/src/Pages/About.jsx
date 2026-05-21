@@ -1,25 +1,15 @@
-import React from 'react'
-import Team from '../Components/LandingPage/Team'
-
-import { members, advisors, experts } from '../Data/Data'
-import Hero from '../Components/About/Hero'
-import HeroNew from '../Components/About/Hero_1stNov'
-import HeroSection2 from '../Components/LandingPage/HeroSection2';
-import ChooseUs from '../Components/About/ChooseUS'
-
-import WhoWeAre from '../Components/About/WhoWeAre'
-import Awards from '../Components/About/Awards'
-import { WhyChooseSection } from '../Components/WhyChooseUs/WhyChooseSection'
-import { Title } from '../Components/Title'
-import WhyChooseUs from '../Components/About/WhyChooseUs'
-import CertifiedLogo from '../Components/LandingPage/certified_logo'
-
-import Mission from '../Components/About/Mission'
+import Team from '../Components/LandingPage/Team';
+import { members, advisors, experts } from '../Data/Data';
+import HeroNew from '../Components/About/Hero';
+import WhoWeAre from '../Components/About/WhoWeAre';
+import Awards from '../Components/About/Awards';
+import WhyChooseUs from '../Components/About/WhyChooseUs';
+import CertifiedLogo from '../Components/LandingPage/certified_logo';
 
 const About = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 ">
-      <HeroNew/>
+      <HeroNew />
       {/*<Hero />*/}
       {/*<HeroSection2 /> */}
 
@@ -30,7 +20,7 @@ const About = () => {
       {/*<WhyChooseSection title='Focus Area' />*/}
 
 
-      { <WhyChooseUs /> }
+      {<WhyChooseUs />}
       {/* <Mission /> */}
 
 

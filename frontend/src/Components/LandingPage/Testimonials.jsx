@@ -5,56 +5,46 @@ import { Link } from "react-router-dom";
 import ScrollRevealElements from "../Animations/ScrollRevealElements";
 import SectionHeading from "../../Common/SectionHeading";
 
-
 const cardData = [
-
   {
-    id : "p25",
-    title: "ESG Module Development for MSMEs and Training of Trainers (ToT) Workshop",
-    description:
-      ".",
-    logo:
-      "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901263/ESG_Course_Modules_TOT_for_MSME_fcduho.jpg",
+    id: "p25",
+    title:
+      "ESG Module Development for MSMEs and Training of Trainers (ToT) Workshop",
+    description: ".",
+    logo: "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901263/ESG_Course_Modules_TOT_for_MSME_fcduho.webp",
   },
-    {
-    id : "p4",
-    title: "Design of Natural STPs (0.5 MLD, 1.25 MLD, 1.50 MLD, and 3.50 MLD) – Gajwel City, Telangana",
-    description:
-      ".",
-    logo:
-      "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901211/Designing_Constructed_Wetland_ggm9s5.jpg",
+  {
+    id: "p4",
+    title:
+      "Design of Natural STPs (0.5 MLD, 1.25 MLD, 1.50 MLD, and 3.50 MLD) – Gajwel City, Telangana",
+    description: ".",
+    logo: "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901211/Designing_Constructed_Wetland_ggm9s5.webp",
   },
-    {
-    id : "p19",
+  {
+    id: "p19",
     title: "Electrical Resistivity Tomography (ERT) Survey",
-    description:
-      ".",
-    logo:
-      "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901212/Electrical_Resistivity_Tomography_te2a4b.jpg",
+    description: ".",
+    logo: "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901212/Electrical_Resistivity_Tomography_te2a4b.webp",
   },
-      {
-    id : "p22",
+  {
+    id: "p22",
     title: "Sustainable Management Plan for Antia Waterbody, Jhansi",
-    description:
-      ".",
-    logo:"/Projects/img12.png",
+    description: ".",
+    logo: "/Projects/img12.webp",
   },
-    {
-      id : "p24",
-    title: "AI-Driven Governance for Legislators Workshop at Vidhan Sabha, Lucknow",
-    description:
-      ".",
-    logo:"/Projects/img11.jpg",
+  {
+    id: "p24",
+    title:
+      "AI-Driven Governance for Legislators Workshop at Vidhan Sabha, Lucknow",
+    description: ".",
+    logo: "/Projects/img11.webp",
   },
-    {
-    id : "p14",
+  {
+    id: "p14",
     title: "Environmental Audit of CSIR-NEERI Kolkata Zonal Centre West Bengal",
-    description:
-      ".",
-    logo:
-      "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901211/Environmental_Audit_oeafkp.jpg",
+    description: ".",
+    logo: "https://res.cloudinary.com/dlpluej6w/image/upload/v1756901211/Environmental_Audit_oeafkp.webp",
   },
-
 ];
 
 const Testimonials = () => {
@@ -83,7 +73,7 @@ const Testimonials = () => {
         </ScrollRevealElements>
 
         <motion.div
-          className="relative max-w-[90rem] mx-auto px-4 md:px-6 group"
+          className="relative max-w-[90rem] mx-auto px-4 md:px-6 "
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

@@ -57,9 +57,16 @@ const ScrollRevealElements = ({ children, className, staggerAmount }) => {
 
 export default function ImplementationPlanSection() {
   return (
-    <section className="relative py-20 px-6 overflow-hidden">
-      {/* Gradient background with fade to white */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-emerald-50/40 to-white"></div>
+    <section className="relative py-12 px-6 overflow-hidden">
+      {/* Layered teal gradient — brand bg */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-teal-100 to-white" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-teal-200/70 to-white/95" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-transparent to-white/90" />
+      <div className="absolute inset-0 bg-gradient-to-br from-teal-100/60 via-teal-200/40 to-teal-100/60" />
+      <div className="absolute inset-0 bg-gradient-to-tr from-teal-50/50 via-teal-100/30 to-teal-50/50" />
+      {/* Top & bottom white fades */}
+      <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white via-white/80 to-transparent z-10" />
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white via-white/80 to-transparent z-10" />
       
       <div className="max-w-7xl mx-auto relative z-10">
         <div>
@@ -71,10 +78,10 @@ export default function ImplementationPlanSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <div className="text-center my-12">
+              <div className="text-center my-6">
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 inline-block relative">
                   Implementation{' '}
-                  <span className="bg-gradient-to-r from-emerald-600 via-blue-600 to-violet-600 bg-clip-text text-transparent">
+                  <span className="text-[#4B7635]">
                     Approach
                   </span>
                   <motion.span
@@ -82,14 +89,14 @@ export default function ImplementationPlanSection() {
                     whileInView={{ width: '100%', opacity: 1 }}
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
-                    className="block h-[3px] bg-purple-600 mt-2"
+                    className="block h-1 bg-[#4B7635] mt-2 rounded-full"
                   ></motion.span>
                   <motion.span
                     initial={{ width: 0, opacity: 0 }}
                     whileInView={{ width: '25%', opacity: 1 }}
                     transition={{ duration: 0.6, delay: 0.1 }}
                     viewport={{ once: true }}
-                    className="block h-[2px] bg-purple-300 mx-auto mt-1"
+                    className="block h-[1px] bg-slate-200 mx-auto mt-1"
                   ></motion.span>
                 </h2>
                 <motion.p 
@@ -109,7 +116,7 @@ export default function ImplementationPlanSection() {
             <svg className="absolute top-12 left-0 w-full h-full z-0" preserveAspectRatio="none" viewBox="0 0 900 300">
               <path
                 d="M 50 100 C 200 100, 200 196, 450 196 C 700 196, 700 100, 850 100"
-                stroke="#10b981"
+                stroke="#4B7635"
                 strokeWidth="4"
                 fill="none"
                 strokeDasharray="10,10"
@@ -124,14 +131,14 @@ export default function ImplementationPlanSection() {
                 return (
                   <motion.div key={index} className="relative flex flex-col items-center z-10 group">
                     <div className={`relative p-2 bg-white rounded-full border-4 border-white shadow-md transition-transform duration-300 group-hover:scale-110 group-hover:shadow-xl ${isOdd ? 'mt-28' : ''}`}>
-                      <img src={item.image} alt={item.title} className="w-20 h-20 rounded-full object-cover" />
+                      <img src={item.image} alt={item.title} className="w-20 h-20 rounded-full object-cover" loading="lazy" />
                     </div>
                     <div className={`mt-6 w-64 bg-white p-6 rounded-2xl shadow-lg border border-slate-200 text-center transition-transform duration-300 group-hover:-translate-y-2 group-hover:shadow-2xl`}>
                       <h4 className="font-bold text-lg text-slate-700">{item.title}</h4>
                       <ul className="mt-2 text-sm text-left text-slate-500 space-y-1">
                         {item.points.map((point, pIdx) => (
                           <li key={pIdx} className="flex items-start">
-                            <CheckCircle className="h-4 w-4 mr-2 mt-0.5 text-[#10b981] flex-shrink-0" />
+                            <CheckCircle className="h-4 w-4 mr-2 mt-0.5 text-[#4B7635] flex-shrink-0" />
                             <span>{point}</span>
                           </li>
                         ))}
@@ -145,7 +152,7 @@ export default function ImplementationPlanSection() {
 
           {/* Mobile view */}
           <div className="lg:hidden relative max-w-xl mx-auto mt-12">
-            <div className="absolute left-12 top-0 h-full w-0.5 bg-[#10b981]"></div>
+            <div className="absolute left-12 top-0 h-full w-0.5 bg-[#4B7635]"></div>
             <ScrollRevealElements
               className="space-y-16"
               staggerAmount={0.5}
@@ -153,14 +160,14 @@ export default function ImplementationPlanSection() {
               {steps.map((item, index) => (
                 <motion.div key={index} className="relative pl-28 group">
                   <div className="absolute left-12 top-1/2 -translate-y-1/2 -translate-x-1/2 transition-transform duration-300 group-hover:scale-110">
-                    <img src={item.image} alt={item.title} className="w-20 h-20 rounded-full object-cover border-4 border-white shadow-md" />
+                    <img src={item.image} alt={item.title} className="w-20 h-20 rounded-full object-cover border-4 border-white shadow-md" loading="lazy" />
                   </div>
                   <div className="bg-white p-4 rounded-xl shadow-lg border border-slate-200 transition-transform duration-300 group-hover:-translate-y-2 group-hover:shadow-2xl">
                     <h4 className="font-bold text-lg text-slate-700">{item.title}</h4>
                     <ul className="mt-2 text-sm text-left text-slate-500 space-y-1">
                       {item.points.map((point, pIdx) => (
                         <li key={pIdx} className="flex items-start">
-                          <CheckCircle className="h-4 w-4 mr-2 mt-0.5 text-[#10b981] flex-shrink-0" />
+                          <CheckCircle className="h-4 w-4 mr-2 mt-0.5 text-[#4B7635] flex-shrink-0" />
                           <span>{point}</span>
                         </li>
                       ))}

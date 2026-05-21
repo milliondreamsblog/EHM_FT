@@ -8,8 +8,7 @@ export const FeaturedImage = ({ selectedChoice }) => {
    <div className="lg:sticky lg:top-8">
       <div className="w-[500px] relative overflow-hidden rounded-2xl shadow-2xl bg-white">
         <div className="w-full h-[375px] overflow-hidden relative">
-          <img
-            src={selectedChoice.image}
+          <img loading="lazy" src={selectedChoice.image}
             alt={selectedChoice.title}
             className="w-full h-full object-cover transition-all duration-700 ease-out transform hover:scale-105"
           />

@@ -9,10 +9,8 @@ import ScrollToTop from './Components/LandingPage/ScrollToTop.jsx';
 import AdminRoute from "../src/Components/Admin/AdminRoute.jsx";
 import InteractiveLoader from './Components/Common/InteractiveLoader.jsx';
 
-// Eager load critical components
-import HomePage from './Pages/HomePage.jsx';
-
-// Lazy load other pages
+// Lazy load pages
+const HomePage = lazy(() => import('./Pages/HomePage.jsx'));
 const About = lazy(() => import('./Pages/About.jsx'));
 const ContactPage = lazy(() => import('./Pages/ContactPage.jsx'));
 const ProjectsPage = lazy(() => import('./Pages/ProjectsPage.jsx'));
@@ -30,6 +28,9 @@ const AuthorContentPage = lazy(() => import('./Common/Content/AuthorContentPage.
 const SingleContentPage = lazy(() => import('./Common/Content/SingleContentPage.jsx'));
 const AdminLoginModal = lazy(() => import('../src/Components/Admin/AdminLoginModal.jsx'));
 const AdminDashboard = lazy(() => import("./Pages/AdminDashboard.jsx"));
+const StarcContactPage = lazy(() => import('./Pages/StarcContactPage.jsx'));
+const DNTSPage = lazy(() => import('./Pages/DNTS.jsx'));
+
 
 
 function App() {
@@ -49,6 +50,8 @@ function App() {
             {/* Public Pages */}
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/contact/starc" element={<StarcContactPage />} />
+
 
             {/* V-- CHANGE MADE HERE --V */}
             {/* This route now renders our new, detailed ProjectsPage component. */}
@@ -65,6 +68,7 @@ function App() {
             <Route path="/resources/blogs" element={<BlogsPage />} />
             <Route path="/resources/casestudies" element={<CaseStudyPage />} />
             <Route path="/resources/WaterbodyRestoration" element={<WaterbodyRestoration />} />
+            <Route path="/resources/dnts" element={<DNTSPage />} />
             <Route path="/offerings/sustainability-assessment-reporting" element={<SustainabilityAssessment />} />
             <Route path="/offerings/geophysical-investigation" element={<GeophysicalInvestigation />} />
 

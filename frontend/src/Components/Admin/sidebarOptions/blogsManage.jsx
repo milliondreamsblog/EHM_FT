@@ -73,7 +73,7 @@ export default function BlogsManage() {
     const imageUrlRegex = /(https?:\/\/[^\s]+?\.(?:jpg|jpeg|png|gif|svg|webp))/gi;
     return text.split('\n').map(line => {
       if (line.trim().match(imageUrlRegex)?.[0] === line.trim()) {
-        return `<img src="${line.trim()}" alt="Blog content image" style="max-width: 100%; height: auto; border-radius: 8px; margin: 1em 0;" />`;
+        return `<img src="${line.trim()}" alt="Blog content image" style="max-width: 100%; height: auto; border-radius: 8px; margin: 1em 0;" loading="lazy" />`;
       } else if (line.trim() !== "") {
         return `<p>${line.trim()}</p>`;
       }
@@ -174,7 +174,7 @@ export default function BlogsManage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 overflow-y-auto" style={{ maxHeight: "70vh" }}>
           {blogs.map((blog) => (
             <div key={blog._id} className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group">
-              {blog.image ? (<img src={blog.image} alt={blog.title} className="w-full h-40 object-cover group-hover:scale-105 transition-transform" />) : (<div className="w-full h-40 flex items-center justify-center bg-gray-100"><span className="text-gray-400 text-lg">No Image</span></div>)}
+              {blog.image ? (<img src={blog.image} alt={blog.title} className="w-full h-40 object-cover group-hover:scale-105 transition-transform" loading="lazy" />) : (<div className="w-full h-40 flex items-center justify-center bg-gray-100"><span className="text-gray-400 text-lg">No Image</span></div>)}
               <div className="p-4">
                 <p className="text-sm text-gray-500 mb-1">{formatDate(blog.createdAt)}</p>
                 <h3 className="text-lg font-semibold text-green-900 cursor-pointer hover:underline" onClick={() => { setSelectedBlog(blog); setIsFullViewOpen(true); }}>{blog.title}</h3>
@@ -198,7 +198,7 @@ export default function BlogsManage() {
           <div className="max-h-[70vh] overflow-y-auto pr-4">
             <p className="text-sm text-gray-500 mb-2">{formatDate(selectedBlog.createdAt)}</p>
             <span className="inline-block bg-green-100 text-green-700 text-xs px-2 py-1 rounded mb-4">{selectedBlog.author}</span>
-            {selectedBlog.image && <img src={selectedBlog.image} alt={selectedBlog.title} className="w-full h-60 object-cover mb-4 rounded-lg shadow-md" />}
+            {selectedBlog.image && <img src={selectedBlog.image} alt={selectedBlog.title} className="w-full h-60 object-cover mb-4 rounded-lg shadow-md" loading="lazy" />}
             <div className="prose lg:prose-xl max-w-none" dangerouslySetInnerHTML={{ __html: selectedBlog.content }} />
           </div>
         </Modal>

@@ -2,26 +2,29 @@ import React from "react";
 import ProductCard from "../Components/Products/ProductCard";
 
 // Import images from assets
-import product1 from "../assets/product1.png";
-import product2 from "../assets/product2.jpg";
-import product3 from "../assets/product3.png";
+import product1 from "../assets/product1.webp";
+import product2 from "../assets/product2.webp";
+import product3 from "../assets/product3.webp";
 import { TestimonialsSection } from "../Components/LandingPage/testimonials1";
 
 const products = [
   {
     title: "Eco Audit",
     image: product1,
-    description: "In-depth audits for energy, water, and waste to boost sustainability.",
+    description:
+      "In-depth audits for energy, water, and waste to boost sustainability.",
   },
   {
     title: "Sustainable Design",
     image: product2,
-    description: "Design solutions that blend innovation with environmental responsibility.",
+    description:
+      "Design solutions that blend innovation with environmental responsibility.",
   },
   {
     title: "Green Certification",
     image: product3,
-    description: "Helping organizations achieve globally recognized green certifications.",
+    description:
+      "Helping organizations achieve globally recognized green certifications.",
   },
 ];
 

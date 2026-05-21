@@ -25,8 +25,7 @@ const VideoHeroSection = () => {
       <div className='relative z-10 flex justify-center items-center text-7xl'>
         <h1>Videos</h1>
       </div>
-      <video
-        ref={videoRef}
+      <video preload="none" ref={videoRef}
         autoPlay
         muted={isMuted}
         loop

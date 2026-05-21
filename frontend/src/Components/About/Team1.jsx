@@ -42,8 +42,7 @@ const Team = ({ title, members, limit }) => {
             </div>
 
             <div className="relative z-10 flex h-full flex-col items-center justify-center p-6 text-center">
-              <img
-                className="h-32 w-32 rounded-full border-4 border-white/80 object-cover shadow-lg transition-transform duration-500 ease-out group-hover:scale-105 group-hover:-rotate-2"
+              <img loading="lazy" className="h-32 w-32 rounded-full border-4 border-white/80 object-cover shadow-lg transition-transform duration-500 ease-out group-hover:scale-105 group-hover:-rotate-2"
                 src={member.img}
                 alt={member.name}
               />
@@ -55,8 +54,7 @@ const Team = ({ title, members, limit }) => {
             <div className="circular-overlay absolute inset-0 z-20 flex flex-col items-center justify-center 
                           bg-black/70 backdrop-blur-lg p-6 text-center">
               <div className="text-center opacity-0 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:delay-200">
-                <img
-                  className="mx-auto mb-2 h-28 w-28 rounded-full border-4 border-emerald-300 object-cover shadow-lg"
+                <img loading="lazy" className="mx-auto mb-2 h-28 w-28 rounded-full border-4 border-emerald-300 object-cover shadow-lg"
                   src={member.img}
                   alt={member.name}
                 />
@@ -112,7 +110,7 @@ const Team = ({ title, members, limit }) => {
         )}
       </motion.div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes float-1 {
           0%, 100% { transform: translateY(0) rotate(0); }
           50% { transform: translateY(-15px) rotate(12deg); }

@@ -33,8 +33,7 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
       >
        
         <div className="relative h-64 overflow-hidden">
-          <img
-            src={project.src}
+          <img loading="lazy" src={project.src}
             alt={project.title || 'Project'}
             className="w-full h-full object-cover"
           />

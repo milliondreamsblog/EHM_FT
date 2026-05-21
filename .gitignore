@@ -37,3 +37,11 @@ lerna-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+./backend/dist/
+./frontend/dist/
+
+frontend/public_unoptimized
+frontend/public_1
+frontend/src/assets_uncompressed/
+frontend/src/assets_1

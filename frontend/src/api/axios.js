@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://ehm-ft.onrender.com", // backend URL
+  baseURL: import.meta.env.VITE_API_URL || "https://ehm-ft.onrender.com",
 });
 
 // Attach token(if availabe) from localStorage to every request

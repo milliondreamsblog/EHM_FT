@@ -34,8 +34,7 @@ const Footer2 = () => {
           {/* Logo & About */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center space-x-3">
-              <img
-                src="https://startinup.up.gov.in/crm/assets/user/images/Documents/Startup/A_STARTUP_UP_UPLC_00004244/startup_logo/168067577328965.png"
+              <img loading="lazy" src="https://startinup.up.gov.in/crm/assets/user/images/Documents/Startup/A_STARTUP_UP_UPLC_00004244/startup_logo/168067577328965.webp"
                 alt="EHM Logo"
                 className="h-12 w-24 rounded-lg shadow-lg bg-white p-1"
               />

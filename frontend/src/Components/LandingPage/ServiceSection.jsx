@@ -5,10 +5,10 @@ import ScrollRevealElements from "../Animations/ScrollRevealElements";
 import SectionHeading from "../../Common/SectionHeading";
 import { Link } from "react-router-dom";
 
-import ClimateRiskImg from "../../assets/offering/Updated - CLIMATE RISK.png";
-import GeophysicalImg from "../../assets/offering/Updated - Geophysical .png";
-import SustainabilityImg from "../../assets/offering/Updated - Sustainability & ESG.png";
-import EnvManagementImg from "../../assets/offering/Updated - Sustainable Environmental Management .png";
+import ClimateRiskImg from "../../assets/offering/Updated - CLIMATE RISK.webp";
+import GeophysicalImg from "../../assets/offering/Updated - Geophysical .webp";
+import SustainabilityImg from "../../assets/offering/Updated - Sustainability & ESG.webp";
+import EnvManagementImg from "../../assets/offering/Updated - Sustainable Environmental Management .webp";
 
 const data = [
   {
@@ -39,13 +39,13 @@ const data = [
     title: "Urban Planning & Management",
     paragraph:
       "Designing data-driven, inclusive, and climate-resilient urban systems through smart planning, water restoration, and sustainable infrastructure",
-    image: "/offering/4.png",
+    image: "/offering/4.webp",
   },
   {
     title: "Training & Capacity Building",
     paragraph:
       "Professional training on ESG, climate, AI, and geophysical applications.",
-    image: "/offering/product5.png",
+    image: "/offering/product5.webp",
   },
 ];
 
@@ -65,21 +65,19 @@ const ServiceSection = () => {
       </ScrollRevealElements>
 
       <ScrollRevealElements
-        className="flex flex-col justify-center items-center gap-8 w-full max-w-[1600px] mx-auto"
+        className="flex flex-col justify-center items-center gap-8 w-full max-w-[1600px] mx-auto px-4"
         staggerAmount={0.3}
       >
-        {[0, 1].map((row) => (
-          <div key={row} className="grid grid-cols-3 gap-6 w-full">
-            {data.slice(row * 3, row * 3 + 3).map((item, index) => {
-              const actualIndex = row * 3 + index;
-              const isHovered = hoveredIndex === actualIndex;
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
+          {data.map((item, index) => {
+            const isHovered = hoveredIndex === index;
 
               return (
                 <motion.div
-                  key={actualIndex}
+                  key={index}
                   className="relative bg-cover bg-center rounded-2xl shadow-2xl overflow-hidden cursor-pointer h-80 transition-all duration-500 ease-in-out hover:shadow-3xl w-full"
                   style={{ backgroundImage: `url(${item.image})` }}
-                  onMouseEnter={() => setHoveredIndex(actualIndex)}
+                  onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
                 >
                   {/* Subtle overlay that only covers bottom part */}
@@ -144,7 +142,7 @@ const ServiceSection = () => {
                   </div>
 
                   {/* Top-right icon */}
-                  <button className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm text-white rounded-full p-2 hover:bg-white/30 transition-all duration-300 z-20">
+                  <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm text-white rounded-full p-2 hover:bg-white/30 transition-all duration-300 z-20">
                     <svg
                       className={`w-4 h-4 transition-transform duration-300 ${isHovered ? "rotate-[-90deg]" : ""
                         }`}
@@ -159,12 +157,11 @@ const ServiceSection = () => {
                         d="M9 5l7 7-7 7"
                       />
                     </svg>
-                  </button>
+                  </div>
                 </motion.div>
               );
             })}
-          </div>
-        ))}
+        </div>
       </ScrollRevealElements>
     </div>
   );

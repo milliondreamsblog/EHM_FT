@@ -13,6 +13,7 @@ import {
   Layers,
   Recycle,
   CloudRain,
+  Droplets,
 } from "lucide-react";
 
 // === RESOURCES MENU DATA ===
@@ -35,6 +36,7 @@ const resourcesMenu = [
     title: "Solutions",
     items: [
       { name: "Waterbody Restoration", path: "/resources/WaterbodyRestoration", icon: Recycle },
+      { name: "DNTS", path: "/resources/dnts", icon: Droplets },
     ],
   },
 ];
@@ -106,18 +108,18 @@ const NavBar = () => {
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
-      <nav className="max-w-6xl mx-auto flex items-center justify-between px-6 py-3">
+      <nav className="max-w-6xl mx-auto relative flex items-center justify-between px-6 py-3">
         {/* Logo */}
         <Link to="/" onClick={handleNavClick}>
-          <img
-            src="https://startinup.up.gov.in/crm/assets/user/images/Documents/Startup/A_STARTUP_UP_UPLC_00004244/startup_logo/168067577328965.png"
+          <img loading="lazy" src="/ehm_logo.webp"
             alt="EHM Logo"
             className="h-12"
           />
         </Link>
-
+        
         {/* Desktop Menu */}
         <ul className="hidden lg:flex items-center space-x-6 font-medium">
+          {/* ... (existing links) ... */}
           <li>
             <Link to="/" className="text-green-900 hover:shadow-none hover:text-yellow-400">
               HOME
@@ -181,7 +183,6 @@ const NavBar = () => {
             </span>
           </li>
 
-
           <li>
             <Link
               to="/projects"
@@ -207,6 +208,45 @@ const NavBar = () => {
         >
           <span>{isMenuOpen ? "✕" : "☰"}</span>
         </div>
+
+        {/* Desktop Dropdown Content - Moved inside nav to use its bounds */}
+        {activeDropdown && (
+          <div
+            ref={dropdownRef}
+            className="absolute inset-x-0 mx-auto top-full bg-white animate-fadeIn hidden lg:block shadow-2xl rounded-b-3xl border-t border-slate-100 overflow-hidden z-[100]"
+            style={{
+              width: activeDropdown === "resources" ? "800px" : "1000px",
+              maxWidth: "94vw",
+            }}
+          >
+            <div
+              className={`grid gap-10 p-10 ${
+                activeDropdown === "resources" ? "grid-cols-3" : "grid-cols-4"
+              }`}
+            >
+              {(activeDropdown === "resources" ? resourcesMenu : offeringsMenu).map(
+                (section) => (
+                  <div key={section.title} className="col-span-1">
+                    <ul className="space-y-4">
+                      {section.items.map((item) => (
+                        <li key={item.name}>
+                          <Link
+                            to={item.path}
+                            onClick={handleNavClick}
+                            className="flex items-center space-x-2 text-green-900 hover:text-yellow-400 transition group"
+                          >
+                            <item.icon className="w-12 text-green-900 group-hover:text-yellow-400" />
+                            <span>{item.name}</span>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )
+              )}
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Mobile Menu */}
@@ -238,13 +278,12 @@ const NavBar = () => {
                   <h4 className="text-green-800 font-semibold">{section.title}</h4>
                   <ul className="space-y-2">
                     {section.items.map((item) => (
-                      <li key={item.path}>
+                      <li key={item.name}>
                         <Link
                           to={item.path}
                           onClick={handleNavClick}
                           className="flex items-center space-x-2 text-green-900 hover:text-yellow-400 bg-transparent hover:bg-transparent focus:bg-transparent transition group"
                         >
-
                           <item.icon className="w-4 h-4" />
                           <span>{item.name}</span>
                         </Link>
@@ -267,14 +306,12 @@ const NavBar = () => {
                   <h4 className="text-green-800 font-semibold">{section.title}</h4>
                   <ul className="space-y-2">
                     {section.items.map((item) => (
-                      <li key={item.path}>
+                      <li key={item.name}>
                         <Link
                           to={item.path}
                           onClick={handleNavClick}
                           className="flex items-center space-x-2 text-green-900 hover:text-yellow-400 transition group hover:shadow-none focus:shadow-none focus:outline-none"
                         >
-
-
                           <item.icon className="w-4 h-4" />
                           <span>{item.name}</span>
                         </Link>
@@ -300,64 +337,6 @@ const NavBar = () => {
           >
             CONTACT
           </Link>
-        </div>
-      )}
-
-      {/* Desktop Dropdown Content */}
-      {activeDropdown && (
-        <div
-          ref={dropdownRef}
-          className="absolute left-0 bg-[#ffffff] animate-fadeIn hidden lg:block shadow-lg rounded-b-lg"
-          style={{
-            marginLeft: activeDropdown === 'offerings' ? '280px' : activeDropdown === 'resources' ? '380px' : '0',
-            width: activeDropdown === 'resources' ? '700px' : '900px',
-            maxWidth: '90vw'
-          }}
-        >
-          <div className={`grid gap-12 px-4 pt-8 pb-6 ${activeDropdown === 'resources' ? 'grid-cols-3' : 'grid-cols-4'}`}>
-            {(activeDropdown === "resources" ? resourcesMenu : offeringsMenu).map(
-              (section) => (
-                <div key={section.title} className="col-span-1">
-                  <ul className="space-y-4">
-                    {section.items.map((item) => (
-                      <li key={item.path}>
-                        <Link
-                          to={item.path}
-                          onClick={handleNavClick}
-                          className="flex items-center space-x-2 text-green-900 hover:text-yellow-400 transition group"
-                        >
-                          <item.icon className="w-12 text-green-900 group-hover:text-yellow-400" />
-                          <span>{item.name}</span>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )
-            )}
-          </div>
-
-          {/* RIGHT SIDE LINKS */}
-          {/* <div className="border-l p-9 pt-20 bg-[#edecec]">
-      <ul className="space-y-4">
-        <li>
-          <Link
-            to="/contact"
-            className="text-green-900 hover:text-yellow-500 uppercase font-semibold"
-          >
-            contact
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/more"
-            className="text-green-900 hover:text-yellow-500 uppercase font-semibold"
-          >
-            See More
-          </Link>
-        </li>
-      </ul>
-    </div> */}
         </div>
       )}
     </header>

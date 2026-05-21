@@ -64,7 +64,7 @@ const awardsData = [
 const AwardsSection = () => {
   return (
     <section id="awards" className="py-28 bg-gradient-to-br from-emerald-50 via-green-50 to-teal-100 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-20 bg-[url('https://www.toptal.com/designers/subtlepatterns/uploads/moroccan-flower.png')]" />
+      <div className="absolute inset-0 opacity-20 bg-[url('https://www.toptal.com/designers/subtlepatterns/uploads/moroccan-flower.webp')]" />
 
       <div className="relative max-w-6xl mx-auto px-6 md:px-16 lg:px-20">
         <div className="text-center my-12">
@@ -95,7 +95,7 @@ const AwardsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1, duration: 0.6 }}
-              className="relative bg-white/80 backdrop-blur-md p-6 pb-4 rounded-3xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-emerald-100"
+              className="relative h-full bg-white/80 backdrop-blur-md p-6 pb-4 rounded-3xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-emerald-100 flex flex-col"
             >
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 to-green-400 rounded-t-3xl" />
 

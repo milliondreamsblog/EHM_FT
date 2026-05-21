@@ -1,25 +1,27 @@
 import React from "react";
 import ProductCard from "./ProductCard";
 
-import product1 from "../../assets/product1.png";
-import product2 from "../../assets/product2.jpg";
-import product3 from "../../assets/product3.png";
-import productBg from "../../assets/bg-product.jpg";
-import product4 from "../../assets/product4.jpeg";
-import product5 from "../../assets/product5.png";
-import product6 from "../../assets/product6.jpg";
+import product1 from "../../assets/product1.webp";
+import product2 from "../../assets/product2.webp";
+import product3 from "../../assets/product3.webp";
+import productBg from "../../assets/bg-product.webp";
+import product4 from "../../assets/product4.webp";
+import product5 from "../../assets/product5.webp";
+import product6 from "../../assets/product6.webp";
 
 import Logo from "../LandingPage/Logo";
 
 const productData = [
   {
     title: "Eco Audit",
-    description: "In-depth audits for energy, water, and waste to boost sustainability.",
+    description:
+      "In-depth audits for energy, water, and waste to boost sustainability.",
     imageUrl: product1,
   },
   {
     title: "Sustainable Design",
-    description: "Design solutions that blend innovation with environmental responsibility.",
+    description:
+      "Design solutions that blend innovation with environmental responsibility.",
     imageUrl: product2,
   },
   {
@@ -59,7 +61,8 @@ const ProductSection = () => {
         <div className="relative z-10 text-white px-6">
           <h1 className="text-4xl font-bold mb-4">Our Products</h1>
           <p className="text-lg max-w-2xl mx-auto mb-6">
-            Explore our unique eco-driven solutions designed to create a greener, sustainable future.
+            Explore our unique eco-driven solutions designed to create a
+            greener, sustainable future.
           </p>
           <button className="bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-6 rounded-full transition-colors">
             Learn More
@@ -67,8 +70,14 @@ const ProductSection = () => {
         </div>
       </div>
 
-
-      <p className='text-green-800 my-4 flex justify-center px-12 py-12 p-5'>Welcome to EHM, where our commitment to addressing environmental and climate change challenges is embodied in a diverse range of services. Rooted in the Sustainable Development Goals (SDGs) framework, EHM emerges as a reliable partner for industry and government organizations seeking strategic solutions. Explore the depth of our services and discover how EHM is shaping a greener, more sustainable future.</p>
+      <p className="text-green-800 my-4 flex justify-center px-12 py-12 p-5">
+        Welcome to EHM, where our commitment to addressing environmental and
+        climate change challenges is embodied in a diverse range of services.
+        Rooted in the Sustainable Development Goals (SDGs) framework, EHM
+        emerges as a reliable partner for industry and government organizations
+        seeking strategic solutions. Explore the depth of our services and
+        discover how EHM is shaping a greener, more sustainable future.
+      </p>
 
       {/* Logo here */}
       <div className="my-4 flex justify-center px-12 py-12 p-5">

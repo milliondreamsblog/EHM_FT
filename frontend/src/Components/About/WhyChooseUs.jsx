@@ -1,6 +1,7 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 
 const DiversifiedExpertiseIcon = () => (
   <div className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20">
@@ -57,7 +58,7 @@ const ApproachIcon = () => (
 const WhyChooseUsSection = () => {
   const container = useRef(null);
 
-  useEffect(() => {
+  useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     if (window.innerWidth < 768) {
@@ -112,24 +113,40 @@ const WhyChooseUsSection = () => {
           { opacity: 1, scale: 0.8 },
           { opacity: 1, scale: 1, duration: 0.2, ease: "power2.out" }
         )
-        .to(titleBlock, {
-          left: "25%",
-          duration: 0.5,
-          ease: "power2.inOut",
-        }, "+=0.25")
+        .to(
+          titleBlock,
+          {
+            left: "25%",
+            duration: 0.5,
+            ease: "power2.inOut",
+          },
+          "+=0.25"
+        )
         .to(cards[0], { opacity: 1, y: 0, scale: 1, duration: 0.5 }, "-=0.5")
         .to({}, { duration: 0.5 })
-        .to(cards[0], { opacity: 0, y: -50, scale: 0.9, duration: 0.5 }, "swap2")
+        .to(
+          cards[0],
+          { opacity: 0, y: -50, scale: 0.9, duration: 0.5 },
+          "swap2"
+        )
         .to(cards[1], { opacity: 1, y: 0, scale: 1, duration: 0.5 }, "swap2")
         .to({}, { duration: 0.5 })
-        .to(cards[1], { opacity: 0, y: -50, scale: 0.9, duration: 0.5 }, "swap3")
+        .to(
+          cards[1],
+          { opacity: 0, y: -50, scale: 0.9, duration: 0.5 },
+          "swap3"
+        )
         .to(cards[2], { opacity: 1, y: 0, scale: 1, duration: 0.5 }, "swap3")
         .to({}, { duration: 0.5 })
-        .to(cards[2], { opacity: 0, y: -50, scale: 0.9, duration: 0.5 }, "swap4")
+        .to(
+          cards[2],
+          { opacity: 0, y: -50, scale: 0.9, duration: 0.5 },
+          "swap4"
+        )
         .to(cards[3], { opacity: 1, y: 0, scale: 1, duration: 0.5 }, "swap4")
         .to({}, { duration: 0.5 });
     }
-  }, []);
+  }, { scope: container });
 
   return (
     <section
@@ -138,8 +155,7 @@ const WhyChooseUsSection = () => {
     >
       {/* Background */}
       <div className="absolute top-0 left-0 w-full h-full z-0">
-        <img
-          src="https://res.cloudinary.com/dlpluej6w/image/upload/v1757114594/forest-wallpaper-3840x2160-trees-vibrant-3326_wp7uji.jpg"
+        <img loading="lazy" src="https://res.cloudinary.com/dlpluej6w/image/upload/v1757114594/forest-wallpaper-3840x2160-trees-vibrant-3326_wp7uji.webp"
           alt="Background"
           className="w-full h-full object-cover"
         />
@@ -160,7 +176,6 @@ const WhyChooseUsSection = () => {
           </p>
         </div>
 
-        
         {/* Cards */}
         <div className="mt-10 space-y-8 lg:mt-0 lg:absolute lg:top-1/2 lg:-translate-y-1/2 lg:right-0 lg:w-2/5 lg:space-y-0 lg:h-[45vh]">
           {/* Card 4 */}
@@ -174,8 +189,9 @@ const WhyChooseUsSection = () => {
                   Interdisciplinary Expertise
                 </h3>
                 <p className="text-gray-200">
-                  Our team combines expertise in engineering, environmental science, climate science,
-                  and urban planning to deliver integrated and practical solutions.
+                  Our team combines expertise in engineering, environmental
+                  science, climate science, and urban planning to deliver
+                  integrated and practical solutions.
                 </p>
               </div>
             </div>
@@ -191,8 +207,9 @@ const WhyChooseUsSection = () => {
                   Data-Driven Decision-Making
                 </h3>
                 <p className="text-gray-200">
-                  We leverage analytics, AI, and geospatial intelligence to transform data into 
-                  actionable insights that drive effective decision-making.
+                  We leverage analytics, AI, and geospatial intelligence to
+                  transform data into actionable insights that drive effective
+                  decision-making.
                 </p>
               </div>
             </div>
@@ -209,8 +226,9 @@ const WhyChooseUsSection = () => {
                   Sustainable Innovation
                 </h3>
                 <p className="text-gray-200">
-                  We design adaptive, nature-based, and circular solutions that 
-                  balance growth with environmental responsibility and long-term impact.
+                  We design adaptive, nature-based, and circular solutions that
+                  balance growth with environmental responsibility and long-term
+                  impact.
                 </p>
               </div>
             </div>
@@ -227,14 +245,13 @@ const WhyChooseUsSection = () => {
                   Institutional Credibility
                 </h3>
                 <p className="text-gray-200">
-                  Founded by IIT alumni and supported by leading accelerators and innovation networks, 
-                  we bring academic rigor, technical excellence, and reliability to every project.
+                  Founded by IIT alumni and supported by leading accelerators
+                  and innovation networks, we bring academic rigor, technical
+                  excellence, and reliability to every project.
                 </p>
               </div>
             </div>
           </div>
-
-          
         </div>
       </div>
     </section>

@@ -26,3 +26,7 @@ test
 *.njsproj
 *.sln
 *.sw?
+./public_unoptimized
+./public_1
+./src/assets_uncompressed/
+./src/assets_1

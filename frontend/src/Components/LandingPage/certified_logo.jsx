@@ -125,7 +125,7 @@ const CertifiedLogo = () => {
                 {/* Certificate Logo */}
                 <div className="relative z-10 flex items-center justify-center min-h-[100px]">
                   <motion.img
-                    src={`/Certified/${cert}.png`}
+                    src={`/Certified/${cert}.webp`}
                     alt={cert}
                     className="h-20 md:h-20 w-auto object-contain filter drop-shadow-lg"
                     whileHover={{

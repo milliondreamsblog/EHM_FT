@@ -16,8 +16,7 @@ const WebinarCard = ({ webinar }) => {
       onClick={handleClick} // click opens details page
     >
       <div className="relative group">
-        <img
-          src={webinar.thumbnail}
+        <img loading="lazy" src={webinar.thumbnail}
           alt={webinar.title}
           className="w-full h-full object-cover"
         />

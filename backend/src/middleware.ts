@@ -3,14 +3,11 @@ import { Request, Response, NextFunction } from "express";
 import dotenv from "dotenv";
 import multer from "multer";
 import { v2 as cloudinary } from "cloudinary";
-import { CloudinaryStorage } from "multer-storage-cloudinary";
+const CloudinaryStorage = require("multer-storage-cloudinary");
 
 dotenv.config();
 
 const JWT_SECRET = process.env.JWT_SECRET!;
-// if (!JWT_SECRET || !process.env.CLOUDINARY_CLOUD_NAME) {
-//   throw new Error("Missing environment configuration for JWT or Cloudinary");
-// }
 
 interface CustomRequest extends Request {
   adminId?: string;
@@ -22,11 +19,9 @@ function AdminMiddleware(req: CustomRequest, res: Response, next: NextFunction) 
   if (!authHeader) {
     return res.status(401).json({ message: "Token missing" });
   }
-
   const token = authHeader.startsWith("Bearer ")
     ? authHeader.split(" ")[1]
     : authHeader;
-
   try {
     const decode = jwt.verify(token, JWT_SECRET) as { id: string };
     req.adminId = decode.id;
@@ -51,13 +46,13 @@ const storage = new CloudinaryStorage({
   cloudinary,
   params: {
     folder: "EHM-APP",
-    allowed_formats: ["jpg", "png", "jpeg", "gif"],
+    allowed_formats: ["jpg", "png", "jpeg", "gif", "webp"],
   },
 });
 
 const upload = multer({
   storage,
-  limits: { fileSize: 5 * 1024 * 1024 }, // 5 MB limit
+  limits: { fileSize: 10 * 1024 * 1024 },
 });
 
 export { AdminMiddleware, upload };

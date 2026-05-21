@@ -1,13 +1,13 @@
-// import HexagonalTile from '/Projects/img1.jpg';
-// import climateBuildingImg from '/Projects/img2.jpg';
-// import renewableEnergyImg from '/Projects/img3.png';
-// import forestConservationImg from '/Projects/img4.jpeg';
-// import sustainableFarmingImg from '/Projects/img5.png';
-// import cleanTransportImg from '/Projects/img6.png';
-// import climateResearchImg from '/Projects/img7.png';
-// import communityClimateImg from '/Projects/img8.jpeg';
-// import oceanConservationImg from '/Projects/img9.jpg';
-// import greenCityImg from '/Projects/img10.jpg';
+// import HexagonalTile from '/Projects/img1.webp';
+// import climateBuildingImg from '/Projects/img2.webp';
+// import renewableEnergyImg from '/Projects/img3.webp';
+// import forestConservationImg from '/Projects/img4.webp';
+// import sustainableFarmingImg from '/Projects/img5.webp';
+// import cleanTransportImg from '/Projects/img6.webp';
+// import climateResearchImg from '/Projects/img7.webp';
+// import communityClimateImg from '/Projects/img8.webp';
+// import oceanConservationImg from '/Projects/img9.webp';
+// import greenCityImg from '/Projects/img10.webp';
 
 // const HexagonalGrid = () => {
 //   const tiles = [

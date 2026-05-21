@@ -133,13 +133,12 @@ const Resource = () => {
     <section
       id="resources"
       ref={sectionRef}
-      className="relative w-full bg-gradient-to-b from-teal-50 via-teal-100/40 to-teal-50"
-      style={{ height: "300vh" }}
+      className="relative w-full bg-gradient-to-b from-teal-50 via-teal-100/40 to-teal-50 lg:h-[300vh]"
     >
-      <div className="sticky top-0 h-screen flex items-center justify-center py-12">
-        <div className="w-full max-w-7xl mx-auto px-8">
+      <div className="lg:sticky lg:top-0 lg:h-screen flex items-center justify-center py-12">
+        <div className="w-full max-w-7xl mx-auto px-6 sm:px-8">
           <motion.div
-            className="text-center mb-4 py-8"
+            className="text-center mb-8 py-4 lg:py-8"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -148,45 +147,48 @@ const Resource = () => {
             <SectionHeading>Resources</SectionHeading>
           </motion.div>
 
-          <div className="relative h-[500px] -mt-12">
+          <div className="relative flex flex-col lg:h-[500px] lg:-mt-12 space-y-12 lg:space-y-0">
             {resources.map((resource, idx) => (
               <motion.div
                 key={resource.id}
-                className="absolute inset-0 w-full h-full flex flex-row items-center justify-between gap-12 px-4"
+                className="relative lg:absolute inset-0 w-full h-full flex flex-col lg:flex-row items-center justify-between gap-10 px-4"
                 initial={false}
                 animate={{
-                  opacity: activeIndex === idx ? 1 : 0,
-                  x: activeIndex === idx ? 0 : activeIndex > idx ? -50 : 50,
+                  opacity: window.innerWidth < 1024 ? 1 : (activeIndex === idx ? 1 : 0),
+                  x: window.innerWidth < 1024 ? 0 : (activeIndex === idx ? 0 : activeIndex > idx ? -50 : 50),
                   zIndex: activeIndex === idx ? 10 : 0,
                 }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                style={{ pointerEvents: activeIndex === idx ? "auto" : "none" }}
+                style={{ 
+                  pointerEvents: (window.innerWidth < 1024 || activeIndex === idx) ? "auto" : "none",
+                  display: (window.innerWidth >= 1024 && activeIndex !== idx) ? "none" : "flex"
+                }}
               >
-                <div className="w-1/2 text-left pr-8">
-                  <h3 className="text-5xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
+                <div className="w-full lg:w-1/2 text-center lg:text-left">
+                  <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 lg:mb-6 leading-tight tracking-tight">
                     {resource.title}
                   </h3>
-                  <p className="text-gray-600 text-xl mb-8 leading-relaxed font-light">
+                  <p className="text-gray-600 text-lg lg:text-xl mb-6 lg:mb-8 leading-relaxed font-light">
                     {resource.description}
                   </p>
                   <Link to={resource.link}>
-                    <button className="bg-emerald-500 text-white px-8 py-3 rounded-md font-semibold shadow-md hover:bg-emerald-600 transition-all duration-300 text-base">
+                    <button className="bg-emerald-500 text-white px-8 py-3 rounded-md font-semibold shadow-md hover:bg-emerald-600 transition-all duration-300 text-base w-full sm:w-auto">
                       {resource.buttonText}
                     </button>
                   </Link>
                 </div>
 
-                <div className="w-1/2 flex justify-center relative">
+                <div className="w-full lg:w-1/2 flex justify-center relative">
                   <img
                     src={resource.image}
                     alt={resource.title}
-                    className="rounded-lg shadow-xl object-cover w-[70%] h-[315px]"
+                    className="rounded-lg shadow-xl object-cover w-full sm:w-[80%] lg:w-[70%] h-[250px] sm:h-[315px]"
                     loading="lazy"
                   />
 
-                  {/* Vertical indicator */}
+                  {/* Vertical indicator (Desktop Only) */}
                   <div
-                    className="absolute right-0 top-0 flex flex-col gap-2"
+                    className="hidden lg:flex absolute right-0 top-0 flex-col gap-2"
                     style={{
                       height: "315px",
                       justifyContent: "space-between",

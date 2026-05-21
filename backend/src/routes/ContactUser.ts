@@ -2,13 +2,26 @@ import { Router, Request, Response } from "express";
 import { ContactModel } from "../db";
 import { z } from "zod";
 
+import { AdminMiddleware } from "../middleware";
+import rateLimit from "express-rate-limit";
+
 const ContactUserRouter = Router();
 
-ContactUserRouter.post("/contact", async (req: Request, res: Response) => {
+const contactRateLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 5, // Limit each IP to 5 requests per windowMs
+  message: {
+    message: "Too many contact requests from this IP, please try again after 15 minutes",
+  },
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
+ContactUserRouter.post("/contact", contactRateLimiter, async (req: Request, res: Response) => {
   const requireBody = z.object({
     name: z.string().min(1, "Name is required"),
     email: z.string().email("Invalid email format"),
-    mobile: z.string().optional(),
+    mobile: z.string().regex(/^\+?[0-9]{10,15}$/, "Invalid mobile number format").optional().or(z.literal("")),
     interestedIn: z.string().min(1, "Please select an option"),
     message: z.string().min(1, "Message is required"),
   });
@@ -35,7 +48,7 @@ ContactUserRouter.post("/contact", async (req: Request, res: Response) => {
 
     await contactData.save();
     return res.status(201).json({
-      sucess: true,
+      success: true,
       message: "Successfully message sent!",
     });
   } catch (err: any) {
@@ -46,8 +59,8 @@ ContactUserRouter.post("/contact", async (req: Request, res: Response) => {
   }
 });
 
-// GET endpoint - Fetch all contacts (for admin)
-ContactUserRouter.get("/contacts", async (req: Request, res: Response) => {
+// GET endpoint - Fetch all contacts (for admin only - secured)
+ContactUserRouter.get("/contacts", AdminMiddleware, async (req: Request, res: Response) => {
   try {
     const contacts = await ContactModel.find().sort({ createdAt: -1 });
     return res.status(200).json({

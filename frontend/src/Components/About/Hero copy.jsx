@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import ScrollRevealElements from '../Animations/ScrollRevealElements';
+import ScrollRevealElements from "../Animations/ScrollRevealElements";
 
 export default function Hero() {
   return (
@@ -15,8 +15,7 @@ export default function Hero() {
           className="w-full h-full object-cover"
         >
           <source src="/nature.mp4" type="video/mp4" />
-          <img
-            src="/about-fallback.jpg"
+          <img loading="lazy" src="/about-fallback.webp"
             alt="About us background"
             className="w-full h-full object-cover"
           />
@@ -26,7 +25,6 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 h-full flex items-center justify-center text-white px-4 sm:px-6 lg:px-8">
-
         <ScrollRevealElements
           className="max-w-5xl text-center"
           staggerAmount={0.5}
@@ -58,7 +56,6 @@ export default function Hero() {
         </ScrollRevealElements>
       </div>
 
-
       <motion.div
         className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-bounce"
         initial={{ opacity: 0 }}
@@ -81,4 +78,4 @@ export default function Hero() {
       </motion.div>
     </section>
   );
-} 
+}

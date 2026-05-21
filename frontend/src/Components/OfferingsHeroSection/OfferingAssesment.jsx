@@ -107,7 +107,7 @@ export default function OfferingAssesment() {
             <div className="mt-6 flex flex-col items-center">
               <div className="bg-gray-50 rounded-lg shadow-xl p-6 w-full max-w-sm">
                 <div className="relative">
-                  <img alt="Green renewable energy project" className="rounded-md w-full h-48 object-cover" src="https://placehold.co/600x400/10B981/FFFFFF?text=Project+View&font=inter"/>
+                  <img alt="Green renewable energy project" className="rounded-md w-full h-48 object-cover" src="https://placehold.co/600x400/10B981/FFFFFF?text=Project+View&font=inter" loading="lazy"/>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-md"></div>
                 </div>
                 <h2 className="text-xl font-semibold mt-4 text-gray-900">Project - Renewable Energy Initiative</h2>

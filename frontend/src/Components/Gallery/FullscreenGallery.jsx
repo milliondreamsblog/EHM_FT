@@ -3,26 +3,26 @@
 import Marquee from "react-fast-marquee";
 
 // const THUMBNAILS = [
-//   { src: "/Demo/pic4.jpeg", alt: "Friends smiling outdoors" },
-//   { src: "/Demo/pic5.jpeg", alt: "Family picnic moment" },
-//   { src: "/Demo/pic1.jpeg", alt: "Portrait of a child" },
-//   { src: "/Demo/pic2.jpeg", alt: "Street market view" },
-//   { src: "/Demo/pic3.jpeg", alt: "People walking on a beach" },
-//   { src: "/Demo/pic6.jpg", alt: "Group selfie" },
-//   { src: "/Demo/pic7.jpg", alt: "Festival celebration" },
-//   { src: "/Demo/pic8.png", alt: "Smiling couple" },
-//   { src: "/Demo/pic9.JPG", alt: "Traditional dance" },
-//   { src: "/Demo/pic10.JPG", alt: "City night lights" },
-//   { src: "/Demo/pic25.jpeg", alt: "Friends hiking" },
-//   { src: "/Demo/pic12.jpg", alt: "Wedding moment" },
-//   { src: "/Demo/pic13.jpg", alt: "School kids playing" },
-//   { src: "/Demo/pic14.jpeg", alt: "Village scene" },
-//   { src: "/Demo/pic15.jpeg", alt: "Cultural event" },
-//   { src: "/Demo/pic16.jpeg", alt: "Couple walking" },
-//   { src: "/Demo/pic17.jpeg", alt: "Concert crowd" },
-//   { src: "/Demo/pic18.jpeg", alt: "Family trip" },
-//   { src: "/Demo/pic19.jpeg", alt: "Smiling senior" },
-//   { src: "/Demo/pic20.jpeg", alt: "Friends at sunset" },
+//   { src: "/Demo/pic4.webp", alt: "Friends smiling outdoors" },
+//   { src: "/Demo/pic5.webp", alt: "Family picnic moment" },
+//   { src: "/Demo/pic1.webp", alt: "Portrait of a child" },
+//   { src: "/Demo/pic2.webp", alt: "Street market view" },
+//   { src: "/Demo/pic3.webp", alt: "People walking on a beach" },
+//   { src: "/Demo/pic6.webp", alt: "Group selfie" },
+//   { src: "/Demo/pic7.webp", alt: "Festival celebration" },
+//   { src: "/Demo/pic8.webp", alt: "Smiling couple" },
+//   { src: "/Demo/pic9.webp", alt: "Traditional dance" },
+//   { src: "/Demo/pic10.webp", alt: "City night lights" },
+//   { src: "/Demo/pic25.webp", alt: "Friends hiking" },
+//   { src: "/Demo/pic12.webp", alt: "Wedding moment" },
+//   { src: "/Demo/pic13.webp", alt: "School kids playing" },
+//   { src: "/Demo/pic14.webp", alt: "Village scene" },
+//   { src: "/Demo/pic15.webp", alt: "Cultural event" },
+//   { src: "/Demo/pic16.webp", alt: "Couple walking" },
+//   { src: "/Demo/pic17.webp", alt: "Concert crowd" },
+//   { src: "/Demo/pic18.webp", alt: "Family trip" },
+//   { src: "/Demo/pic19.webp", alt: "Smiling senior" },
+//   { src: "/Demo/pic20.webp", alt: "Friends at sunset" },
 // ];
 
 // export default function FullscreenGallery() {
@@ -41,7 +41,7 @@ import Marquee from "react-fast-marquee";
 //       className="relative  w-full min-h-screen flex flex-col "
 //       aria-label="Fullscreen image gallery"
 //     >
-      
+
 //       <h1 className="mt-16 mb-12 text-center text-7xl md:text-8xl font-extrabold tracking-tight text-green-100 max-w-4xl mx-auto leading-tight">
 //         <span className="block mb-4 text-5xl font-light text-blue-400">
 //           Real People, Real Moments
@@ -51,15 +51,12 @@ import Marquee from "react-fast-marquee";
 //         </span>
 //       </h1>
 
-    
 //       <div className="relative flex-grow w-full mx-auto max-h-[80vh] h-[80vh]">
-//         <img
-//           src={THUMBNAILS[heroIndex].src}
+//         <img loading="lazy" //           src={THUMBNAILS[heroIndex].src}
 //           alt={THUMBNAILS[heroIndex].alt}
 //           className="w-full h-full object-cover shadow-2xl rounded-lg"
 //         />
 
-       
 //         <button
 //           onClick={prevImage}
 //           className="absolute top-1/2 left-4 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full hover:bg-black/70 transition"
@@ -75,7 +72,7 @@ import Marquee from "react-fast-marquee";
 //           <ChevronRight size={28} />
 //         </button>
 //       </div>
-     
+
 //       <div className="w-full bg-orange-200 py-4 overflow-hidden">
 //         <Marquee
 //           gradient={false}
@@ -96,25 +93,25 @@ import Marquee from "react-fast-marquee";
 //   );
 // }
 
-
-import React from 'react'
+import React from "react";
 
 export const FullscreenGallery = () => {
   return (
-<div className="w-full bg-orange-200 py-4 overflow-hidden">
-        <Marquee
-          gradient={false}
-          speed={60}
-          pauseOnHover={false}
-          loop={0} // infinite loop
-        >
-          <span className="text-4xl font-extrabold text-white tracking-widest mx-12">
-            Uniting People • Preserving Nature • Powering a Sustainable Future
-          </span>
-          <span className="text-4xl font-extrabold text-white tracking-widest mx-12">
-            Sustainability in Action • Clean Energy • Smart Cities • A Future We Can All Share
-          </span>
-        </Marquee>
-      </div>
-  )
-}
+    <div className="w-full bg-orange-200 py-4 overflow-hidden">
+      <Marquee
+        gradient={false}
+        speed={60}
+        pauseOnHover={false}
+        loop={0} // infinite loop
+      >
+        <span className="text-4xl font-extrabold text-white tracking-widest mx-12">
+          Uniting People • Preserving Nature • Powering a Sustainable Future
+        </span>
+        <span className="text-4xl font-extrabold text-white tracking-widest mx-12">
+          Sustainability in Action • Clean Energy • Smart Cities • A Future We
+          Can All Share
+        </span>
+      </Marquee>
+    </div>
+  );
+};

@@ -1,4 +1,5 @@
 import React from 'react'
+import SEO from '../Components/Common/SEO'
 import AssessmentHero from '../Components/GeophysicalInvestigation/AssessmentHero'
 import DashBoardBrief from '../Components/GeophysicalInvestigation/DashBoardBrief'
 import FeatureProject from '../Components/GeophysicalInvestigation/FeatureProject'
@@ -7,6 +8,12 @@ import SubHeading from '../Components/GeophysicalInvestigation/SubHeading'
 const GeophysicalInvestigation = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 ">
+      <SEO 
+        title="Geophysical & Subsurface Investigation Services | EHM Consultancy"
+        description="Precision subsurface mapping, groundwater modeling, and geological surveys using resistivity, seismic, and GPR methods for infrastructure and urban planning."
+        keywords="geophysical investigation, subsurface mapping, groundwater modeling, seismic survey, GPR survey, EHM Consultancy, electrical resistivity tomography"
+        canonical="/offerings/geophysical-investigation"
+      />
       <AssessmentHero />
       <DashBoardBrief />
       <SubHeading/>
