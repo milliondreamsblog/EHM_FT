@@ -13,7 +13,7 @@ export const webinars = [
     time: "22:30 GMT+5:30",
     views: "1.2k views",
     speaker: "Dr. Deepti Sharma",
-    link: "/pdfs/EHM_Webinar1.pdf",
+    link: "",
   },
   {
     id: 2,
@@ -26,7 +26,7 @@ export const webinars = [
     time: "22:30 GMT+5:30",
     views: "950 views",
     speaker: "Dr. Deepti Sharma",
-    link: "/pdfs/EHM_Webinar2.pdf",
+    link: "",
   },
   {
     id: 3,

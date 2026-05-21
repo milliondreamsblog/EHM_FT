@@ -28,20 +28,31 @@ const WebinarForm = ({ webinarTitle, isCompleted, recordingLink }) => {
 
   // ✅ If webinar is completed → show "Watch Event Recording"
   if (isCompleted) {
+    const hasRecording = Boolean(recordingLink);
     return (
       <div className="w-full max-w-md p-6 border rounded-lg  bg-white flex flex-col items-center justify-center">
         <h2 className="text-2xl font-semibold mb-4 text-gray-800">
           {webinarTitle}
         </h2>
         <p className="text-gray-600 mb-4">This event has ended.</p>
-        <a
-          href={recordingLink || "#"}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-full text-center bg-blue-600 text-white p-2 rounded hover:bg-blue-700 transition"
-        >
-          Watch Event Recording
-        </a>
+        {hasRecording ? (
+          <a
+            href={recordingLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full text-center bg-blue-600 text-white p-2 rounded hover:bg-blue-700 transition"
+          >
+            Watch Event Recording
+          </a>
+        ) : (
+          <button
+            type="button"
+            disabled
+            className="w-full text-center bg-gray-300 text-gray-600 p-2 rounded cursor-not-allowed"
+          >
+            Recording Unavailable
+          </button>
+        )}
       </div>
     );
   }
